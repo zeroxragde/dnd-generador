@@ -1874,6 +1874,7 @@ function generate_character(isManual = false) {
 
   // Array de idiomas estándar
   listOfStandardLanguages = [
+    "Comun",
     "Enano",
     "Élfico",
     "Gigante",
@@ -2008,67 +2009,68 @@ function generate_character(isManual = false) {
     return languagevariable;
   }
 
-  // Object that contains armor names and their values
-  armor = {
-    lightArmor: {
-      padded: {
-        armorname: "Padded armor",
-        armorAC: 11 + dexterityModifier,
-      },
-      leather: {
-        armorname: "Leather armor",
-        armorAC: 11 + dexterityModifier,
-      },
-      studdedleather: {
-        armorname: "Studded leather",
-        armorAC: 12 + dexterityModifier,
-      },
+// Objeto que contiene nombres de armaduras y sus valores
+armor = {
+  lightArmor: {
+    padded: {
+      armorname: "Armadura acolchada",
+      armorAC: 11 + dexterityModifier,
     },
-    mediumArmor: {
-      hide: {
-        armorname: "Hide armor",
-        armorAC: 12 + dexterityModifier,
-      },
-      chainshirt: {
-        armorname: "Chain shirt",
-        armorAC: 13 + dexterityModifier,
-      },
-      scalemail: {
-        armorname: "Scale mail",
-        armorAC: 14 + dexterityModifier,
-      },
-      breastplate: {
-        armorname: "Breastplate",
-        armorAC: 14 + dexterityModifier,
-      },
-      halfplate: {
-        armorname: "Half plate",
-        armorAC: 15 + dexterityModifier,
-      },
-      shield: {
-        armorname: "Shield",
-        armorAC: 2,
-      },
+    leather: {
+      armorname: "Armadura de cuero",
+      armorAC: 11 + dexterityModifier,
     },
-    heavyArmor: {
-      ringmail: {
-        armorname: "Ring mail",
-        armorAC: 14,
-      },
-      chainmail: {
-        armorname: "Chain mail",
-        armorAC: 16,
-      },
-      splint: {
-        armorname: "Splint armor",
-        armorAC: 17,
-      },
-      plate: {
-        armorname: "Plate armor",
-        armorAC: 18,
-      },
+    studdedleather: {
+      armorname: "Cuero tachonado",
+      armorAC: 12 + dexterityModifier,
     },
-  };
+  },
+  mediumArmor: {
+    hide: {
+      armorname: "Armadura de piel",
+      armorAC: 12 + dexterityModifier,
+    },
+    chainshirt: {
+      armorname: "Camiseta de malla",
+      armorAC: 13 + dexterityModifier,
+    },
+    scalemail: {
+      armorname: "Cota de escamas",
+      armorAC: 14 + dexterityModifier,
+    },
+    breastplate: {
+      armorname: "Coraza",
+      armorAC: 14 + dexterityModifier,
+    },
+    halfplate: {
+      armorname: "Media armadura",
+      armorAC: 15 + dexterityModifier,
+    },
+    shield: {
+      armorname: "Escudo",
+      armorAC: 2,
+    },
+  },
+  heavyArmor: {
+    ringmail: {
+      armorname: "Cota de anillas",
+      armorAC: 14,
+    },
+    chainmail: {
+      armorname: "Cota de malla",
+      armorAC: 16,
+    },
+    splint: {
+      armorname: "Armadura de bandas",
+      armorAC: 17,
+    },
+    plate: {
+      armorname: "Armadura de placas",
+      armorAC: 18,
+    },
+  },
+};
+
 
   // Array that contains list of simple weapons
   simpleWeapons = [

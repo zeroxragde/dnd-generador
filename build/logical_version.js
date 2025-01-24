@@ -2253,7 +2253,7 @@ armor = {
     profsAndLangs.languages.push(racialLanguage2);
     constitution += 2;
     random_by_length(toughTraits, personalityTraits, "form102_1");
-    features.push("Darkvision: 60 feet.");
+    features.push("Vision Nocturna: 19 m");
     features.push(
       "Dwarven Resilience: You have advantage on saving throws against poison, and you have resistance against poison damage."
     );
@@ -2353,7 +2353,7 @@ armor = {
     intelligence += 2;
     document.getElementById("form87_1").value = "25";
     random_by_length(softTraits, personalityTraits, "form102_1");
-    features.push("Darkvision: 60 feet.");
+    features.push("Vision Nocturna: 19 m");
     features.push(
       "Astucia Gnómica: Tienes ventaja en todas las tiradas de salvación de Inteligencia, Sabiduría y Carisma contra magia."
     );
@@ -2555,59 +2555,59 @@ armor = {
 
   // Racial features adder
   if (race === "Black Dragonborn") {
-    features.push("Draconic Ancestry: Black Dragons.");
-    features.push("Damage Resistance: Acid.");
+    features.push("Ascendencia Dracónica: Black Dragons.");
+    features.push("Resistencia al Daño: Acid.");
     generate_balance(0.55, 0.4);
     generate_morality(0.8, 0.55);
   } else if (race === "Blue Dragonborn") {
-    features.push("Draconic Ancestry: Blue Dragons.");
-    features.push("Damage Resistance: Lightning.");
+    features.push("Ascendencia Dracónica: Blue Dragons.");
+    features.push("Resistencia al Daño: Lightning.");
     generate_balance(0.55, 0.4);
     generate_morality(0.8, 0.55);
   } else if (race === "Brass Dragonborn") {
-    features.push("Draconic Ancestry: Brass Dragons.");
-    features.push("Damage Resistance: Fire.");
+    features.push("Ascendencia Dracónica: Brass Dragons.");
+    features.push("Resistencia al Daño: Fire.");
     generate_balance(0.55, 0.4);
     generate_morality(0.6, 0.25);
   } else if (race === "Bronze Dragonborn") {
-    features.push("Draconic Ancestry: Bronze Dragons.");
-    features.push("Damage Resistance: Lightning.");
+    features.push("Ascendencia Dracónica: Bronze Dragons.");
+    features.push("Resistencia al Daño: Lightning.");
     generate_balance(0.55, 0.4);
     generate_morality(0.6, 0.25);
   } else if (race === "Copper Dragonborn") {
-    features.push("Draconic Ancestry: Copper Dragons.");
-    features.push("Damage Resistance: Acid.");
+    features.push("Ascendencia Dracónica: Copper Dragons.");
+    features.push("Resistencia al Daño: Acid.");
     generate_balance(0.55, 0.4);
     generate_morality(0.6, 0.25);
   } else if (race === "Gold Dragonborn") {
-    features.push("Draconic Ancestry: Gold Dragons.");
-    features.push("Damage Resistance: Fire.");
+    features.push("Ascendencia Dracónica: Gold Dragons.");
+    features.push("Resistencia al Daño: Fire.");
     generate_balance(0.55, 0.4);
     generate_morality(0.6, 0.25);
   } else if (race === "Green Dragonborn") {
-    features.push("Draconic Ancestry: Green Dragons.");
-    features.push("Damage Resistance: Poison.");
+    features.push("Ascendencia Dracónica: Green Dragons.");
+    features.push("Resistencia al Daño: Poison.");
     generate_balance(0.55, 0.4);
     generate_morality(0.75, 0.4);
   } else if (race === "Red Dragonborn") {
-    features.push("Draconic Ancestry: Red Dragons.");
-    features.push("Damage Resistance: Fire.");
+    features.push("Ascendencia Dracónica: Red Dragons.");
+    features.push("Resistencia al Daño: Fire.");
     generate_balance(0.55, 0.4);
     generate_morality(0.75, 0.4);
   } else if (race === "Silver Dragonborn") {
-    features.push("Draconic Ancestry: Silver Dragons.");
-    features.push("Damage Resistance: Cold.");
+    features.push("Ascendencia Dracónica: Silver Dragons.");
+    features.push("Resistencia al Daño: Cold.");
     generate_balance(0.55, 0.4);
     generate_morality(0.6, 0.25);
   } else if (race === "White Dragonborn") {
-    features.push("Draconic Ancestry: White Dragons.");
-    features.push("Damage Resistance: Cold.");
+    features.push("Ascendencia Dracónica: White Dragons.");
+    features.push("Resistencia al Daño: Cold.");
     generate_balance(0.55, 0.4);
     generate_morality(0.75, 0.4);
   } else if (race === "Hill Dwarf") {
     wisdom += 1;
     features.push(
-      "Dwarven Toughness: Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+      "Robustez Enana: Tu punto de golpe máximo aumenta en 1, y aumenta en 1 cada vez que subes de nivel."
     );
     generate_balance(0.3, 0.1);
     generate_morality(0.5, 0.2);
@@ -2643,38 +2643,38 @@ armor = {
     generate_balance(0.6, 0.2);
     generate_morality(0.66, 0.3);
   } else if (race === "High Elf") {
-    features.push("Darkvision: 60 feet.");
+    features.push("Vision Nocturna: 19 m");
     racialLanguage1 = listOfStandardLanguages[0];
     racialLanguage2 = "Elvish";
     extralanguage = random_language();
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
     profsAndLangs.languages.push(extralanguage);
-    weapon_adder_2(weapon_adder("longsword"));
-    weapon_adder_2(weapon_adder("shortsword"));
-    weapon_adder_2(weapon_adder("shortbow"));
-    weapon_adder_2(weapon_adder("longbow"));
+    weapon_adder_2(weapon_adder("espada larga"));
+    weapon_adder_2(weapon_adder("espada corta"));
+    weapon_adder_2(weapon_adder("arco corto"));
+    weapon_adder_2(weapon_adder("arco largo"));
     features.push(
-      "High Elf Cantrip: You know one cantrip (prestidigitation) from your High Elven heritage, intelligence is your spellcasting ability for it."
+      "Truco de los Altos Elfos: Conoces un truco (prestidigitación) de tu herencia de Alto Elfo, la inteligencia es tu habilidad de lanzamiento de conjuros para ello."
     );
-    add_race_cantrip("Prestidigitation");
+    add_race_cantrip("Prestidigitación");
     intelligence += 1;
     generate_balance(0.9, 0.7);
     generate_morality(0.7, 0.2);
   } else if (race === "Wood Elf") {
-    features.push("Darkvision: 60 feet.");
+    features.push("Vision Nocturna: 19 m");
     racialLanguage1 = listOfStandardLanguages[0];
     racialLanguage2 = "Elvish";
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
-    weapon_adder_2(weapon_adder("longsword"));
-    weapon_adder_2(weapon_adder("shortsword"));
-    weapon_adder_2(weapon_adder("shortbow"));
-    weapon_adder_2(weapon_adder("longbow"));
+    weapon_adder_2(weapon_adder("espada larga"));
+    weapon_adder_2(weapon_adder("espada corta"));
+    weapon_adder_2(weapon_adder("arco corto"));
+    weapon_adder_2(weapon_adder("arco largo"));
     wisdom += 1;
     document.getElementById("form87_1").value = "35";
     features.push(
-      "Mask of the Wild: You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
+      "Máscara de lo Salvaje: Puedes intentar esconderte incluso cuando solo estás ligeramente oscurecido por follaje, lluvia intensa, nieve cayendo, niebla y otros fenómenos naturales."
     );
     generate_balance(0.9, 0.7);
     generate_morality(0.6, 0.2);
@@ -2683,24 +2683,24 @@ armor = {
     racialLanguage2 = "Elvish";
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
-    weapon_adder_2(weapon_adder("rapier"));
-    weapon_adder_2(weapon_adder("shortsword"));
-    weapon_adder_2(weapon_adder("crossbow"));
+    weapon_adder_2(weapon_adder("estoque"));
+    weapon_adder_2(weapon_adder("espada corta"));
+    weapon_adder_2(weapon_adder("ballesta"));
     features.push(
-      "Drow Cantrip: You know one cantrip (dancing lights) from your High Elven heritage, charisma is your spellcasting ability for it."
+      "Truco de los Drow: Conoces un truco (luces danzantes) de tu herencia de Alto Elfo, el carisma es tu habilidad de lanzamiento de conjuros para ello."
     );
     add_race_cantrip("Dancing Lights");
     charisma += 1;
-    features.push("Superior Darkvision: 120 feet.");
+    features.push("Visión en la Oscuridad Superior: 37 m");
     additionalFeatures.push(
-      "Sunlight Sensitivity: You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight."
+      "Sensibilidad a la luz solar: Tienes desventaja en las tiradas de ataque y en los chequeos de Sabiduría (Percepción) que dependen de la vista cuando tú, el objetivo de tu ataque o lo que estás tratando de percibir está bajo la luz solar directa."
     );
     generate_balance(0.9, 0.7);
     generate_morality(0.8, 0.4);
   } else if (race === "Lightfoot Halfling") {
     charisma += 1;
     features.push(
-      "Naturally Stealthy: You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+      "Sigiloso por Naturaleza: Puedes intentar esconderte incluso cuando solo estás oscurecido por una criatura que sea al menos un tamaño más grande que tú."
     );
     generate_balance(0.2, 0.1);
     generate_morality(0.4, 0.2);
@@ -2771,7 +2771,7 @@ armor = {
       wisdom += 1;
     }
     document.getElementById("form87_1").value = "30";
-    features.push("Darkvision: 60 feet.");
+    features.push("Vision Nocturna: 19 m");
     features.push(
       "Fey Ancestry: You have advantage on saving throws against being charmed, and magic can’t put you to sleep."
     );
@@ -2786,7 +2786,7 @@ armor = {
     constitution += 1;
     document.getElementById("form87_1").value = "30";
     random_by_length(toughTraits, personalityTraits, "form102_1");
-    features.push("Darkvision: 60 feet.");
+    features.push("Vision Nocturna: 19 m");
     features.push(
       "Relentless Endurance: When you are reduced to 0 hit points but not killed outright, you can drop to 1 hitpoint instead. You can't use this feature again until you finish a long rest."
     );
@@ -2808,7 +2808,7 @@ armor = {
     intelligence += 1;
     document.getElementById("form87_1").value = "30";
     random_by_length(softTraits, personalityTraits, "form102_1");
-    features.push("Darkvision: 60 feet.");
+    features.push("Vision Nocturna: 19 m");
     features.push("Hellish Resistance. You have resistance to fire damage.");
     generate_balance(0.8, 0.6);
     generate_morality(0.7, 0.4);
@@ -4523,7 +4523,7 @@ armor = {
     ) {
       additionalFeatures.push(
         damagetype +
-          " Breath Weapon: You can use your action to exhale your draconic ancestry in a 5 by 30 foot line. When you use your breath weapon, each creature in the area of the exhalation must make a dexterity saving throw. The DC for this saving throw is " +
+          " Breath Weapon: You can use your action to exhale your Ascendencia Dracónica in a 5 by 30 foot line. When you use your breath weapon, each creature in the area of the exhalation must make a dexterity saving throw. The DC for this saving throw is " +
           (10 + constitutionModifier) +
           ". A creature takes 2d6 " +
           damagetype.toLowerCase() +
@@ -4532,7 +4532,7 @@ armor = {
     } else if (color === "Gold" || color === "Red") {
       additionalFeatures.push(
         damagetype +
-          " Breath Weapon: You can use your action to exhale your draconic ancestry in a 15 foot cone. When you use your breath weapon, each creature in the area of the exhalation must make a dexterity saving throw. The DC for this saving throw is " +
+          " Breath Weapon: You can use your action to exhale your Ascendencia Dracónica in a 15 foot cone. When you use your breath weapon, each creature in the area of the exhalation must make a dexterity saving throw. The DC for this saving throw is " +
           (10 + constitutionModifier) +
           ". A creature takes 2d6 " +
           damagetype.toLowerCase() +
@@ -4541,7 +4541,7 @@ armor = {
     } else if (color === "Green" || color === "Silver" || color === "White") {
       additionalFeatures.push(
         damagetype +
-          " Breath Weapon: You can use your action to exhale your draconic ancestry in a 15 foot cone. When you use your breath weapon, each creature in the area of the exhalation must make a constitution saving throw. The DC for this saving throw is " +
+          " Breath Weapon: You can use your action to exhale your Ascendencia Dracónica in a 15 foot cone. When you use your breath weapon, each creature in the area of the exhalation must make a constitution saving throw. The DC for this saving throw is " +
           (10 + constitutionModifier) +
           ". A creature takes 2d6 " +
           damagetype.toLowerCase() +

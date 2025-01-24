@@ -2,11 +2,11 @@
 
 **DESCRIPTION**
 
-An unofficial character generator for the 5th edition of Dungeons and Dragons.
+Un generador no oficial de personajes para la 5ª edición de Dungeons and Dragons.
 
-It's supposed to create a random character for DnD, but with some logic behind it to make it all quite cohesive.
+Está diseñado para crear un personaje aleatorio para DnD, pero con cierta lógica detrás para que todo sea bastante coherente.
 
-It provides a unique character every time.
+Proporciona un personaje único cada vez.
 
 DEMO:
 https://zeroxragde.github.io/dnd-generador/

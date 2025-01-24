@@ -8,6 +8,8 @@ It's supposed to create a random character for DnD, but with some logic behind i
 
 It provides a unique character every time.
 
+DEMO:
+https://zeroxragde.github.io/dnd-generador/
 ---
 
 **USES FOR THIS GENERATOR**

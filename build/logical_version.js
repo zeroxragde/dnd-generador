@@ -2215,8 +2215,8 @@ armor = {
 
   // Race and subrace decider
   if (race === "Dragonborn" || raceSplitter3 === "Dragonborn") {
-    racialLanguage1 = "Common";
-    racialLanguage2 = "Draconic";
+    racialLanguage1 = listOfStandardLanguages[0];
+    racialLanguage2 = listOfStandardLanguages[3];
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
     strength += 2;
@@ -2247,8 +2247,8 @@ armor = {
       }
     }
   } else if (race === "Dwarf" || raceSplitter3 === "Dwarf") {
-    racialLanguage1 = "Common";
-    racialLanguage2 = "Dwarvish";
+    racialLanguage1 = listOfStandardLanguages[0];
+    racialLanguage2 = listOfStandardLanguages[2];
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
     constitution += 2;
@@ -2270,70 +2270,17 @@ armor = {
     document.getElementById("form87_1").value = "30";
     random_by_length(softTraits, personalityTraits, "form102_1");
     additionalFeatures.push(
-      "Fey Ancestry: You have advantage on saving throws against being charmed, and magic can’t put you to sleep."
+      "Ascendencia Feérica: Tienes ventaja en las tiradas de salvación contra ser encantado, y la magia no puede ponerte a dormir."
     );
     additionalFeatures.push(
-      "Trance: Elves don’t need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After Resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
+      "Trance: Los elfos no necesitan dormir. En su lugar, meditan profundamente, permaneciendo semiconscientes, durante 4 horas al día. Mientras meditan, pueden soñar de alguna manera; tales sueños son en realidad ejercicios mentales que se han vuelto reflejos a través de años de práctica. Después de descansar de esta manera, obtienen el mismo beneficio que un humano obtiene de 8 horas de sueño."
     );
     if (raceChecker === 0) {
-      const raceTranslations = {
-        "Human": "Humano",
-        "Human (Calishite)": "Humano (Calishita)",
-        "Human (Chondathan)": "Humano (Chondatano)",
-        "Human (Damaran)": "Humano (Damarano)",
-        "Human (Illuskan)": "Humano (Illuskano)",
-        "Human (Mulan)": "Humano (Mulano)",
-        "Human (Rashemi)": "Humano (Rashemiano)",
-        "Human (Shou)": "Humano (Shou)",
-        "Human (Tethyrian)": "Humano (Tethyriano)",
-        "Human (Turami)": "Humano (Turamiano)",
-        "Elf": "Elfo",
-        "High Elf": "Alto Elfo",
-        "Wood Elf": "Elfo del Bosque",
-        "Dark Elf (Drow)": "Elfo Oscuro (Drow)",
-        "Dwarf": "Enano",
-        "Hill Dwarf": "Enano de la Colina",
-        "Mountain Dwarf": "Enano de la Montaña",
-        "Halfling": "Mediano",
-        "Lightfoot Halfling": "Mediano Piesligeros",
-        "Stout Halfling": "Mediano Robusto",
-        "Dragonborn": "Dracónido",
-        "Black Dragonborn": "Dracónido Negro",
-        "Blue Dragonborn": "Dracónido Azul",
-        "Brass Dragonborn": "Dracónido de Latón",
-        "Bronze Dragonborn": "Dracónido de Bronce",
-        "Copper Dragonborn": "Dracónido de Cobre",
-        "Gold Dragonborn": "Dracónido Dorado",
-        "Green Dragonborn": "Dracónido Verde",
-        "Red Dragonborn": "Dracónido Rojo",
-        "Silver Dragonborn": "Dracónido Plateado",
-        "White Dragonborn": "Dracónido Blanco",
-        "Gnome": "Gnomo",
-        "Forest Gnome": "Gnomo del Bosque",
-        "Rock Gnome": "Gnomo de la Roca",
-        "Half-Elf": "Semielfo",
-        "Half-Orc": "Semiorco",
-        "Tiefling": "Tiefling",
-        "Aasimar": "Aasimar",
-        "Genasi": "Genasi",
-        "Air Genasi": "Genasi del Aire",
-        "Earth Genasi": "Genasi de la Tierra",
-        "Fire Genasi": "Genasi del Fuego",
-        "Water Genasi": "Genasi del Agua",
-        "Goliath": "Goliat",
-        "Tabaxi": "Tabaxi",
-        "Firbolg": "Firbolg",
-        "Triton": "Tritón",
-        "Kenku": "Kenku",
-        "Goblin": "Goblin",
-        "Hobgoblin": "Hobgoblin",
-        "Bugbear": "Hombre Oso",
-        "Kobold": "Kobold",
-        "Yuan-ti Pureblood": "Yuan-ti Sangrepura"
-      };
+     
+      
     }
   } else if (race === "Halfling" || raceSplitter3 === "Halfling") {
-    racialLanguage1 = "Common";
+    racialLanguage1 = listOfStandardLanguages[0];
     racialLanguage2 = "Halfling";
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
@@ -2341,13 +2288,13 @@ armor = {
     document.getElementById("form87_1").value = "25";
     random_by_length(softTraits, personalityTraits, "form102_1");
     additionalFeatures.push(
-      "Halfling Nimbleness: You can move through the space of any creature that is of a size larger than yours."
+      "Agilidad del Halfling: Puedes moverte a través del espacio de cualquier criatura que sea de un tamaño mayor que el tuyo."
     );
     additionalFeatures.push(
-      "Lucky: When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+      "Suerte: Cuando sacas un 1 en una tirada de ataque, chequeo de habilidad o tirada de salvación, puedes volver a tirar el dado y debes usar el nuevo resultado."
     );
     features.push(
-      "Brave: You have advantage on saving throws against being frightened."
+      "Valiente: Tienes ventaja en las tiradas de salvación contra ser asustado."
     );
     if (raceChecker === 0) {
       if (charisma >= constitution) {
@@ -2357,7 +2304,7 @@ armor = {
       }
     }
   } else if (race === "Human" || raceSplitter1 === "Human") {
-    racialLanguage1 = "Common";
+    racialLanguage1 = listOfStandardLanguages[0];
     racialLanguage2 = random_language();
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
@@ -2399,7 +2346,7 @@ armor = {
       }
     }
   } else if (race === "Gnome" || raceSplitter3 === "Gnome") {
-    racialLanguage1 = "Common";
+    racialLanguage1 = listOfStandardLanguages[0];
     racialLanguage2 = "Gnomish";
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
@@ -2408,7 +2355,7 @@ armor = {
     random_by_length(softTraits, personalityTraits, "form102_1");
     features.push("Darkvision: 60 feet.");
     features.push(
-      "Gnome Cunning: You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
+      "Astucia Gnómica: Tienes ventaja en todas las tiradas de salvación de Inteligencia, Sabiduría y Carisma contra magia."
     );
     if (raceChecker === 0) {
       if (dexterity >= constitution) {
@@ -2697,7 +2644,7 @@ armor = {
     generate_morality(0.66, 0.3);
   } else if (race === "High Elf") {
     features.push("Darkvision: 60 feet.");
-    racialLanguage1 = "Common";
+    racialLanguage1 = listOfStandardLanguages[0];
     racialLanguage2 = "Elvish";
     extralanguage = random_language();
     profsAndLangs.languages.push(racialLanguage1);
@@ -2716,7 +2663,7 @@ armor = {
     generate_morality(0.7, 0.2);
   } else if (race === "Wood Elf") {
     features.push("Darkvision: 60 feet.");
-    racialLanguage1 = "Common";
+    racialLanguage1 = listOfStandardLanguages[0];
     racialLanguage2 = "Elvish";
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
@@ -2732,7 +2679,7 @@ armor = {
     generate_balance(0.9, 0.7);
     generate_morality(0.6, 0.2);
   } else if (race === "Dark Elf (Drow)") {
-    racialLanguage1 = "Common";
+    racialLanguage1 = listOfStandardLanguages[0];
     racialLanguage2 = "Elvish";
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
@@ -2787,7 +2734,7 @@ armor = {
     generate_balance(0.6, 0.4);
     generate_morality(0.5, 0.2);
   } else if (race === "Half-Elf") {
-    racialLanguage1 = "Common";
+    racialLanguage1 = listOfStandardLanguages[0];
     racialLanguage2 = "Elvish";
     extralanguage = random_language();
     profsAndLangs.languages.push(racialLanguage1);
@@ -2831,7 +2778,7 @@ armor = {
     generate_balance(0.8, 0.6);
     generate_morality(0.6, 0.3);
   } else if (race === "Half-Orc") {
-    racialLanguage1 = "Common";
+    racialLanguage1 = listOfStandardLanguages[0];
     racialLanguage2 = "Orc";
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
@@ -2849,7 +2796,7 @@ armor = {
     generate_balance(0.8, 0.6);
     generate_morality(0.7, 0.4);
   } else if (race === "Tiefling") {
-    racialLanguage1 = "Common";
+    racialLanguage1 = listOfStandardLanguages[0];
     racialLanguage2 = "Infernal";
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);

@@ -2046,7 +2046,7 @@ armor = {
       armorname: "Media armadura",
       armorAC: 15 + dexterityModifier,
     },
-    shield: {
+    Escudo: {
       armorname: "Escudo",
       armorAC: 2,
     },
@@ -2091,7 +2091,7 @@ armor = {
     "golpe sin armas",
   ];
 
-  // Array that contains list of martial weapons
+  // Array that contains list of armas marciales
   martialWeapons = [
     "hacha de batalla",
     "mangual",
@@ -3066,187 +3066,187 @@ armor = {
       musicalinstrument2 = random_musical_instrument();
       tool_adder_2(tool_adder(musicalinstrument2.toLowerCase()));
       if (random > 0.5) {
-        tool_adder_2(tool_adder("voice"));
+        tool_adder_2(tool_adder("voz"));
       } else {
         musicalinstrument3 = random_musical_instrument();
         tool_adder_2(tool_adder(musicalinstrument3.toLowerCase()));
       }
-      equipment.push("Leather armor");
-      equipment.push("Dagger");
-      document.getElementById("form78_1").value = "Dagger"; // 2nd weapon 1st section
+      equipment.push("Armadura de cuero");
+      equipment.push("Daga");
+      document.getElementById("form78_1").value = "Daga"; // 2nd weapon 1st section
       if (strength > dexterity) {
         stat_checker(strengthModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(strengthModifier, "form74_1", "1d4", "P"); // 2nd weapon 3rd section
-        equipment.push("Longsword");
-        document.getElementById("form79_1").value = "Longsword"; // 1st weapon 1st section
+        equipment.push("Espada larga");
+        document.getElementById("form79_1").value = "Espada larga"; // 1st weapon 1st section
         stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(strengthModifier, "form76_1", "1d8", "S"); // 1st weapon 3rd section
       } else {
-        equipment.push("Rapier");
-        document.getElementById("form79_1").value = "Rapier"; // 1st weapon 1st section
+        equipment.push("Estoque");
+        document.getElementById("form79_1").value = "Estoque"; // 1ra arma 1ra sección
         stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(dexterityModifier, "form76_1", "1d8", "P"); // 1st weapon 3rd section
         stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(dexterityModifier, "form74_1", "1d4", "P"); // 2nd weapon 3rd section
       }
       if (random2 > 0.5) {
-        equipment.push("Diplomat's pack");
+        equipment.push("Paquete de diplomático");
       } else {
-        equipment.push("Entertainer's pack");
+        equipment.push("Paquete de artista");
       }
     } else if (classAndLevel === "Cleric 1") {
       if (random2 > 0.5) {
-        equipment.push("Explorer's pack");
+        equipment.push("Paquete de explorador");
       } else {
-        equipment.push("Priest's pack");
+        equipment.push("Paquete de sacerdote");
       }
-      equipment.push("Shield");
-      equipment.push("A holy symbol");
+      equipment.push("Escudo");
+      equipment.push("Un símbolo sagrado");
       if (clericBuild === "STR") {
-        equipment.push("Handaxe");
-        document.getElementById("form78_1").value = "Handaxe"; // 2nd weapon 1st section
+        equipment.push("Hacha de mano");
+        document.getElementById("form78_1").value = "Hacha de mano"; // 2da arma 1ra sección
         stat_checker(strengthModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(strengthModifier, "form74_1", "1d6", "S"); // 2nd weapon 3rd section
         if (random > 0.66) {
-          equipment.push("Mace");
-          document.getElementById("form79_1").value = "Mace"; // 1st weapon 1st section
+          equipment.push("Maza");
+            document.getElementById("form79_1").value = "Maza"; // 1ra arma 1ra sección
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "1d6", "B"); // 1st weapon 3rd section
-          features.push("Cleric Domain: Life.");
-          if (wisdomModifier === 0) {
-            document.getElementById("form137_3").value = "Healing Word";
-          } else if (wisdomModifier === 1) {
-            document.getElementById("form137_3").value = "Healing Word";
-            document.getElementById("form136_3").value = "Guiding Bolt";
-          } else if (wisdomModifier === 2) {
-            document.getElementById("form137_3").value = "Healing Word";
-            document.getElementById("form136_3").value = "Guiding Bolt";
-            document.getElementById("form135_3").value = "Bane";
-          } else if (wisdomModifier === 3) {
-            document.getElementById("form137_3").value = "Healing Word";
-            document.getElementById("form136_3").value = "Guiding Bolt";
-            document.getElementById("form135_3").value = "Bane";
-            document.getElementById("form133_3").value = "Shield of Faith";
-          } else if (wisdomModifier === 4) {
-            document.getElementById("form137_3").value = "Healing Word";
-            document.getElementById("form136_3").value = "Guiding Bolt";
-            document.getElementById("form135_3").value = "Bane";
-            document.getElementById("form133_3").value = "Shield of Faith";
+            features.push("Dominio del Clérigo: Vida.");
+            if (wisdomModifier === 0) {
+            document.getElementById("form137_3").value = "Palabra Curativa";
+            } else if (wisdomModifier === 1) {
+            document.getElementById("form137_3").value = "Palabra Curativa";
+            document.getElementById("form136_3").value = "Guía Divina";
+            } else if (wisdomModifier === 2) {
+            document.getElementById("form137_3").value = "Palabra Curativa";
+            document.getElementById("form136_3").value = "Guía Divina";
+            document.getElementById("form135_3").value = "Bendición";
+            } else if (wisdomModifier === 3) {
+            document.getElementById("form137_3").value = "Palabra Curativa";
+            document.getElementById("form136_3").value = "Guía Divina";
+            document.getElementById("form135_3").value = "Bendición";
+            document.getElementById("form133_3").value = "Escudo de Fe";
+            } else if (wisdomModifier === 4) {
+            document.getElementById("form137_3").value = "Palabra Curativa";
+            document.getElementById("form136_3").value = "Guía Divina";
+            document.getElementById("form135_3").value = "Bendición";
+            document.getElementById("form133_3").value = "Escudo de Fe";
             document.getElementById("form131_3").value =
-              "Purify Food and Drink";
-          } else if (wisdomModifier === 5) {
-            document.getElementById("form137_3").value = "Healing Word";
-            document.getElementById("form136_3").value = "Guiding Bolt";
-            document.getElementById("form135_3").value = "Bane";
-            document.getElementById("form133_3").value = "Shield of Faith";
+              "Purificar Comida y Bebida";
+            } else if (wisdomModifier === 5) {
+            document.getElementById("form137_3").value = "Palabra Curativa";
+            document.getElementById("form136_3").value = "Guía Divina";
+            document.getElementById("form135_3").value = "Bendición";
+            document.getElementById("form133_3").value = "Escudo de Fe";
             document.getElementById("form131_3").value =
-              "Purify Food and Drink";
-            document.getElementById("form129_3").value = "Detect Evil and Good";
-          }
-          document.getElementById("form213_3").value = "Guidance";
-          document.getElementById("form204_3").value = "Sacred Flame";
-          document.getElementById("form203_3").value = "Spare the Dying";
-          armor_adder_2(armor_adder("heavy armor"));
-          equipment.push("Chain mail");
-          features.push(
-            "Disciple of Life: Whenever you use a spell of 1st level or higher to restore hit points, the target regains additional hit points equal to 2 + the spell's level."
-          );
-          document.getElementById("form193_3").value = "Bless";
-          document.getElementById("form159_3").value = "Cure Wounds";
+              "Purificar Comida y Bebida";
+            document.getElementById("form129_3").value = "Detectar el Bien y el Mal";
+            }
+            document.getElementById("form213_3").value = "Guía";
+            document.getElementById("form204_3").value = "Llama Sagrada";
+            document.getElementById("form203_3").value = "Revivir a los Muertos";
+            armor_adder_2(armor_adder("armadura pesada"));
+            equipment.push("Cota de mallas");
+            features.push(
+            "Discípulo de la Vida: Siempre que uses un hechizo de nivel 1 o superior para restaurar puntos de golpe, el objetivo recupera puntos de golpe adicionales iguales a 2 + el nivel del hechizo."
+            );
+            document.getElementById("form193_3").value = "Bendecir";
+            document.getElementById("form159_3").value = "Curar Heridas";
         } else if (random > 0.33) {
-          features.push("Cleric Domain: War.");
-          armor_adder_2(armor_adder("heavy armor"));
-          equipment.push("Chain mail");
-          weapon_adder_2(weapon_adder("martial weapons"));
-          equipment.push("Warhammer");
-          document.getElementById("form213_3").value = "Guidance";
-          document.getElementById("form204_3").value = "Sacred Flame";
-          document.getElementById("form203_3").value = "Thaumaturgy";
-          if (wisdomModifier === 0) {
-            document.getElementById("form137_3").value = "Bless";
-          } else if (wisdomModifier === 1) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-          } else if (wisdomModifier === 2) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-          } else if (wisdomModifier === 3) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-          } else if (wisdomModifier === 4) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
-          } else if (wisdomModifier === 5) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
-            document.getElementById("form129_3").value = "Command";
-          }
-          document.getElementById("form79_1").value = "Warhammer"; // 1st weapon 1st section
-          stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
-          stat_checker_3(strengthModifier, "form76_1", "1d8", "B"); // 1st weapon 3rd section
-          document.getElementById("form193_3").value = "Divine Favor";
-          document.getElementById("form159_3").value = "Shield of Faith";
+            features.push("Dominio del Clérigo: Guerra.");
+            armor_adder_2(armor_adder("armadura pesada"));
+            equipment.push("Cota de mallas");
+            weapon_adder_2(weapon_adder("armas marciales"));
+            equipment.push("Martillo de guerra");
+            document.getElementById("form213_3").value = "Guía";
+            document.getElementById("form204_3").value = "Llama Sagrada";
+            document.getElementById("form203_3").value = "Taumaturgia";
+            if (wisdomModifier === 0) {
+            document.getElementById("form137_3").value = "Bendición";
+            } else if (wisdomModifier === 1) {
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            } else if (wisdomModifier === 2) {
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            } else if (wisdomModifier === 3) {
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            } else if (wisdomModifier === 4) {
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
+            } else if (wisdomModifier === 5) {
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
+            document.getElementById("form129_3").value = "Mandato";
+            }
+            document.getElementById("form79_1").value = "Martillo de guerra"; // 1ra arma 1ra sección
+            stat_checker(strengthModifier + 2, "form64_1"); // 1ra arma 2da sección
+            stat_checker_3(strengthModifier, "form76_1", "1d8", "B"); // 1ra arma 3ra sección
+            document.getElementById("form193_3").value = "Favor Divino";
+            document.getElementById("form159_3").value = "Escudo de Fe";
           if (wisdomModifier <= 0) {
             lightGo = 1;
           } else {
             lightGo = wisdomModifier;
           }
-          features.push(
-            "War Priest (" +
+            features.push(
+            "Sacerdote de Guerra (" +
               lightGo +
-              "/lr): When you use the Attack action, you can make one weapon attack as a bonus action. Can be used = to WIS modifier (minimum of once) per long rest."
-          );
-        } else {
-          features.push("Cleric Domain: Nature.");
-          armor_adder_2(armor_adder("heavy armor"));
-          equipment.push("Mace");
-          document.getElementById("form79_1").value = "Mace"; // 1st weapon 1st section
+              "/lr): Cuando usas la acción de Ataque, puedes hacer un ataque con arma como acción adicional. Puede usarse = al modificador de SAB (mínimo una vez) por descanso largo."
+            );
+          } else {
+            features.push("Dominio del Clérigo: Naturaleza.");
+            armor_adder_2(armor_adder("armadura pesada"));
+          equipment.push("Maza");
+          document.getElementById("form79_1").value = "Maza"; // 1st weapon 1st section
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "1d6", "B"); // 1st weapon 3rd section
-          document.getElementById("form213_3").value = "Guidance";
-          document.getElementById("form204_3").value = "Sacred Flame";
-          document.getElementById("form203_3").value = "Mending";
-          document.getElementById("form202_3").value = "Shilelagh";
-          equipment.push("Chain mail");
+            document.getElementById("form213_3").value = "Guía";
+            document.getElementById("form204_3").value = "Llama Sagrada";
+            document.getElementById("form203_3").value = "Reparar";
+            document.getElementById("form202_3").value = "Shilelagh";
+            equipment.push("Cota de mallas");
           if (wisdomModifier === 0) {
-            document.getElementById("form137_3").value = "Bless";
+            document.getElementById("form137_3").value = "Bendición";
           } else if (wisdomModifier === 1) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
           } else if (wisdomModifier === 2) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
           } else if (wisdomModifier === 3) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
           } else if (wisdomModifier === 4) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
           } else if (wisdomModifier === 5) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
-            document.getElementById("form129_3").value = "Sanctuary";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
+            document.getElementById("form129_3").value = "Santuario";
           }
-          document.getElementById("form193_3").value = "Animal Friendship";
-          document.getElementById("form159_3").value = "Speak with Animals";
+          document.getElementById("form193_3").value = "Amistad con los Animales";
+            document.getElementById("form159_3").value = "Hablar con los Animales";
           if (
             random === 1 &&
             document.getElementById("form8_1").checked === undefined
@@ -3271,341 +3271,341 @@ armor = {
           }
         }
       } else if (clericBuild === "DEX") {
-        equipment.push("Light crossbow w/ 20 bolts");
-        document.getElementById("form78_1").value = "Light CB"; // 2nd weapon 1st section
+        equipment.push("Ballesta ligera con 20 virotes");
+        document.getElementById("form78_1").value = "Ballesta ligera"; // 2nd weapon 1st section
         stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(dexterityModifier, "form74_1", "1d8", "P"); // 2nd weapon 3rd section
         if (random > 0.66) {
-          features.push("Cleric Domain: Trickery.");
-          document.getElementById("form213_3").value = "Guidance";
-          document.getElementById("form204_3").value = "Mending";
-          document.getElementById("form203_3").value = "Light";
+            features.push("Dominio del Clérigo: Travesura.");
+            document.getElementById("form213_3").value = "Guía";
+            document.getElementById("form204_3").value = "Reparar";
+            document.getElementById("form203_3").value = "Luz";
           if (wisdomModifier === 0) {
-            document.getElementById("form137_3").value = "Bless";
+            document.getElementById("form137_3").value = "Bendición";
           } else if (wisdomModifier === 1) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
           } else if (wisdomModifier === 2) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
           } else if (wisdomModifier === 3) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
           } else if (wisdomModifier === 4) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
           } else if (wisdomModifier === 5) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
-            document.getElementById("form129_3").value = "Detect Magic";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
+            document.getElementById("form129_3").value = "Detectar Magia";
           }
           document.getElementById("form193_3").value = "Charm Person";
           document.getElementById("form159_3").value = "Disguise Self";
-          equipment.push("Leather armor");
+          equipment.push("Armadura de cuero");
           features.push(
-            "Blessing of the Trickster: You can use your action to touch a willing creature other than yourself to give it advantage on Stealth checks. This blessing lasts for 1 hour or until you use this feature again."
+            "Bendicióning of the Trickster: You can use your action to touch a willing creature other than yourself to give it advantage on Stealth checks. This Bendicióning lasts for 1 hour or until you use this feature again."
           );
-          equipment.push("Mace");
-          document.getElementById("form79_1").value = "Mace"; // 1st weapon 1st section
+          equipment.push("Maza");
+          document.getElementById("form79_1").value = "Maza"; // 1st weapon 1st section
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "1d6", "B"); // 1st weapon 3rd section
         } else if (random > 0.33) {
           features.push("Cleric Domain: Tempest.");
           armor_adder_2(armor_adder("heavy armor"));
-          equipment.push("Chain mail");
-          weapon_adder_2(weapon_adder("martial weapons"));
-          equipment.push("Warhammer");
-          document.getElementById("form213_3").value = "Guidance";
-          document.getElementById("form204_3").value = "Sacred Flame";
-          document.getElementById("form203_3").value = "Thaumaturgy";
+          equipment.push("Cota de mallas");
+          weapon_adder_2(weapon_adder("armas marciales"));
+          equipment.push("Martillo de guerra");
+          document.getElementById("form213_3").value = "Guía";
+          document.getElementById("form204_3").value = "Llama Sagrada";
+          document.getElementById("form203_3").value = "Taumaturgia";
           if (wisdomModifier === 0) {
-            document.getElementById("form137_3").value = "Bless";
+            document.getElementById("form137_3").value = "Bendición";
           } else if (wisdomModifier === 1) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
           } else if (wisdomModifier === 2) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
           } else if (wisdomModifier === 3) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
           } else if (wisdomModifier === 4) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
           } else if (wisdomModifier === 5) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
-            document.getElementById("form129_3").value = "Detect Magic";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
+            document.getElementById("form129_3").value = "Detectar Magia";
           }
-          document.getElementById("form79_1").value = "Warhammer"; // 1st weapon 1st section
+            document.getElementById("form79_1").value = "Martillo de guerra"; // 1ra arma 1ra sección
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "1d8", "B"); // 1st weapon 3rd section
-          document.getElementById("form193_3").value = "Fog Cloud";
-          document.getElementById("form159_3").value = "Thunderwave";
+            document.getElementById("form193_3").value = "Nube de Niebla";
+            document.getElementById("form159_3").value = "Ola atronadora";
           if (wisdomModifier <= 0) {
             lightGo = 1;
           } else {
             lightGo = wisdomModifier;
           }
-          features.push(
-            "Wrath of the Storm (" +
+            features.push(
+            "Ira de la Tormenta (" +
               lightGo +
-              "/lr): When a creature within 5 feet of you that you can see hits you with an attack, you can use your reaction to cause the creature to make a DEX saving throw. The creature takes 2d8 lightning or thunder damage (your choice) on a failed saving throw, and half as much damage on a successful one. Can be used = to WIS modifier (minimum of once) per long rest."
-          );
+              "/lr): Cuando una criatura a 5 pies de ti que puedas ver te golpea con un ataque, puedes usar tu reacción para hacer que la criatura haga una tirada de salvación de DEX. La criatura recibe 2d8 de daño por rayo o trueno (a tu elección) si falla la tirada de salvación, y la mitad de daño si tiene éxito. Puede usarse = al modificador de SAB (mínimo una vez) por descanso largo."
+            );
         } else {
-          features.push("Cleric Domain: Death.");
-          weapon_adder_2(weapon_adder("martial weapons"));
-          equipment.push("Warhammer");
-          document.getElementById("form213_3").value = "Guidance";
-          document.getElementById("form204_3").value = "Sacred Flame";
-          document.getElementById("form203_3").value = "Spare the Dying";
-          document.getElementById("form79_1").value = "Warhammer"; // 1st weapon 1st section
+            features.push("Dominio del Clérigo: Muerte.");
+            weapon_adder_2(weapon_adder("armas marciales"));
+            equipment.push("Martillo de guerra");
+            document.getElementById("form213_3").value = "Guía";
+          document.getElementById("form204_3").value = "Llama Sagrada";
+            document.getElementById("form203_3").value = "Revivir a los Muertos";
+          document.getElementById("form79_1").value = "Martillo de guerra"; // 1st weapon 1st section
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "1d8", "B"); // 1st weapon 3rd section
-          document.getElementById("form202_3").value = "Chill Touch";
-          equipment.push("Scale mail");
+            document.getElementById("form202_3").value = "Toque Helado";
+            equipment.push("Cota de escamas");
           if (wisdomModifier === 0) {
-            document.getElementById("form137_3").value = "Bane";
+            document.getElementById("form137_3").value = "Maldición";
           } else if (wisdomModifier === 1) {
-            document.getElementById("form137_3").value = "Bane";
-            document.getElementById("form136_3").value = "Healing Word";
+            document.getElementById("form137_3").value = "Maldición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
           } else if (wisdomModifier === 2) {
-            document.getElementById("form137_3").value = "Bane";
-            document.getElementById("form136_3").value = "Healing Word";
+            document.getElementById("form137_3").value = "Maldición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
             document.getElementById("form135_3").value = "Inflict Wounds";
           } else if (wisdomModifier === 3) {
-            document.getElementById("form137_3").value = "Bane";
-            document.getElementById("form136_3").value = "Healing Word";
+            document.getElementById("form137_3").value = "Maldición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
             document.getElementById("form135_3").value = "Inflict Wounds";
-            document.getElementById("form133_3").value = "Bless";
+            document.getElementById("form133_3").value = "Bendición";
           } else if (wisdomModifier === 4) {
-            document.getElementById("form137_3").value = "Bane";
-            document.getElementById("form136_3").value = "Healing Word";
+            document.getElementById("form137_3").value = "Maldición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
             document.getElementById("form135_3").value = "Inflict Wounds";
-            document.getElementById("form133_3").value = "Bless";
-            document.getElementById("form131_3").value = "Guiding Bolt";
+            document.getElementById("form133_3").value = "Bendición";
+            document.getElementById("form131_3").value = "Guiar Rayo";
           } else if (wisdomModifier === 5) {
-            document.getElementById("form137_3").value = "Bane";
-            document.getElementById("form136_3").value = "Healing Word";
+            document.getElementById("form137_3").value = "Maldición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
             document.getElementById("form135_3").value = "Inflict Wounds";
-            document.getElementById("form133_3").value = "Bless";
-            document.getElementById("form131_3").value = "Guiding Bolt";
-            document.getElementById("form129_3").value = "Cure Wounds";
+            document.getElementById("form133_3").value = "Bendición";
+            document.getElementById("form131_3").value = "Guiar Rayo";
+            document.getElementById("form129_3").value = "Curar Heridas";
           }
-          document.getElementById("form193_3").value = "False Life";
-          document.getElementById("form159_3").value = "Ray of Sickness";
-          features.push(
-            "Reaper: You learn one neromancy cantrip, and when you cast a necromancy cantrip that normally targets only one creature, the spell instead targets two creatures within range and within 5 feet of each other."
-          );
+            document.getElementById("form193_3").value = "Vida Falsa";
+            document.getElementById("form159_3").value = "Rayo de Enfermedad";
+            features.push(
+            "Segador: Aprendes un cantrip de nigromancia, y cuando lanzas un cantrip de nigromancia que normalmente solo tiene un objetivo, el hechizo en su lugar tiene como objetivo dos criaturas dentro del alcance y a 5 pies una de la otra."
+            );
         }
       } else if (clericBuild === "WIS") {
-        equipment.push("Mace");
-        document.getElementById("form79_1").value = "Mace"; // 1st weapon 1st section
+        equipment.push("Maza");
+        document.getElementById("form79_1").value = "Maza"; // 1st weapon 1st section
         stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(strengthModifier, "form76_1", "1d6", "B"); // 1st weapon 3rd section
         equipment.push("Light crossbow w/ 20 bolts");
-        document.getElementById("form78_1").value = "Light CB"; // 2nd weapon 1st section
+        document.getElementById("form78_1").value = "Ballesta ligera"; // 2nd weapon 1st section
         stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(dexterityModifier, "form74_1", "1d8", "P"); // 2nd weapon 3rd section
         if (random > 0.66) {
-          features.push("Cleric Domain: Knowledge.");
-          document.getElementById("form213_3").value = "Guidance";
-          document.getElementById("form204_3").value = "Sacred Flame";
-          document.getElementById("form203_3").value = "Thaumaturgy";
+          features.push("Dominio del Clérigo: Conocimiento.");
+          document.getElementById("form213_3").value = "Guía";
+          document.getElementById("form204_3").value = "Llama Sagrada";
+            document.getElementById("form203_3").value = "Taumaturgia";
           if (wisdomModifier === 0) {
-            document.getElementById("form137_3").value = "Bless";
+            document.getElementById("form137_3").value = "Bendición";
           } else if (wisdomModifier === 1) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
           } else if (wisdomModifier === 2) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
           } else if (wisdomModifier === 3) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
           } else if (wisdomModifier === 4) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
           } else if (wisdomModifier === 5) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
-            document.getElementById("form129_3").value = "Detect Magic";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
+            document.getElementById("form129_3").value = "Detectar Magia";
           }
-          equipment.push("Scale mail");
+          equipment.push("Cota de escamas");
           knowledgeLanguage = random_language();
           knowledgeLanguage = right_language2(knowledgeLanguage);
           profsAndLangs.languages.push(knowledgeLanguage);
           knowledgeLanguage2 = random_language();
           knowledgeLanguage2 = right_language2(knowledgeLanguage2);
           profsAndLangs.languages.push(knowledgeLanguage2);
-          document.getElementById("form193_3").value = "Command";
-          document.getElementById("form159_3").value = "Identify";
+            document.getElementById("form193_3").value = "Mandato";
+            document.getElementById("form159_3").value = "Identificar";
           for (var _i10 = 0; _i10 < 2; _i10++) {
             if (document.getElementById("form20_1").checked === undefined) {
               add_click(20);
               stat_checker(intelligenceModifier + 4, "form33_1"); // religion
-              features.push("Knowledge Double Proficiency: Religion.");
+                features.push("Conocimiento Doble Competencia: Religión.");
             } else if (
               document.getElementById("form9_1").checked === undefined
             ) {
               add_click(9);
               stat_checker(intelligenceModifier + 4, "form48_1"); // history
-              features.push("Knowledge Double Proficiency: History.");
+                features.push("Conocimiento Doble Competencia: Historia.");
             } else if (
               document.getElementById("form21_1").checked === undefined
             ) {
               add_click(21);
               stat_checker(intelligenceModifier + 4, "form40_1"); // arcana
-              features.push("Knowledge Double Proficiency: Arcana.");
+                features.push("Conocimiento Doble Competencia: Arcana.");
             } else if (
               document.getElementById("form11_1").checked === undefined
             ) {
               add_click(11);
               stat_checker(intelligenceModifier + 4, "form37_1"); // nature
-              features.push("Knowledge Double Proficiency: Nature.");
+                features.push("Conocimiento Doble Competencia: Naturaleza.");
             }
           }
         } else if (random > 0.33) {
-          features.push("Cleric Domain: Light.");
-          document.getElementById("form213_3").value = "Guidance";
-          document.getElementById("form204_3").value = "Sacred Flame";
-          document.getElementById("form203_3").value = "Thaumaturgy";
-          document.getElementById("form202_3").value = "Light";
-          equipment.push("Scale mail");
+            features.push("Dominio del Clérigo: Luz.");
+          document.getElementById("form213_3").value = "Guía";
+          document.getElementById("form204_3").value = "Llama Sagrada";
+          document.getElementById("form203_3").value = "Taumaturgia";
+            document.getElementById("form202_3").value = "Luz";
+          equipment.push("Cota de escamas");
           if (wisdomModifier === 0) {
-            document.getElementById("form137_3").value = "Bless";
+            document.getElementById("form137_3").value = "Bendición";
           } else if (wisdomModifier === 1) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
           } else if (wisdomModifier === 2) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
           } else if (wisdomModifier === 3) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
           } else if (wisdomModifier === 4) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
           } else if (wisdomModifier === 5) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
-            document.getElementById("form129_3").value = "Command";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
+            document.getElementById("form129_3").value = "Mandato";
           }
-          document.getElementById("form193_3").value = "Burning Hands";
-          document.getElementById("form159_3").value = "Faerie Fire";
+            document.getElementById("form193_3").value = "Manos Ardientes";
+            document.getElementById("form159_3").value = "Fuego Feérico";
           if (wisdomModifier <= 0) {
             lightGo = 1;
           } else {
             lightGo = wisdomModifier;
           }
-          features.push(
-            "Warding Flare (" +
+            features.push(
+            "Destello Protector (" +
               lightGo +
-              "/lr): When you are attacked by a creature within 30 feet of you that you can see, you can use your reaction to impose disadvantage on the attack roll causing light to flare before the attacker before it hits or misses. An attacker can't be blinded is immune to this feature. You can use this equal to your WIS modifier (minimum of once) per long rest."
-          );
+              "/lr): Cuando eres atacado por una criatura a 30 pies de ti que puedas ver, puedes usar tu reacción para imponer desventaja en la tirada de ataque, causando que la luz destelle ante el atacante antes de que golpee o falle. Un atacante que no puede ser cegado es inmune a esta característica. Puedes usar esto un número de veces igual a tu modificador de SAB (mínimo una vez) por descanso largo."
+            );
         } else {
-          features.push("Cleric Domain: Arcana.");
-          document.getElementById("form213_3").value = "Guidance";
-          document.getElementById("form204_3").value = "Sacred Flame";
-          document.getElementById("form203_3").value = "Thaumaturgy";
-          document.getElementById("form202_3").value = "Acid Splash";
-          document.getElementById("form201_3").value = "Frostbite";
+            features.push("Dominio del Clérigo: Arcano.");
+          document.getElementById("form213_3").value = "Guía";
+          document.getElementById("form204_3").value = "Llama Sagrada";
+          document.getElementById("form203_3").value = "Taumaturgia";
+            document.getElementById("form202_3").value = "Salpicadura Ácida";
+            document.getElementById("form201_3").value = "Mordedura de Escarcha";
           if (wisdomModifier === 0) {
-            document.getElementById("form137_3").value = "Bless";
+            document.getElementById("form137_3").value = "Bendición";
           } else if (wisdomModifier === 1) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
           } else if (wisdomModifier === 2) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
           } else if (wisdomModifier === 3) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
           } else if (wisdomModifier === 4) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
           } else if (wisdomModifier === 5) {
-            document.getElementById("form137_3").value = "Bless";
-            document.getElementById("form136_3").value = "Healing Word";
-            document.getElementById("form135_3").value = "Guiding Bolt";
-            document.getElementById("form133_3").value = "Bane";
-            document.getElementById("form131_3").value = "Cure Wounds";
-            document.getElementById("form129_3").value = "Sanctuary";
+            document.getElementById("form137_3").value = "Bendición";
+            document.getElementById("form136_3").value = "Palabra Curativa";
+            document.getElementById("form135_3").value = "Guiar Rayo";
+            document.getElementById("form133_3").value = "Maldición";
+            document.getElementById("form131_3").value = "Curar Heridas";
+            document.getElementById("form129_3").value = "Santuario";
           }
-          equipment.push("Scale mail");
-          document.getElementById("form193_3").value = "Detect Magic";
-          document.getElementById("form159_3").value = "Magic Missile";
+          equipment.push("Cota de escamas");
+          document.getElementById("form193_3").value = "Detectar Magia";
+            document.getElementById("form159_3").value = "Misil Mágico";
           add_click(21);
           stat_checker(intelligenceModifier + 4, "form40_1"); // arcana
         }
       }
     } else if (classAndLevel === "Druid 1") {
-      tool_adder_2(tool_adder("herbalism kit"));
-      profsAndLangs.languages.push("Druidic");
+      tool_adder_2(tool_adder("kit de herboristería"));
+      profsAndLangs.languages.push("Druídico");
       features.push(
-        "Druidic: You know the language Druidic, you can see hidden messages of druids and speak the language. Those who don't know Druidic can see the message with a succesful DC 15 Wisdom check, but cannot decipher it."
+        "Druídico: Conoces el idioma Druídico, puedes ver mensajes ocultos de los druidas y hablar el idioma. Aquellos que no conocen el Druídico pueden ver el mensaje con una prueba exitosa de Sabiduría DC 15, pero no pueden descifrarlo."
       );
-      equipment.push("Leather armor");
-      equipment.push("Explorer's pack");
+      equipment.push("Armadura de cuero");
+      equipment.push("Paquete de explorador");
       if (random2 > 0.5) {
-        equipment.push("Wooden shield");
+        equipment.push("Escudo de madera");
       } else {
-        equipment.push("Shortbow");
-        document.getElementById("form78_1").value = "Shortbow"; // 2nd weapon 1st section
+        equipment.push("Arco corto");
+        document.getElementById("form78_1").value = "Arco corto"; // 2nd weapon 1st section
         stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(dexterityModifier, "form74_1", "1d6", "P"); // 2nd weapon 3rd section
       }
       if (strength > dexterity) {
-        equipment.push("Quarterstaff");
-        document.getElementById("form79_1").value = "Quarterstaff"; // 1st weapon 1st section
+        equipment.push("Bastón");
+        document.getElementById("form79_1").value = "Bastón"; // 1st weapon 1st section
         stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(strengthModifier, "form76_1", "1d6/10", "B"); // 1st weapon 3rd section
-        equipment.push("Petrified bear heart - Focus");
+        equipment.push("Corazón de oso petrificado - Enfoque");
       } else if (random > 0.8) {
-        equipment.push("Scimitar");
-        document.getElementById("form79_1").value = "Scimitar"; // 1st weapon 1st section
+        equipment.push("Cimitarra");
+        document.getElementById("form79_1").value = "Cimitarra"; // 1st weapon 1st section
         if (dexterity > strength) {
           stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(dexterityModifier, "form76_1", "1d6", "S"); // 1st weapon 3rd section
@@ -3613,16 +3613,16 @@ armor = {
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "1d6", "S"); // 1st weapon 3rd section
         }
-        equipment.push("Yew branch - Focus");
+        equipment.push("Rama de tejo - Enfoque");
       } else if (random > 0.6) {
-        equipment.push("Spear");
-        document.getElementById("form79_1").value = "Spear"; // 1st weapon 1st section
+        equipment.push("Lanza");
+        document.getElementById("form79_1").value = "Lanza"; // 1st weapon 1st section
         stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(dexterityModifier, "form76_1", "1d6", "P"); // 1st weapon 3rd section
         equipment.push("Opalized oak wand - Focus");
       } else if (random > 0.2) {
-        equipment.push("Scimitar");
-        document.getElementById("form79_1").value = "Scimitar"; // 1st weapon 1st section
+        equipment.push("Cimitarra");
+        document.getElementById("form79_1").value = "Cimitarra"; // 1st weapon 1st section
         if (dexterity > strength) {
           stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(dexterityModifier, "form76_1", "1d6", "S"); // 1st weapon 3rd section
@@ -3630,134 +3630,134 @@ armor = {
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "1d6", "S"); // 1st weapon 3rd section
         }
-        equipment.push("Dreamcatcher willow totem - Focus");
+        equipment.push("Atrapasueños de sauce - Enfoque");
       } else if (random <= 0.2) {
-        equipment.push("Spear");
-        document.getElementById("form79_1").value = "Spear"; // 1st weapon 1st section
+        equipment.push("Lanza");
+        document.getElementById("form79_1").value = "Lanza"; // 1st weapon 1st section
         stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(dexterityModifier, "form76_1", "1d6", "P"); // 1st weapon 3rd section
         equipment.push("Animal totem staff - Focus");
       }
     } else if (classAndLevel === "Fighter 1") {
       features.push(
-        "Second Wind (1/r): On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level."
+        "Segundo Aliento (1/r): En tu turno, puedes usar una acción adicional para recuperar puntos de golpe iguales a 1d10 + tu nivel de luchador."
       );
       spellcastingSection.push(
-        "Second Wind (1/r): Use a bonus action to gain 1d10 + 1 hp."
+        "Segundo Aliento (1/r): Usa una acción adicional para ganar 1d10 + 1 pg."
       );
       spellcastingSection.push(" ");
       if (strength > dexterity) {
-        equipment.push("Chain mail");
+        equipment.push("Cota de mallas");
         equipment.push("Hacha de mano x2");
-        document.getElementById("form78_1").value = "Handaxe"; // 2nd weapon 1st section
+        document.getElementById("form78_1").value = "Hacha de mano"; // 2nd weapon 1st section
         stat_checker(strengthModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(strengthModifier, "form74_1", "1d6", "S"); // 2nd weapon 3rd section
         if (strength > constitution) {
-          equipment.push("Dungeoneer's pack");
-          features.push(
-            "Fighting Style: Great Weapon Fighting, when you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must be a two-handed weapon or have the versatile property to gain this benefit."
-          );
-          spellcastingSection.push(
-            "Great Weapon Fighting: Reroll damage rolls that are a 1 or a 2, once per roll."
-          );
+            equipment.push("Paquete de explorador");
+            features.push(
+            "Estilo de Combate: Gran Lucha con Armas, cuando saques un 1 o 2 en un dado de daño para un ataque que hagas con un arma cuerpo a cuerpo que estés empuñando con dos manos, puedes volver a tirar el dado y debes usar la nueva tirada, incluso si la nueva tirada es un 1 o un 2. El arma debe ser un arma de dos manos o tener la propiedad versátil para obtener este beneficio."
+            );
+            spellcastingSection.push(
+            "Gran Lucha con Armas: Vuelve a tirar las tiradas de daño que sean un 1 o un 2, una vez por tirada."
+            );
 
           equipment.push("Espada grande");
           document.getElementById("form79_1").value = "Espada grande"; // 1st weapon 1st section
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "2d6", "S"); // 1st weapon 3rd section
 
-          equipment.push(Maza);
-          document.getElementById("form77_1").value = Maza; // 3rd weapon 1st section
+          equipment.push("Maza");
+          document.getElementById("form77_1").value = "Maza"; // 3rd weapon 1st section
           stat_checker(strengthModifier + 2, "form66_1"); // 3rd weapon 2nd section
           stat_checker_3(strengthModifier, "form75_1", "2d6", "B"); // 3rd weapon 3rd section
         } else {
-          equipment.push("Explorer's pack");
+          equipment.push("Paquete de explorador");
           if (random2 > 0.5) {
             features.push(
-              "Fighting Style: Dueling, when you are wielding a melee wepaon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon."
+              "Estilo de Combate: Duelo, cuando estás empuñando un arma cuerpo a cuerpo en una mano y no tienes otras armas, obtienes un bono de +2 a las tiradas de daño con esa arma."
             );
-            spellcastingSection.push("Dueling: +2 bonus to damage rolls");
+            spellcastingSection.push("Duelo: +2 bono a las tiradas de daño");
           } else {
             features.push(
-              "Fighting Style: Protection, When a creature you can see attacks a target other than you that is within 5 feet o f you, you can use your reaction to impose disadvantage on the attack roll. You must be w ielding a shield."
+              "Estilo de Combate: Protección, cuando una criatura que puedes ver ataca a un objetivo que no seas tú y que esté a 5 pies de ti, puedes usar tu reacción para imponer desventaja en la tirada de ataque. Debes estar empuñando un escudo."
             );
             spellcastingSection.push(
-              "Protection: Can use reaction to impose DA on the attack roll of an enemy."
+              "Protección: Puedes usar tu reacción para imponer desventaja en la tirada de ataque de un enemigo."
             );
           }
           if (random > 0.75) {
-            equipment.push("Shield");
-            equipment.push("Warhammer");
-            document.getElementById("form79_1").value = "Warhammer"; // 1st weapon 1st section
+            equipment.push("Escudo");
+            equipment.push("Martillo de guerra");
+            document.getElementById("form79_1").value = "Martillo de guerra"; // 1st weapon 1st section
             stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
             stat_checker_3(strengthModifier, "form76_1", "1d8", "B"); // 1st weapon 3rd section
           } else if (random > 0.5) {
-            equipment.push("Shield");
-            equipment.push("Longsword");
-            document.getElementById("form79_1").value = "Longsword"; // 1st weapon 1st section
+            equipment.push("Escudo");
+            equipment.push("Espada larga");
+            document.getElementById("form79_1").value = "Espada larga"; // 1st weapon 1st section
             stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
             stat_checker_3(strengthModifier, "form76_1", "1d8", "S"); // 1st weapon 3rd section
           } else if (random > 0.25) {
-            equipment.push("Shield");
-            equipment.push("Flail");
-            document.getElementById("form79_1").value = "Flail"; // 1st weapon 1st section
+            equipment.push("Escudo");
+            equipment.push("Mangual");
+            document.getElementById("form79_1").value = "Mangual"; // 1st weapon 1st section
             stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
             stat_checker_3(strengthModifier, "form76_1", "1d8", "B"); // 1st weapon 3rd section
           } else {
-            equipment.push("Shield");
-            equipment.push("Morningstar");
-            document.getElementById("form79_1").value = "Morningstar"; // 1st weapon 1st section
+            equipment.push("Escudo");
+            equipment.push("Estrella del alba");
+            document.getElementById("form79_1").value = "Estrella del alba"; // 1st weapon 1st section
             stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
             stat_checker_3(strengthModifier, "form76_1", "1d8", "P"); // 1st weapon 3rd section
           }
         }
       } else {
-        equipment.push("Leather armor");
-        equipment.push("Arco largo w/ 20 arrows");
+        equipment.push("Armadura de cuero");
+        equipment.push("Arco largo w/ 20 flechas");
         if (random > 0.5) {
           document.getElementById("form78_1").value = "Arco largo"; // 2nd weapon 1st section
           stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
           stat_checker_3(dexterityModifier, "form74_1", "1d8", "P"); // 2nd weapon 3rd section
-          features.push(
-            "Fighting Style: Two Weapon Fighting, can add your ability modifier to the damage of the second attack."
-          );
-          spellcastingSection.push(
-            "Two Weapon Fighting: +" +
+            features.push(
+            "Estilo de Combate: Lucha con dos armas, puedes añadir tu modificador de habilidad al daño del segundo ataque."
+            );
+            spellcastingSection.push(
+            "Lucha con dos armas: +" +
               dexterityModifier +
-              " to offhand attacks."
-          );
-          equipment.push("Two scimitars");
-          document.getElementById("form79_1").value = "Scimitar (L/R)"; // 1st weapon 1st section
+              " a los ataques con la mano secundaria."
+            );
+          equipment.push("2 Cimitarras");
+          document.getElementById("form79_1").value = "Cimitarra (I/D)"; // 1st weapon 1st section
           stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(dexterityModifier, "form76_1", "1d6", "P"); // 1st weapon 3rd section
-          equipment.push("Light crossbow w/ 20 bolts");
-          document.getElementById("form77_1").value = "Light CB"; // 1st weapon 1st section
+            equipment.push("Ballesta ligera con 20 virotes");
+          document.getElementById("form77_1").value = "Ballesta ligera"; // 1st weapon 1st section
           stat_checker(dexterityModifier + 2, "form66_1"); // 1st weapon 2nd section
           stat_checker_3(dexterityModifier, "form75_1", "1d8", "P"); // 1st weapon 3rd section
-          equipment.push("Dungeoneer's pack");
+          equipment.push("Paquete de explorador");
         } else {
-          features.push(
-            "Fighting Style: Archery, gain a +2 bonus to attack rolls you make with ranged weapons."
-          );
-          spellcastingSection.push("Archery: +2 ranged attack bonus");
+            features.push(
+            "Estilo de Combate: Tiro con arco, obtienes un bono de +2 a las tiradas de ataque que hagas con armas a distancia."
+            );
+            spellcastingSection.push("Tiro con arco: +2 bono de ataque a distancia");
           spellcastingSection.push(" ");
-          spellcastingSection.push(
-            "Shortsword  " +
+            spellcastingSection.push(
+            "Espada corta  " +
               stat_checker_no_id(dexterityModifier + 2) +
               "  1d8" +
               stat_checker_no_id(dexterityModifier) +
               " P"
-          );
-          equipment.push("Hand crossbow");
-          document.getElementById("form79_1").value = "Hand CB"; // 1st weapon 1st section
+            );
+            equipment.push("Ballesta de mano");
+          document.getElementById("form79_1").value = "Ballesta de mano"; // 1st weapon 1st section
           stat_checker(dexterityModifier + 4, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(dexterityModifier, "form76_1", "1d6", "P"); // 1st weapon 3rd section
           equipment.push("Light crossbow w/ 20 bolts");
-          document.getElementById("form77_1").value = "Light CB"; // 3rd weapon 1st section
+          document.getElementById("form77_1").value = "Ballesta ligera"; // 3rd weapon 1st section
           stat_checker(dexterityModifier + 4, "form66_1"); // 3rd weapon 2nd section
           stat_checker_3(dexterityModifier, "form75_1", "1d8", "P"); // 3rd weapon 3rd section
-          equipment.push("Shortsword");
-          equipment.push("Explorer's pack");
+          equipment.push("Espada corta");
+          equipment.push("Paquete de explorador");
           document.getElementById("form78_1").value = "Arco largo"; // 2nd weapon 1st section
           stat_checker(dexterityModifier + 4, "form65_1"); // 2nd weapon 2nd section
           stat_checker_3(dexterityModifier, "form74_1", "1d8", "P"); // 2nd weapon 3rd section
@@ -3765,25 +3765,25 @@ armor = {
       }
     } else if (classAndLevel === "Monk 1") {
       features.push(
-        "Unarmored Defense: While you are not wearing any armor or shields, your armor class equals 10 + your dexterity modifier + your wisdom modifier."
+        "Defensa sin armadura: Mientras no lleves armadura ni escudos, tu clase de armadura es igual a 10 + tu modificador de destreza + tu modificador de sabiduría."
       );
       features.push(
-        "Martial Arts: You gain the following benefits when you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:\rYou can use DEX instead of STR for atk and dmg rolls of your unarmed strikes or monk weapons.\rYou can roll a d4 in place of the normal dmg of your unarmed strike or monk weapon.\rWhenever you use the Attack action with an unarmed strike or monk weapon, you can use your bonus action to make an unarmed strike as well."
+        "Artes Marciales: Obtienes los siguientes beneficios cuando estás desarmado o empuñando solo armas de monje y no llevas armadura ni escudo:\rPuedes usar DEX en lugar de STR para las tiradas de ataque y daño de tus golpes desarmados o armas de monje.\rPuedes tirar un d4 en lugar del daño normal de tu golpe desarmado o arma de monje.\rSiempre que uses la acción de Ataque con un golpe desarmado o arma de monje, puedes usar tu acción adicional para hacer un golpe desarmado también."
       );
       spellcastingSection.push(
-        "Martial Arts: When you attack with the above weapons, you can use your bonus action to make an unarmed strike."
+        "Artes Marciales: Cuando atacas con las armas mencionadas, puedes usar tu acción adicional para hacer un golpe desarmado."
       );
       musicalinstrument = random_musical_instrument();
       tool_adder_2(tool_adder(musicalinstrument));
       randomAritsanTool = random_artisan_tool();
       tool_adder_2(tool_adder(randomAritsanTool));
-      document.getElementById("form78_1").value = "Unarmed"; // 2nd weapon 1st section
+      document.getElementById("form78_1").value = "Desarmado"; // 2da arma 1ra sección
       stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
       stat_checker_3(dexterityModifier, "form74_1", "1d4", "B"); // 2nd weapon 3rd section
       if (random2 > 0.5) {
-        equipment.push("Dungeoneer's pack");
+        equipment.push("Paquete de explorador");
       } else {
-        equipment.push("Explorer's pack");
+        equipment.push("Paquete de explorador");
       }
       equipment.push("Ten darts");
       document.getElementById("form77_1").value = "Dart"; // 3rd weapon 1st section
@@ -3800,294 +3800,294 @@ armor = {
         stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(dexterityModifier, "form76_1", "1d4", "S"); // 1st weapon 3rd section
       } else {
-        equipment.push("Quarterstaff");
-        document.getElementById("form79_1").value = "Quarterstaff"; // 1st weapon 1st section
+        equipment.push("Bastón");
+        document.getElementById("form79_1").value = "Bastón"; // 1st weapon 1st section
         stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(dexterityModifier, "form76_1", "1d6", "B"); // 1st weapon 3rd section
       }
     } else if (classAndLevel === "Paladin 1") {
-      equipment.push("Chain mail");
+      equipment.push("Cota de mallas");
       features.push(
-        "Divine Sense (" +
+        "Sentido Divino (" +
           (charismaModifier + 1) +
-          "/lr: As an action, until the end of your next turn, you know the location of any celestial, fiend, or Undead within 60 feet of you that is not behind total cover. You know the type of any being whose presence you sense, but not its identity. Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated."
+          "/lr: Como acción, hasta el final de tu próximo turno, conoces la ubicación de cualquier celestial, demonio o no-muerto dentro de 60 pies de ti que no esté detrás de una cobertura total. Conoces el tipo de cualquier ser cuya presencia sientas, pero no su identidad. Dentro del mismo radio, también detectas la presencia de cualquier lugar u objeto que haya sido consagrado o profanado."
       );
       features.push(
-        "Lay on Hands (5 hp/lr): You can restore a total number of hit points equal to your paladin level x 5. As an action, you can use your pool to heal a target. Alternatively, you can expend 5 hit points from your pool to cure the target of one disease or neutralize one poison affecting it. No effect on Undead and constructs."
+        "Imposición de Manos (5 hp/lr): Puedes restaurar un número total de puntos de golpe igual a tu nivel de paladín x 5. Como acción, puedes usar tu reserva para curar a un objetivo. Alternativamente, puedes gastar 5 puntos de golpe de tu reserva para curar al objetivo de una enfermedad o neutralizar un veneno que lo afecte. No tiene efecto en no-muertos y constructos."
       );
       spellcastingSection.push(
-        "Lay on Hands (5 hp/lr): As an action you can heal another creature or cure them of disease or poison."
+        "Imposición de Manos (5 hp/lr): Como acción, puedes curar a otra criatura o curarla de una enfermedad o veneno."
       );
       if (alignment[0] === "Lawful" && alignment[1] === "Good") {
-        equipment.push("Silver bracer - Symbol");
+        equipment.push("Brazalete de plata - Símbolo");
         alliesAndOrganizations.push(
-          "Pholtus - God of light and law, I will protect the good and bright light to such dark times like the present. This is my moment, this is his will."
+          "Pholtus - Dios de la luz y la ley, protegeré a los buenos y llevaré luz a tiempos oscuros como los presentes. Este es mi momento, esta es su voluntad."
         );
         alliesAndOrganizations.push(" ");
       } else if (alignment[0] === "Neutral" && alignment[1] === "Good") {
-        equipment.push("Sun tattoo on right palm - Symbol");
+        equipment.push("Tatuaje de sol en la palma derecha - Símbolo");
         alliesAndOrganizations.push(
-          "Pelor, God of the sun and healing, the sun has been beating on my back my entire life, I have only just begun to appreciate the wonders it has presented me."
+          "Pelor, Dios del sol y la curación, el sol ha estado golpeando mi espalda toda mi vida, y apenas he comenzado a apreciar las maravillas que me ha presentado."
         );
         alliesAndOrganizations.push(" ");
       } else if (alignment[0] === "Chaotic" && alignment[1] === "Good") {
-        equipment.push("Triangular star ring - Symbol");
+        equipment.push("Anillo de estrella triangular - Símbolo");
         alliesAndOrganizations.push(
-          "Lliira - Goddess of joy, I won't let anyone take others happiness away, not even for a second if I can help it."
+          "Lliira - Diosa de la alegría, no dejaré que nadie quite la felicidad de los demás, ni siquiera por un segundo si puedo evitarlo."
         );
         alliesAndOrganizations.push(" ");
       } else if (alignment[0] === "Lawful" && alignment[1] === "Neutral") {
-        equipment.push("Partially-burnt gauntlet - Symbol");
+        equipment.push("Guantelete parcialmente quemado - Símbolo");
         alliesAndOrganizations.push(
-          "Helm, God of protection, I will uplift the just, and smite the self-righteous and wicked."
+          "Helm, Dios de la protección, elevaré a los justos y castigaré a los hipócritas y malvados."
         );
         alliesAndOrganizations.push(" ");
       } else if (alignment[0] === "Neutral" && alignment[1] === "Neutral") {
-        equipment.push("Fire-glass necklace - Symbol");
+        equipment.push("Collar de vidrio de fuego - Símbolo");
         alliesAndOrganizations.push(
-          "Sirrion, God of fire and change, he will guide me through the world, and the chaos amongst it."
+          "Sirrion, Dios del fuego y el cambio, él me guiará a través del mundo y el caos que lo rodea."
         );
         alliesAndOrganizations.push(" ");
       } else if (alignment[0] === "Chaotic" && alignment[1] === "Neutral") {
-        equipment.push("Father's fingerbones - Symbol");
+        equipment.push("Huesos de los dedos del padre - Símbolo");
         alliesAndOrganizations.push(
-          "The Traveler - deity of chaos and change, I feel like things only get better with change, and I am a catalyst."
+          "El Viajero - deidad del caos y el cambio, siento que las cosas solo mejoran con el cambio, y soy un catalizador."
         );
         alliesAndOrganizations.push(" ");
       } else if (alignment[0] === "Lawful" && alignment[1] === "Evil") {
-        equipment.push("Black glove - Symbol");
+        equipment.push("Guante negro - Símbolo");
         alliesAndOrganizations.push(
-          "Bane - God of Tyranny, my one true master."
+          "Maldición - Dios de la Tiranía, mi único y verdadero maestro."
         );
         alliesAndOrganizations.push(" ");
       } else if (alignment[0] === "Neutral" && alignment[1] === "Evil") {
-        equipment.push("Dragonshard stone (fang-shaped) - Symbol");
+        equipment.push("Piedra de dragonshard (en forma de colmillo) - Símbolo");
         alliesAndOrganizations.push(
-          "The Keeper, God of greed and death, I will gain everything in this world, I will devour this planet."
+          "El Guardián, Dios de la codicia y la muerte, ganaré todo en este mundo, devoraré este planeta."
         );
         alliesAndOrganizations.push(" ");
       } else if (alignment[0] === "Chaotic" && alignment[1] === "Evil") {
-        equipment.push("Skull of a wicked man - Symbol");
+        equipment.push("Calavera de un hombre malvado - Símbolo");
         alliesAndOrganizations.push(
-          "Iuz - God of pain and oppression, I will worship this man as a vehicle for the pain and suffering that my wife suffered at the hands of those men."
+          "Iuz - Dios del dolor y la opresión, adoraré a este hombre como un vehículo para el dolor y sufrimiento que mi esposa sufrió a manos de esos hombres."
         );
         alliesAndOrganizations.push(" ");
       }
       if (strength > charisma && strength > constitution) {
-        equipment.push("Explorer's pack");
+        equipment.push("Paquete de explorador");
         equipment.push("Espada grande");
         document.getElementById("form79_1").value = "Espada grande"; // 1st weapon 1st section
         stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(strengthModifier, "form76_1", "2d6", "S"); // 1st weapon 3rd section
 
-        equipment.push(Maza);
-        document.getElementById("form77_1").value = Maza; // 3rd weapon 1st section
+        equipment.push("Maza");
+        document.getElementById("form77_1").value = "Maza"; // 3rd weapon 1st section
         stat_checker(strengthModifier + 2, "form66_1"); // 3rd weapon 2nd section
         stat_checker_3(strengthModifier, "form75_1", "2d6", "B"); // 3rd weapon 3rd section
 
-        equipment.push("Five javelins");
-        document.getElementById("form78_1").value = "Javelin"; // 2nd weapon 1st section
+        equipment.push("Cinco jabalinas");
+        document.getElementById("form78_1").value = "Jabalina"; // 2da arma 1ra sección
         stat_checker(strengthModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(strengthModifier, "form74_1", "1d6", "P"); // 2nd weapon 3rd section
       } else {
         equipment.push("Priest's pack");
         if (random > 0.75) {
-          equipment.push("Shield");
-          equipment.push("Warhammer");
-          document.getElementById("form79_1").value = "Warhammer"; // 1st weapon 1st section
+          equipment.push("Escudo");
+          equipment.push("Martillo de guerra");
+          document.getElementById("form79_1").value = "Martillo de guerra"; // 1st weapon 1st section
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "1d8", "B"); // 1st weapon 3rd section
         } else if (random > 0.5) {
-          equipment.push("Shield");
-          equipment.push("Longsword");
-          document.getElementById("form79_1").value = "Longsword"; // 1st weapon 1st section
+          equipment.push("Escudo");
+          equipment.push("Espada larga");
+          document.getElementById("form79_1").value = "Espada larga"; // 1st weapon 1st section
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "1d8", "S"); // 1st weapon 3rd section
         } else if (random > 0.25) {
-          equipment.push("Shield");
-          equipment.push("Flail");
-          document.getElementById("form79_1").value = "Flail"; // 1st weapon 1st section
+          equipment.push("Escudo");
+          equipment.push("Mangual");
+          document.getElementById("form79_1").value = "Mangual"; // 1st weapon 1st section
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "1d8", "B"); // 1st weapon 3rd section
         } else {
-          equipment.push("Shield");
-          equipment.push("Morningstar");
-          document.getElementById("form79_1").value = "Morningstar"; // 1st weapon 1st section
+          equipment.push("Escudo");
+          equipment.push("Estrella del alba");
+          document.getElementById("form79_1").value = "Estrella del alba"; // 1st weapon 1st section
           stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(strengthModifier, "form76_1", "1d8", "P"); // 1st weapon 3rd section
         }
 
         if (random > 0.5) {
-          equipment.push("Five javelins");
-          document.getElementById("form78_1").value = "Javelin"; // 2nd weapon 1st section
+            equipment.push("Cinco Jabalinas");
+          document.getElementById("form78_1").value = "Jabalina"; // 2nd weapon 1st section
           stat_checker(strengthModifier + 2, "form65_1"); // 2nd weapon 2nd section
           stat_checker_3(strengthModifier, "form74_1", "1d6", "P"); // 2nd weapon 3rd section
         } else if (random > 0.25) {
-          equipment.push("Greatclub");
-          document.getElementById("form78_1").value = "Greatclub"; // 2nd weapon 1st section
+          equipment.push("Gran garrote");
+            document.getElementById("form78_1").value = "Gran garrote"; // 2da arma 1ra sección
           stat_checker(strengthModifier + 2, "form65_1"); // 2nd weapon 2nd section
           stat_checker_3(strengthModifier, "form74_1", "1d8", "B"); // 2nd weapon 3rd section
         } else {
-          equipment.push("Spear");
-          document.getElementById("form78_1").value = "Spear"; // 2nd weapon 1st section
+          equipment.push("Lanza");
+          document.getElementById("form78_1").value = "Lanza"; // 2nd weapon 1st section
           stat_checker(strengthModifier + 2, "form65_1"); // 2nd weapon 2nd section
           stat_checker_3(strengthModifier, "form74_1", "1d6", "P"); // 2nd weapon 3rd section
         }
       }
     } else if (classAndLevel === "Ranger 1") {
-      equipment.push("Two shortswords");
-      document.getElementById("form78_1").value = "Shortsword"; // 2nd weapon 1st section
+      equipment.push("Two Espada cortas");
+      document.getElementById("form78_1").value = "Espada corta"; // 2nd weapon 1st section
       stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
       stat_checker_3(dexterityModifier, "form74_1", "1d6", "S"); // 2nd weapon 3rd section
-      equipment.push("Arco largo w/ quiver of 20 arrows");
+      equipment.push("Arco largo w/ quiver of 20 flechas");
       document.getElementById("form79_1").value = "Arco largo"; // 1st weapon 1st section
       stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
       stat_checker_3(dexterityModifier, "form76_1", "1d8", "P"); // 1st weapon 3rd section
       if (random > 0.5) {
-        equipment.push("Scale mail");
-        equipment.push("Dungeoneer's pack");
+        equipment.push("Cota de escamas");
+        equipment.push("Paquete de explorador");
       } else {
-        equipment.push("Leather armor");
-        equipment.push("Explorer's pack");
+        equipment.push("Armadura de cuero");
+        equipment.push("Paquete de explorador");
       }
       if (random2 > 0.91) {
         features.push(
-          "Favored Enemy: Your favored enemies are dragons, you have advantage on Survival checks to track them, as well as INT checks to recall information about them. You also learn the language of your favored enemy."
+          "Enemigo Favorito: Tus enemigos favoritos son los dragones, tienes ventaja en los chequeos de Supervivencia para rastrearlos, así como en los chequeos de INT para recordar información sobre ellos. También aprendes el idioma de tu enemigo favorito."
         );
-        language_adder_2(language_adder("Draconic"));
-      } else if (random2 > 0.78) {
+        language_adder_2(language_adder("Dracónico"));
+            } else if (random2 > 0.78) {
         features.push(
-          "Favored Enemy: Your favored enemies are beasts, you have advantage on Survival checks to track them, as well as INT checks to recall information about them. You also learn the language of your favored enemy, if they have one."
+          "Enemigo Favorito: Tus enemigos favoritos son las bestias, tienes ventaja en los chequeos de Supervivencia para rastrearlos, así como en los chequeos de INT para recordar información sobre ellos. También aprendes el idioma de tu enemigo favorito, si tienen uno."
         );
       } else if (random2 > 0.65) {
         features.push(
-          "Favored Enemy: Your favored enemies are celestials, you have advantage on Survival checks to track them, as well as INT checks to recall information about them. You also learn the language of your favored enemy."
+          "Enemigo Favorito: Tus enemigos favoritos son los celestiales, tienes ventaja en los chequeos de Supervivencia para rastrearlos, así como en los chequeos de INT para recordar información sobre ellos. También aprendes el idioma de tu enemigo favorito."
         );
         language_adder_2(language_adder("Celestial"));
-      } else if (random2 > 0.52) {
+            } else if (random2 > 0.52) {
         features.push(
-          "Favored Enemy: Your favored enemies are fiends, you have advantage on Survival checks to track them, as well as INT checks to recall information about them. You also learn the language of your favored enemy."
+          "Enemigo Favorito: Tus enemigos favoritos son los demonios, tienes ventaja en los chequeos de Supervivencia para rastrearlos, así como en los chequeos de INT para recordar información sobre ellos. También aprendes el idioma de tu enemigo favorito."
         );
         language_adder_2(language_adder("Abyssal"));
-      } else if (random2 > 0.39) {
+            } else if (random2 > 0.39) {
         features.push(
-          "Favored Enemy: Your favored enemies are elementals, you have advantage on Survival checks to track them, as well as INT checks to recall information about them. You also learn the language of your favored enemy."
+          "Enemigo Favorito: Tus enemigos favoritos son los elementales, tienes ventaja en los chequeos de Supervivencia para rastrearlos, así como en los chequeos de INT para recordar información sobre ellos. También aprendes el idioma de tu enemigo favorito."
         );
         language_adder_2(language_adder("Primordial"));
-      } else if (random2 > 0.26) {
+            } else if (random2 > 0.26) {
         features.push(
-          "Favored Enemy: Your favored enemies are goblins and orcs, you have advantage on Survival checks to track them, as well as INT checks to recall information about them. You also learn the language of your favored enemy."
+          "Enemigo Favorito: Tus enemigos favoritos son los goblins y orcos, tienes ventaja en los chequeos de Supervivencia para rastrearlos, así como en los chequeos de INT para recordar información sobre ellos. También aprendes el idioma de tu enemigo favorito."
         );
-        language_adder_2(language_adder("Orc"));
-      } else if (random2 > 0.13) {
+        language_adder_2(language_adder("Orco"));
+            } else if (random2 > 0.13) {
         features.push(
-          "Favored Enemy: Your favored enemies are undead, you have advantage on Survival checks to track them, as well as INT checks to recall information about them. You also learn the language of your favored enemy."
+          "Enemigo Favorito: Tus enemigos favoritos son los no-muertos, tienes ventaja en los chequeos de Supervivencia para rastrearlos, así como en los chequeos de INT para recordar información sobre ellos. También aprendes el idioma de tu enemigo favorito."
         );
-      } else {
+            } else {
         features.push(
-          "Favored Enemy: Your favored enemies are giants, you have advantage on Survival checks to track them, as well as INT checks to recall information about them. You also learn the language of your favored enemy."
+          "Enemigo Favorito: Tus enemigos favoritos son los gigantes, tienes ventaja en los chequeos de Supervivencia para rastrearlos, así como en los chequeos de INT para recordar información sobre ellos. También aprendes el idioma de tu enemigo favorito."
         );
-        language_adder_2(language_adder("Giant"));
-      }
+        language_adder_2(language_adder("Giante"));
+            }
 
-      if (random > 0.91) {
+            if (random > 0.91) {
         features.push(
-          "Natural Explorer: Favored terrain is the Underdark, when you make an INT or WIS check related to your favored terrain, your proficiency x2 if you are using a skill that you're proficient in. While traveling an hour or more in your favored terrain, you gain benefits: Difficult terrain doesn't slow your group's travel. Your group can't become lost except by magical means. When engaged in another activity while traveling you remain alert to danger. If alone, you can move stealthily at a normal pace. When you forage, find twice the food. While tracking other creatures, you learn their number, sizes, and how long it has been."
+          "Explorador Natural: Terreno favorito es el Subterráneo, cuando haces un chequeo de INT o SAB relacionado con tu terreno favorito, tu competencia x2 si estás usando una habilidad en la que eres competente. Mientras viajas una hora o más en tu terreno favorito, obtienes beneficios: El terreno difícil no ralentiza el viaje de tu grupo. Tu grupo no puede perderse excepto por medios mágicos. Cuando te dedicas a otra actividad mientras viajas, permaneces alerta al peligro. Si estás solo, puedes moverte sigilosamente a un ritmo normal. Cuando buscas comida, encuentras el doble de alimento. Mientras rastreas otras criaturas, aprendes su número, tamaños y cuánto tiempo ha pasado."
         );
-      } else if (random > 0.78) {
+            } else if (random > 0.78) {
         features.push(
-          "Natural Explorer: Favored terrain is the Artic, when you make an INT or WIS check related to your favored terrain, your proficiency x2 if you are using a skill that you're proficient in. While traveling an hour or more in your favored terrain, you gain benefits: Difficult terrain doesn't slow your group's travel. Your group can't become lost except by magical means. When engaged in another activity while traveling you remain alert to danger. If alone, you can move stealthily at a normal pace. When you forage, find twice the food. While tracking other creatures, you learn their number, sizes, and how long it has been."
+          "Explorador Natural: Terreno favorito es el Ártico, cuando haces un chequeo de INT o SAB relacionado con tu terreno favorito, tu competencia x2 si estás usando una habilidad en la que eres competente. Mientras viajas una hora o más en tu terreno favorito, obtienes beneficios: El terreno difícil no ralentiza el viaje de tu grupo. Tu grupo no puede perderse excepto por medios mágicos. Cuando te dedicas a otra actividad mientras viajas, permaneces alerta al peligro. Si estás solo, puedes moverte sigilosamente a un ritmo normal. Cuando buscas comida, encuentras el doble de alimento. Mientras rastreas otras criaturas, aprendes su número, tamaños y cuánto tiempo ha pasado."
         );
-      } else if (random > 0.65) {
+            } else if (random > 0.65) {
         features.push(
-          "Natural Explorer: Favored terrain is the Coast, when you make an INT or WIS check related to your favored terrain, your proficiency x2 if you are using a skill that you're proficient in. While traveling an hour or more in your favored terrain, you gain benefits: Difficult terrain doesn't slow your group's travel. Your group can't become lost except by magical means. When engaged in another activity while traveling you remain alert to danger. If alone, you can move stealthily at a normal pace. When you forage, find twice the food. While tracking other creatures, you learn their number, sizes, and how long it has been."
+          "Explorador Natural: Terreno favorito es la Costa, cuando haces un chequeo de INT o SAB relacionado con tu terreno favorito, tu competencia x2 si estás usando una habilidad en la que eres competente. Mientras viajas una hora o más en tu terreno favorito, obtienes beneficios: El terreno difícil no ralentiza el viaje de tu grupo. Tu grupo no puede perderse excepto por medios mágicos. Cuando te dedicas a otra actividad mientras viajas, permaneces alerta al peligro. Si estás solo, puedes moverte sigilosamente a un ritmo normal. Cuando buscas comida, encuentras el doble de alimento. Mientras rastreas otras criaturas, aprendes su número, tamaños y cuánto tiempo ha pasado."
         );
-      } else if (random > 0.52) {
+            } else if (random > 0.52) {
         features.push(
-          "Natural Explorer: Favored terrain is the Desert, when you make an INT or WIS check related to your favored terrain, your proficiency x2 if you are using a skill that you're proficient in. While traveling an hour or more in your favored terrain, you gain benefits: Difficult terrain doesn't slow your group's travel. Your group can't become lost except by magical means. When engaged in another activity while traveling you remain alert to danger. If alone, you can move stealthily at a normal pace. When you forage, find twice the food. While tracking other creatures, you learn their number, sizes, and how long it has been."
+          "Explorador Natural: Terreno favorito es el Desierto, cuando haces un chequeo de INT o SAB relacionado con tu terreno favorito, tu competencia x2 si estás usando una habilidad en la que eres competente. Mientras viajas una hora o más en tu terreno favorito, obtienes beneficios: El terreno difícil no ralentiza el viaje de tu grupo. Tu grupo no puede perderse excepto por medios mágicos. Cuando te dedicas a otra actividad mientras viajas, permaneces alerta al peligro. Si estás solo, puedes moverte sigilosamente a un ritmo normal. Cuando buscas comida, encuentras el doble de alimento. Mientras rastreas otras criaturas, aprendes su número, tamaños y cuánto tiempo ha pasado."
         );
-      } else if (random > 0.39) {
+            } else if (random > 0.39) {
         features.push(
-          "Natural Explorer: Favored terrain is the Forest, when you make an INT or WIS check related to your favored terrain, your proficiency x2 if you are using a skill that you're proficient in. While traveling an hour or more in your favored terrain, you gain benefits: Difficult terrain doesn't slow your group's travel. Your group can't become lost except by magical means. When engaged in another activity while traveling you remain alert to danger. If alone, you can move stealthily at a normal pace. When you forage, find twice the food. While tracking other creatures, you learn their number, sizes, and how long it has been."
+          "Explorador Natural: Terreno favorito es el Bosque, cuando haces un chequeo de INT o SAB relacionado con tu terreno favorito, tu competencia x2 si estás usando una habilidad en la que eres competente. Mientras viajas una hora o más en tu terreno favorito, obtienes beneficios: El terreno difícil no ralentiza el viaje de tu grupo. Tu grupo no puede perderse excepto por medios mágicos. Cuando te dedicas a otra actividad mientras viajas, permaneces alerta al peligro. Si estás solo, puedes moverte sigilosamente a un ritmo normal. Cuando buscas comida, encuentras el doble de alimento. Mientras rastreas otras criaturas, aprendes su número, tamaños y cuánto tiempo ha pasado."
         );
-      } else if (random > 0.26) {
+            } else if (random > 0.26) {
         features.push(
-          "Natural Explorer: Favored terrain is the Grasslands, when you make an INT or WIS check related to your favored terrain, your proficiency x2 if you are using a skill that you're proficient in. While traveling an hour or more in your favored terrain, you gain benefits: Difficult terrain doesn't slow your group's travel. Your group can't become lost except by magical means. When engaged in another activity while traveling you remain alert to danger. If alone, you can move stealthily at a normal pace. When you forage, find twice the food. While tracking other creatures, you learn their number, sizes, and how long it has been."
+          "Explorador Natural: Terreno favorito es las Praderas, cuando haces un chequeo de INT o SAB relacionado con tu terreno favorito, tu competencia x2 si estás usando una habilidad en la que eres competente. Mientras viajas una hora o más en tu terreno favorito, obtienes beneficios: El terreno difícil no ralentiza el viaje de tu grupo. Tu grupo no puede perderse excepto por medios mágicos. Cuando te dedicas a otra actividad mientras viajas, permaneces alerta al peligro. Si estás solo, puedes moverte sigilosamente a un ritmo normal. Cuando buscas comida, encuentras el doble de alimento. Mientras rastreas otras criaturas, aprendes su número, tamaños y cuánto tiempo ha pasado."
         );
-      } else if (random > 0.13) {
+            } else if (random > 0.13) {
         features.push(
-          "Natural Explorer: Favored terrain is the Mountains, when you make an INT or WIS check related to your favored terrain, your proficiency x2 if you are using a skill that you're proficient in. While traveling an hour or more in your favored terrain, you gain benefits: Difficult terrain doesn't slow your group's travel. Your group can't become lost except by magical means. When engaged in another activity while traveling you remain alert to danger. If alone, you can move stealthily at a normal pace. When you forage, find twice the food. While tracking other creatures, you learn their number, sizes, and how long it has been."
+          "Explorador Natural: Terreno favorito es las Montañas, cuando haces un chequeo de INT o SAB relacionado con tu terreno favorito, tu competencia x2 si estás usando una habilidad en la que eres competente. Mientras viajas una hora o más en tu terreno favorito, obtienes beneficios: El terreno difícil no ralentiza el viaje de tu grupo. Tu grupo no puede perderse excepto por medios mágicos. Cuando te dedicas a otra actividad mientras viajas, permaneces alerta al peligro. Si estás solo, puedes moverte sigilosamente a un ritmo normal. Cuando buscas comida, encuentras el doble de alimento. Mientras rastreas otras criaturas, aprendes su número, tamaños y cuánto tiempo ha pasado."
         );
-      } else {
+            } else {
         features.push(
-          "Natural Explorer: Favored terrain is the Swamp, when you make an INT or WIS check related to your favored terrain, your proficiency x2 if you are using a skill that you're proficient in. While traveling an hour or more in your favored terrain, you gain benefits: Difficult terrain doesn't slow your group's travel. Your group can't become lost except by magical means. When engaged in another activity while traveling you remain alert to danger. If alone, you can move stealthily at a normal pace. When you forage, find twice the food. While tracking other creatures, you learn their number, sizes, and how long it has been."
+          "Explorador Natural: Terreno favorito es el Pantano, cuando haces un chequeo de INT o SAB relacionado con tu terreno favorito, tu competencia x2 si estás usando una habilidad en la que eres competente. Mientras viajas una hora o más en tu terreno favorito, obtienes beneficios: El terreno difícil no ralentiza el viaje de tu grupo. Tu grupo no puede perderse excepto por medios mágicos. Cuando te dedicas a otra actividad mientras viajas, permaneces alerta al peligro. Si estás solo, puedes moverte sigilosamente a un ritmo normal. Cuando buscas comida, encuentras el doble de alimento. Mientras rastreas otras criaturas, aprendes su número, tamaños y cuánto tiempo ha pasado."
         );
-      }
+            }
     } else if (classAndLevel === "Rogue 1") {
-      tool_adder_2(tool_adder("thieves' tools"));
-      equipment.push("Rapier");
-      document.getElementById("form79_1").value = "Rapier"; // 1st weapon 1st section
+      herramienta_agregador_2(herramienta_agregador("herramientas de ladrón"));
+      equipment.push("Estoque");
+      document.getElementById("form79_1").value = "Estoque"; // 1st weapon 1st section
       stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
       stat_checker_3(dexterityModifier, "form76_1", "1d8", "P"); // 1st weapon 3rd section
-      equipment.push("Leather armor");
-      equipment.push("Two daggers");
-      document.getElementById("form78_1").value = "Dagger"; // 2nd weapon 1st section
+      equipment.push("Armadura de cuero");
+      equipment.push("Two Dagas");
+      document.getElementById("form78_1").value = "Daga"; // 2nd weapon 1st section
       stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
       stat_checker_3(dexterityModifier, "form74_1", "1d4", "P"); // 2nd weapon 3rd section
-      equipment.push("Shortbow w/ quiver of 20 arrows");
-      document.getElementById("form77_1").value = "Shortbow"; // 3rd weapon 1st section
+      equipment.push("Arco corto w/ quiver of 20 flechas");
+      document.getElementById("form77_1").value = "Arco corto"; // 3rd weapon 1st section
       stat_checker(dexterityModifier + 2, "form66_1"); // 3rd weapon 2nd section
       stat_checker_3(dexterityModifier, "form75_1", "1d6", "P"); // 3rd weapon 3rd section
       features.push(
-        "Sneak Attack: If an enemy is getting flanked or you have advantage on the attack, you can use your sneak attack dice (1d6) on the attack (once a turn). The weapon must be a finesse or ranged weapon."
+        "Ataque Furtivo: Si un enemigo está flanqueado o tienes ventaja en el ataque, puedes usar tus dados de ataque furtivo (1d6) en el ataque (una vez por turno). El arma debe ser un arma de destreza o a distancia."
       );
       spellcastingSection.push(
-        "Sneak Attack: 1d6 to first attack roll of the round that has advantage and hits."
+        "Ataque Furtivo: 1d6 al primer ataque de la ronda que tenga ventaja y acierte."
       );
-      language_adder_2(language_adder("Thieves' Cant"));
+      language_adder_2(language_adder("Jerga de Ladrones"));
       features.push(
-        "Thieves' Cant: You know the secret code of thieves and rogues everywhere, and the secret signs and jargon associated with it."
+        "Jerga de Ladrones: Conoces el código secreto de los ladrones y pícaros en todas partes, y los signos y jerga asociados con él."
       );
       if (random > 0.5) {
         features.push(
-          "Expertise: Your two skills of expertise are Stealth and Perception. Your proficiency bonus is doubled for any ability check you make that uses either of those proficiencies."
+          "Pericia: Tus dos habilidades de pericia son Sigilo y Percepción. Tu bonificación de competencia se duplica para cualquier chequeo de habilidad que uses cualquiera de esas competencias."
         );
-        equipment.push("Thieves' tools");
+        equipment.push("herramientas de ladrón");
         stat_checker(dexterityModifier + 4, "form32_1");
         stat_checker(wisdomModifier + 4, "form43_1");
       } else if (document.getElementById("form17_1").checked === true) {
         features.push(
-          "Expertise: Your two skills of expertise are Stealth and Deception. Your proficiency bonus is doubled for any ability check you make that uses either of those proficiencies."
+          "Pericia: Tus dos habilidades de pericia son Sigilo y Engaño. Tu bonificación de competencia se duplica para cualquier chequeo de habilidad que uses cualquiera de esas competencias."
         );
         stat_checker(dexterityModifier + 4, "form32_1");
         stat_checker(charismaModifier + 4, "form36_1");
-        equipment.push("Thieves' tools");
+        equipment.push("herramientas de ladrón");
       } else if (document.getElementById("form14_1").checked === true) {
         features.push(
-          "Expertise: Your two skills of expertise are Stealth and Investigation. Your proficiency bonus is doubled for any ability check you make that uses either of those proficiencies."
+          "Pericia: Tus dos habilidades de pericia son Sigilo e Investigación. Tu bonificación de competencia se duplica para cualquier chequeo de habilidad que uses cualquiera de esas competencias."
         );
         stat_checker(dexterityModifier + 4, "form32_1");
         stat_checker(intelligenceModifier + 4, "form31_1");
-        equipment.push("Thieves' tools");
+        equipment.push("herramientas de ladrón");
       } else {
         features.push(
-          "Expertise: Your two skills of expertise are Stealth and Thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of those proficiencies."
+          "Expertise: Your two skills of expertise are Stealth and herramientas de ladrón. Your proficiency bonus is doubled for any ability check you make that uses either of those proficiencies."
         );
         stat_checker(dexterityModifier + 4, "form32_1");
-        equipment.push("Thieves' tools (+4)");
+        equipment.push("herramientas de ladrón (+4)");
       } /* Levi N. Blodgett */
     } else if (classAndLevel === "Sorcerer 1") {
-      equipment.push("Two daggers");
-      document.getElementById("form79_1").value = "Dagger"; // 1st weapon 1st section
+      equipment.push("Two Dagas");
+      document.getElementById("form79_1").value = "Daga"; // 1st weapon 1st section
       stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
       stat_checker_3(dexterityModifier, "form76_1", "1d4", "P"); // 1st weapon 3rd section
       equipment.push("Light crossbow w/ 20 bolts");
-      document.getElementById("form78_1").value = "Light CB"; // 2nd weapon 1st section
+      document.getElementById("form78_1").value = "Ballesta ligera"; // 2nd weapon 1st section
       stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
       stat_checker_3(dexterityModifier, "form74_1", "1d8", "P"); // 2nd weapon 3rd section
       equipment.push("Component pouch");
       if (random > 0.5) {
-        equipment.push("Explorer's pack");
+        equipment.push("Paquete de explorador");
         if (random2 > 0.9) {
           features.push(
             "Draconic Ancestor: Black, and you know the language 'Draconic', you also get double your proficiency bonus when making a CHA check interacting with dragons."
@@ -4180,7 +4180,7 @@ armor = {
           hp++;
         }
       } else {
-        equipment.push("Dungeoneer's pack");
+        equipment.push("Paquete de explorador");
         features.push(
           "Wild Magic Surge: Immediately after you cast a sorcerer spell of 1st level or higher, the DM can have you roll a d20. If you roll a 1, roll on the Wild Magic Surge table to create a random magical effect."
         );
@@ -4190,49 +4190,49 @@ armor = {
         armorClass += 10 + dexterityModifier;
       }
     } else if (classAndLevel === "Warlock 1") {
-      equipment.push("Two daggers");
+      equipment.push("Two Dagas");
       equipment.push("Component pouch");
-      equipment.push("Leather armor");
+      equipment.push("Armadura de cuero");
       if (strength > dexterity) {
-        document.getElementById("form77_1").value = "Dagger"; // 3rd weapon 1st section
+        document.getElementById("form77_1").value = "Daga"; // 3rd weapon 1st section
         stat_checker(strengthModifier + 2, "form66_1"); // 3rd weapon 2nd section
         stat_checker_3(strengthModifier, "form75_1", "1d4", "P"); // 3rd weapon 3rd section
-        equipment.push("Handaxe");
-        document.getElementById("form78_1").value = "Handaxe"; // 2nd weapon 1st section
+        equipment.push("Hacha de mano");
+        document.getElementById("form78_1").value = "Hacha de mano"; // 2nd weapon 1st section
         stat_checker(strengthModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(strengthModifier, "form74_1", "1d6", "S"); // 2nd weapon 3rd section
-        equipment.push("Mace");
-        document.getElementById("form79_1").value = "Mace"; // 1st weapon 1st section
+        equipment.push("Maza");
+        document.getElementById("form79_1").value = "Maza"; // 1st weapon 1st section
         stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(strengthModifier, "form76_1", "1d6", "B"); // 1st weapon 3rd section
         equipment.push("Scholar's pack");
       } else {
-        equipment.push("Quarterstaff");
-        document.getElementById("form79_1").value = "Quarterstaff"; // 1st weapon 1st section
+        equipment.push("Bastón");
+        document.getElementById("form79_1").value = "Bastón"; // 1st weapon 1st section
         stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(strengthModifier, "form76_1", "1d6", "B"); // 1st weapon 3rd section
-        equipment.push("Dungeoneer's pack");
-        document.getElementById("form77_1").value = "Dagger"; // 3rd weapon 1st section
+        equipment.push("Paquete de explorador");
+        document.getElementById("form77_1").value = "Daga"; // 3rd weapon 1st section
         stat_checker(dexterityModifier + 2, "form66_1"); // 3rd weapon 2nd section
         stat_checker_3(dexterityModifier, "form75_1", "1d4", "P"); // 3rd weapon 3rd section
         equipment.push("Light crossbow w/ 20 bolts");
-        document.getElementById("form78_1").value = "Light CB"; // 2nd weapon 1st section
+        document.getElementById("form78_1").value = "Ballesta ligera"; // 2nd weapon 1st section
         stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(dexterityModifier, "form74_1", "1d8", "P"); // 2nd weapon 3rd section
       }
       if (random2 > 0.666) {
         features.push("Otherworldly Patron: Archfey.");
-        document.getElementById("form193_3").value = "Faerie Fire";
+        document.getElementById("form193_3").value = "Fuego Feérico";
         document.getElementById("form159_3").value = "Sleep";
         features.push(
           "Fey Presence (1/r): As an action, you can cause each creature in a 10-foot cube originating from you to make a Wisdom saving throw against your warlock spell save DC. If a target fails the saving throw, they are charmed or frightened by you (your choice) until the end of your next turn."
         );
       } else if (random2 > 0.333) {
         features.push("Otherworldly Patron: Fiend.");
-        document.getElementById("form193_3").value = "Burning Hands";
-        document.getElementById("form159_3").value = "Command";
+        document.getElementById("form193_3").value = "Manos Ardientes";
+        document.getElementById("form159_3").value = "Mandato";
         features.push(
-          "Dark One's Blessing: When you reduce a hostile creature to 0 hit points, you gain temporary hit points equal to your CHA modifier + your warlock level."
+          "Dark One's Bendicióning: When you reduce a hostile creature to 0 hit points, you gain temporary hit points equal to your CHA modifier + your warlock level."
         );
       } else {
         features.push("Otherworldly Patron: Great Old One.");
@@ -4249,14 +4249,14 @@ armor = {
       );
       if (random > 0.5) {
         equipment.push("Scholar's pack");
-        equipment.push("Quarterstaff");
-        document.getElementById("form79_1").value = "Quarterstaff"; // 1st weapon 1st section
+        equipment.push("Bastón");
+        document.getElementById("form79_1").value = "Bastón"; // 1st weapon 1st section
         stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(strengthModifier, "form76_1", "1d6", "B"); // 1st weapon 3rd section
       } else {
-        equipment.push("Explorer's pack");
-        equipment.push("Dagger");
-        document.getElementById("form79_1").value = "Dagger"; // 1st weapon 1st section
+        equipment.push("Paquete de explorador");
+        equipment.push("Daga");
+        document.getElementById("form79_1").value = "Daga"; // 1st weapon 1st section
         stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(dexterityModifier, "form76_1", "1d4", "P"); // 1st weapon 3rd section
       }
@@ -4290,73 +4290,73 @@ armor = {
   // Block that adds weapon proficiencies by class
   if (classAndLevel === "Barbarian 1") {
     weapon_adder_2(weapon_adder("simple weapons"));
-    weapon_adder_2(weapon_adder("martial weapons"));
+    weapon_adder_2(weapon_adder("armas marciales"));
     armor_adder_2(armor_adder("light armor"));
     armor_adder_2(armor_adder("medium armor"));
-    armor_adder_2(armor_adder("shield"));
+    armor_adder_2(armor_adder("Escudo"));
     armorClass += 10 + dexterityModifier + constitutionModifier; // armor class
-    equipment.push("Four javelins");
-    equipment.push("Explorer's pack");
+    equipment.push("Four Jabalinas");
+    equipment.push("Paquete de explorador");
     random_by_length(barbarianBonds, bonds, "form101_1");
   } else if (classAndLevel === "Fighter 1") {
     weapon_adder_2(weapon_adder("simple weapons"));
-    weapon_adder_2(weapon_adder("martial weapons"));
+    weapon_adder_2(weapon_adder("armas marciales"));
     armor_adder_2(armor_adder("light armor"));
     armor_adder_2(armor_adder("medium armor"));
     armor_adder_2(armor_adder("heavy armor"));
-    armor_adder_2(armor_adder("shield"));
+    armor_adder_2(armor_adder("Escudo"));
     random_by_length(fighterBonds, bonds, "form101_1");
   } else if (classAndLevel === "Bard 1") {
     weapon_adder_2(weapon_adder("simple weapons"));
     armor_adder_2(armor_adder("light armor"));
-    weapon_adder_2(weapon_adder("hand crossbow"));
-    weapon_adder_2(weapon_adder("longsword"));
-    weapon_adder_2(weapon_adder("rapier"));
-    weapon_adder_2(weapon_adder("shortsword"));
+    weapon_adder_2(weapon_adder("Ballesta de mano"));
+    weapon_adder_2(weapon_adder("Espada larga"));
+    weapon_adder_2(weapon_adder("Estoque"));
+    weapon_adder_2(weapon_adder("Espada corta"));
     random_by_length(bardBonds, bonds, "form101_1");
   } else if (classAndLevel === "Cleric 1") {
     weapon_adder_2(weapon_adder("simple weapons"));
     armor_adder_2(armor_adder("light armor"));
     armor_adder_2(armor_adder("medium armor"));
-    armor_adder_2(armor_adder("shield"));
+    armor_adder_2(armor_adder("Escudo"));
     random_by_length(clericBonds, bonds, "form101_1");
   } else if (classAndLevel === "Sorcerer 1") {
-    weapon_adder_2(weapon_adder("dagger"));
+    weapon_adder_2(weapon_adder("Daga"));
     weapon_adder_2(weapon_adder("dart"));
-    weapon_adder_2(weapon_adder("quarterstaff"));
+    weapon_adder_2(weapon_adder("Bastón"));
     weapon_adder_2(weapon_adder("sling"));
     weapon_adder_2(weapon_adder("light crossbow"));
     random_by_length(sorcererBonds, bonds, "form101_1");
   } else if (classAndLevel === "Wizard 1") {
-    weapon_adder_2(weapon_adder("dagger"));
+    weapon_adder_2(weapon_adder("Daga"));
     weapon_adder_2(weapon_adder("dart"));
-    weapon_adder_2(weapon_adder("quarterstaff"));
+    weapon_adder_2(weapon_adder("Bastón"));
     weapon_adder_2(weapon_adder("sling"));
     weapon_adder_2(weapon_adder("light crossbow"));
     random_by_length(wizardBonds, bonds, "form101_1");
   } else if (classAndLevel === "Druid 1") {
     armor_adder_2(armor_adder("light armor"));
     armor_adder_2(armor_adder("medium armor"));
-    armor_adder_2(armor_adder("shield"));
-    features.push("(All armor and shields must be nonmetal)");
+    armor_adder_2(armor_adder("Escudo"));
+    features.push("(All armor and Escudos must be nonmetal)");
     weapon_adder_2(weapon_adder("club"));
-    weapon_adder_2(weapon_adder("dagger"));
+    weapon_adder_2(weapon_adder("Daga"));
     weapon_adder_2(weapon_adder("dart"));
-    weapon_adder_2(weapon_adder("javelin"));
-    weapon_adder_2(weapon_adder("mace"));
-    weapon_adder_2(weapon_adder("quarterstaff"));
-    weapon_adder_2(weapon_adder("scimitar"));
+    weapon_adder_2(weapon_adder("Jabalina"));
+    weapon_adder_2(weapon_adder("Maza"));
+    weapon_adder_2(weapon_adder("Bastón"));
+    weapon_adder_2(weapon_adder("Cimitarra"));
     weapon_adder_2(weapon_adder("sickle"));
     weapon_adder_2(weapon_adder("sling"));
-    weapon_adder_2(weapon_adder("spear"));
+    weapon_adder_2(weapon_adder("Lanza"));
     random_by_length(druidBonds, bonds, "form101_1");
   } else if (classAndLevel === "Rogue 1") {
     weapon_adder_2(weapon_adder("simple weapons"));
     armor_adder_2(armor_adder("light armor"));
-    weapon_adder_2(weapon_adder("hand crossbow"));
-    weapon_adder_2(weapon_adder("longsword"));
-    weapon_adder_2(weapon_adder("rapier"));
-    weapon_adder_2(weapon_adder("shortsword"));
+    weapon_adder_2(weapon_adder("Ballesta de mano"));
+    weapon_adder_2(weapon_adder("Espada larga"));
+    weapon_adder_2(weapon_adder("Estoque"));
+    weapon_adder_2(weapon_adder("Espada corta"));
     random_by_length(rogueBonds, bonds, "form101_1");
   } else if (classAndLevel === "Warlock 1") {
     weapon_adder_2(weapon_adder("simple weapons"));
@@ -4364,23 +4364,23 @@ armor = {
     random_by_length(warlockBonds, bonds, "form101_1");
   } else if (classAndLevel === "Ranger 1") {
     weapon_adder_2(weapon_adder("simple weapons"));
-    weapon_adder_2(weapon_adder("martial weapons"));
+    weapon_adder_2(weapon_adder("armas marciales"));
     armor_adder_2(armor_adder("light armor"));
     armor_adder_2(armor_adder("medium armor"));
-    armor_adder_2(armor_adder("shield"));
+    armor_adder_2(armor_adder("Escudo"));
     random_by_length(rangerBonds, bonds, "form101_1");
   } else if (classAndLevel === "Paladin 1") {
     weapon_adder_2(weapon_adder("simple weapons"));
-    weapon_adder_2(weapon_adder("martial weapons"));
+    weapon_adder_2(weapon_adder("armas marciales"));
     armor_adder_2(armor_adder("light armor"));
     armor_adder_2(armor_adder("medium armor"));
     armor_adder_2(armor_adder("heavy armor"));
-    armor_adder_2(armor_adder("shield"));
+    armor_adder_2(armor_adder("Escudo"));
     random_by_length(paladinBonds, bonds, "form101_1");
   } else if (classAndLevel === "Monk 1") {
     armorClass += 10 + dexterityModifier + wisdomModifier; // armor class
     weapon_adder_2(weapon_adder("simple weapons"));
-    weapon_adder_2(weapon_adder("shortsword"));
+    weapon_adder_2(weapon_adder("Espada corta"));
     random_by_length(monkBonds, bonds, "form101_1");
   }
 
@@ -4748,9 +4748,9 @@ armor = {
     eye_randomizer("Black", "Brown", "Green", "Blue"); // eyes
     weapon_adder_2(weapon_adder("battleaxe"));
     weapon_adder_2(weapon_adder("battleaxe"));
-    weapon_adder_2(weapon_adder("handaxe"));
+    weapon_adder_2(weapon_adder("Hacha de mano"));
     weapon_adder_2(weapon_adder("light hammer"));
-    weapon_adder_2(weapon_adder("warhammer"));
+    weapon_adder_2(weapon_adder("Martillo de guerra"));
     hp++;
   } else if (race === "Mountain Dwarf") {
     document.getElementById("form5_2").value = get_random_int(50, 250); // age
@@ -4771,9 +4771,9 @@ armor = {
     eye_randomizer("Black", "Brown", "Green", "Blue"); // eyes
     weapon_adder_2(weapon_adder("battleaxe"));
     weapon_adder_2(weapon_adder("battleaxe"));
-    weapon_adder_2(weapon_adder("handaxe"));
+    weapon_adder_2(weapon_adder("Hacha de mano"));
     weapon_adder_2(weapon_adder("light hammer"));
-    weapon_adder_2(weapon_adder("warhammer"));
+    weapon_adder_2(weapon_adder("Martillo de guerra"));
     armor_adder_2(armor_adder("light armor"));
     armor_adder_2(armor_adder("medium armor"));
   } else if (race === "Human (Calishite)") {
@@ -4933,9 +4933,9 @@ armor = {
     hair_randomizer("Brown", "Black", "Copper", "Blond"); // hair
     weight_randomizer(constitution, strength, 110, 115, 130, 140, 155, 165); // weight
     eye_randomizer("Green", "Brown", "Hazel", "Amber"); // eyes
-    weapon_adder_2(weapon_adder("longsword"));
-    weapon_adder_2(weapon_adder("shortsword"));
-    weapon_adder_2(weapon_adder("shortbow"));
+    weapon_adder_2(weapon_adder("Espada larga"));
+    weapon_adder_2(weapon_adder("Espada corta"));
+    weapon_adder_2(weapon_adder("Arco corto"));
     weapon_adder_2(weapon_adder("Arco largo"));
   } else if (race === "Dark Elf (Drow)") {
     document.getElementById("form5_2").value = get_random_int(100, 600); // age
@@ -4948,9 +4948,9 @@ armor = {
     hair_randomizer("White", "Light Blond", "Pale Yellow", "White & Yellow"); // hair
     weight_randomizer(constitution, strength, 100, 105, 120, 130, 145, 155); // weight
     eye_randomizer("Lilac", "Silver", "Pink", "Blue"); // eyes
-    weapon_adder_2(weapon_adder("rapier"));
-    weapon_adder_2(weapon_adder("shortsword"));
-    weapon_adder_2(weapon_adder("hand crossbow"));
+    weapon_adder_2(weapon_adder("Estoque"));
+    weapon_adder_2(weapon_adder("Espada corta"));
+    weapon_adder_2(weapon_adder("Ballesta de mano"));
   } else if (race === "Lightfoot Halfling") {
     document.getElementById("form5_2").value = get_random_int(20, 100); // age
     document.getElementById("form1_2").value = get_random_int(32, 41); // height
@@ -5338,7 +5338,7 @@ armor = {
       " mean to you?\r" +
       "Are you still duping people, if not, why the change of heart?";
   } else if (newBackground1 === "Criminal") {
-    tool_adder_2(tool_adder("thieves' tools"));
+    tool_adder_2(tool_adder("herramientas de ladrón"));
     tool_adder_2(tool_adder(random_gaming_set_capitalize().toLowerCase()));
     add_click(17);
     stat_checker(charismaModifier + 2, "form36_1");
@@ -5403,7 +5403,7 @@ armor = {
     equipment.push("Belt Pouch");
     gold += 10;
     features.push(
-      "Rustic Hospitality: Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will shield you from the law or anyone else searching for you, though they will not risk their lives for you."
+      "Rustic Hospitality: Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will Escudo you from the law or anyone else searching for you, though they will not risk their lives for you."
     );
     document.getElementById("form15_2").value =
       "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhat made you famous to your people?\rWhy did you leave them?\rWhy are you a " +
@@ -5723,7 +5723,7 @@ armor = {
       race +
       " mean to you?\r";
   } else if (newBackground1 === "Spy") {
-    tool_adder_2(tool_adder("thieves' tools"));
+    tool_adder_2(tool_adder("herramientas de ladrón"));
     tool_adder_2(tool_adder(random_gaming_set_capitalize().toLowerCase()));
     add_click(17);
     stat_checker(charismaModifier + 2, "form36_1");
@@ -5749,7 +5749,7 @@ armor = {
       "Who did you work for when you were a spy?";
   } else if (newBackground1 === "Urchin") {
     tool_adder_2(tool_adder("disguise kit"));
-    tool_adder_2(tool_adder("thieves' tools"));
+    tool_adder_2(tool_adder("herramientas de ladrón"));
     add_click(4);
     stat_checker(dexterityModifier + 2, "form46_1");
     add_click(23);
@@ -6171,16 +6171,16 @@ armor = {
     stat_checker(charismaModifier + 2, "form195_3"); // spell attack bonus
     document.getElementById("form97_3").value = 2;
     document.getElementById("form193_3").value = "Charm Person";
-    document.getElementById("form159_3").value = "Faerie Fire";
+    document.getElementById("form159_3").value = "Fuego Feérico";
     if (strength > 12 && constitution > 12) {
       document.getElementById("form137_3").value = "Thunderwave";
     } else {
       document.getElementById("form137_3").value = "Tasha's Hideous Laughter";
     }
     if (strength > 12 && constitution > 12) {
-      document.getElementById("form136_3").value = "Cure Wounds";
+      document.getElementById("form136_3").value = "Curar Heridas";
     } else {
-      document.getElementById("form136_3").value = "Healing Word";
+      document.getElementById("form136_3").value = "Palabra Curativa";
     }
     if (document.getElementById("form198_3").value === "Minor Illusion") {
       document.getElementById("form213_3").value = "Vicious Mockery";
@@ -6190,7 +6190,7 @@ armor = {
     ) {
       document.getElementById("form213_3").value = "Vicious Mockery";
       document.getElementById("form204_3").value = "Prestidigitation";
-    } else if (document.getElementById("form198_3").value === "Thaumaturgy") {
+    } else if (document.getElementById("form198_3").value === "Taumaturgia") {
       document.getElementById("form213_3").value = "Minor Illusion";
       document.getElementById("form204_3").value = "Vicious Mockery";
     } else {
@@ -6209,7 +6209,7 @@ armor = {
     document.getElementById("form203_3").value = "Message";
     document.getElementById("form202_3").value = "Fire Bolt";
     document.getElementById("form193_3").value = "Charm Person";
-    document.getElementById("form159_3").value = "Burning Hands";
+    document.getElementById("form159_3").value = "Manos Ardientes";
   } else if (classAndLevel === "Warlock 1") {
     document.getElementById("form214_3").value = className; // spellcasting class
     document.getElementById("form196_3").value = "CHA"; // spellcasting ability
@@ -6233,30 +6233,30 @@ armor = {
     }
     document.getElementById("form203_3").value = "Fire Bolt";
     if (intelligenceModifier === 0) {
-      document.getElementById("form193_3").value = "Magic Missile";
+      document.getElementById("form193_3").value = "Misil Mágico";
     } else if (intelligenceModifier === 1) {
-      document.getElementById("form193_3").value = "Magic Missile";
+      document.getElementById("form193_3").value = "Misil Mágico";
       document.getElementById("form159_3").value = "Mage Armor";
     } else if (intelligenceModifier === 2) {
-      document.getElementById("form193_3").value = "Magic Missile";
+      document.getElementById("form193_3").value = "Misil Mágico";
       document.getElementById("form159_3").value = "Mage Armor";
       document.getElementById("form137_3").value = "Sleep";
     } else if (intelligenceModifier === 3) {
-      document.getElementById("form193_3").value = "Magic Missile";
+      document.getElementById("form193_3").value = "Misil Mágico";
       document.getElementById("form159_3").value = "Mage Armor";
       document.getElementById("form137_3").value = "Sleep";
-      document.getElementById("form136_3").value = "Burning Hands";
+      document.getElementById("form136_3").value = "Manos Ardientes";
     } else if (intelligenceModifier === 4) {
-      document.getElementById("form193_3").value = "Magic Missile";
+      document.getElementById("form193_3").value = "Misil Mágico";
       document.getElementById("form159_3").value = "Mage Armor";
       document.getElementById("form137_3").value = "Sleep";
-      document.getElementById("form136_3").value = "Burning Hands";
+      document.getElementById("form136_3").value = "Manos Ardientes";
       document.getElementById("form135_3").value = "Tasha's Hideous Laughter";
     } else if (intelligenceModifier === 5) {
-      document.getElementById("form193_3").value = "Magic Missile";
+      document.getElementById("form193_3").value = "Misil Mágico";
       document.getElementById("form159_3").value = "Mage Armor";
       document.getElementById("form137_3").value = "Sleep";
-      document.getElementById("form136_3").value = "Burning Hands";
+      document.getElementById("form136_3").value = "Manos Ardientes";
       document.getElementById("form135_3").value = "Tasha's Hideous Laughter";
       document.getElementById("form133_3").value = "Unseen Servant";
     }
@@ -6281,31 +6281,31 @@ armor = {
       document.getElementById("form204_3").value = "Druidcraft";
     }
     if (wisdomModifier === 0) {
-      document.getElementById("form193_3").value = "Healing Word";
+      document.getElementById("form193_3").value = "Palabra Curativa";
     } else if (wisdomModifier === 1) {
-      document.getElementById("form193_3").value = "Healing Word";
+      document.getElementById("form193_3").value = "Palabra Curativa";
       document.getElementById("form159_3").value = "Thunderwave";
     } else if (wisdomModifier === 2) {
-      document.getElementById("form193_3").value = "Healing Word";
+      document.getElementById("form193_3").value = "Palabra Curativa";
       document.getElementById("form159_3").value = "Thunderwave";
       document.getElementById("form137_3").value = "Entangle";
     } else if (wisdomModifier === 3) {
-      document.getElementById("form193_3").value = "Healing Word";
+      document.getElementById("form193_3").value = "Palabra Curativa";
       document.getElementById("form159_3").value = "Thunderwave";
       document.getElementById("form137_3").value = "Entangle";
-      document.getElementById("form136_3").value = "Cure Wounds";
+      document.getElementById("form136_3").value = "Curar Heridas";
     } else if (wisdomModifier === 4) {
-      document.getElementById("form193_3").value = "Healing Word";
+      document.getElementById("form193_3").value = "Palabra Curativa";
       document.getElementById("form159_3").value = "Thunderwave";
       document.getElementById("form137_3").value = "Entangle";
-      document.getElementById("form136_3").value = "Cure Wounds";
-      document.getElementById("form135_3").value = "Faerie Fire";
+      document.getElementById("form136_3").value = "Curar Heridas";
+      document.getElementById("form135_3").value = "Fuego Feérico";
     } else if (wisdomModifier === 5) {
-      document.getElementById("form193_3").value = "Healing Word";
+      document.getElementById("form193_3").value = "Palabra Curativa";
       document.getElementById("form159_3").value = "Thunderwave";
       document.getElementById("form137_3").value = "Entangle";
-      document.getElementById("form136_3").value = "Cure Wounds";
-      document.getElementById("form135_3").value = "Faerie Fire";
+      document.getElementById("form136_3").value = "Curar Heridas";
+      document.getElementById("form135_3").value = "Fuego Feérico";
       document.getElementById("form133_3").value = "Earth Tremor";
     }
   }
@@ -6325,7 +6325,7 @@ armor = {
     } else if (equipment[_i22] === armor.mediumArmor.scalemail.armorname) {
       armorClass += 14 + dexterityModifier;
       features.push(
-        "Scale Mail: Disadvantage on stealth rolls from medium armor."
+        "Cota de escamas: Disadvantage on stealth rolls from medium armor."
       );
     } else if (equipment[_i22] === armor.heavyArmor.ringmail.armorname) {
       armorClass += 14;
@@ -6335,17 +6335,17 @@ armor = {
     } else if (equipment[_i22] === armor.heavyArmor.chainmail.armorname) {
       armorClass += 16;
       features.push(
-        "Chain Mail: Disadvantage on stealth rolls from heavy armor."
+        "Cota de mallas: Disadvantage on stealth rolls from heavy armor."
       );
     }
   }
 
-  // For loop that searches your inventory and adds +2 armor class if you have a shield
+  // For loop that searches your inventory and adds +2 armor class if you have a Escudo
   for (var _i23 = 0; _i23 < equipment.length; _i23++) {
     if (
-      equipment[_i23] === "Shield" ||
-      equipment[_i23] === "Shield - Focus" ||
-      equipment[_i23] === "Wooden shield"
+      equipment[_i23] === "Escudo" ||
+      equipment[_i23] === "Escudo - Focus" ||
+      equipment[_i23] === "Escudo de madera"
     ) {
       armorClass += 2;
     } else {
@@ -6457,23 +6457,30 @@ function translateRace(raceAndDescriptor) {
 }
 // Diccionario de traducción de alineamientos
 const alignmentTranslations = {
-  "Lawful Good": "Legal Bueno",
-  "Neutral Good": "Neutral Bueno",
-  "Chaotic Good": "Caótico Bueno",
-  "Lawful Neutral": "Legal Neutral",
-  "True Neutral": "Neutral Verdadero",
-  "Chaotic Neutral": "Caótico Neutral",
-  "Lawful Evil": "Legal Malvado",
-  "Neutral Evil": "Neutral Malvado",
-  "Chaotic Evil": "Caótico Malvado"
+  Lawful: "Legal",
+  Neutral: "Neutral",
+  Chaotic: "Caótico",
+  Good: "Bueno",
+  Evil: "Malvado",
+  True: "Verdadero"
 };
-
 // Función para traducir alineamientos
 // Función para traducir alineamiento (array a string)
 function translateAlignmentArray(alignmentArray) {
-  return alignmentArray
-    .map(alignment => alignmentTranslations[alignment] || alignment) // Traducir cada palabra
-    .join(" "); // Unir con espacios
+  const translatedArray = []; // Array para almacenar las palabras traducidas
+
+  for (let i = 0; i < alignmentArray.length; i++) {
+    const alignment = alignmentArray[i]; // Obtenemos la palabra actual
+    const translatedWord = alignmentTranslations[alignment]; // Buscamos su traducción
+
+    if (translatedWord) {
+      translatedArray.push(translatedWord); // Si hay traducción, la agregamos al nuevo array
+    } else {
+      translatedArray.push(alignment); // Si no hay traducción, usamos la palabra original
+    }
+  }
+  var traduccion = translatedArray.join(" ");
+  return traduccion+" "; // Unimos las palabras traducidas en una cadena con espacios
 }
 
   class_proficiencies(); // Get proficiencies based on class and previous proficiencies
@@ -6504,8 +6511,7 @@ function translateAlignmentArray(alignmentArray) {
   document.getElementById("form68_1").value = gold; // gold
   document.getElementById("form104_1").value = equipment.join("\r\n"); // equipment section
   document.getElementById("form94_1").value = translateClass(classAndLevel); // class and level text field
-  document.getElementById("form105_1").value =
-    proficienciesAndLanguages.join("\r"); // proficiencies and languages
+  document.getElementById("form105_1").value = proficienciesAndLanguages.join("\r"); // proficiencies and languages
   document.getElementById("form106_1").value = features.join("\r\n"); // features & traits
   document.getElementById("form16_2").value = additionalFeatures.join("\r\n"); // additional features, pg. 2
   document.getElementById("form92_1").value = translateAlignmentArray(alignment); // alignment text fielddice

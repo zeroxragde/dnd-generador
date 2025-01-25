@@ -1877,8 +1877,8 @@ button:focus {
   z-index: 1;
   padding: 0px;
   position: absolute;
-  left: 148px;
-  top: 200px;
+  left: 144px;
+  top: 198px;
   width: 31px;
   height: 25px;
   text-align: center;
@@ -2138,9 +2138,9 @@ button:focus {
   z-index: 1;
   padding: 0px;
   position: absolute;
-  left: 445px;
-  top: 301px;
-  width: 135px;
+  left: 472px;
+  top: 306px;
+  width: 104px;
   height: 14px;
   text-align: left;
   background: transparent;

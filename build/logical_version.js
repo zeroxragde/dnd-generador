@@ -421,7 +421,7 @@ function generate_character(isManual = false) {
           "Immeral",
           "Ivellios",
           "Laucian",
-          "Mindartis",
+          "Mindardois",
           "Paelias",
           "Peren",
           "Quarion",
@@ -2072,7 +2072,7 @@ armor = {
 };
 
 
-  // Array that contains list of simple weapons
+  // Array that contains list of armas simples
   simpleWeapons = [
     "garrote",
     "daga",
@@ -3320,7 +3320,7 @@ armor = {
           stat_checker_3(strengthModifier, "form76_1", "1d6", "B"); // 1st weapon 3rd section
         } else if (random > 0.33) {
           features.push("Cleric Domain: Tempest.");
-          armor_adder_2(armor_adder("heavy armor"));
+          armor_adder_2(armor_adder("armadura pesada"));
           equipment.push("Cota de mallas");
           weapon_adder_2(weapon_adder("armas marciales"));
           equipment.push("Martillo de guerra");
@@ -3421,7 +3421,7 @@ armor = {
         document.getElementById("form79_1").value = "Maza"; // 1st weapon 1st section
         stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(strengthModifier, "form76_1", "1d6", "B"); // 1st weapon 3rd section
-        equipment.push("Light crossbow w/ 20 bolts");
+        equipment.push("Ballesta ligera con 20 virotes");
         document.getElementById("form78_1").value = "Ballesta ligera"; // 2nd weapon 1st section
         stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(dexterityModifier, "form74_1", "1d8", "P"); // 2nd weapon 3rd section
@@ -3752,7 +3752,7 @@ armor = {
           document.getElementById("form79_1").value = "Ballesta de mano"; // 1st weapon 1st section
           stat_checker(dexterityModifier + 4, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(dexterityModifier, "form76_1", "1d6", "P"); // 1st weapon 3rd section
-          equipment.push("Light crossbow w/ 20 bolts");
+          equipment.push("Ballesta ligera con 20 virotes");
           document.getElementById("form77_1").value = "Ballesta ligera"; // 3rd weapon 1st section
           stat_checker(dexterityModifier + 4, "form66_1"); // 3rd weapon 2nd section
           stat_checker_3(dexterityModifier, "form75_1", "1d8", "P"); // 3rd weapon 3rd section
@@ -3785,8 +3785,8 @@ armor = {
       } else {
         equipment.push("Paquete de explorador");
       }
-      equipment.push("Ten darts");
-      document.getElementById("form77_1").value = "Dart"; // 3rd weapon 1st section
+      equipment.push("Ten dardos");
+      document.getElementById("form77_1").value = "dardo"; // 3rd weapon 1st section
       stat_checker(dexterityModifier + 2, "form66_1"); // 3rd weapon 2nd section
       stat_checker_3(dexterityModifier, "form75_1", "1d4", "P"); // 3rd weapon 3rd section
       if (random > 0.666) {
@@ -3935,7 +3935,7 @@ armor = {
         }
       }
     } else if (classAndLevel === "Ranger 1") {
-      equipment.push("Two Espada cortas");
+      equipment.push("2 Espada cortas");
       document.getElementById("form78_1").value = "Espada corta"; // 2nd weapon 1st section
       stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
       stat_checker_3(dexterityModifier, "form74_1", "1d6", "S"); // 2nd weapon 3rd section
@@ -4024,13 +4024,13 @@ armor = {
         );
             }
     } else if (classAndLevel === "Rogue 1") {
-      herramienta_agregador_2(herramienta_agregador("herramientas de ladrón"));
+      tool_adder_2(tool_adder("herramientas de ladrón"));
       equipment.push("Estoque");
       document.getElementById("form79_1").value = "Estoque"; // 1st weapon 1st section
       stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
       stat_checker_3(dexterityModifier, "form76_1", "1d8", "P"); // 1st weapon 3rd section
       equipment.push("Armadura de cuero");
-      equipment.push("Two Dagas");
+      equipment.push("2 Dagas");
       document.getElementById("form78_1").value = "Daga"; // 2nd weapon 1st section
       stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
       stat_checker_3(dexterityModifier, "form74_1", "1d4", "P"); // 2nd weapon 3rd section
@@ -4071,127 +4071,127 @@ armor = {
         equipment.push("herramientas de ladrón");
       } else {
         features.push(
-          "Expertise: Your two skills of expertise are Stealth and herramientas de ladrón. Your proficiency bonus is doubled for any ability check you make that uses either of those proficiencies."
+          "Pericia: Tus dos habilidades de pericia son Sigilo y herramientas de ladrón. Tu bonificación de competencia se duplica para cualquier chequeo de habilidad que uses cualquiera de esas competencias."
         );
         stat_checker(dexterityModifier + 4, "form32_1");
         equipment.push("herramientas de ladrón (+4)");
       } /* Levi N. Blodgett */
     } else if (classAndLevel === "Sorcerer 1") {
-      equipment.push("Two Dagas");
+      equipment.push("2 Dagas");
       document.getElementById("form79_1").value = "Daga"; // 1st weapon 1st section
       stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
       stat_checker_3(dexterityModifier, "form76_1", "1d4", "P"); // 1st weapon 3rd section
-      equipment.push("Light crossbow w/ 20 bolts");
+      equipment.push("Ballesta ligera con 20 virotes");
       document.getElementById("form78_1").value = "Ballesta ligera"; // 2nd weapon 1st section
       stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
       stat_checker_3(dexterityModifier, "form74_1", "1d8", "P"); // 2nd weapon 3rd section
-      equipment.push("Component pouch");
+      equipment.push("Bolsa de componentes");
       if (random > 0.5) {
         equipment.push("Paquete de explorador");
         if (random2 > 0.9) {
-          features.push(
-            "Draconic Ancestor: Black, and you know the language 'Draconic', you also get double your proficiency bonus when making a CHA check interacting with dragons."
-          );
-          features.push(
-            "Draconic Resilience: At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. Additionally, when you aren't wearing armor, your AC equals 13 + your dexterity modifier."
-          );
+            features.push(
+            "Ancestro Dracónico: Negro, y conoces el idioma 'Dracónico', también obtienes el doble de tu bonificación de competencia al hacer una prueba de CAR interactuando con dragones."
+            );
+            features.push(
+            "Resiliencia Dracónica: En el nivel 1, tu máximo de puntos de golpe aumenta en 1 y aumenta en 1 nuevamente cada vez que subes de nivel en esta clase. Además, cuando no llevas armadura, tu CA es igual a 13 + tu modificador de destreza."
+            );
           armorClass += 13 + dexterityModifier; // armor class
           hp++;
         } else if (random2 > 0.8) {
-          features.push(
-            "Draconic Ancestor: Blue, and you know the language 'Draconic', you also get double your proficiency bonus when making a CHA check interacting with dragons."
-          );
-          features.push(
-            "Draconic Resilience: At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. Additionally, when you aren't wearing armor, your AC equals 13 + your dexterity modifier."
-          );
+            features.push(
+            "Ancestro Dracónico: Azul, y conoces el idioma 'Dracónico', también obtienes el doble de tu bonificación de competencia al hacer una prueba de CAR interactuando con dragones."
+            );
+            features.push(
+            "Resiliencia Dracónica: En el nivel 1, tu máximo de puntos de golpe aumenta en 1 y aumenta en 1 nuevamente cada vez que subes de nivel en esta clase. Además, cuando no llevas armadura, tu CA es igual a 13 + tu modificador de destreza."
+            );
           armorClass += 13 + dexterityModifier; // armor class
           hp++;
         } else if (random2 > 0.7) {
-          features.push(
-            "Draconic Ancestor: Brass, and you know the language 'Draconic', you also get double your proficiency bonus when making a CHA check interacting with dragons."
-          );
-          features.push(
-            "Draconic Resilience: At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. Additionally, when you aren't wearing armor, your AC equals 13 + your dexterity modifier."
-          );
+            features.push(
+            "Ancestro Dracónico: Latón, y conoces el idioma 'Dracónico', también obtienes el doble de tu bonificación de competencia al hacer una prueba de CAR interactuando con dragones."
+            );
+            features.push(
+            "Resiliencia Dracónica: En el nivel 1, tu máximo de puntos de golpe aumenta en 1 y aumenta en 1 nuevamente cada vez que subes de nivel en esta clase. Además, cuando no llevas armadura, tu CA es igual a 13 + tu modificador de destreza."
+            );
           armorClass += 13 + dexterityModifier; // armor class
           hp++;
         } else if (random2 > 0.6) {
-          features.push(
-            "Draconic Ancestor: Bronze, and you know the language 'Draconic', you also get double your proficiency bonus when making a CHA check interacting with dragons."
-          );
-          features.push(
-            "Draconic Resilience: At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. Additionally, when you aren't wearing armor, your AC equals 13 + your dexterity modifier."
-          );
+            features.push(
+            "Ancestro Dracónico: Bronce, y conoces el idioma 'Dracónico', también obtienes el doble de tu bonificación de competencia al hacer una prueba de CAR interactuando con dragones."
+            );
+            features.push(
+            "Resiliencia Dracónica: En el nivel 1, tu máximo de puntos de golpe aumenta en 1 y aumenta en 1 nuevamente cada vez que subes de nivel en esta clase. Además, cuando no llevas armadura, tu CA es igual a 13 + tu modificador de destreza."
+            );
           armorClass += 13 + dexterityModifier; // armor class
           hp++;
         } else if (random2 > 0.5) {
-          features.push(
-            "Draconic Ancestor: Copper, and you know the language 'Draconic', you also get double your proficiency bonus when making a CHA check interacting with dragons."
-          );
-          features.push(
-            "Draconic Resilience: At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. Additionally, when you aren't wearing armor, your AC equals 13 + your dexterity modifier."
-          );
+            features.push(
+            "Ancestro Dracónico: Cobre, y conoces el idioma 'Dracónico', también obtienes el doble de tu bonificación de competencia al hacer una prueba de CAR interactuando con dragones."
+            );
+            features.push(
+            "Resiliencia Dracónica: En el nivel 1, tu máximo de puntos de golpe aumenta en 1 y aumenta en 1 nuevamente cada vez que subes de nivel en esta clase. Además, cuando no llevas armadura, tu CA es igual a 13 + tu modificador de destreza."
+            );
           armorClass += 13 + dexterityModifier; // armor class
           hp++;
         } else if (random2 > 0.4) {
-          features.push(
-            "Draconic Ancestor: Gold, and you know the language 'Draconic', you also get double your proficiency bonus when making a CHA check interacting with dragons."
-          );
-          features.push(
-            "Draconic Resilience: At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. Additionally, when you aren't wearing armor, your AC equals 13 + your dexterity modifier."
-          );
+            features.push(
+            "Ancestro Dracónico: Oro, y conoces el idioma 'Dracónico', también obtienes el doble de tu bonificación de competencia al hacer una prueba de CAR interactuando con dragones."
+            );
+            features.push(
+            "Resiliencia Dracónica: En el nivel 1, tu máximo de puntos de golpe aumenta en 1 y aumenta en 1 nuevamente cada vez que subes de nivel en esta clase. Además, cuando no llevas armadura, tu CA es igual a 13 + tu modificador de destreza."
+            );
           armorClass += 13 + dexterityModifier; // armor class
           hp++;
         } else if (random2 > 0.3) {
-          features.push(
-            "Draconic Ancestor: Green, and you know the language 'Draconic', you also get double your proficiency bonus when making a CHA check interacting with dragons."
-          );
-          features.push(
-            "Draconic Resilience: At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. Additionally, when you aren't wearing armor, your AC equals 13 + your dexterity modifier."
-          );
+            features.push(
+            "Ancestro Dracónico: Verde, y conoces el idioma 'Dracónico', también obtienes el doble de tu bonificación de competencia al hacer una prueba de CAR interactuando con dragones."
+            );
+            features.push(
+            "Resiliencia Dracónica: En el nivel 1, tu máximo de puntos de golpe aumenta en 1 y aumenta en 1 nuevamente cada vez que subes de nivel en esta clase. Además, cuando no llevas armadura, tu CA es igual a 13 + tu modificador de destreza."
+            );
           armorClass += 13 + dexterityModifier; // armor class
           hp++;
         } else if (random2 > 0.2) {
-          features.push(
-            "Draconic Ancestor: Red, and you know the language 'Draconic', you also get double your proficiency bonus when making a CHA check interacting with dragons."
-          );
-          features.push(
-            "Draconic Resilience: At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. Additionally, when you aren't wearing armor, your AC equals 13 + your dexterity modifier."
-          );
+            features.push(
+            "Ancestro Dracónico: Rojo, y conoces el idioma 'Dracónico', también obtienes el doble de tu bonificación de competencia al hacer una prueba de CAR interactuando con dragones."
+            );
+            features.push(
+            "Resiliencia Dracónica: En el nivel 1, tu máximo de puntos de golpe aumenta en 1 y aumenta en 1 nuevamente cada vez que subes de nivel en esta clase. Además, cuando no llevas armadura, tu CA es igual a 13 + tu modificador de destreza."
+            );
           armorClass += 13 + dexterityModifier; // armor class
           hp++;
         } else if (random2 > 0.1) {
-          features.push(
-            "Draconic Ancestor: Silver, and you know the language 'Draconic', you also get double your proficiency bonus when making a CHA check interacting with dragons."
-          );
-          features.push(
-            "Draconic Resilience: At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. Additionally, when you aren't wearing armor, your AC equals 13 + your dexterity modifier."
-          );
-          armorClass += 13 + dexterityModifier; // armor class
-          hp++;
-        } else if (random2 > 0.0) {
-          features.push(
-            "Draconic Ancestor: White, and you know the language 'Draconic', you also get double your proficiency bonus when making a CHA check interacting with dragons."
-          );
-          features.push(
-            "Draconic Resilience: At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. Additionally, when you aren't wearing armor, your AC equals 13 + your dexterity modifier."
-          );
+            features.push(
+            "Ancestro Dracónico: Plata, y conoces el idioma 'Dracónico', también obtienes el doble de tu bonificación de competencia al hacer una prueba de CAR interactuando con dragones."
+            );
+            features.push(
+            "Resiliencia Dracónica: En el nivel 1, tu máximo de puntos de golpe aumenta en 1 y aumenta en 1 nuevamente cada vez que subes de nivel en esta clase. Además, cuando no llevas armadura, tu CA es igual a 13 + tu modificador de destreza."
+            );
+            armorClass += 13 + dexterityModifier; // armor class
+            hp++;
+          } else if (random2 > 0.0) {
+            features.push(
+            "Ancestro Dracónico: Blanco, y conoces el idioma 'Dracónico', también obtienes el doble de tu bonificación de competencia al hacer una prueba de CAR interactuando con dragones."
+            );
+            features.push(
+            "Resiliencia Dracónica: En el nivel 1, tu máximo de puntos de golpe aumenta en 1 y aumenta en 1 nuevamente cada vez que subes de nivel en esta clase. Además, cuando no llevas armadura, tu CA es igual a 13 + tu modificador de destreza."
+            );
           armorClass += 13 + dexterityModifier; // armor class
           hp++;
         }
       } else {
         equipment.push("Paquete de explorador");
         features.push(
-          "Wild Magic Surge: Immediately after you cast a sorcerer spell of 1st level or higher, the DM can have you roll a d20. If you roll a 1, roll on the Wild Magic Surge table to create a random magical effect."
+          "Oleada de Magia Salvaje: Inmediatamente después de lanzar un conjuro de hechicero de nivel 1 o superior, el DM puede hacer que tires un d20. Si sacas un 1, tira en la tabla de Oleada de Magia Salvaje para crear un efecto mágico aleatorio."
         );
         features.push(
-          "Tides of Chaos (1/lr): You can gain advantage on one attack roll, ability check, or saving throw. Anytime you regain this feature, the DM can have you roll on the Wild Magic Surge table immediately after you cast a sorcerer spell of 1st level or higher. You then regain the use of this feature."
+          "Mareas del Caos (1/lr): Puedes ganar ventaja en una tirada de ataque, chequeo de habilidad o tirada de salvación. Cada vez que recuperes esta característica, el DM puede hacer que tires en la tabla de Oleada de Magia Salvaje inmediatamente después de lanzar un conjuro de hechicero de nivel 1 o superior. Luego recuperas el uso de esta característica."
         );
         armorClass += 10 + dexterityModifier;
       }
     } else if (classAndLevel === "Warlock 1") {
-      equipment.push("Two Dagas");
-      equipment.push("Component pouch");
+      equipment.push("2 Dagas");
+      equipment.push("Bolsa de componentes");
       equipment.push("Armadura de cuero");
       if (strength > dexterity) {
         document.getElementById("form77_1").value = "Daga"; // 3rd weapon 1st section
@@ -4205,7 +4205,7 @@ armor = {
         document.getElementById("form79_1").value = "Maza"; // 1st weapon 1st section
         stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
         stat_checker_3(strengthModifier, "form76_1", "1d6", "B"); // 1st weapon 3rd section
-        equipment.push("Scholar's pack");
+        equipment.push("Paquete de erudito");
       } else {
         equipment.push("Bastón");
         document.getElementById("form79_1").value = "Bastón"; // 1st weapon 1st section
@@ -4215,40 +4215,40 @@ armor = {
         document.getElementById("form77_1").value = "Daga"; // 3rd weapon 1st section
         stat_checker(dexterityModifier + 2, "form66_1"); // 3rd weapon 2nd section
         stat_checker_3(dexterityModifier, "form75_1", "1d4", "P"); // 3rd weapon 3rd section
-        equipment.push("Light crossbow w/ 20 bolts");
+        equipment.push("Ballesta ligera con 20 virotes");
         document.getElementById("form78_1").value = "Ballesta ligera"; // 2nd weapon 1st section
         stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
         stat_checker_3(dexterityModifier, "form74_1", "1d8", "P"); // 2nd weapon 3rd section
       }
       if (random2 > 0.666) {
-        features.push("Otherworldly Patron: Archfey.");
+        features.push("Patrón de otro mundo: Archifey.");
         document.getElementById("form193_3").value = "Fuego Feérico";
-        document.getElementById("form159_3").value = "Sleep";
+        document.getElementById("form159_3").value = "Sueño";
         features.push(
-          "Fey Presence (1/r): As an action, you can cause each creature in a 10-foot cube originating from you to make a Wisdom saving throw against your warlock spell save DC. If a target fails the saving throw, they are charmed or frightened by you (your choice) until the end of your next turn."
+          "Presencia Feérica (1/r): Como acción, puedes hacer que cada criatura en un cubo de 10 pies que se origine desde ti haga una tirada de salvación de Sabiduría contra tu DC de salvación de hechizo de brujo. Si un objetivo falla la tirada de salvación, queda encantado o asustado por ti (a tu elección) hasta el final de tu próximo turno."
         );
       } else if (random2 > 0.333) {
-        features.push("Otherworldly Patron: Fiend.");
+        features.push("Patrón de otro mundo: Demonio.");
         document.getElementById("form193_3").value = "Manos Ardientes";
         document.getElementById("form159_3").value = "Mandato";
         features.push(
-          "Dark One's Bendicióning: When you reduce a hostile creature to 0 hit points, you gain temporary hit points equal to your CHA modifier + your warlock level."
+          "Bendición del Oscuro: Cuando reduces a una criatura hostil a 0 puntos de golpe, obtienes puntos de golpe temporales iguales a tu modificador de CAR + tu nivel de brujo."
         );
       } else {
-        features.push("Otherworldly Patron: Great Old One.");
-        document.getElementById("form193_3").value = "Dissonant Whispers";
-        document.getElementById("form159_3").value = "Tasha's Hideous Laughter";
+        features.push("Patrón de otro mundo: Gran Anciano.");
+        document.getElementById("form193_3").value = "Susurros disonantes";
+        document.getElementById("form159_3").value = "Risa Horrenda de Tasha";
         features.push(
-          "Awakened Mind: You can communicate telepathically with any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand your telepathic utterances, but the creature must be able to understand at least one language."
+          "Mente Despierta: Puedes comunicarte telepáticamente con cualquier criatura que puedas ver dentro de 30 pies de ti. No necesitas compartir un idioma con la criatura para que entienda tus expresiones telepáticas, pero la criatura debe ser capaz de entender al menos un idioma."
         );
       }
     } else if (classAndLevel === "Wizard 1") {
       armorClass += 10 + dexterityModifier;
       features.push(
-        "Arcane Recovery (1/d): When you finish a short rest once a day, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher."
+        "Recuperación Arcana (1/d): Cuando terminas un descanso corto una vez al día, puedes elegir ranuras de hechizos gastadas para recuperar. Las ranuras de hechizos pueden tener un nivel combinado que sea igual o menor a la mitad de tu nivel de mago (redondeado hacia arriba), y ninguna de las ranuras puede ser de nivel 6 o superior."
       );
       if (random > 0.5) {
-        equipment.push("Scholar's pack");
+        equipment.push("Paquete de erudito");
         equipment.push("Bastón");
         document.getElementById("form79_1").value = "Bastón"; // 1st weapon 1st section
         stat_checker(strengthModifier + 2, "form64_1"); // 1st weapon 2nd section
@@ -4261,125 +4261,125 @@ armor = {
         stat_checker_3(dexterityModifier, "form76_1", "1d4", "P"); // 1st weapon 3rd section
       }
       if (random2 > 0.8) {
-        equipment.push("Crumpled up notes - Spellbook");
-        equipment.push("Lightning in a bottle - Focus");
+        equipment.push("Notas arrugadas - Libro de hechizos");
+        equipment.push("Relámpago en una botella - Enfoque");
       } else if (random2 > 0.6) {
-        equipment.push("Various colorful tattoos - Spellbook");
-        equipment.push("Crystal with pink water inside - Focus");
+        equipment.push("Varios tatuajes coloridos - Libro de hechizos");
+        equipment.push("Cristal con agua rosada dentro - Enfoque");
       } else if (random2 > 0.4) {
         equipment.push(
-          "Leather-bound tome with suspiciously red ink - Spellbook"
+          "Libro encuadernado en cuero con tinta sospechosamente roja - Libro de hechizos"
         );
-        equipment.push("Metallic rod with amber stone on top - Focus");
+        equipment.push("Vara metálica con piedra de ámbar en la parte superior - Enfoque");
       } else if (random2 > 0.2) {
         equipment.push(
-          "Thick black leather with platinum reinforced corners, silvery ink, the front embossed with your name, " +
+          "Cuero negro grueso con esquinas reforzadas con platino, tinta plateada, el frente grabado con tu nombre, " +
             charName +
-            " - Spellbook"
+            " - Libro de hechizos"
         );
-        equipment.push("Specially carved, gnarled, wooden staff - Focus");
+        equipment.push("Bastón de madera especialmente tallado y nudoso - Enfoque");
       } else {
         equipment.push(
-          "Light leather book with gem-encrusted spine - Spellbook"
+          "Libro de cuero ligero con lomo incrustado de gemas - Libro de hechizos"
         );
-        equipment.push("Partially petrified willow wand - Focus");
+        equipment.push("Varita de sauce parcialmente petrificada - Enfoque");
       }
     }
   }
 
   // Block that adds weapon proficiencies by class
   if (classAndLevel === "Barbarian 1") {
-    weapon_adder_2(weapon_adder("simple weapons"));
+    weapon_adder_2(weapon_adder("armas simples"));
     weapon_adder_2(weapon_adder("armas marciales"));
-    armor_adder_2(armor_adder("light armor"));
-    armor_adder_2(armor_adder("medium armor"));
+    armor_adder_2(armor_adder("armadura ligera"));
+    armor_adder_2(armor_adder("armadura media"));
     armor_adder_2(armor_adder("Escudo"));
     armorClass += 10 + dexterityModifier + constitutionModifier; // armor class
-    equipment.push("Four Jabalinas");
+    equipment.push("4 Jabalinas");
     equipment.push("Paquete de explorador");
     random_by_length(barbarianBonds, bonds, "form101_1");
   } else if (classAndLevel === "Fighter 1") {
-    weapon_adder_2(weapon_adder("simple weapons"));
+    weapon_adder_2(weapon_adder("armas simples"));
     weapon_adder_2(weapon_adder("armas marciales"));
-    armor_adder_2(armor_adder("light armor"));
-    armor_adder_2(armor_adder("medium armor"));
-    armor_adder_2(armor_adder("heavy armor"));
+    armor_adder_2(armor_adder("armadura ligera"));
+    armor_adder_2(armor_adder("armadura media"));
+    armor_adder_2(armor_adder("armadura pesada"));
     armor_adder_2(armor_adder("Escudo"));
     random_by_length(fighterBonds, bonds, "form101_1");
   } else if (classAndLevel === "Bard 1") {
-    weapon_adder_2(weapon_adder("simple weapons"));
-    armor_adder_2(armor_adder("light armor"));
+    weapon_adder_2(weapon_adder("armas simples"));
+    armor_adder_2(armor_adder("armadura ligera"));
     weapon_adder_2(weapon_adder("Ballesta de mano"));
     weapon_adder_2(weapon_adder("Espada larga"));
     weapon_adder_2(weapon_adder("Estoque"));
     weapon_adder_2(weapon_adder("Espada corta"));
     random_by_length(bardBonds, bonds, "form101_1");
   } else if (classAndLevel === "Cleric 1") {
-    weapon_adder_2(weapon_adder("simple weapons"));
-    armor_adder_2(armor_adder("light armor"));
-    armor_adder_2(armor_adder("medium armor"));
+    weapon_adder_2(weapon_adder("armas simples"));
+    armor_adder_2(armor_adder("armadura ligera"));
+    armor_adder_2(armor_adder("armadura media"));
     armor_adder_2(armor_adder("Escudo"));
     random_by_length(clericBonds, bonds, "form101_1");
   } else if (classAndLevel === "Sorcerer 1") {
     weapon_adder_2(weapon_adder("Daga"));
-    weapon_adder_2(weapon_adder("dart"));
+    weapon_adder_2(weapon_adder("dardo"));
     weapon_adder_2(weapon_adder("Bastón"));
-    weapon_adder_2(weapon_adder("sling"));
-    weapon_adder_2(weapon_adder("light crossbow"));
+    weapon_adder_2(weapon_adder("honda"));
+    weapon_adder_2(weapon_adder("ballesta ligera"));
     random_by_length(sorcererBonds, bonds, "form101_1");
   } else if (classAndLevel === "Wizard 1") {
     weapon_adder_2(weapon_adder("Daga"));
-    weapon_adder_2(weapon_adder("dart"));
+    weapon_adder_2(weapon_adder("dardo"));
     weapon_adder_2(weapon_adder("Bastón"));
-    weapon_adder_2(weapon_adder("sling"));
-    weapon_adder_2(weapon_adder("light crossbow"));
+    weapon_adder_2(weapon_adder("honda"));
+    weapon_adder_2(weapon_adder("ballesta ligera"));
     random_by_length(wizardBonds, bonds, "form101_1");
   } else if (classAndLevel === "Druid 1") {
-    armor_adder_2(armor_adder("light armor"));
-    armor_adder_2(armor_adder("medium armor"));
+    armor_adder_2(armor_adder("armadura ligera"));
+    armor_adder_2(armor_adder("armadura media"));
     armor_adder_2(armor_adder("Escudo"));
-    features.push("(All armor and Escudos must be nonmetal)");
-    weapon_adder_2(weapon_adder("club"));
+    features.push("(Toda la armadura y los escudos deben ser no metálicos)");
+    weapon_adder_2(weapon_adder("garrote"));
     weapon_adder_2(weapon_adder("Daga"));
-    weapon_adder_2(weapon_adder("dart"));
+    weapon_adder_2(weapon_adder("dardo"));
     weapon_adder_2(weapon_adder("Jabalina"));
     weapon_adder_2(weapon_adder("Maza"));
     weapon_adder_2(weapon_adder("Bastón"));
     weapon_adder_2(weapon_adder("Cimitarra"));
-    weapon_adder_2(weapon_adder("sickle"));
-    weapon_adder_2(weapon_adder("sling"));
+    weapon_adder_2(weapon_adder("hoz"));
+    weapon_adder_2(weapon_adder("honda"));
     weapon_adder_2(weapon_adder("Lanza"));
     random_by_length(druidBonds, bonds, "form101_1");
   } else if (classAndLevel === "Rogue 1") {
-    weapon_adder_2(weapon_adder("simple weapons"));
-    armor_adder_2(armor_adder("light armor"));
+    weapon_adder_2(weapon_adder("armas simples"));
+    armor_adder_2(armor_adder("armadura ligera"));
     weapon_adder_2(weapon_adder("Ballesta de mano"));
     weapon_adder_2(weapon_adder("Espada larga"));
     weapon_adder_2(weapon_adder("Estoque"));
     weapon_adder_2(weapon_adder("Espada corta"));
     random_by_length(rogueBonds, bonds, "form101_1");
   } else if (classAndLevel === "Warlock 1") {
-    weapon_adder_2(weapon_adder("simple weapons"));
-    armor_adder_2(armor_adder("light armor"));
+    weapon_adder_2(weapon_adder("armas simples"));
+    armor_adder_2(armor_adder("armadura ligera"));
     random_by_length(warlockBonds, bonds, "form101_1");
   } else if (classAndLevel === "Ranger 1") {
-    weapon_adder_2(weapon_adder("simple weapons"));
+    weapon_adder_2(weapon_adder("armas simples"));
     weapon_adder_2(weapon_adder("armas marciales"));
-    armor_adder_2(armor_adder("light armor"));
-    armor_adder_2(armor_adder("medium armor"));
+    armor_adder_2(armor_adder("armadura ligera"));
+    armor_adder_2(armor_adder("armadura media"));
     armor_adder_2(armor_adder("Escudo"));
     random_by_length(rangerBonds, bonds, "form101_1");
   } else if (classAndLevel === "Paladin 1") {
-    weapon_adder_2(weapon_adder("simple weapons"));
+    weapon_adder_2(weapon_adder("armas simples"));
     weapon_adder_2(weapon_adder("armas marciales"));
-    armor_adder_2(armor_adder("light armor"));
-    armor_adder_2(armor_adder("medium armor"));
-    armor_adder_2(armor_adder("heavy armor"));
+    armor_adder_2(armor_adder("armadura ligera"));
+    armor_adder_2(armor_adder("armadura media"));
+    armor_adder_2(armor_adder("armadura pesada"));
     armor_adder_2(armor_adder("Escudo"));
     random_by_length(paladinBonds, bonds, "form101_1");
   } else if (classAndLevel === "Monk 1") {
     armorClass += 10 + dexterityModifier + wisdomModifier; // armor class
-    weapon_adder_2(weapon_adder("simple weapons"));
+    weapon_adder_2(weapon_adder("armas simples"));
     weapon_adder_2(weapon_adder("Espada corta"));
     random_by_length(monkBonds, bonds, "form101_1");
   }
@@ -4523,29 +4523,29 @@ armor = {
     ) {
       additionalFeatures.push(
         damagetype +
-          " Breath Weapon: You can use your action to exhale your Ascendencia Dracónica in a 5 by 30 foot line. When you use your breath weapon, each creature in the area of the exhalation must make a dexterity saving throw. The DC for this saving throw is " +
+          " Arma de Aliento: Puedes usar tu acción para exhalar tu Ascendencia Dracónica en una línea de 5 por 30 pies. Cuando usas tu arma de aliento, cada criatura en el área de la exhalación debe hacer una tirada de salvación de destreza. La DC para esta tirada de salvación es " +
           (10 + constitutionModifier) +
-          ". A creature takes 2d6 " +
+          ". Una criatura recibe 2d6 de daño de " +
           damagetype.toLowerCase() +
-          " damage on a failed save, and half as much damage on a successful one."
+          " en una salvación fallida, y la mitad de daño en una salvación exitosa."
       );
     } else if (color === "Gold" || color === "Red") {
       additionalFeatures.push(
         damagetype +
-          " Breath Weapon: You can use your action to exhale your Ascendencia Dracónica in a 15 foot cone. When you use your breath weapon, each creature in the area of the exhalation must make a dexterity saving throw. The DC for this saving throw is " +
+          " Arma de Aliento: Puedes usar tu acción para exhalar tu Ascendencia Dracónica en un cono de 15 pies. Cuando usas tu arma de aliento, cada criatura en el área de la exhalación debe hacer una tirada de salvación de destreza. La DC para esta tirada de salvación es " +
           (10 + constitutionModifier) +
-          ". A creature takes 2d6 " +
+          ". Una criatura recibe 2d6 de daño de " +
           damagetype.toLowerCase() +
-          " damage on a failed save, and half as much damage on a successful one."
+          " en una salvación fallida, y la mitad de daño en una salvación exitosa."
       );
     } else if (color === "Green" || color === "Silver" || color === "White") {
       additionalFeatures.push(
         damagetype +
-          " Breath Weapon: You can use your action to exhale your Ascendencia Dracónica in a 15 foot cone. When you use your breath weapon, each creature in the area of the exhalation must make a constitution saving throw. The DC for this saving throw is " +
+          " Arma de Aliento: Puedes usar tu acción para exhalar tu Ascendencia Dracónica en un cono de 15 pies. Cuando usas tu arma de aliento, cada criatura en el área de la exhalación debe hacer una tirada de salvación de constitución. La DC para esta tirada de salvación es " +
           (10 + constitutionModifier) +
-          ". A creature takes 2d6 " +
+          ". Una criatura recibe 2d6 de daño de " +
           damagetype.toLowerCase() +
-          " damage on a failed save, and half as much damage on a successful one."
+          " en una salvación fallida, y la mitad de daño en una salvación exitosa."
       );
     }
   }
@@ -4746,10 +4746,10 @@ armor = {
     hair_randomizer("Gray", "Black", "Brown", "Red"); // hair
     weight_randomizer(constitution, strength, 110, 130, 150, 170, 190, 215); // weight
     eye_randomizer("Black", "Brown", "Green", "Blue"); // eyes
-    weapon_adder_2(weapon_adder("battleaxe"));
-    weapon_adder_2(weapon_adder("battleaxe"));
+    weapon_adder_2(weapon_adder("hacha de batalla"));
+    weapon_adder_2(weapon_adder("hacha de batalla"));
     weapon_adder_2(weapon_adder("Hacha de mano"));
-    weapon_adder_2(weapon_adder("light hammer"));
+    weapon_adder_2(weapon_adder("martillo ligero"));
     weapon_adder_2(weapon_adder("Martillo de guerra"));
     hp++;
   } else if (race === "Mountain Dwarf") {
@@ -4769,13 +4769,13 @@ armor = {
     hair_randomizer("Gray", "Black", "Brown", "Red"); // hair
     weight_randomizer(constitution, strength, 110, 130, 150, 170, 190, 215); // weight
     eye_randomizer("Black", "Brown", "Green", "Blue"); // eyes
-    weapon_adder_2(weapon_adder("battleaxe"));
-    weapon_adder_2(weapon_adder("battleaxe"));
+    weapon_adder_2(weapon_adder("hacha de batalla"));
+    weapon_adder_2(weapon_adder("hacha de batalla"));
     weapon_adder_2(weapon_adder("Hacha de mano"));
-    weapon_adder_2(weapon_adder("light hammer"));
+    weapon_adder_2(weapon_adder("hacha de batalla"));
     weapon_adder_2(weapon_adder("Martillo de guerra"));
-    armor_adder_2(armor_adder("light armor"));
-    armor_adder_2(armor_adder("medium armor"));
+    armor_adder_2(armor_adder("armadura ligera"));
+    armor_adder_2(armor_adder("armadura media"));
   } else if (race === "Human (Calishite)") {
     document.getElementById("form5_2").value = get_random_int(19, 55); // age
     document.getElementById("form1_2").value = get_random_int(64, 73); // height
@@ -5202,7 +5202,7 @@ armor = {
     } else if (random === 1) {
       return "Hoja rota de un enemigo caído";
     } else if (random === 2) {
-      return "Trozo de estandarte de un enemigo caído";
+      return "Trozo de estandardoe de un enemigo caído";
     } else if (random === 3) {
       return random_trinket() + " de un enemigo caído";
     }
@@ -5227,11 +5227,11 @@ armor = {
         return "Net already added";
       }
     } else if (random === 2) {
-      if (weapon_adder("sling") !== undefined) {
-        weapon_adder_2(weapon_adder("sling"));
-        equipment.push("Sling");
+      if (weapon_adder("honda") !== undefined) {
+        weapon_adder_2(weapon_adder("honda"));
+        equipment.push("honda");
       } else {
-        return "Sling already added";
+        return "honda already added";
       }
     } else if (random === 3) {
       if (weapon_adder("whip") !== undefined) {
@@ -5249,8 +5249,8 @@ armor = {
       equipment.push("Tridente");
     } else if (variable === "Net already added") {
       equipment.push("Net");
-    } else if (variable === "Sling already added") {
-      equipment.push("Sling");
+    } else if (variable === "honda already added") {
+      equipment.push("honda");
     } else if (variable === "Whip already added") {
       equipment.push("Whip");
     } else {
@@ -5614,7 +5614,7 @@ armor = {
     stat_checker(strengthModifier + 2, "form49_1");
     add_click(7);
     stat_checker(wisdomModifier + 2, "form43_1");
-    equipment.push("Club");
+    equipment.push("garrote");
     equipment.push("50 feet of silk rope");
     document.getElementById("form14_2").value = random_trinket();
     equipment.push("Set of common clothes");
@@ -5672,7 +5672,7 @@ armor = {
     stat_checker(strengthModifier + 2, "form49_1");
     add_click(7);
     stat_checker(wisdomModifier + 2, "form43_1");
-    equipment.push("Club");
+    equipment.push("garrote");
     equipment.push("50 feet of silk rope");
     document.getElementById("form14_2").value = random_trinket();
     equipment.push("Set of common clothes");
@@ -5777,7 +5777,7 @@ armor = {
     "?\r";    
   }
 
-  // Block to give a Half-Elf two random skills based on the most useful
+  // Block to give a Half-Elf 2 random skills based on the most useful
   if (race === "Half-Elf") {
     skill_adder();
     skill_adder();
@@ -6149,13 +6149,13 @@ armor = {
   }
 
   //Block of arrays that makes new arrays with the sections at the start
-  finalLanguages = "Languages: " + determine_if_empty(newLangs);
+  finalLanguages = "Idiomas: " + determine_if_empty(newLangs);
   finalweaponProficiencies =
-    "Weapon Proficiencies: " + determine_if_empty(newWeaponProfs);
+    "Competencias en armas: " + determine_if_empty(newWeaponProfs);
   finalarmorProficiencies =
-    "Armor Proficiencies: " + determine_if_empty(newArmorProfs);
+    "Competencias en armaduras: " + determine_if_empty(newArmorProfs);
   finaltoolProficiencies =
-    "Tool Proficiencies: " + determine_if_empty(newToolProfs);
+    "Competencias en herramientas: " + determine_if_empty(newToolProfs);
 
   // Pushes arrays to proficienciesAndLanguages
   proficienciesAndLanguages.push(finalLanguages);
@@ -6325,17 +6325,17 @@ armor = {
     } else if (equipment[_i22] === armor.mediumArmor.scalemail.armorname) {
       armorClass += 14 + dexterityModifier;
       features.push(
-        "Cota de escamas: Disadvantage on stealth rolls from medium armor."
+        "Cota de escamas: Disadvantage on stealth rolls from armadura media."
       );
     } else if (equipment[_i22] === armor.heavyArmor.ringmail.armorname) {
       armorClass += 14;
       features.push(
-        "Ring Mail: Disadvantage on stealth rolls from heavy armor."
+        "Ring Mail: Disadvantage on stealth rolls from armadura pesada."
       );
     } else if (equipment[_i22] === armor.heavyArmor.chainmail.armorname) {
       armorClass += 16;
       features.push(
-        "Cota de mallas: Disadvantage on stealth rolls from heavy armor."
+        "Cota de mallas: Disadvantage on stealth rolls from armadura pesada."
       );
     }
   }

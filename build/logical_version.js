@@ -2107,7 +2107,7 @@ armor = {
     "estoque",
     "cimitarra",
     "espada corta",
-    "tridente",
+    "Tridentee",
     "pico de guerra",
     "martillo de guerra",
     "látigo",
@@ -2707,29 +2707,29 @@ armor = {
   } else if (race === "Stout Halfling") {
     constitution += 1;
     features.push(
-      "Stout Resilience: You have advantage on saving throws against poison, and you have resistance against poison damage."
+      "Resistencia Robusta: Tienes ventaja en las tiradas de salvación contra veneno y tienes resistencia al daño por veneno."
     );
     generate_balance(0.2, 0.1);
     generate_morality(0.4, 0.2);
   } else if (race === "Forest Gnome") {
     constitution += 1;
     additionalFeatures.push(
-      "Speak with Small Beasts: Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts. Forest gnomes love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets."
+      "Hablar con Bestias Pequeñas: A través de sonidos y gestos, puedes comunicar ideas simples con bestias Pequeñas o más pequeñas. Los gnomos del bosque aman a los animales y a menudo tienen ardillas, tejones, conejos, topos, pájaros carpinteros y otras criaturas como mascotas queridas."
     );
     features.push(
-      "Natural Illusionist: You know the 'minor illusion' cantrip, intelligence is your spellcasting ability for it."
+      "Ilusionista Natural: Conoces el truco 'ilusión menor', la inteligencia es tu habilidad de lanzamiento de conjuros para ello."
     );
-    add_race_cantrip("Minor Illusion");
+    add_race_cantrip("Ilusión Menor");
     generate_balance(0.6, 0.4);
     generate_morality(0.5, 0.2);
   } else if (race === "Rock Gnome") {
     constitution += 1;
-    tool_adder_2(tool_adder("tinker's tools"));
+    tool_adder_2(tool_adder("herramientas de artesano"));
     features.push(
-      "Artificer’s Lore: Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply."
+      "Conocimiento del Artífice: Siempre que realices un chequeo de Inteligencia (Historia) relacionado con objetos mágicos, objetos alquímicos o dispositivos tecnológicos, puedes agregar el doble de tu bonificación de competencia, en lugar de cualquier bonificación de competencia que normalmente aplicarías."
     );
     additionalFeatures.push(
-      "Tinker: Using tinker's tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time. When you create a device, choose one of the following options:\rClockwork Toy: This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.\rFire Starter: The device produces a miniature flame, which you can use to light a Candle, torch, or campfire. Using the device requires your action.\rMusic Box: When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is closed."
+      "Manitas: Usando herramientas de manitas, puedes gastar 1 hora y 10 gp en materiales para construir un dispositivo mecánico pequeño (CA 5, 1 PV). El dispositivo deja de funcionar después de 24 horas (a menos que pases 1 hora reparándolo para mantenerlo funcionando), o cuando usas tu acción para desmantelarlo; en ese momento, puedes recuperar los materiales utilizados para crearlo. Puedes tener hasta tres dispositivos de este tipo activos al mismo tiempo. Cuando creas un dispositivo, elige una de las siguientes opciones:\rJuguete Mecánico: Este juguete es un animal mecánico, monstruo o persona, como una rana, ratón, pájaro, dragón o soldado. Cuando se coloca en el suelo, el juguete se mueve 5 pies por el suelo en cada uno de tus turnos en una dirección aleatoria. Hace ruidos según lo que representa.\rEncendedor: El dispositivo produce una llama en miniatura, que puedes usar para encender una vela, antorcha o fogata. Usar el dispositivo requiere tu acción.\rCaja de Música: Cuando se abre, esta caja de música toca una sola canción a un volumen moderado. La caja deja de tocar cuando termina la canción o cuando se cierra."
     );
     generate_balance(0.6, 0.4);
     generate_morality(0.5, 0.2);
@@ -2773,7 +2773,7 @@ armor = {
     document.getElementById("form87_1").value = "30";
     features.push("Vision Nocturna: 19 m");
     features.push(
-      "Fey Ancestry: You have advantage on saving throws against being charmed, and magic can’t put you to sleep."
+      "Ascendencia Feérica: Tienes ventaja en las tiradas de salvación contra ser encantado, y la magia no puede ponerte a dormir."
     );
     generate_balance(0.8, 0.6);
     generate_morality(0.6, 0.3);
@@ -2788,28 +2788,28 @@ armor = {
     random_by_length(toughTraits, personalityTraits, "form102_1");
     features.push("Vision Nocturna: 19 m");
     features.push(
-      "Relentless Endurance: When you are reduced to 0 hit points but not killed outright, you can drop to 1 hitpoint instead. You can't use this feature again until you finish a long rest."
+      "Resistencia Implacable: Cuando te reduzcan a 0 puntos de golpe pero no te maten, puedes caer a 1 punto de golpe en su lugar. No puedes usar esta característica nuevamente hasta que termines un descanso largo."
     );
     additionalFeatures.push(
-      "Savage Attacks: When you score a critical hit with a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit."
+      "Ataques Salvajes: Cuando logras un golpe crítico con un ataque de arma cuerpo a cuerpo, puedes tirar uno de los dados de daño del arma una vez más y agregarlo al daño adicional del golpe crítico."
     );
     generate_balance(0.8, 0.6);
     generate_morality(0.7, 0.4);
   } else if (race === "Tiefling") {
     racialLanguage1 = listOfStandardLanguages[0];
-    racialLanguage2 = "Infernal";
+    racialLanguage2 = listOfExoticLanguages[5];
     profsAndLangs.languages.push(racialLanguage1);
     profsAndLangs.languages.push(racialLanguage2);
     features.push(
-      "Infernal Legacy: You know the thaumaturgy cantrip, charisma is your spellcasting ability for it."
+      "Legado Infernal: Conoces el truco taumaturgia, el carisma es tu habilidad de lanzamiento de conjuros para ello."
     );
-    add_race_cantrip("Thaumaturgy");
+    add_race_cantrip("Taumaturgia");
     charisma += 2;
     intelligence += 1;
     document.getElementById("form87_1").value = "30";
     random_by_length(softTraits, personalityTraits, "form102_1");
     features.push("Vision Nocturna: 19 m");
-    features.push("Hellish Resistance. You have resistance to fire damage.");
+    features.push("Resistencia Infernal: Tienes resistencia al daño por fuego.");
     generate_balance(0.8, 0.6);
     generate_morality(0.7, 0.4);
   }
@@ -2988,13 +2988,13 @@ armor = {
     random2 = Math.random();
     if (classAndLevel === "Barbarian 1") {
       features.push(
-        "Rage (2/lr): On your turn, you can enter a rage as a Bonus Action. While raging, you gain the following benefits if you aren't wearing heavy armor: You have advantage on Strength Checks and Strength saving throws. When you make a melee weapon Attack using Strength, you gain a +2 bonus to the damage roll. This bonus increases as you level. You have Resistance to bludgeoning, piercing, and slashing damage. If you are able to cast Spells, you can't cast them or concentrate on them while raging. See player's handbook for more details."
+        "Furia (2/lr): En tu turno, puedes entrar en furia como una Acción adicional. Mientras estés en furia, obtienes los siguientes beneficios si no estás usando armadura pesada: Tienes ventaja en Chequeos de Fuerza y tiradas de salvación de Fuerza. Cuando haces un Ataque con un arma cuerpo a cuerpo usando Fuerza, obtienes un bono de +2 al daño. Este bono aumenta a medida que subes de nivel. Tienes Resistencia al daño contundente, perforante y cortante. Si eres capaz de lanzar Conjuros, no puedes lanzarlos ni concentrarte en ellos mientras estés en furia. Consulta el manual del jugador para más detalles."
       );
       features.push(
-        "Unarmored Defense: While you are not wearing any armor, your armor class equals 10 + your dexterity modifier + your constitution modifier, usable with shield.."
+        "Defensa sin armadura: Mientras no lleves armadura, tu clase de armadura es igual a 10 + tu modificador de destreza + tu modificador de constitución, usable con escudo."
       );
       spellcastingSection.push(
-        "Rage (2/lr): Use your bonus action to rage and gain +2 to melee damage rolls using strength, and gain defensive benefits outlined in the features section."
+        "Furia (2/lr): Usa tu acción adicional para entrar en furia y obtener +2 a las tiradas de daño cuerpo a cuerpo usando fuerza, y obtener beneficios defensivos descritos en la sección de características."
       );
       if (dexterity > strength) {
         if (
@@ -3002,13 +3002,13 @@ armor = {
           document.getElementById("form90_1").value === "Pirate" ||
           document.getElementById("form90_1").value === "Gladiator"
         ) {
-          equipment.push("Trident");
-          document.getElementById("form79_1").value = "Trident"; // 1st weapon 1st section
+          equipment.push("Tridente");
+          document.getElementById("form79_1").value = "Tridente"; // 1st weapon 1st section
           stat_checker(dexterityModifier + 2, "form64_1"); // 1st weapon 2nd section
           stat_checker_3(dexterityModifier, "form76_1", "1d6/8", "P"); // 1st weapon 3rd section
 
-          equipment.push("Heavy Crossbow");
-          document.getElementById("form78_1").value = "Heavy CB"; // 2nd weapon 1st section
+            equipment.push("Ballesta pesada");
+            document.getElementById("form78_1").value = "Ballesta pesada"; // 2nd weapon 1st section
           stat_checker(dexterityModifier + 2, "form65_1"); // 2nd weapon 2nd section
           stat_checker_3(dexterityModifier, "form74_1", "1d10", "P"); // 2nd weapon 3rd section
         } else {
@@ -5213,11 +5213,11 @@ armor = {
   function random_gladiator_weapon() {
     random = Math.floor(Math.random() * 4);
     if (random === 0) {
-      if (weapon_adder("trident") !== undefined) {
-        weapon_adder_2(weapon_adder("trident"));
-        equipment.push("Trident");
+      if (weapon_adder("Tridente") !== undefined) {
+        weapon_adder_2(weapon_adder("Tridente"));
+        equipment.push("Tridente");
       } else {
-        return "Trident already added";
+        return "Tridente already added";
       }
     } else if (random === 1) {
       if (weapon_adder("net") !== undefined) {
@@ -5245,8 +5245,8 @@ armor = {
 
   // Function to check random_gladiator_weapon()
   function random_gladiator_weapon_checker(variable) {
-    if (variable === "Trident already added") {
-      equipment.push("Trident");
+    if (variable === "Tridente already added") {
+      equipment.push("Tridente");
     } else if (variable === "Net already added") {
       equipment.push("Net");
     } else if (variable === "Sling already added") {

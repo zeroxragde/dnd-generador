@@ -2009,67 +2009,67 @@ function generate_character(isManual = false) {
     return languagevariable;
   }
 
-// Objeto que contiene nombres de armaduras y sus valores
-armor = {
-  lightArmor: {
-    padded: {
-      armorname: "Armadura acolchada",
-      armorAC: 11 + dexterityModifier,
+  // Objeto que contiene nombres de armaduras y sus valores
+  armor = {
+    lightArmor: {
+      padded: {
+        armorname: "Armadura acolchada",
+        armorAC: 11 + dexterityModifier,
+      },
+      leather: {
+        armorname: "Armadura de cuero",
+        armorAC: 11 + dexterityModifier,
+      },
+      studdedleather: {
+        armorname: "Cuero tachonado",
+        armorAC: 12 + dexterityModifier,
+      },
     },
-    leather: {
-      armorname: "Armadura de cuero",
-      armorAC: 11 + dexterityModifier,
+    mediumArmor: {
+      hide: {
+        armorname: "Armadura de piel",
+        armorAC: 12 + dexterityModifier,
+      },
+      chainshirt: {
+        armorname: "Camiseta de malla",
+        armorAC: 13 + dexterityModifier,
+      },
+      scalemail: {
+        armorname: "Cota de escamas",
+        armorAC: 14 + dexterityModifier,
+      },
+      breastplate: {
+        armorname: "Coraza",
+        armorAC: 14 + dexterityModifier,
+      },
+      halfplate: {
+        armorname: "Media armadura",
+        armorAC: 15 + dexterityModifier,
+      },
+      Escudo: {
+        armorname: "Escudo",
+        armorAC: 2,
+      },
     },
-    studdedleather: {
-      armorname: "Cuero tachonado",
-      armorAC: 12 + dexterityModifier,
+    heavyArmor: {
+      ringmail: {
+        armorname: "Cota de anillas",
+        armorAC: 14,
+      },
+      chainmail: {
+        armorname: "Cota de malla",
+        armorAC: 16,
+      },
+      splint: {
+        armorname: "Armadura de bandas",
+        armorAC: 17,
+      },
+      plate: {
+        armorname: "Armadura de placas",
+        armorAC: 18,
+      },
     },
-  },
-  mediumArmor: {
-    hide: {
-      armorname: "Armadura de piel",
-      armorAC: 12 + dexterityModifier,
-    },
-    chainshirt: {
-      armorname: "Camiseta de malla",
-      armorAC: 13 + dexterityModifier,
-    },
-    scalemail: {
-      armorname: "Cota de escamas",
-      armorAC: 14 + dexterityModifier,
-    },
-    breastplate: {
-      armorname: "Coraza",
-      armorAC: 14 + dexterityModifier,
-    },
-    halfplate: {
-      armorname: "Media armadura",
-      armorAC: 15 + dexterityModifier,
-    },
-    Escudo: {
-      armorname: "Escudo",
-      armorAC: 2,
-    },
-  },
-  heavyArmor: {
-    ringmail: {
-      armorname: "Cota de anillas",
-      armorAC: 14,
-    },
-    chainmail: {
-      armorname: "Cota de malla",
-      armorAC: 16,
-    },
-    splint: {
-      armorname: "Armadura de bandas",
-      armorAC: 17,
-    },
-    plate: {
-      armorname: "Armadura de placas",
-      armorAC: 18,
-    },
-  },
-};
+  };
 
 
   // Array that contains list of armas simples
@@ -3215,7 +3215,7 @@ armor = {
             document.getElementById("form213_3").value = "Guía";
             document.getElementById("form204_3").value = "Llama Sagrada";
             document.getElementById("form203_3").value = "Reparar";
-            document.getElementById("form202_3").value = "Shilelagh";
+            document.getElementById("form202_3").value = "Garrote";
             equipment.push("Cota de mallas");
           if (wisdomModifier === 0) {
             document.getElementById("form137_3").value = "Bendición";
@@ -3308,7 +3308,7 @@ armor = {
             document.getElementById("form131_3").value = "Curar Heridas";
             document.getElementById("form129_3").value = "Detectar Magia";
           }
-          document.getElementById("form193_3").value = "Charm Person";
+          document.getElementById("form193_3").value = "Encantar Persona";
           document.getElementById("form159_3").value = "Disguise Self";
           equipment.push("Armadura de cuero");
           features.push(
@@ -4239,7 +4239,7 @@ armor = {
         document.getElementById("form193_3").value = "Susurros disonantes";
         document.getElementById("form159_3").value = "Risa Horrenda de Tasha";
         features.push(
-          "Mente Despierta: Puedes comunicarte telepáticamente con cualquier criatura que puedas ver dentro de 30 pies de ti. No necesitas compartir un idioma con la criatura para que entienda tus expresiones telepáticas, pero la criatura debe ser capaz de entender al menos un idioma."
+          "Mente Despierta: Puedes comuniCarroe telepáticamente con cualquier criatura que puedas ver dentro de 30 pies de ti. No necesitas compartir un idioma con la criatura para que entienda tus expresiones telepáticas, pero la criatura debe ser capaz de entender al menos un idioma."
         );
       }
     } else if (classAndLevel === "Wizard 1") {
@@ -5065,7 +5065,7 @@ armor = {
     } else if (random === 1) {
       return "Conjunto de dados trucados";
     } else if (random === 2) {
-      return "Baraja de cartas marcadas";
+      return "Baraja de Carroas marcadas";
     } else if (random === 3) {
       return "Anillo de sello de un duque imaginario";
     }    
@@ -5079,7 +5079,7 @@ armor = {
     } else if (random === 1) {
       return "Ajedrez de dragón";
     } else if (random === 2) {
-      return "Cartas para jugar";
+      return "Carroas para jugar";
     } else if (random === 3) {
       return "Tres dragones ante";
     }    
@@ -5136,7 +5136,7 @@ armor = {
   function random_favor_from_admirer() {
     random = Math.floor(Math.random() * 3);
     if (random === 0) {
-      return "Carta de amor de un admirador";
+      return "Carroa de amor de un admirador";
     } else if (random === 1) {
       return "Mechón de cabello de un admirador";
     } else if (random === 2) {
@@ -5156,7 +5156,7 @@ armor = {
     } else if (random === 3) {
       return "Herramientas de carpintero";
     } else if (random === 4) {
-      return "Herramientas de cartógrafo";
+      return "Herramientas de Carroógrafo";
     } else if (random === 5) {
       return "Herramientas de zapatero";
     } else if (random === 6) {
@@ -5190,7 +5190,7 @@ armor = {
     if (random === 0) {
       return "Dados";
     } else if (random === 1) {
-      return "Juego de Cartas";
+      return "Juego de Carroas";
     }
   }
 
@@ -5291,52 +5291,52 @@ armor = {
     stat_checker(wisdomModifier + 2, "form35_1");
     add_click(20);
     stat_checker(intelligenceModifier + 2, "form33_1");
-    equipment.push("A holy symbol");
-    equipment.push("Prayer Book");
-    equipment.push("5 sticks of incense");
-    equipment.push("Vestments");
-    equipment.push("Set of common clothes");
-    equipment.push("Belt Pouch");
+    equipment.push("Un símbolo sagrado");
+    equipment.push("Libro de oraciones");
+    equipment.push("5 varillas de incienso");
+    equipment.push("Vestimentas");
+    equipment.push("Conjunto de ropa común");
+    equipment.push("Bolsa de cinturón");
     gold += 15;
     features.push(
-      "Shelter of the Faithful: Can perform the religious ceremonies of your deity. Your adventuring party can expect to receive free healing and care at an establishment of your faith, though you must provide any material components needed for spells. Those who share your religion will support you at a modest lifestyle. While near your home establishment, you can call upon the priests for assistance, provided it is not hazardous."
+      "Refugio de los Fieles: Puedes realizar las ceremonias religiosas de tu deidad. Tu grupo de aventureros puede esperar recibir curación y cuidado gratuitos en un establecimiento de tu fe, aunque debes proporcionar cualquier componente material necesario para los conjuros. Aquellos que comparten tu religión te apoyarán con un estilo de vida modesto. Mientras estés cerca de tu establecimiento de origen, puedes pedir ayuda a los sacerdotes, siempre que no sea peligroso."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhat caused you to become an acolyte?\rWhat deity do you serve?\rWhere was your temple/monastery?\rWhy did you learn those languages?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un acólito?\r¿Qué deidad sirves?\r¿Dónde estaba tu templo/monasterio?\r¿Por qué aprendiste esos idiomas?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from acolyte to " +
+      "¿Cómo pasaste de ser un acólito a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?";
+      "?";
   } else if (newBackground1 === "Charlatan") {
-    tool_adder_2(tool_adder("disguise kit"));
-    tool_adder_2(tool_adder("forgery kit"));
+    tool_adder_2(tool_adder("Kit de disfraz"));
+    tool_adder_2(tool_adder("kit de falsificación"));
     add_click(17);
     stat_checker(charismaModifier + 2, "form36_1");
     add_click(4);
     stat_checker(dexterityModifier + 2, "form46_1");
-    equipment.push("Disguise kit");
+    equipment.push("Kit de disfraz");
     equipment.push(random_con());
-    equipment.push("Set of fine clothes");
-    equipment.push("Belt Pouch");
+    equipment.push("Conjunto de ropa fina");
+    equipment.push("Bolsa de cinturón");
     gold += 15;
     features.push(
-      "False Identity: You have a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona. Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy."
+      "Identidad Falsa: Tienes una segunda identidad que incluye documentación, conocidos establecidos y disfraces que te permiten asumir esa persona. Además, puedes falsificar documentos, incluidos papeles oficiales y Carroas personales, siempre que hayas visto un ejemplo del tipo de documento o la escritura que estás tratando de copiar."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhat caused you to become a charlatan?\rWhat is your choice ploy?\rWhat was your biggest trick at?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un charlatán?\r¿Cuál es tu truco preferido?\r¿Cuál fue tu mayor engaño?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from charlatan to " +
+      "¿Cómo pasaste de ser un charlatán a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?\r" +
-      "Are you still duping people, if not, why the change of heart?";
+      "?\r" +
+      "¿Sigues engañando a la gente? Si no, ¿por qué el cambio de corazón?";
   } else if (newBackground1 === "Criminal") {
     tool_adder_2(tool_adder("herramientas de ladrón"));
     tool_adder_2(tool_adder(random_gaming_set_capitalize().toLowerCase()));
@@ -5344,101 +5344,101 @@ armor = {
     stat_checker(charismaModifier + 2, "form36_1");
     add_click(23);
     stat_checker(dexterityModifier + 2, "form32_1");
-    equipment.push("Crowbar");
-    equipment.push("Set of dark common clothes with a hood");
-    equipment.push("Belt Pouch");
+    equipment.push("Palanca");
+    equipment.push("Conjunto de ropa oscura común con capucha");
+    equipment.push("Bolsa de cinturón");
     gold += 15;
     features.push(
-      "Criminal Contact: You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals. You know how to get messages to and from your contact, even over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you."
+      "Contacto Criminal: Tienes un contacto confiable y leal que actúa como tu enlace con una red de otros criminales. Sabes cómo enviar mensajes hacia y desde tu contacto, incluso a grandes distancias; específicamente, conoces a los mensajeros locales, maestros de caravanas corruptos y marineros sospechosos que pueden entregar mensajes por ti."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhat caused you to become a criminal?\rWhat kind of criminal were you?\rDid you do anything terrible?\rWho is your criminal contact?\rWhy are you a " +
+      "¿Qué te llevó a comenzar a aventurarte?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un criminal?\r¿Qué tipo de criminal eras?\r¿Hiciste algo terrible?\r¿Quién es tu contacto criminal?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from criminal to " +
+      "¿Cómo pasaste de ser un criminal a " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?\r" +
-      "Are you still breaking the law, if not, why the change of heart?";
+      "?\r" +
+      "¿Sigues infringiendo la ley? Si no, ¿por qué cambiaste de opinión?";    
   } else if (newBackground1 === "Entertainer") {
     musicalinstrument = random_musical_instrument();
     tool_adder_2(tool_adder(musicalinstrument.toLowerCase()));
-    tool_adder_2(tool_adder("disguise kit"));
+    tool_adder_2(tool_adder("Kit de disfraz"));
     add_click(19);
     stat_checker(dexterityModifier + 2, "form38_1");
     add_click(16);
     stat_checker(charismaModifier + 2, "form34_1");
     equipment.push(musicalinstrument);
-    equipment.push("Costume");
+    equipment.push("Disfraz");
     document.getElementById("form14_2").value = random_favor_from_admirer();
-    equipment.push("Belt Pouch");
+    equipment.push("Bolsa de cinturón");
     gold += 15;
     features.push(
-      "By Popular Demand: You can always find a place to perform. At that place, you receive free lodging and food of a modest or comfortable standard, as long as you perform each night. Your performance also makes you something of a local figure, when recognized, they typically take a liking to you."
+      "Por Demanda Popular: Siempre puedes encontrar un lugar para actuar. En ese lugar, recibes alojamiento y comida gratuitos de un estándar modesto o cómodo, siempre que actúes cada noche. Tu actuación también te convierte en una figura local, cuando te reconocen, generalmente te toman cariño."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhat caused you to become an entertainer?\rHow did you entertain?\rDo you still have any contacts or people you know from performing?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un artista?\r¿Cómo entretenías?\r¿Todavía tienes algún contacto o personas que conoces de tus actuaciones?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from entertainer to " +
+      "¿Cómo pasaste de ser un artista a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?";
+      "?";
   } else if (newBackground1 === "Folk Hero") {
     artisantool = random_artisan_tool();
     tool_adder_2(tool_adder(artisantool.toLowerCase()));
-    tool_adder_2(tool_adder("land vehicles"));
+    tool_adder_2(tool_adder("vehículos terrestres"));
     add_click(8);
     stat_checker(wisdomModifier + 2, "form50_1");
     add_click(12);
     stat_checker(wisdomModifier + 2, "form47_1");
     equipment.push(artisantool);
-    equipment.push("Shovel");
-    equipment.push("Iron pot");
-    equipment.push("Set of common clothes");
-    equipment.push("Belt Pouch");
+    equipment.push("Pala");
+    equipment.push("Olla de hierro");
+    equipment.push("Conjunto de ropa común");
+    equipment.push("Bolsa de cinturón");
     gold += 10;
     features.push(
-      "Rustic Hospitality: Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will Escudo you from the law or anyone else searching for you, though they will not risk their lives for you."
+      "Hospitalidad Rústica: Dado que provienes de las filas del pueblo común, encajas entre ellos con facilidad. Puedes encontrar un lugar para esconderte, descansar o recuperarte entre otros plebeyos, a menos que te hayas mostrado como un peligro para ellos. Te protegerán de la ley o de cualquier otra persona que te busque, aunque no arriesgarán sus vidas por ti."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhat made you famous to your people?\rWhy did you leave them?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te hizo famoso entre tu gente?\r¿Por qué los dejaste?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from folk hero to " +
+      "¿Cómo pasaste de ser un héroe del pueblo a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?";
+      "?";
   } else if (newBackground1 === "Gladiator") {
     gladiatorWeapon = random_gladiator_weapon();
     random_gladiator_weapon_checker(gladiatorWeapon);
-    tool_adder_2(tool_adder("disguise kit"));
+    tool_adder_2(tool_adder("Kit de disfraz"));
     add_click(19);
     stat_checker(dexterityModifier + 2, "form38_1");
     add_click(16);
     stat_checker(charismaModifier + 2, "form34_1");
-    equipment.push("Costume");
-    equipment.push("Belt Pouch");
+    equipment.push("Disfraz");
+    equipment.push("Bolsa de cinturón");
     gold += 15;
     features.push(
-      "By Popular Demand: Can always find a place to perform that is combat-centered. At that place, receive free lodging and food of a modest or comfortable standard, as long as you perform each night. Your performance makes you something of a local figure, when recognized, persons typically take a liking to you."
+      "Por Demanda Popular: Siempre puedes encontrar un lugar para actuar que esté centrado en el combate. En ese lugar, recibes alojamiento y comida gratuitos de un estándar modesto o cómodo, siempre que actúes cada noche. Tu actuación también te convierte en una figura local, cuando te reconocen, generalmente te toman cariño."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhy did you become a gladiator?\rWas it slavery?\rWas it money?\rWas it family?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Por qué te convertiste en gladiador?\r¿Fue esclavitud?\r¿Fue por dinero?\r¿Fue por familia?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from gladiator to " +
+      "¿Cómo pasaste de ser un gladiador a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?";
+      "?";
   } else if (newBackground1 === "Guild Artisan") {
     firstLanguage = random_language();
     firstLanguage = right_language();
@@ -5450,23 +5450,23 @@ armor = {
     add_click(1);
     stat_checker(charismaModifier + 2, "form45_1");
     equipment.push(artisantool);
-    equipment.push("Guild introduction letter");
-    equipment.push("Set of traveler's clothes");
-    equipment.push("Belt Pouch");
+    equipment.push("Carroa de presentación del gremio");
+    equipment.push("Conjunto de ropa de viajero");
+    equipment.push("Bolsa de cinturón");
     gold += 15;
     features.push(
-      "Guild Membership: Your fellow guild members will provide you with lodging and food if necessary, and pay for your funeral. If accused of a crime, your guild will support you if innocent or have just cause. 5Gp/month for membership, benefits only if you pay on time."
+      "Membresía del Gremio: Tus compañeros de gremio te proporcionarán alojamiento y comida si es necesario, y pagarán tu funeral. Si eres acusado de un crimen, tu gremio te apoyará si eres inocente o tienes una causa justa. 5Gp/mes por membresía, beneficios solo si pagas a tiempo."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhy did you become an artisan?\rWhy did you choose your artistry?\rWhat's your guilds name?\rWas it money?\rWas it passion?\rWas it the family business?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Por qué te convertiste en artesano?\r¿Por qué elegiste tu oficio?\r¿Cuál es el nombre de tu gremio?\r¿Fue por dinero?\r¿Fue por pasión?\r¿Fue el negocio familiar?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from guild artisan to " +
+      "¿Cómo pasaste de ser un artesano del gremio a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?";
+      "?";
   } else if (newBackground1 === "Guild Merchant") {
     firstLanguage = random_language();
     firstLanguage = right_language();
@@ -5478,52 +5478,52 @@ armor = {
     stat_checker(wisdomModifier + 2, "form35_1");
     add_click(1);
     stat_checker(charismaModifier + 2, "form45_1");
-    equipment.push("Guild introduction letter");
-    equipment.push("Set of traveler's clothes");
-    equipment.push("Belt Pouch");
-    equipment.push("Mule");
-    equipment.push("Cart");
+    equipment.push("Carroa de presentación del gremio");
+    equipment.push("Conjunto de ropa de viajero");
+    equipment.push("Bolsa de cinturón");
+    equipment.push("Mula");
+    equipment.push("Carro");
     gold += 15;
     features.push(
-      "Guild Membership: Your fellow guild members will provide you with lodging and food if necessary, and pay for your funeral. If accused of a crime, your guild will support you if innocent or have just cause. 5Gp/month for membership, benefits only if you pay on time."
+      "Membresía del Gremio: Tus compañeros de gremio te proporcionarán alojamiento y comida si es necesario, y pagarán tu funeral. Si eres acusado de un crimen, tu gremio te apoyará si eres inocente o tienes una causa justa. 5Gp/mes por membresía, beneficios solo si pagas a tiempo."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhy did you become a merchant?\rWhy did you choose your artistry?\rWhat's your guilds name?\rWas it money?\rWas it passion for trade or meeting new people?\rWas it the family business?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Por qué te convertiste en comerciante?\r¿Por qué elegiste tu oficio?\r¿Cuál es el nombre de tu gremio?\r¿Fue por dinero?\r¿Fue por pasión por el comercio o conocer gente nueva?\r¿Fue el negocio familiar?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from guild merchant to " +
+      "¿Cómo pasaste de ser un comerciante del gremio a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?";
+      "?";
   } else if (newBackground1 === "Hermit") {
     firstLanguage = random_language();
     firstLanguage = right_language();
     profsAndLangs.languages.push(firstLanguage);
-    tool_adder_2(tool_adder("herbalism kit"));
+    tool_adder_2(tool_adder("kit de herboristería"));
     add_click(5);
     stat_checker(wisdomModifier + 2, "form53_1");
     add_click(20);
     stat_checker(intelligenceModifier + 2, "form33_1");
-    equipment.push("Scroll case stuffed full of notes from your studies");
-    equipment.push("Winter blanket");
-    equipment.push("Set of common clothes");
-    equipment.push("Herbalism kit");
+    equipment.push("Estuche de pergaminos lleno de notas de tus estudios");
+    equipment.push("Manta de invierno");
+    equipment.push("Conjunto de ropa común");
+    equipment.push("kit de herboristería");
     gold += 5;
     features.push(
-      "Discovery: The quiet seclusion of your extended hermitage gave you access to a unique and powerful discovery."
+      "Descubrimiento: La tranquila reclusión de tu prolongado ermitaño te dio acceso a un descubrimiento único y poderoso."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhere were you secluded at?\rDid you travel a lot?\rWhat's your big discovery? Talk it over with your DM as well.\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Dónde estuviste recluido?\r¿Viajaste mucho?\r¿Cuál es tu gran descubrimiento? Habla de ello con tu DM también.\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from hermit to " +
+      "¿Cómo pasaste de ser un ermitaño a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?";
+      "?";
   } else if (newBackground1 === "Knight") {
     firstLanguage = random_language();
     firstLanguage = right_language();
@@ -5534,26 +5534,26 @@ armor = {
     add_click(1);
     stat_checker(charismaModifier + 2, "form45_1");
     bonds.splice(0, 1);
-    bonds.push("I have an emblem of chivalry and chastity from a noble lady.");
-    equipment.push("Emblem of chivalry");
-    equipment.push("Signet ring");
-    equipment.push("Scroll of pedigree");
-    equipment.push("Set of fine clothes");
-    equipment.push("Purse");
+    bonds.push("Tengo un emblema de caballería y castidad de una dama noble.");
+    equipment.push("Emblema de caballería");
+    equipment.push("Anillo de sello");
+    equipment.push("Pergamino de linaje");
+    equipment.push("Conjunto de ropa fina");
+    equipment.push("Cartera");
     gold += 25;
     features.push(
-      "Retainer: You have three retainers loyal to your family. These retainers are a noble-born squire, a groom for your horse, and a servant for mundane tasks. Your retainers are people who can perform tasks for you, but they do not fight for you, will not follow you into dangerous areas, and will leave if they are frequently endangered or abused."
+      "Criados: Tienes tres criados leales a tu familia. Estos criados son un escudero de nacimiento noble, un mozo para tu caballo y un sirviente para tareas mundanas. Tus criados son personas que pueden realizar tareas para ti, pero no lucharán por ti, no te seguirán a áreas peligrosas y se irán si son frecuentemente puestos en peligro o maltratados."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWho is your family?\rAre there any famous persons in it, or is your family famous for something in particular?\rWho is the woman you recieved the emblem of chivalry from?.\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Quién es tu familia?\r¿Hay alguna persona famosa en ella, o tu familia es famosa por algo en particular?\r¿Quién es la mujer de la que recibiste el Emblema de caballería?.\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from knight to " +
+      "¿Cómo pasaste de ser un caballero a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?";
+      "?";
   } else if (newBackground1 === "Noble") {
     firstLanguage = random_language();
     firstLanguage = right_language();
@@ -5563,24 +5563,24 @@ armor = {
     stat_checker(intelligenceModifier + 2, "form48_1");
     add_click(1);
     stat_checker(charismaModifier + 2, "form45_1");
-    equipment.push("Signet ring");
-    equipment.push("Scroll of pedigree");
-    equipment.push("Set of fine clothes");
-    equipment.push("Purse");
+    equipment.push("Anillo de sello");
+    equipment.push("Pergamino de linaje");
+    equipment.push("Conjunto de ropa fina");
+    equipment.push("Cartera");
     gold += 25;
     features.push(
-      "Position of Privilege: You are welcome in high society, and people assume you have the right to be wherever you are. The common folk and merchants make every effort to accommodate you and avoid your displeasure, and other people of high birth treat you as a member of the same social sphere. You can secure an audience with a local noble if you need to."
+      "Posición de Privilegio: Eres bienvenido en la alta sociedad, y la gente asume que tienes derecho a estar donde estás. La gente común y los comerciantes hacen todo lo posible para acomodarte y evitar tu desagrado, y otras personas de alta cuna te tratan como un miembro de la misma esfera social. Puedes asegurar una audiencia con un noble local si lo necesitas."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWho is your family?\rAre there any famous persons in it, or is your family famous for something in particular?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Quién es tu familia?\r¿Hay alguna persona famosa en ella, o tu familia es famosa por algo en particular?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from noble to " +
+      "¿Cómo pasaste de ser un noble a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?";
+      "?";
   } else if (newBackground1 === "Outlander") {
     musicalinstrument = random_musical_instrument();
     tool_adder_2(tool_adder(musicalinstrument.toLowerCase()));
@@ -5589,51 +5589,51 @@ armor = {
     add_click(12);
     stat_checker(wisdomModifier + 2, "form47_1");
     equipment.push("Staff");
-    equipment.push("Hunting Trap");
+    equipment.push("Trampa de Caza");
     equipment.push(random_animal_trophy());
-    equipment.push("Set of traveler's clothes");
-    equipment.push("Belt Pouch");
+    equipment.push("Conjunto de ropa de viajero");
+    equipment.push("Bolsa de cinturón");
     gold += 10;
     features.push(
-      "Wanderer: You have an excellent memory for maps and geography, and you can always recall the general layout of terrain, settlements, and other features around you. In addition, you can find food and fresh water for yourself and up to five other people each day, provided that the land offers berries, small game, water, and so forth."
+      "Errante: Tienes una excelente memoria para mapas y geografía, y siempre puedes recordar la disposición general del terreno, asentamientos y otras características a tu alrededor. Además, puedes encontrar comida y agua fresca para ti y hasta cinco personas más cada día, siempre que la tierra ofrezca bayas, caza menor, agua, etc."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhere were you at?\rDid you travel a lot?\rWhat's the story behind your animal trophy?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Dónde estabas?\r¿Viajaste mucho?\r¿Cuál es la historia detrás de tu trofeo animal?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from outlander to " +
+      "¿Cómo pasaste de ser un forastero a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?";
+      "?";
   } else if (newBackground1 === "Pirate") {
-    tool_adder_2(tool_adder("navigator's tools"));
-    tool_adder_2(tool_adder("water vehicles"));
+    tool_adder_2(tool_adder("herramientas de navegación"));
+    tool_adder_2(tool_adder("vehículos acuáticos"));
     add_click(2);
     stat_checker(strengthModifier + 2, "form49_1");
     add_click(7);
     stat_checker(wisdomModifier + 2, "form43_1");
     equipment.push("garrote");
-    equipment.push("50 feet of silk rope");
+    equipment.push("15 metros de cuerda de seda");
     document.getElementById("form14_2").value = random_trinket();
-    equipment.push("Set of common clothes");
-    equipment.push("Belt Pouch");
+    equipment.push("Conjunto de ropa común");
+    equipment.push("Bolsa de cinturón");
     gold += 10;
     features.push(
-      "Bad Reputation: No matter where you go, people are afraid of you due to your reputation. When you are in a civilized settlement, you can get away with minor criminal offenses, such as refusing to pay for food at a tavern or breaking down doors at a local shop, since most people will not report your activity to the authorities."
+      "Mala Reputación: No importa a dónde vayas, la gente te teme debido a tu reputación. Cuando estás en un asentamiento civilizado, puedes salirte con la tuya con delitos menores, como negarte a pagar por la comida en una taberna o derribar puertas en una tienda local, ya que la mayoría de la gente no informará de tu actividad a las autoridades."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rHow did you become a pirate?\rDid you have a seaport that was your home?\rDo you still keep in contact with your shipmates?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Cómo te convertiste en pirata?\r¿Tenías un puerto marítimo que fuera tu hogar?\r¿Sigues en contacto con tus compañeros de barco?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from pirate to " +
+      "¿Cómo pasaste de ser un pirata a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?\r" +
-      "Why aren't you a pirate still?";
+      "?\r" +
+      "¿Por qué ya no eres un pirata?";
   } else if (newBackground1 === "Sage") {
     firstLanguage = random_language();
     firstLanguage = right_language();
@@ -5645,83 +5645,83 @@ armor = {
     stat_checker(intelligenceModifier + 2, "form40_1");
     add_click(9);
     stat_checker(intelligenceModifier + 2, "form48_1");
-    equipment.push("Bottle of black ink");
-    equipment.push("Quill");
+    equipment.push("Botella de tinta negra");
+    equipment.push("Pluma");
     equipment.push("Small knife");
-    equipment.push("Letter from dead colleague");
-    equipment.push("Set of common clothes");
-    equipment.push("Belt pouch");
+    equipment.push("Carta de un colega fallecido");
+    equipment.push("Conjunto de ropa común");
+    equipment.push("Bolsa de cinturón");
     gold += 10;
     features.push(
-      "Researcher: When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature."
+      "Investigador: Cuando intentas aprender o recordar una pieza de conocimiento, si no conoces esa información, a menudo sabes dónde y de quién puedes obtenerla. Por lo general, esta información proviene de una biblioteca, scriptorium, universidad o de un sabio u otra persona o criatura erudita."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhat were you spending all that time studying?\rWhat does the letter from your dead colleague say?\rWhy did you learn those languages?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué estabas estudiando todo ese tiempo?\r¿Qué dice la carta de tu colega fallecido?\r¿Por qué aprendiste esos idiomas?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from sage to " +
+      "¿Cómo pasaste de ser un sabio a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?";
+      "?";
   } else if (newBackground1 === "Sailor") {
-    tool_adder_2(tool_adder("navigator's tools"));
-    tool_adder_2(tool_adder("water vehicles"));
+    tool_adder_2(tool_adder("herramientas de navegación"));
+    tool_adder_2(tool_adder("vehículos acuáticos"));
     add_click(2);
     stat_checker(strengthModifier + 2, "form49_1");
     add_click(7);
     stat_checker(wisdomModifier + 2, "form43_1");
     equipment.push("garrote");
-    equipment.push("50 feet of silk rope");
+    equipment.push("15 metros de cuerda de seda");
     document.getElementById("form14_2").value = random_trinket();
-    equipment.push("Set of common clothes");
-    equipment.push("Belt Pouch");
+    equipment.push("Conjunto de ropa común");
+    equipment.push("Bolsa de cinturón");
     gold += 10;
     features.push(
-      "Ship's Passage: You can secure free passage on a sailing ship for yourself and your adventuring companions. You might sail on the ship you served on, or another ship you have good relations with. In return for your free passage, you and your companions are expected to assist the crew during the voyage."
+      "Pasaje en Barco: Puedes asegurar un pasaje gratuito en un barco de vela para ti y tus compañeros de aventura. Podrías navegar en el barco en el que serviste, o en otro barco con el que tengas buenas relaciones. A cambio de tu pasaje gratuito, tú y tus compañeros deben ayudar a la tripulación durante el viaje."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rHow did you become a sailor?\rDid you have a seaport that was your home?\rDo you still keep in contact with your shipmates?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Cómo te convertiste en marinero?\r¿Tenías un puerto marítimo que fuera tu hogar?\r¿Sigues en contacto con tus compañeros de barco?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from sailor to " +
+      "¿Cómo pasaste de ser un marinero a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?\r";
+      "?\r";
   } else if (newBackground1 === "Soldier") {
     soldierGamingSet = random_gaming_set_soldier();
     tool_adder_2(tool_adder(soldierGamingSet.toLowerCase()));
-    tool_adder_2(tool_adder("land vehicles"));
+    tool_adder_2(tool_adder("vehículos terrestres"));
     add_click(2);
     stat_checker(strengthModifier + 2, "form49_1");
     add_click(24);
     stat_checker(charismaModifier + 2, "form44_1");
-    equipment.push("Insignia of rank");
+    equipment.push("Insignia de rango");
     document.getElementById("form14_2").value = random_trophy();
     if (soldierGamingSet === "Dice") {
-      equipment.push("Bone " + soldierGamingSet);
+      equipment.push("Juego de " + soldierGamingSet + " de hueso");
     } else {
       equipment.push(soldierGamingSet);
     }
-    equipment.push("Set of common clothes");
-    equipment.push("Belt Pouch");
+    equipment.push("Conjunto de ropa común");
+    equipment.push("Bolsa de cinturón");
     gold += 10;
     features.push(
-      "Military Rank: Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. Can gain access to friendly military encampments and fortresses where your rank is recognized."
+      "Rango Militar: Los soldados leales a tu antigua organización militar aún reconocen tu autoridad e influencia, y te respetan si son de un rango inferior. Puedes invocar tu rango para ejercer influencia sobre otros soldados y requisar equipo simple o caballos para uso temporal. Puedes acceder a campamentos y fortalezas militares amistosas donde se reconozca tu rango."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rHow did you become a soldier?\rWhat rank were you?\rDo you still keep in contact with any of your brothers and sisters in arms?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Cómo te convertiste en soldado?\r¿Qué rango tenías?\r¿Sigues en contacto con alguno de tus hermanos y hermanas de armas?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from soldier to " +
+      "¿Cómo pasaste de ser un soldado a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?\r";
+      "?\r";
   } else if (newBackground1 === "Spy") {
     tool_adder_2(tool_adder("herramientas de ladrón"));
     tool_adder_2(tool_adder(random_gaming_set_capitalize().toLowerCase()));
@@ -5729,38 +5729,38 @@ armor = {
     stat_checker(charismaModifier + 2, "form36_1");
     add_click(23);
     stat_checker(dexterityModifier + 2, "form32_1");
-    equipment.push("Crowbar");
-    equipment.push("Set of dark common clothes with a hood");
-    equipment.push("Belt Pouch");
+    equipment.push("Palanca");
+    equipment.push("Conjunto de ropa oscura común con capucha");
+    equipment.push("Bolsa de cinturón");
     gold += 15;
     features.push(
-      "Spy Contact: You have a reliable and trustworthy contact who acts as your liaison to a network of other spies or criminals. You know how to get messages to and from your contact, even over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you."
+      "Contacto Espía: Tienes un contacto confiable y de confianza que actúa como tu enlace con una red de otros espías o criminales. Sabes cómo enviar y recibir mensajes de tu contacto, incluso a grandes distancias; específicamente, conoces a los mensajeros locales, maestros de caravanas corruptos y marineros sórdidos que pueden entregar mensajes por ti."
     );
     document.getElementById("form15_2").value =
-      "What made you start adventuring?\rWhat were the circumstances of your birth?\rWhat caused you to become a spy?\rDid you do anything terrible?\rWho is your spy contact?\rWhy are you a " +
+      "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en espía?\r¿Hiciste algo terrible?\r¿Quién es tu contacto espía?\r¿Por qué eres un " +
       className.toLowerCase() +
       "?\r" +
-      "How did you go from spy to " +
+      "¿Cómo pasaste de ser un espía a un " +
       className.toLowerCase() +
       "?\r" +
-      "What does being a " +
+      "¿Qué significa para ti ser un " +
       race +
-      " mean to you?\r" +
-      "Who did you work for when you were a spy?";
+      "?\r" +
+      "¿Para quién trabajabas cuando eras espía?";
   } else if (newBackground1 === "Urchin") {
-    tool_adder_2(tool_adder("disguise kit"));
+    tool_adder_2(tool_adder("Kit de disfraz"));
     tool_adder_2(tool_adder("herramientas de ladrón"));
     add_click(4);
     stat_checker(dexterityModifier + 2, "form46_1");
     add_click(23);
     stat_checker(dexterityModifier + 2, "form32_1");
-    equipment.push("Small knife");
-    equipment.push("Map of hometown");
-    equipment.push("Pet mouse");
+    equipment.push("Cuchillo pequeño");
+    equipment.push("Mapa de la ciudad natal");
+    equipment.push("ratón mascota");
     document.getElementById("form14_2").value =
-      random_trinket() + " from parents";
-    equipment.push("Set of common clothes");
-    equipment.push("Belt Pouch");
+      random_trinket() + " de los padres";
+    equipment.push("Conjunto de ropa común");
+    equipment.push("Bolsa de cinturón");
     gold += 10;
     features.push(
       "Secretos de la Ciudad: Conoces los patrones y el flujo secretos de las ciudades y puedes encontrar pasajes a través del entramado urbano que otros pasarían por alto. Cuando no estás en combate, tú (y los compañeros que lideres) pueden viajar entre dos ubicaciones de la ciudad el doble de rápido de lo que normalmente permitiría tu velocidad."
@@ -6170,32 +6170,32 @@ armor = {
     document.getElementById("form194_3").value = 10 + charismaModifier; // spell save dc
     stat_checker(charismaModifier + 2, "form195_3"); // spell attack bonus
     document.getElementById("form97_3").value = 2;
-    document.getElementById("form193_3").value = "Charm Person";
+    document.getElementById("form193_3").value = "Encantar Persona";
     document.getElementById("form159_3").value = "Fuego Feérico";
     if (strength > 12 && constitution > 12) {
-      document.getElementById("form137_3").value = "Thunderwave";
+      document.getElementById("form137_3").value = "Ola de Trueno";
     } else {
-      document.getElementById("form137_3").value = "Tasha's Hideous Laughter";
+      document.getElementById("form137_3").value = "Risa Horrenda de Tasha";
     }
     if (strength > 12 && constitution > 12) {
       document.getElementById("form136_3").value = "Curar Heridas";
     } else {
       document.getElementById("form136_3").value = "Palabra Curativa";
     }
-    if (document.getElementById("form198_3").value === "Minor Illusion") {
-      document.getElementById("form213_3").value = "Vicious Mockery";
-      document.getElementById("form204_3").value = "Prestidigitation";
+    if (document.getElementById("form198_3").value === "Ilusión Menor") {
+      document.getElementById("form213_3").value = "Mofa Viciosa";
+      document.getElementById("form204_3").value = "Prestidigitación";
     } else if (
-      document.getElementById("form198_3").value === "Prestidigitation"
+      document.getElementById("form198_3").value === "Prestidigitación"
     ) {
-      document.getElementById("form213_3").value = "Vicious Mockery";
-      document.getElementById("form204_3").value = "Prestidigitation";
+      document.getElementById("form213_3").value = "Mofa Viciosa";
+      document.getElementById("form204_3").value = "Prestidigitación";
     } else if (document.getElementById("form198_3").value === "Taumaturgia") {
-      document.getElementById("form213_3").value = "Minor Illusion";
-      document.getElementById("form204_3").value = "Vicious Mockery";
+      document.getElementById("form213_3").value = "Ilusión Menor";
+      document.getElementById("form204_3").value = "Mofa Viciosa";
     } else {
-      document.getElementById("form213_3").value = "Vicious Mockery";
-      document.getElementById("form204_3").value = "Prestidigitation";
+      document.getElementById("form213_3").value = "Mofa Viciosa";
+      document.getElementById("form204_3").value = "Prestidigitación";
     }
     document.getElementById("form62_1").value = "d6";
   } else if (classAndLevel === "Sorcerer 1") {
@@ -6204,61 +6204,61 @@ armor = {
     document.getElementById("form194_3").value = 10 + charismaModifier; // spell save dc
     stat_checker(charismaModifier + 2, "form195_3"); // spell attack bonus
     document.getElementById("form97_3").value = 2;
-    document.getElementById("form213_3").value = "Prestidigitation";
-    document.getElementById("form204_3").value = "Friends";
-    document.getElementById("form203_3").value = "Message";
-    document.getElementById("form202_3").value = "Fire Bolt";
-    document.getElementById("form193_3").value = "Charm Person";
+    document.getElementById("form213_3").value = "Prestidigitación";
+    document.getElementById("form204_3").value = "Amistades";
+    document.getElementById("form203_3").value = "Mensaje";
+    document.getElementById("form202_3").value = "Rayo de Fuego";
+    document.getElementById("form193_3").value = "Encantar Persona";
     document.getElementById("form159_3").value = "Manos Ardientes";
   } else if (classAndLevel === "Warlock 1") {
     document.getElementById("form214_3").value = className; // spellcasting class
     document.getElementById("form196_3").value = "CHA"; // spellcasting ability
     document.getElementById("form194_3").value = 10 + charismaModifier; // spell save dc
     stat_checker(charismaModifier + 2, "form195_3"); // spell attack bonus
-    document.getElementById("form213_3").value = "Eldritch Blast";
-    document.getElementById("form204_3").value = "Poison Spray";
-    document.getElementById("form137_3").value = "Hex";
-    document.getElementById("form136_3").value = "Witch Bolt";
+    document.getElementById("form213_3").value = "Rayo Sobrenatural";
+    document.getElementById("form204_3").value = "Rociada Venenosa";
+    document.getElementById("form137_3").value = "Maldición";
+    document.getElementById("form136_3").value = "Rayo de Bruja";
     document.getElementById("form97_3").value = 1;
   } else if (classAndLevel === "Wizard 1") {
     document.getElementById("form214_3").value = className; // spellcasting class
     document.getElementById("form196_3").value = "INT"; // spellcasting ability
     document.getElementById("form194_3").value = 10 + intelligenceModifier; // spell save dc
     stat_checker(intelligenceModifier + 2, "form195_3"); // spell attack bonus
-    document.getElementById("form213_3").value = "Prestidigitation";
-    if (document.getElementById("form198_3") === "Minor Illusion") {
-      document.getElementById("form204_3").value = "Mage Hand";
+    document.getElementById("form213_3").value = "Prestidigitación";
+    if (document.getElementById("form198_3") === "Ilusión Menor") {
+      document.getElementById("form204_3").value = "Mano de Mago";
     } else {
-      document.getElementById("form204_3").value = "Minor Illusion";
+      document.getElementById("form204_3").value = "Ilusión Menor";
     }
-    document.getElementById("form203_3").value = "Fire Bolt";
+    document.getElementById("form203_3").value = "Rayo de Fuego";
     if (intelligenceModifier === 0) {
       document.getElementById("form193_3").value = "Misil Mágico";
     } else if (intelligenceModifier === 1) {
       document.getElementById("form193_3").value = "Misil Mágico";
-      document.getElementById("form159_3").value = "Mage Armor";
+      document.getElementById("form159_3").value = "Armadura de Mago";
     } else if (intelligenceModifier === 2) {
       document.getElementById("form193_3").value = "Misil Mágico";
-      document.getElementById("form159_3").value = "Mage Armor";
-      document.getElementById("form137_3").value = "Sleep";
+      document.getElementById("form159_3").value = "Armadura de Mago";
+      document.getElementById("form137_3").value = "Sueño";
     } else if (intelligenceModifier === 3) {
       document.getElementById("form193_3").value = "Misil Mágico";
-      document.getElementById("form159_3").value = "Mage Armor";
-      document.getElementById("form137_3").value = "Sleep";
+      document.getElementById("form159_3").value = "Armadura de Mago";
+      document.getElementById("form137_3").value = "Sueño";
       document.getElementById("form136_3").value = "Manos Ardientes";
     } else if (intelligenceModifier === 4) {
       document.getElementById("form193_3").value = "Misil Mágico";
-      document.getElementById("form159_3").value = "Mage Armor";
-      document.getElementById("form137_3").value = "Sleep";
+      document.getElementById("form159_3").value = "Armadura de Mago";
+      document.getElementById("form137_3").value = "Sueño";
       document.getElementById("form136_3").value = "Manos Ardientes";
-      document.getElementById("form135_3").value = "Tasha's Hideous Laughter";
+      document.getElementById("form135_3").value = "Risa Horrenda de Tasha";
     } else if (intelligenceModifier === 5) {
       document.getElementById("form193_3").value = "Misil Mágico";
-      document.getElementById("form159_3").value = "Mage Armor";
-      document.getElementById("form137_3").value = "Sleep";
+      document.getElementById("form159_3").value = "Armadura de Mago";
+      document.getElementById("form137_3").value = "Sueño";
       document.getElementById("form136_3").value = "Manos Ardientes";
-      document.getElementById("form135_3").value = "Tasha's Hideous Laughter";
-      document.getElementById("form133_3").value = "Unseen Servant";
+      document.getElementById("form135_3").value = "Risa Horrenda de Tasha";
+      document.getElementById("form133_3").value = "Sirviente Invisible";
     }
     document.getElementById("form97_3").value = 2;
   } else if (classAndLevel === "Cleric 1") {
@@ -6274,39 +6274,39 @@ armor = {
     stat_checker(wisdomModifier + 2, "form195_3"); // spell attack bonus
     document.getElementById("form97_3").value = 2;
     if (strength > dexterity) {
-      document.getElementById("form213_3").value = "Shilelagh";
-      document.getElementById("form204_3").value = "Druidcraft";
+      document.getElementById("form213_3").value = "Garrote";
+      document.getElementById("form204_3").value = "Arte Druídico";
     } else {
       document.getElementById("form213_3").value = "Produce Flame";
-      document.getElementById("form204_3").value = "Druidcraft";
+      document.getElementById("form204_3").value = "Arte Druídico";
     }
     if (wisdomModifier === 0) {
       document.getElementById("form193_3").value = "Palabra Curativa";
     } else if (wisdomModifier === 1) {
       document.getElementById("form193_3").value = "Palabra Curativa";
-      document.getElementById("form159_3").value = "Thunderwave";
+      document.getElementById("form159_3").value = "Ola de Trueno";
     } else if (wisdomModifier === 2) {
       document.getElementById("form193_3").value = "Palabra Curativa";
-      document.getElementById("form159_3").value = "Thunderwave";
-      document.getElementById("form137_3").value = "Entangle";
+      document.getElementById("form159_3").value = "Ola de Trueno";
+      document.getElementById("form137_3").value = "Enredar";
     } else if (wisdomModifier === 3) {
       document.getElementById("form193_3").value = "Palabra Curativa";
-      document.getElementById("form159_3").value = "Thunderwave";
-      document.getElementById("form137_3").value = "Entangle";
+      document.getElementById("form159_3").value = "Ola de Trueno";
+      document.getElementById("form137_3").value = "Enredar";
       document.getElementById("form136_3").value = "Curar Heridas";
     } else if (wisdomModifier === 4) {
       document.getElementById("form193_3").value = "Palabra Curativa";
-      document.getElementById("form159_3").value = "Thunderwave";
-      document.getElementById("form137_3").value = "Entangle";
+      document.getElementById("form159_3").value = "Ola de Trueno";
+      document.getElementById("form137_3").value = "Enredar";
       document.getElementById("form136_3").value = "Curar Heridas";
       document.getElementById("form135_3").value = "Fuego Feérico";
     } else if (wisdomModifier === 5) {
       document.getElementById("form193_3").value = "Palabra Curativa";
-      document.getElementById("form159_3").value = "Thunderwave";
-      document.getElementById("form137_3").value = "Entangle";
+      document.getElementById("form159_3").value = "Ola de Trueno";
+      document.getElementById("form137_3").value = "Enredar";
       document.getElementById("form136_3").value = "Curar Heridas";
       document.getElementById("form135_3").value = "Fuego Feérico";
-      document.getElementById("form133_3").value = "Earth Tremor";
+      document.getElementById("form133_3").value = "Tremor de Tierra";
     }
   }
 
@@ -6325,17 +6325,17 @@ armor = {
     } else if (equipment[_i22] === armor.mediumArmor.scalemail.armorname) {
       armorClass += 14 + dexterityModifier;
       features.push(
-        "Cota de escamas: Disadvantage on stealth rolls from armadura media."
+        "Cota de escamas: Desventaja en tiradas de sigilo por armadura media."
       );
     } else if (equipment[_i22] === armor.heavyArmor.ringmail.armorname) {
       armorClass += 14;
       features.push(
-        "Ring Mail: Disadvantage on stealth rolls from armadura pesada."
+        "Ring Mail: Desventaja en tiradas de sigilo por armadura pesada.."
       );
     } else if (equipment[_i22] === armor.heavyArmor.chainmail.armorname) {
       armorClass += 16;
       features.push(
-        "Cota de mallas: Disadvantage on stealth rolls from armadura pesada."
+        "Cota de mallas: Desventaja en tiradas de sigilo por llevar armadura pesada."
       );
     }
   }
@@ -6385,6 +6385,28 @@ function translateClass(classAndLevel) {
 // Array con las traducciones de las razas
 const raceTranslations = {
   "Human": "Humano",
+  "Elf": "Elfo",
+  "Dwarf": "Enano",
+  "Halfling": "Mediano",
+  "Gnome": "Gnomo",
+  "Dragonborn": "Dracónido",
+  "Half-Elf": "Semielfo",
+  "Half-Orc": "Semiorco",
+  "Tiefling": "Tiefling",
+  "Aasimar": "Aasimar",
+  "Genasi": "Genasi",
+  "Goliath": "Goliat",
+  "Tabaxi": "Tabaxi",
+  "Firbolg": "Firbolg",
+  "Triton": "Tritón",
+  "Kenku": "Kenku",
+  "Goblin": "Goblin",
+  "Hobgoblin": "Hobgoblin",
+  "Bugbear": "Hombre Oso",
+  "Kobold": "Kobold",
+  "Yuan-ti Pureblood": "Yuan-ti Sangrepura",
+  
+  // Variantes específicas:
   "Human (Calishite)": "Humano (Calishita)",
   "Human (Chondathan)": "Humano (Chondatano)",
   "Human (Damaran)": "Humano (Damarano)",
@@ -6394,17 +6416,13 @@ const raceTranslations = {
   "Human (Shou)": "Humano (Shou)",
   "Human (Tethyrian)": "Humano (Tethyriano)",
   "Human (Turami)": "Humano (Turamiano)",
-  "Elf": "Elfo",
   "High Elf": "Alto Elfo",
   "Wood Elf": "Elfo del Bosque",
   "Dark Elf (Drow)": "Elfo Oscuro (Drow)",
-  "Dwarf": "Enano",
   "Hill Dwarf": "Enano de la Colina",
   "Mountain Dwarf": "Enano de la Montaña",
-  "Halfling": "Mediano",
   "Lightfoot Halfling": "Mediano Piesligeros",
   "Stout Halfling": "Mediano Robusto",
-  "Dragonborn": "Dracónido",
   "Black Dragonborn": "Dracónido Negro",
   "Blue Dragonborn": "Dracónido Azul",
   "Brass Dragonborn": "Dracónido de Latón",
@@ -6415,28 +6433,12 @@ const raceTranslations = {
   "Red Dragonborn": "Dracónido Rojo",
   "Silver Dragonborn": "Dracónido Plateado",
   "White Dragonborn": "Dracónido Blanco",
-  "Gnome": "Gnomo",
   "Forest Gnome": "Gnomo del Bosque",
   "Rock Gnome": "Gnomo de la Roca",
-  "Half-Elf": "Semielfo",
-  "Half-Orc": "Semiorco",
-  "Tiefling": "Tiefling",
-  "Aasimar": "Aasimar",
-  "Genasi": "Genasi",
   "Air Genasi": "Genasi del Aire",
   "Earth Genasi": "Genasi de la Tierra",
   "Fire Genasi": "Genasi del Fuego",
-  "Water Genasi": "Genasi del Agua",
-  "Goliath": "Goliat",
-  "Tabaxi": "Tabaxi",
-  "Firbolg": "Firbolg",
-  "Triton": "Tritón",
-  "Kenku": "Kenku",
-  "Goblin": "Goblin",
-  "Hobgoblin": "Hobgoblin",
-  "Bugbear": "Hombre Oso",
-  "Kobold": "Kobold",
-  "Yuan-ti Pureblood": "Yuan-ti Sangrepura"
+  "Water Genasi": "Genasi del Agua"
 };
 
 // Función para traducir razas
@@ -6445,15 +6447,19 @@ function translateRace(raceAndDescriptor) {
   const [raceName, descriptor] = raceAndDescriptor.split(" ");
 
   // Obtener la traducción de la raza
-  const translatedRace = raceTranslations[raceName];
-
-  // Si existe la traducción, devolver la raza traducida con el descriptor
-  if (translatedRace) {
-    return descriptor ? `${translatedRace} ${descriptor}` : translatedRace;
+  var translatedRace = raceTranslations[raceName];
+  if(translatedRace == undefined){
+    translatedRace = raceTranslations[raceAndDescriptor];
+      // Si no se encuentra la traducción, devolver el valor original
+    return translatedRace;
+  }else{
+    // Si existe la traducción, devolver la raza traducida con el descriptor
+    if (translatedRace) {
+      return descriptor ? `${translatedRace} ${descriptor}` : translatedRace;
+    }
+        // Si no se encuentra la traducción, devolver el valor original
+    return raceAndDescriptor;
   }
-
-  // Si no se encuentra la traducción, devolver el valor original
-  return raceAndDescriptor;
 }
 // Diccionario de traducción de alineamientos
 const alignmentTranslations = {
@@ -6497,10 +6503,10 @@ function translateAlignmentArray(alignmentArray) {
   document.getElementById("form97_1").value = hp; // current hp
   document.getElementById("form67_1").value = 1; // number of hit dice
   document.getElementById("form91_1").value = 0; // experience points
-  document.getElementById("form93_1").value = name; // name
+  document.getElementById("form93_1").value =  name; // name
   document.getElementById("form90_1").value = newBackground1; // background
-  document.getElementById("form96_1").value = charName; // character name
-  document.getElementById("form8_2").value = charName; // character name 2nd page
+  document.getElementById("form96_1").value = (isManual)?document.getElementById("form96_1").value : charName; // character name
+  document.getElementById("form8_2").value = (isManual)?document.getElementById("form96_1").value : charName;; // character name 2nd page
   document.getElementById("form83_1").value = strength; // strength stat
   document.getElementById("form84_1").value = dexterity; // dex stat
   document.getElementById("form82_1").value = constitution; // con stat
@@ -6529,9 +6535,7 @@ function translateAlignmentArray(alignmentArray) {
   if (document.getElementById("form92_1").value === "Neutral Neutral") {
     document.getElementById("form92_1").value = "True Neutral";
   }
-}
-// Call the character generator on page load
-generate_initial_character(standard_version);
+}//fin de caracter generador
 
 // Function to make a skill proficient and checked
 function add_click(j) {
@@ -6544,13 +6548,6 @@ function add_click(j) {
 function remove_click(j) {
   document.getElementById("form" + j + "_1").checked = undefined;
   click_off(j);
-}
-
-// Function to generate a new character by clearing all forms and checkboxes and then generating a character again
-function generate_initial_character(version) {
-  clear_All();
- /// version();
- /// generate_character();
 }
 
 // Function to generate a new character by clearing all forms and checkboxes and then generating a character again

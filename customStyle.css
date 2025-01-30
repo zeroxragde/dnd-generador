@@ -1,0 +1,175 @@
+@font-face {
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+src: local('Lato Regular'), local('Lato-Regular'), url('fonts/lato.woff2') format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+font-family: 'Rocher';
+src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+@font-palette-values --Purples {
+    font-family: Rocher;
+    base-palette: 6;
+}
+
+@media print {
+    .no-print, .no-print * {
+      display: none !important;
+    }
+  }
+  #dnd{
+    background-color: white!important;
+    width: 98%;
+  }
+
+  main{
+    margin-left: 7%;
+  }
+  .purples {
+    font-palette: --Purples;
+  }
+
+  /* Background CSS */
+  html {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    background-image: url('img/Fondo.png');
+  }
+
+/* Estilos generales del menú */
+.navbar {
+    background: url('https://www.transparenttextures.com/patterns/old-map.png'), linear-gradient(135deg, #0a0f2c 0%, #1c2541 100%);
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos de los elementos del menú */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    display: block ruby;
+    justify-content: center;
+    padding: 8px;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: 'Cinzel', serif;
+    padding: 10px 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto hover para un brillo medieval */
+.navbar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffd700;
+    text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8);
+    transform: scale(1.1);
+}
+/*Efectos*/
+.bg1{
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+    border-radius: 50%;
+    padding: 20px;
+}
+.h1-custom {
+    font-size: 40px; /* Tamaño del texto */
+    font-family: 'Cinzel', serif; /* Fuente medieval */
+    text-transform: uppercase; /* Convierte el texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-align: center; /* Centrado */
+    /*display: inline-block; /* Ajuste según el contenido */
+    text-shadow: 50px 10px 10px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+    -webkit-text-stroke: 1px black; /* Borde del texto */
+    background: linear-gradient(to right, #ff0000, #ceb8b8);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 900; /* Hace el texto más grueso */
+    /*text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.5), 0px 0px 5px rgba(225, 225, 225, 0.8);*/
+}
+
+/*Select Style*/
+.select-wrapper {
+    position: relative;
+    width: 220px;
+    font-family: 'Garamond', serif;
+}
+
+.select-button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #2c2f39, #1a1d27);
+    color: white;
+    border: 2px solid #000;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.select-button:hover {
+    background: linear-gradient(135deg, #3a3d49, #2a2d37);
+}
+
+.search-box {
+    width: 90%;
+    padding: 5px;
+    margin: 5px auto;
+    display: block;
+    border: 1px solid #555;
+    border-radius: 3px;
+    background: #1c1f27;
+    color: white;
+}
+
+.dropdown-container {
+    position: absolute;
+    width: 100%;
+    background: #1a1d27;
+    border: 2px solid #000;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.dropdown-option {
+    padding: 10px;
+    cursor: pointer;
+    color: #ccc;
+    border-bottom: 1px solid #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-option:hover {
+    background: #3a3d49;
+    color: white;
+}
+
+.selected {
+    background: #6d4c41;
+    color: white;
+}
+
+/* Fuente medieval */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');

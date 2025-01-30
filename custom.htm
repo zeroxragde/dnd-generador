@@ -9,23 +9,42 @@
       content="Levi Blodgett, D&D, D&D Character Generator, Dungeons and Dragons, Dungeons and Dragons Character Generator"
     />
     <link rel="icon" type="image/ico" href="img/favicon.png" />
-    <link href="styles.css" rel="stylesheet" />
+    <link href="customStyle.css" rel="stylesheet" />
     <title>5e Generador de Personaje</title>
     <script src="build/custom_version.js"></script>
+    <script src="build/CustomLibs/SelectGenerator.js"></script>
   </head>
 
   <body id="top">
-    <header>
-      <h1>5e Generador de Personaje</h1>
-      <nav>
+    <header class="no-print">
+      <font clas="bg1"><h1 class="h1-custom">5e Generador de Personaje</h1></font>
+
+      <nav class="navbar">
         <ul>
-          <li><a href="index.htm">Inicio</a></li>
-          <li><a href="custom.htm">Personalizado</a></li>
-          <li><a href="about.htm">Acerca de</a></li>
+            <li><a href="#">OldMode</a></li>
+            <li><a href="#">Personalizado</a></li>
+            <li><a href="#">Guardar</a></li>
+            <li><a href="#">Cargar</a></li>
         </ul>
-      </nav>
+    </nav>
+    <br/>
+      <nav class="navbar">
+        <ul>
+            <li> 
+              <div id="razasContainer"></div>
+            </li>
+            <li> 
+              <div id="clasesContainer"></div>
+            </li>
+            <li> 
+              <div id="transfondoContainer"></div>
+            </li>
+            <li> 
+              <div id="alineamientosContainer"></div>
+            </li>
+        </ul>
+    </nav>
     </header>
-    <main id="container">
-        
-    </main>
+    <br/>
+    <main id="container"></main>
 </body>

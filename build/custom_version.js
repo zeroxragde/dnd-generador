@@ -87,14 +87,39 @@ const alineamientos=[
     "Neutral Malvado",
     "Caótico Malvado"
 ];
-
+const idiomas = [
+    "Comun",
+    "Enano",
+    "Élfico",
+    "Gigante",
+    "Gnómico",
+    "Goblin",
+    "Mediano",
+    "Orco",
+    "Abisal",
+    "Celestial",
+    "Dracónico",
+    "Lengua Profunda",
+    "Infernal",
+    "Primordial",
+    "Silvano",
+    "Común Subterráneo",
+    "Ancestral"
+];
+var idiomaSelect;
 document.addEventListener("DOMContentLoaded", function () {
 
     loadHtmlTemplate();
-
     loadSelects();
-   
-   
+    //EVENTO DE IDIOMAS
+    let boton = document.querySelector("#addIdioma"); // Selecciona el botón justo después del div
+    if (boton) {
+        boton.addEventListener("click", function() {
+            agregarIdiomaSeleccionado();
+        });
+    } else {
+        console.error("El botón no se encontró.");
+    }
     
 });
 
@@ -110,6 +135,9 @@ function loadSelects(){
     const claseSelect = new SelectGenerator("clasesContainer", clases, false, "Selecciona una clase", null, handleSelectionChange);
     const transfondoSelect = new SelectGenerator("transfondoContainer", transfondos, false, "Elige un transfondo", null, handleSelectionChange);
     const alinSelect = new SelectGenerator("alineamientosContainer", alineamientos, false, "Elige un alineamiento", null, handleSelectionChange);
+    idiomaSelect = new SelectGenerator("idiomasContainer", idiomas, false, "Agrega idiomas", null, (idioma)=>{
+        console.log("Idioma seleccionado:", idioma);
+    });
 }
 function loadHtmlTemplate(){
     fetch("template/hoja5e.htm") // Carga el archivo HTML
@@ -119,4 +147,35 @@ function loadHtmlTemplate(){
             loadCheckBoxes();
         })
         .catch(error => console.error("Error al cargar el HTML:", error));
+}
+
+function agregarIdiomaSeleccionado() {
+    let textarea = document.querySelector('[data-field-name="ProficienciesLang"]'); // Obtener textarea
+    let seleccionados = idiomaSelect.getSelectedValues(); // Obtener idiomas seleccionados
+
+    if (!textarea || seleccionados.length === 0) return; // No hacer nada si no hay selección
+
+    let contenido = textarea.value;
+    let regexIdiomas = /^Idiomas: (.+)/m;
+
+    let match = contenido.match(regexIdiomas);
+
+    if (match) {
+        let idiomasActuales = match[1].split(", ").map(i => i.trim());
+
+        // Agregar nuevos idiomas sin duplicados
+        seleccionados.forEach(idioma => {
+            if (!idiomasActuales.includes(idioma)) {
+                idiomasActuales.push(idioma);
+            }
+        });
+
+        contenido = contenido.replace(regexIdiomas, `Idiomas: ${idiomasActuales.join(", ")}`);
+    } else {
+        contenido = `Idiomas: ${seleccionados.join(", ")}\n${contenido}`;
+    }
+
+    textarea.value = contenido;
+    textarea.dispatchEvent(new Event('input', { bubbles: true }));
+    textarea.dispatchEvent(new Event('change', { bubbles: true }));
 }

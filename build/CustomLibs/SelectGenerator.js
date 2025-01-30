@@ -139,6 +139,7 @@ class SelectGenerator {
             this.onChangeCallback(this.getSelectedValues());
         }
     }
+    getSelectedValues() {return this.getSelectedValues();}
 
     updateButtonText() {
         const selectedArray = Array.from(this.selectedValues);

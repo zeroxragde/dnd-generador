@@ -89,13 +89,21 @@ const alineamientos=[
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
-    loadSelects();
+
     loadHtmlTemplate();
- // Inicializar el objeto con imágenes no base64
- CustomCheckbox.init(false);
+
+    loadSelects();
+   
+   
+    
 });
+
 function handleSelectionChange(selectedValues) {
     console.log("Valores seleccionados:", selectedValues);
+}
+function loadCheckBoxes(){
+    const checkboxManager = new CheckboxImage(false);
+    checkboxManager.initialize();
 }
 function loadSelects(){
     const razaSelect = new SelectGenerator("razasContainer", razas, false, "Elige una raza", 2, handleSelectionChange);
@@ -108,6 +116,7 @@ function loadHtmlTemplate(){
         .then(response => response.text()) // Convierte la respuesta a texto
         .then(data => {
             document.getElementById("container").innerHTML = data; // Inserta el contenido en el div
+            loadCheckBoxes();
         })
         .catch(error => console.error("Error al cargar el HTML:", error));
 }

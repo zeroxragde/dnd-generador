@@ -9,7 +9,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Iniciar Chrome para localhost",
-            "url": "http://localhost:8084",
+            "url": "http://localhost/dnd-generador/",
             "webRoot": "${workspaceFolder}"
         }
     ]

@@ -14,6 +14,46 @@ src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
     base-palette: 6;
 }
 
+@font-face {
+    font-family: ScalaSansOffc-Bold_1wk;
+    src: url("fonts/ScalaSansOffc-Bold_1wk.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: ScalaSansOffc_1wi;
+    src: url("fonts/ScalaSansOffc_1wi.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: Interstate-Light_1wn;
+    src: url("fonts/Interstate-Light_1wn.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: ScalaSansOffc-Bold_9u;
+    src: url("fonts/ScalaSansOffc-Bold_9u.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: ScalaSansOffc_9v;
+    src: url("fonts/ScalaSansOffc_9v.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: Interstate-Light_9g;
+    src: url("fonts/Interstate-Light_9g.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: ScalaSansOffc_ew;
+    src: url("fonts/ScalaSansOffc_ew.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: ScalaSansOffc-Bold_ex;
+    src: url("fonts/ScalaSansOffc-Bold_ex.woff") format("woff");
+  }
+  
 @media print {
     .no-print, .no-print * {
       display: none !important;
@@ -23,6 +63,11 @@ src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
     background-color: white!important;
     width: 98%;
   }
+  @-moz-document url-prefix() {}
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
 
   main{
     margin-left: 7%;
@@ -33,6 +78,10 @@ src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
 
   /* Background CSS */
   html {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    overflow: auto;
+    scroll-behavior: smooth;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
     overflow: auto;

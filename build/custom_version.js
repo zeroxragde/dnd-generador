@@ -91,7 +91,8 @@ const alineamientos=[
 document.addEventListener("DOMContentLoaded", function () {
     loadSelects();
     loadHtmlTemplate();
-
+ // Inicializar el objeto con imágenes no base64
+ CustomCheckbox.init(false);
 });
 function handleSelectionChange(selectedValues) {
     console.log("Valores seleccionados:", selectedValues);

@@ -111,37 +111,37 @@ const armor = {
 lightArmor: {
     padded: {
     armorname: "Armadura acolchada",
-    armorAC: 11 + dexterityModifier,
+    armorAC: 11 + "{{dexterityModifier}}",
     },
     leather: {
     armorname: "Armadura de cuero",
-    armorAC: 11 + dexterityModifier,
+    armorAC: 11 + "{{dexterityModifier}}",
     },
     studdedleather: {
     armorname: "Cuero tachonado",
-    armorAC: 12 + dexterityModifier,
+    armorAC: 12 + "{{dexterityModifier}}",
     },
 },
 mediumArmor: {
     hide: {
     armorname: "Armadura de piel",
-    armorAC: 12 + dexterityModifier,
+    armorAC: 12 + "{{dexterityModifier}}",
     },
     chainshirt: {
     armorname: "Camiseta de malla",
-    armorAC: 13 + dexterityModifier,
+    armorAC: 13 + "{{dexterityModifier}}",
     },
     scalemail: {
     armorname: "Cota de escamas",
-    armorAC: 14 + dexterityModifier,
+    armorAC: 14 + "{{dexterityModifier}}",
     },
     breastplate: {
     armorname: "Coraza",
-    armorAC: 14 + dexterityModifier,
+    armorAC: 14 + "{{dexterityModifier}}",
     },
     halfplate: {
     armorname: "Media armadura",
-    armorAC: 15 + dexterityModifier,
+    armorAC: 15 + "{{dexterityModifier}}",
     },
     Escudo: {
     armorname: "Escudo",
@@ -227,6 +227,25 @@ const instrumentos = [
     "Chirimía"
 ];
 
+const charlatanBackgroundItems = [
+  {
+    "id": 1,
+    "descripcion": "Diez botellas con tapón llenas de líquido coloreado"
+  },
+  {
+    "id": 2,
+    "descripcion": "Conjunto de dados trucados"
+  },
+  {
+    "id": 3,
+    "descripcion": "Baraja de Carroas marcadas"
+  },
+  {
+    "id": 4,
+    "descripcion": "Anillo de sello de un duque imaginario"
+  }
+];
+
 const dragonAliento={
     "armasAliento": [
       {
@@ -310,321 +329,485 @@ const dragonAliento={
         "descripcion": "Frío Arma de Aliento: Puedes usar tu acción para exhalar tu Ascendencia Dracónica en un cono de 15 pies. Cuando usas tu arma de aliento, cada criatura en el área de la exhalación debe hacer una tirada de salvación de constitución. La DC para esta tirada de salvación es {DC}. Una criatura recibe 2d6 de daño de frío en una salvación fallida, y la mitad de daño en una salvación exitosa."
       }
     ]
-  };
-const caracteristicasRazialesFisicas={
-    "razas": [
-      {
-        "id": 2,
-        "nombre": "Dracónido Negro",
-        "edad": "15-40 años",
-        "altura": "6'0\" - 6'8\"",
-        "piel": ["Negro Marfil", "Negro Ónix", "Negro Carbón", "Negro Perlado", "Negro"],
-        "cabello": ["", "", "", ""],
-        "ojos": ["Violeta", "Azul", "Rojo", "Morado"],
-        "peso": "200-340 lbs",
-        "armaAliento": {
-          "tipo": "Ácido",
-          "area": "línea de 5 por 30 pies",
-          "tiradaSalvacion": "destreza"
-        }
-      },
-      {
-        "id": 3,
-        "nombre": "Dracónido Azul",
-        "edad": "15-40 años",
-        "altura": "6'0\" - 6'8\"",
-        "piel": ["Azul", "Azul Celeste", "Azul Marino", "Azul Pálido", "Azul Real"],
-        "cabello": ["", "", "", ""],
-        "ojos": ["Violeta", "Azul", "Rojo", "Morado"],
-        "peso": "200-340 lbs",
-        "armaAliento": {
-          "tipo": "Relámpago",
-          "area": "línea de 5 por 30 pies",
-          "tiradaSalvacion": "destreza"
-        }
-      },
-      {
-        "id": 4,
-        "nombre": "Dracónido de Latón",
-        "edad": "15-40 años",
-        "altura": "6'0\" - 6'8\"",
-        "piel": ["Latón", "Latón Oxidado", "Cobre y Latón", "Latón Ardiente", "Latón"],
-        "cabello": ["", "", "", ""],
-        "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
-        "peso": "200-340 lbs",
-        "armaAliento": {
-          "tipo": "Fuego",
-          "area": "línea de 5 por 30 pies",
-          "tiradaSalvacion": "destreza"
-        }
-      },
-      {
-        "id": 5,
-        "nombre": "Dracónido de Bronce",
-        "edad": "15-40 años",
-        "altura": "6'0\" - 6'8\"",
-        "piel": ["Bronce", "Oro Viejo", "Bronce Oscuro", "Bronce Arenoso", "Bronce"],
-        "cabello": ["", "", "", ""],
-        "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
-        "peso": "200-340 lbs",
-        "armaAliento": {
-          "tipo": "Relámpago",
-          "area": "línea de 5 por 30 pies",
-          "tiradaSalvacion": "destreza"
-        }
-      },
-      {
-        "id": 6,
-        "nombre": "Dracónido de Cobre",
-        "edad": "15-40 años",
-        "altura": "6'0\" - 6'8\"",
-        "piel": ["Cobre", "Bronce y Cobre", "Cobre Oxidado", "Cobre Ardiente", "Cobre"],
-        "cabello": ["", "", "", ""],
-        "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
-        "peso": "200-340 lbs",
-        "armaAliento": {
-          "tipo": "Ácido",
-          "area": "línea de 5 por 30 pies",
-          "tiradaSalvacion": "destreza"
-        }
-      },
-      {
-        "id": 7,
-        "nombre": "Dracónido Dorado",
-        "edad": "15-40 años",
-        "altura": "6'0\" - 6'8\"",
-        "piel": ["Amarillo Dorado", "Oro", "Vara Dorada", "Oro en Pepita", "Oro"],
-        "cabello": ["", "", "", ""],
-        "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
-        "peso": "200-340 lbs",
-        "armaAliento": {
-          "tipo": "Fuego",
-          "area": "cono de 15 pies",
-          "tiradaSalvacion": "destreza"
-        }
-      },
-      {
-        "id": 8,
-        "nombre": "Dracónido Verde",
-        "edad": "15-40 años",
-        "altura": "6'0\" - 6'8\"",
-        "piel": ["Verde Mar", "Verde Bosque", "Jade", "Esmeralda", "Verde"],
-        "cabello": ["", "", "", ""],
-        "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
-        "peso": "200-340 lbs",
-        "armaAliento": {
-          "tipo": "Veneno",
-          "area": "cono de 15 pies",
-          "tiradaSalvacion": "constitución"
-        }
-      },
-      {
-        "id": 9,
-        "nombre": "Dracónido Rojo",
-        "edad": "15-40 años",
-        "altura": "6'0\" - 6'8\"",
-        "piel": ["Escarlata", "Rojo y Naranja", "Rojo Sangre", "Rojo Cereza", "Rojo"],
-        "cabello": ["", "", "", ""],
-        "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
-        "peso": "200-340 lbs",
-        "armaAliento": {
-          "tipo": "Fuego",
-          "area": "cono de 15 pies",
-          "tiradaSalvacion": "destreza"
-        }
-      },
-      {
-        "id": 10,
-        "nombre": "Dracónido Plateado",
-        "edad": "15-40 años",
-        "altura": "6'0\" - 6'8\"",
-        "piel": ["Plateado Hielo", "Plateado Líquido", "Plateado Lunar", "Plateado", "Plateado"],
-        "cabello": ["", "", "", ""],
-        "ojos": ["Violeta", "Azul", "Rojo", "Morado"],
-        "peso": "200-340 lbs",
-        "armaAliento": {
-          "tipo": "Frío",
-          "area": "cono de 15 pies",
-          "tiradaSalvacion": "constitución"
-        }
-      },
-      {
-        "id": 11,
-        "nombre": "Dracónido Blanco",
-        "edad": "15-40 años",
-        "altura": "6'0\" - 6'8\"",
-        "piel": ["Nieve", "Blanco Fantasma", "Humo Blanco", "Blanco Escarcha", "Blanco"],
-        "cabello": ["", "", "", ""],
-        "ojos": ["Violeta", "Azul", "Rojo", "Morado"],
-        "peso": "200-340 lbs",
-        "armaAliento": {
-          "tipo": "Frío",
-          "area": "cono de 15 pies",
-          "tiradaSalvacion": "constitución"
-        }
-      },
-      {
-        "id": 13,
-        "nombre": "Enano de Colina",
-        "edad": "50-250 años",
-        "altura": "4'4\" - 5'0\"",
-        "piel": ["Rojo Pálido", "Marrón Claro", "Marrón Oscuro", "Bronceado Oscuro", "Bronceado"],
-        "cabello": ["Gris", "Negro", "Marrón", "Rojo"],
-        "ojos": ["Negro", "Marrón", "Verde", "Azul"],
-        "peso": "110-215 lbs",
-        "armas": ["Hacha de batalla", "Hacha de batalla", "Hacha de mano", "Martillo ligero", "Martillo de guerra"],
-        "armadura": [],
-        "hp": "+1"
-      },
-      {
-        "id": 14,
-        "nombre": "Enano de Montaña",
-        "edad": "50-250 años",
-        "altura": "4'7\" - 5'3\"",
-        "piel": ["Rojo Pálido", "Marrón Claro", "Marrón Oscuro", "Bronceado Oscuro", "Bronceado"],
-        "cabello": ["Gris", "Negro", "Marrón", "Rojo"],
-        "ojos": ["Negro", "Marrón", "Verde", "Azul"],
-        "peso": "110-215 lbs",
-        "armas": ["Hacha de batalla", "Hacha de batalla", "Hacha de mano", "Hacha de batalla", "Martillo de guerra"],
-        "armadura": ["Armadura ligera", "Armadura media"],
-        "hp": ""
-      },
-      {
-        "id": 17,
-        "nombre": "Alto Elfo",
-        "edad": "100-600 años",
-        "altura": "5'5\" - 6'1\"",
-        "piel": ["Cobre", "Bronce", "Blanco Azulado", "Blanco Azulado", "Cobre Claro"],
-        "cabello": ["Verde", "Azul", "Turquesa", "Plateado Blanco"],
-        "ojos": ["Oro", "Plata", "Negro", "Verde"],
-        "peso": "110-165 lbs",
-        "armas": [],
-        "armadura": [],
-        "hp": ""
-      },
-      {
-        "id": 18,
-        "nombre": "Elfo del Bosque",
-        "edad": "100-600 años",
-        "altura": "5'5\" - 6'1\"",
-        "piel": ["Cobre", "Bronce", "Cobre Avellana", "Bronceado Oscuro", "Cobre Claro"],
-        "cabello": ["Marrón", "Negro", "Cobre", "Rubio"],
-        "ojos": ["Verde", "Marrón", "Avellana", "Ámbar"],
-        "peso": "110-165 lbs",
-        "armas": ["Espada larga", "Espada corta", "Arco corto", "Arco largo"],
-        "armadura": [],
-        "hp": ""
-      },
-      {
-        "id": 16,
-        "nombre": "Elfo Oscuro (Drow)",
-        "edad": "100-600 años",
-        "altura": "5'4\" - 5'11\"",
-        "piel": ["Negro", "Ónix", "Gris Oscuro", "Negro", "Plata Oscura"],
-        "cabello": ["Blanco", "Rubio Claro", "Amarillo Pálido", "Blanco y Amarillo"],
-        "ojos": ["Lila", "Plata", "Rosa", "Azul"],
-        "peso": "100-155 lbs",
-        "armas": ["Estoque", "Espada corta", "Ballesta de mano"],
-        "armadura": [],
-        "hp": ""
-      },
-      {
-        "id": 25,
-        "nombre": "Mediano Piesligeros",
-        "edad": "20-100 años",
-        "altura": "2'8\" - 3'5\"",
-        "piel": ["Bronceado", "Bronceado Claro", "Pálido y Rubicundo", "Claro", "Justo"],
-        "cabello": ["Marrón", "Marrón Arenoso", "Rubio Oscuro", "Castaño"],
-        "ojos": ["Marrón", "Avellana", "Verde", "Marrón Claro"],
-        "peso": "35-50 lbs",
-        "tamaño": "pequeño",
-        "armas": [],
-        "armadura": [],
-        "hp": ""
-      },
-      {
-        "id": 26,
-        "nombre": "Mediano Recio",
-        "edad": "20-100 años",
-        "altura": "2'10\" - 3'7\"",
-        "piel": ["Pálido", "Bronceado Claro", "Pálido y Rubicundo", "Claro", "Justo y Rubicundo"],
-        "cabello": ["Marrón", "Marrón Arenoso", "Marrón Oscuro", "Castaño"],
-        "ojos": ["Marrón", "Avellana", "Verde", "Marrón Claro"],
-        "peso": "37-52 lbs",
-        "tamaño": "pequeño",
-        "armas": [],
-        "armadura": [],
-        "hp": ""
-      },
-      {
-        "id": 20,
-        "nombre": "Gnomo del Bosque",
-        "edad": "40-250 años",
-        "altura": "2'10\" - 3'7\"",
-        "piel": ["Bronceado", "Bronceado Claro", "Marrón", "Bronceado Oscuro", "Marrón Claro"],
-        "cabello": ["Rubio", "Marrón Arenoso", "Rubio Oscuro", "Marrón Claro"],
-        "ojos": ["Azul Hielo", "Azul Marino", "Azul Pálido", "Azul Brillante"],
-        "peso": "35-50 lbs",
-        "tamaño": "pequeño",
-        "armas": [],
-        "armadura": [],
-        "hp": ""
-      },
-      {
-        "id": 21,
-        "nombre": "Gnomo de Roca",
-        "edad": "40-250 años",
-        "altura": "2'11\" - 3'9\"",
-        "piel": ["Bronceado", "Bronceado Claro", "Marrón", "Bronceado Oscuro", "Marrón Claro"],
-        "cabello": ["Rubio", "Marrón Arenoso", "Rubio Oscuro", "Marrón Claro"],
-        "ojos": ["Azul Hielo", "Azul Marino", "Azul Pálido", "Azul Brillante"],
-        "peso": "37-52 lbs",
-        "tamaño": "pequeño",
-        "armas": [],
-        "armadura": [],
-        "hp": ""
-      },
-      {
-        "id": 22,
-        "nombre": "Semielfo",
-        "edad": "20-120 años",
-        "altura": "5'5\" - 6'2\"",
-        "piel": ["Cobre", "Justo", "Pálido", "Bronceado Oscuro", "Cobre Claro"],
-        "cabello": ["Marrón Verdoso", "Negro Azulado", "Blanco Rojizo", "Rubio Plateado"],
-        "ojos": ["Oro", "Rosa", "Lila", "Verde"],
-        "peso": "120-205 lbs",
-        "armas": [],
-        "armadura": [],
-        "hp": ""
-      },
-      {
-        "id": 23,
-        "nombre": "Semiorco",
-        "edad": "15-40 años",
-        "altura": "6'0\" - 7'1\"",
-        "piel": ["Grisáceo", "Gris Verdoso", "Gris", "Gris Bronceado", "Grisáceo"],
-        "cabello": ["Marrón Claro", "Negro", "Castaño", "Marrón Oscuro"],
-        "ojos": ["Verde", "Azul", "Marrón", "Negro"],
-        "peso": "170-265 lbs",
-        "armas": [],
-        "armadura": [],
-        "hp": ""
-      },
-      {
-        "id": 37,
-        "nombre": "Tiefling",
-        "edad": "20-55 años",
-        "altura": "5'5\" - 6'2\"",
-        "piel": ["Rojo Ladrillo", "Bronceado Rojizo", "Granate", "Rojo Sangre", "Rojo Cobrizo"],
-        "cabello": ["Morado Oscuro", "Negro", "Rojo Oscuro", "Azul Oscuro"],
-        "ojos": ["Blanco", "Negro", "Rojo", "Plata"],
-        "peso": "140-245 lbs",
-        "armas": [],
-        "armadura": [],
-        "hp": ""
+};
+
+const gamingSets = [
+  {
+    "id": 1,
+    "nombre": "Dados"
+  },
+  {
+    "id": 2,
+    "nombre": "Ajedrez de dragón"
+  },
+  {
+    "id": 3,
+    "nombre": "Carroas para jugar"
+  },
+  {
+    "id": 4,
+    "nombre": "Tres dragones ante"
+  }
+];
+
+const trinkets = [
+  {
+    "id": 1,
+    "descripcion": "Pieza de cristal que brilla tenuemente a la luz de la luna"
+  },
+  {
+    "id": 2,
+    "descripcion": "Moneda de oro acuñada en una tierra desconocida"
+  },
+  {
+    "id": 3,
+    "descripcion": "Garra ósea de dragón colgando de un simple collar de cuero"
+  },
+  {
+    "id": 4,
+    "descripcion": "Pequeño ícono de plata de un cuervo"
+  },
+  {
+    "id": 5,
+    "descripcion": "Llave antigua"
+  },
+  {
+    "id": 6,
+    "descripcion": "Calavera de plata del tamaño de una moneda"
+  },
+  {
+    "id": 7,
+    "descripcion": "Conjunto de flautas de hueso"
+  },
+  {
+    "id": 8,
+    "descripcion": "Flecha antigua de diseño élfico"
+  },
+  {
+    "id": 9,
+    "descripcion": "Símbolo sagrado de hierro dedicado a un dios desconocido"
+  },
+  {
+    "id": 10,
+    "descripcion": "Invitación a una fiesta donde ocurrió un asesinato"
+  },
+  {
+    "id": 11,
+    "descripcion": "Orbe de cristal lleno de humo en movimiento"
+  },
+  {
+    "id": 12,
+    "descripcion": "Escritura de una parcela de tierra en un reino desconocido para ti"
+  },
+  {
+    "id": 13,
+    "descripcion": "Pieza de ajedrez antigua hecha de vidrio irrompible"
+  },
+  {
+    "id": 14,
+    "descripcion": "Pequeña estatua de madera de un mediano presumido"
+  },
+  {
+    "id": 15,
+    "descripcion": "Orbe de latón grabado con runas extrañas"
+  },
+  {
+    "id": 16,
+    "descripcion": "Fragmento de obsidiana que siempre se siente cálido al tacto"
+  },
+  {
+    "id": 17,
+    "descripcion": "Dispositivo metálico rectangular con dos pequeñas copas de metal en un extremo que lanza chispas cuando se moja"
+  },
+  {
+    "id": 18,
+    "descripcion": "Gema que parece un trozo de carbón cuando la examina alguien que no seas tú"
+  },
+  {
+    "id": 19,
+    "descripcion": "Silbato hecho de madera dorada"
+  },
+  {
+    "id": 20,
+    "descripcion": "Mapa del tesoro indescifrable"
+  }
+];
+
+const admirerFavors = [
+  {
+    "id": 1,
+    "descripcion": "Carroa de amor de un admirador"
+  },
+  {
+    "id": 2,
+    "descripcion": "Mechón de cabello de un admirador"
+  },
+  {
+    "id": 3,
+    "descripcion": "Un trinket de un admirador"
+  }
+];
+
+const artisanTools = [
+  { "id": 1,  "nombre": "Suministros de alquimista" },
+  { "id": 2,  "nombre": "Suministros de cervecero" },
+  { "id": 3,  "nombre": "Suministros de calígrafo" },
+  { "id": 4,  "nombre": "Herramientas de carpintero" },
+  { "id": 5,  "nombre": "Herramientas de Carroógrafo" },
+  { "id": 6,  "nombre": "Herramientas de zapatero" },
+  { "id": 7,  "nombre": "Utensilios de cocina" },
+  { "id": 8,  "nombre": "Herramientas de soplador de vidrio" },
+  { "id": 9,  "nombre": "Herramientas de joyero" },
+  { "id": 10, "nombre": "Herramientas de curtidor" },
+  { "id": 11, "nombre": "Herramientas de albañil" },
+  { "id": 12, "nombre": "Suministros de pintor" },
+  { "id": 13, "nombre": "Herramientas de alfarero" },
+  { "id": 14, "nombre": "Herramientas de herrero" },
+  { "id": 15, "nombre": "Herramientas de reparador" },
+  { "id": 16, "nombre": "Herramientas de tejedor" },
+  { "id": 17, "nombre": "Herramientas de tallador de madera" }
+];
+
+const soldierGamingSets = [
+  { "id": 1, "nombre": "Dados" },
+  { "id": 2, "nombre": "Juego de Carroas" }
+];
+
+const soldierTrophies = [
+  {
+    "id": 1,
+    "descripcion": "Daga de un enemigo caído"
+  },
+  {
+    "id": 2,
+    "descripcion": "Hoja rota de un enemigo caído"
+  },
+  {
+    "id": 3,
+    "descripcion": "Trozo de estandarte de un enemigo caído"
+  },
+  {
+    "id": 4,
+    "descripcion": "{{trinket}} de un enemigo caído" 
+  }
+];
+
+
+
+const caracteristicasRazialesFisicas=[
+    {
+      "id": 2,
+      "nombre": "Dracónido Negro",
+      "edad": [15, 40],
+      "altura": [1.83, 2.03],
+      "piel": ["Negro Marfil", "Negro Ónix", "Negro Carbón", "Negro Perlado", "Negro"],
+      "cabello": ["", "", "", ""],
+      "ojos": ["Violeta", "Azul", "Rojo", "Morado"],
+      "peso": [90.72, 154.22],
+      "armaAliento": {
+        "tipo": "Ácido",
+        "area": "línea de 5 por 30 pies",
+        "tiradaSalvacion": "destreza"
       }
-    ]
-  };
+    },
+    {
+      "id": 3,
+      "nombre": "Dracónido Azul",
+      "edad": [15, 40],
+      "altura": [1.83, 2.03],
+      "piel": ["Azul", "Azul Celeste", "Azul Marino", "Azul Pálido", "Azul Real"],
+      "cabello": ["", "", "", ""],
+      "ojos": ["Violeta", "Azul", "Rojo", "Morado"],
+      "peso": [90.72, 154.22],
+      "armaAliento": {
+        "tipo": "Relámpago",
+        "area": "línea de 5 por 30 pies",
+        "tiradaSalvacion": "destreza"
+      }
+    },
+    {
+      "id": 4,
+      "nombre": "Dracónido de Latón",
+      "edad": [15, 40],
+      "altura": [1.83, 2.03],
+      "piel": ["Latón", "Latón Oxidado", "Cobre y Latón", "Latón Ardiente", "Latón"],
+      "cabello": ["", "", "", ""],
+      "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
+      "peso": [90.72, 154.22],
+      "armaAliento": {
+        "tipo": "Fuego",
+        "area": "línea de 5 por 30 pies",
+        "tiradaSalvacion": "destreza"
+      }
+    },
+    {
+      "id": 5,
+      "nombre": "Dracónido de Bronce",
+      "edad": [15, 40],
+      "altura": [1.83, 2.03],
+      "piel": ["Bronce", "Oro Viejo", "Bronce Oscuro", "Bronce Arenoso", "Bronce"],
+      "cabello": ["", "", "", ""],
+      "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
+      "peso": [90.72, 154.22],
+      "armaAliento": {
+        "tipo": "Relámpago",
+        "area": "línea de 5 por 30 pies",
+        "tiradaSalvacion": "destreza"
+      }
+    },
+    {
+      "id": 6,
+      "nombre": "Dracónido de Cobre",
+      "edad": [15, 40],
+      "altura": [1.83, 2.03],
+      "piel": ["Cobre", "Bronce y Cobre", "Cobre Oxidado", "Cobre Ardiente", "Cobre"],
+      "cabello": ["", "", "", ""],
+      "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
+      "peso": [90.72, 154.22],
+      "armaAliento": {
+        "tipo": "Ácido",
+        "area": "línea de 5 por 30 pies",
+        "tiradaSalvacion": "destreza"
+      }
+    },
+    {
+      "id": 7,
+      "nombre": "Dracónido Dorado",
+      "edad": [15, 40],
+      "altura": [1.83, 2.03],
+      "piel": ["Amarillo Dorado", "Oro", "Vara Dorada", "Oro en Pepita", "Oro"],
+      "cabello": ["", "", "", ""],
+      "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
+      "peso": [90.72, 154.22],
+      "armaAliento": {
+        "tipo": "Fuego",
+        "area": "cono de 15 pies",
+        "tiradaSalvacion": "destreza"
+      }
+    },
+    {
+      "id": 8,
+      "nombre": "Dracónido Verde",
+      "edad": [15, 40],
+      "altura": [1.83, 2.03],
+      "piel": ["Verde Mar", "Verde Bosque", "Jade", "Esmeralda", "Verde"],
+      "cabello": ["", "", "", ""],
+      "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
+      "peso": [90.72, 154.22],
+      "armaAliento": {
+        "tipo": "Veneno",
+        "area": "cono de 15 pies",
+        "tiradaSalvacion": "constitución"
+      }
+    },
+    {
+      "id": 9,
+      "nombre": "Dracónido Rojo",
+      "edad": [15, 40],
+      "altura": [1.83, 2.03],
+      "piel": ["Escarlata", "Rojo y Naranja", "Rojo Sangre", "Rojo Cereza", "Rojo"],
+      "cabello": ["", "", "", ""],
+      "ojos": ["Amarillo", "Verde", "Rojo", "Azul"],
+      "peso": [90.72, 154.22],
+      "armaAliento": {
+        "tipo": "Fuego",
+        "area": "cono de 15 pies",
+        "tiradaSalvacion": "destreza"
+      }
+    },
+    {
+      "id": 10,
+      "nombre": "Dracónido Plateado",
+      "edad": [15, 40],
+      "altura": [1.83, 2.03],
+      "piel": ["Plateado Hielo", "Plateado Líquido", "Plateado Lunar", "Plateado", "Plateado"],
+      "cabello": ["", "", "", ""],
+      "ojos": ["Violeta", "Azul", "Rojo", "Morado"],
+      "peso": [90.72, 154.22],
+      "armaAliento": {
+        "tipo": "Frío",
+        "area": "cono de 15 pies",
+        "tiradaSalvacion": "constitución"
+      }
+    },
+    {
+      "id": 11,
+      "nombre": "Dracónido Blanco",
+      "edad": [15, 40],
+      "altura": [1.83, 2.03],
+      "piel": ["Nieve", "Blanco Fantasma", "Humo Blanco", "Blanco Escarcha", "Blanco"],
+      "cabello": ["", "", "", ""],
+      "ojos": ["Violeta", "Azul", "Rojo", "Morado"],
+      "peso": [90.72, 154.22],
+      "armaAliento": {
+        "tipo": "Frío",
+        "area": "cono de 15 pies",
+        "tiradaSalvacion": "constitución"
+      }
+    },
+    {
+      "id": 13,
+      "nombre": "Enano de Colina",
+      "edad": [50, 250],
+      "altura": [1.32, 1.52],
+      "piel": ["Rojo Pálido", "Marrón Claro", "Marrón Oscuro", "Bronceado Oscuro", "Bronceado"],
+      "cabello": ["Gris", "Negro", "Marrón", "Rojo"],
+      "ojos": ["Negro", "Marrón", "Verde", "Azul"],
+      "peso": [49.90, 97.52],
+      "armas": ["Hacha de batalla", "Hacha de batalla", "Hacha de mano", "Martillo ligero", "Martillo de guerra"],
+      "armadura": [],
+      "hp": "+1"
+    },
+    {
+      "id": 14,
+      "nombre": "Enano de Montaña",
+      "edad": [50, 250],
+      "altura": [1.40, 1.60],
+      "piel": ["Rojo Pálido", "Marrón Claro", "Marrón Oscuro", "Bronceado Oscuro", "Bronceado"],
+      "cabello": ["Gris", "Negro", "Marrón", "Rojo"],
+      "ojos": ["Negro", "Marrón", "Verde", "Azul"],
+      "peso": [49.90, 97.52],
+      "armas": ["Hacha de batalla", "Hacha de batalla", "Hacha de mano", "Hacha de batalla", "Martillo de guerra"],
+      "armadura": ["Armadura ligera", "Armadura media"],
+      "hp": ""
+    },
+    {
+      "id": 17,
+      "nombre": "Alto Elfo",
+      "edad": [100, 600],
+      "altura": [1.65, 1.86],
+      "piel": ["Cobre", "Bronce", "Blanco Azulado", "Blanco Azulado", "Cobre Claro"],
+      "cabello": ["Verde", "Azul", "Turquesa", "Plateado Blanco"],
+      "ojos": ["Oro", "Plata", "Negro", "Verde"],
+      "peso": [49.90, 74.84],
+      "armas": [],
+      "armadura": [],
+      "hp": ""
+    },
+    {
+      "id": 18,
+      "nombre": "Elfo del Bosque",
+      "edad": [100, 600],
+      "altura": [1.65, 1.86],
+      "piel": ["Cobre", "Bronce", "Cobre Avellana", "Bronceado Oscuro", "Cobre Claro"],
+      "cabello": ["Marrón", "Negro", "Cobre", "Rubio"],
+      "ojos": ["Verde", "Marrón", "Avellana", "Ámbar"],
+      "peso": [49.90, 74.84],
+      "armas": ["Espada larga", "Espada corta", "Arco corto", "Arco largo"],
+      "armadura": [],
+      "hp": ""
+    },
+    {
+      "id": 16,
+      "nombre": "Elfo Oscuro (Drow)",
+      "edad": [100, 600],
+      "altura": [1.63, 1.80],
+      "piel": ["Negro", "Ónix", "Gris Oscuro", "Negro", "Plata Oscura"],
+      "cabello": ["Blanco", "Rubio Claro", "Amarillo Pálido", "Blanco y Amarillo"],
+      "ojos": ["Lila", "Plata", "Rosa", "Azul"],
+      "peso": [45.36, 70.31],
+      "armas": ["Estoque", "Espada corta", "Ballesta de mano"],
+      "armadura": [],
+      "hp": ""
+    },
+    {
+      "id": 25,
+      "nombre": "Mediano Piesligeros",
+      "edad": [20, 100],
+      "altura": [0.81, 1.04],
+      "piel": ["Bronceado", "Bronceado Claro", "Pálido y Rubicundo", "Claro", "Justo"],
+      "cabello": ["Marrón", "Marrón Arenoso", "Rubio Oscuro", "Castaño"],
+      "ojos": ["Marrón", "Avellana", "Verde", "Marrón Claro"],
+      "peso": [15.88, 22.68],
+      "tamaño": "pequeño",
+      "armas": [],
+      "armadura": [],
+      "hp": ""
+    },
+    {
+      "id": 26,
+      "nombre": "Mediano Recio",
+      "edad": [20, 100],
+      "altura": [0.86, 1.09],
+      "piel": ["Pálido", "Bronceado Claro", "Pálido y Rubicundo", "Claro", "Justo y Rubicundo"],
+      "cabello": ["Marrón", "Marrón Arenoso", "Marrón Oscuro", "Castaño"],
+      "ojos": ["Marrón", "Avellana", "Verde", "Marrón Claro"],
+      "peso": [16.78, 23.59],
+      "tamaño": "pequeño",
+      "armas": [],
+      "armadura": [],
+      "hp": ""
+    },
+    {
+      "id": 20,
+      "nombre": "Gnomo del Bosque",
+      "edad": [40, 250],
+      "altura": [0.86, 1.09],
+      "piel": ["Bronceado", "Bronceado Claro", "Marrón", "Bronceado Oscuro", "Marrón Claro"],
+      "cabello": ["Rubio", "Marrón Arenoso", "Rubio Oscuro", "Marrón Claro"],
+      "ojos": ["Azul Hielo", "Azul Marino", "Azul Pálido", "Azul Brillante"],
+      "peso": [15.88, 22.68],
+      "tamaño": "pequeño",
+      "armas": [],
+      "armadura": [],
+      "hp": ""
+    },
+    {
+      "id": 21,
+      "nombre": "Gnomo de Roca",
+      "edad": [40, 250],
+      "altura": [0.89, 1.14],
+      "piel": ["Bronceado", "Bronceado Claro", "Marrón", "Bronceado Oscuro", "Marrón Claro"],
+      "cabello": ["Rubio", "Marrón Arenoso", "Rubio Oscuro", "Marrón Claro"],
+      "ojos": ["Azul Hielo", "Azul Marino", "Azul Pálido", "Azul Brillante"],
+      "peso": [16.78, 23.59],
+      "tamaño": "pequeño",
+      "armas": [],
+      "armadura": [],
+      "hp": ""
+    },
+    {
+      "id": 22,
+      "nombre": "Semielfo",
+      "edad": [20, 120],
+      "altura": [1.65, 1.88],
+      "piel": ["Cobre", "Justo", "Pálido", "Bronceado Oscuro", "Cobre Claro"],
+      "cabello": ["Marrón Verdoso", "Negro Azulado", "Blanco Rojizo", "Rubio Plateado"],
+      "ojos": ["Oro", "Rosa", "Lila", "Verde"],
+      "peso": [54.43, 92.99],
+      "armas": [],
+      "armadura": [],
+      "hp": ""
+    },
+    {
+      "id": 23,
+      "nombre": "Semiorco",
+      "edad": [15, 40],
+      "altura": [1.83, 2.16],
+      "piel": ["Grisáceo", "Gris Verdoso", "Gris", "Gris Bronceado", "Grisáceo"],
+      "cabello": ["Marrón Claro", "Negro", "Castaño", "Marrón Oscuro"],
+      "ojos": ["Verde", "Azul", "Marrón", "Negro"],
+      "peso": [77.11, 120.20],
+      "armas": [],
+      "armadura": [],
+      "hp": ""
+    },
+    {
+      "id": 37,
+      "nombre": "Tiefling",
+      "edad": [20, 55],
+      "altura": [1.65, 1.88],
+      "piel": ["Rojo Ladrillo", "Bronceado Rojizo", "Granate", "Rojo Sangre", "Rojo Cobrizo"],
+      "cabello": ["Morado Oscuro", "Negro", "Rojo Oscuro", "Azul Oscuro"],
+      "ojos": ["Blanco", "Negro", "Rojo", "Plata"],
+      "peso": [63.50, 111.13],
+      "armas": [],
+      "armadura": [],
+      "hp": ""
+    }
+]
+
+
 
 var datosRazas  = {
     "razas": [
@@ -1179,7 +1362,7 @@ var datosRazas  = {
         "moralidad": [0.7, 0.4]
       }
     ]
-  };
+};
 
 
   
@@ -1227,19 +1410,6 @@ function loadHtmlTemplate(){
         })
         .catch(error => console.error("Error al cargar el HTML:", error));
 }
-/**
- * Agrega los idiomas seleccionados al contenido de un textarea específico.
- * 
- * Esta función obtiene los valores seleccionados de un elemento de selección de idiomas
- * y los agrega a un textarea que contiene una lista de idiomas. Si el textarea ya contiene
- * una lista de idiomas, se agregan los nuevos idiomas sin duplicados. Si no, se crea una
- * nueva lista de idiomas en el textarea.
- * 
- * @function
- * @name agregarIdiomaSeleccionado
- * 
- * @returns {void}
- */
 function agregarIdiomaSeleccionado() {
     let textarea = document.querySelector('[data-field-name="ProficienciesLang"]'); // Obtener textarea
     let seleccionados = idiomaSelect.getSelectedValues(); // Obtener idiomas seleccionados
@@ -1328,7 +1498,6 @@ function idioma_correcto(race, firstLanguage, extraLanguage, racialLanguage2) {
 
     return firstLanguage;
 }
-
 function obtenerRaza(identificador) {
     if (typeof identificador === "number") {
         return razasData.razas.find(raza => raza.id === identificador) || null;
@@ -1348,7 +1517,60 @@ function obtenerArmaAlientoPorIdRaza(idRaza, constitutionModifier) {
     }
     return null;
 }
+// Función para obtener un objeto aleatorio
+function randomCharlatanItem() {
+  const randomIndex = Math.floor(Math.random() * charlatanBackgroundItems.length);
+  return charlatanBackgroundItems[randomIndex];
+}
+// Función para obtener un objeto aleatorio
+function randomGamingSet() {
+  const randomIndex = Math.floor(Math.random() * gamingSets.length);
+  return gamingSets[randomIndex];
+}
+// Función para obtener un 'trinket' aleatorio
+function randomTrinket() {
+  const randomIndex = Math.floor(Math.random() * trinkets.length);
+  return trinkets[randomIndex];
+}
+function randomFavorFromAdmirer() {
+  const randomIndex = Math.floor(Math.random() * admirerFavors.length);
+  const favor = admirerFavors[randomIndex];
+
+  // Si es la opción 3 (índice 2 en el array),
+  // reemplazamos la descripción con la que incluye un trinket aleatorio.
+  if (favor.id === 3) {
+    const trinketDescripcion = randomTrinket(); 
+    return `${trinketDescripcion} de un admirador`;
+  }
+  return favor.descripcion;
+}
+// Función para obtener una herramienta de artesano al azar
+function randomArtisanTool() {
+  const randomIndex = Math.floor(Math.random() * artisanTools.length);
+  return artisanTools[randomIndex];
+}
+// Función para obtener un gaming set de soldado al azar
+function randomSoldierGamingSet() {
+  const randomIndex = Math.floor(Math.random() * soldierGamingSets.length);
+  return soldierGamingSets[randomIndex];
+}
+// Función para obtener un trofe o
+function randomTrophy() {
+  const randomIndex = Math.floor(Math.random() * soldierTrophies.length);
+  const trophy = soldierTrophies[randomIndex];
+
+  if (trophy.id === 4) {
+    const trinketDescripcion = randomTrinket();
+    return `${trinketDescripcion} de un enemigo caído`;
+  }
   
+  return trophy.descripcion;
+}
+
+
+
+
+
 function makePersonaje() {
   // Initialize variables
   var language = void 0;

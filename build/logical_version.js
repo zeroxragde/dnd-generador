@@ -6297,7 +6297,7 @@ function generate_character(isManual = false) {
     } else if (wisdomModifier === 4) {
       document.getElementById("form193_3").value = "Palabra Curativa";
       document.getElementById("form159_3").value = "Ola de Trueno";
-      document.getElementById("form137_3").value = "Enredar";
+      document.getElementById("fogrm137_3").value = "Enredar";
       document.getElementById("form136_3").value = "Curar Heridas";
       document.getElementById("form135_3").value = "Fuego Feérico";
     } else if (wisdomModifier === 5) {

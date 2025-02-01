@@ -494,6 +494,8 @@ const soldierTrophies = [
 
 
 
+
+
 const caracteristicasRazialesFisicas=[
     {
       "id": 2,
@@ -806,8 +808,6 @@ const caracteristicasRazialesFisicas=[
       "hp": ""
     }
 ]
-
-
 
 var datosRazas  = {
     "razas": [
@@ -1364,11 +1364,11 @@ var datosRazas  = {
     ]
 };
 
+var hechizos=[];
 
-  
 
-  
 var idiomaSelect;
+var transfondoSelect;
 document.addEventListener("DOMContentLoaded", function () {
 
     loadHtmlTemplate();
@@ -1382,7 +1382,26 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error("El botón no se encontró.");
     }
-    
+    let btnGenerar =  document.querySelector("#btnGenerar"); // Selecciona el botón justo después del div
+    if (btnGenerar) {
+        btnGenerar.addEventListener("click", function() {
+          makePersonaje();
+
+        });
+    } else {
+        console.error("El botón no se encontró.");
+    }
+
+    //CARAGAR JSON GRANDES
+    // Usamos fetch para cargar el archivo data.json (que debe estar en la misma carpeta)
+    fetch('/build/CustomLibs/data/hechizos.json')
+    .then(response => response.json())  // parsea la respuesta como JSON
+    .then(data => {
+      hechizos = data;                    // guarda el resultado en miData.
+    })
+    .catch(error => {
+      console.error("Hubo un error al cargar el JSON:", error);
+    });
 });
 
 function handleSelectionChange(selectedValues) {
@@ -1395,7 +1414,7 @@ function loadCheckBoxes(){
 function loadSelects(){
     const razaSelect = new SelectGenerator("razasContainer", razas, false, "Elige una raza", 2, handleSelectionChange);
     const claseSelect = new SelectGenerator("clasesContainer", clases, false, "Selecciona una clase", null, handleSelectionChange);
-    const transfondoSelect = new SelectGenerator("transfondoContainer", transfondos, false, "Elige un transfondo", null, handleSelectionChange);
+    transfondoSelect = new SelectGenerator("transfondoContainer", transfondos, true, "Elige un transfondo", null, handleSelectionChange);
     const alinSelect = new SelectGenerator("alineamientosContainer", alineamientos, false, "Elige un alineamiento", null, handleSelectionChange);
     idiomaSelect = new SelectGenerator("idiomasContainer", idiomas, false, "Agrega idiomas", null, (idioma)=>{
         console.log("Idioma seleccionado:", idioma);
@@ -1692,5 +1711,43 @@ function makePersonaje() {
     weaponProficiencies: [],
     toolProficiencies: [],
   };
+  // Array con los IDs de los elementos
+  const formIds = ["form83_1", "form84_1", "form82_1", "form86_1", "form81_1", "form85_1"];
+  var continuar = true;
+  formIds.forEach(id => {
+    if(document.getElementById(id).value == ""){
+      createCustomAlert("No puedes dejar campos de estadisticas vacios en este modo...", "error");
+      continuar=false;
+      return true;
+    }
+  });
+  
+  if(!continuar){
+    return;
+  }
+
+  // Stat array in right order
+  stat1 =  parseInt(document.getElementById("form83_1").value);
+  stat2 =  parseInt(document.getElementById("form84_1").value) ;
+  stat3 =  parseInt(document.getElementById("form82_1").value);
+  stat4 =  parseInt(document.getElementById("form86_1").value);
+  stat5 =  parseInt(document.getElementById("form81_1").value);
+  stat6 =  parseInt(document.getElementById("form85_1").value);
+
+  // 2 means roll
+  versionForChecking = 2;
+  charName = document.getElementById("form96_1").value
+  var myTransfondos = transfondoSelect.getSelectedValues();
+  if(myTransfondos.length > 0 && myTransfondos[0]!="Aleatorio"){
+    const randomIndex = Math.floor(Math.random() * myTransfondos.length);
+    newBackground1 =  myTransfondos[randomIndex];  
+  }else{
+    const randomIndex = Math.floor(Math.random() * (transfondos.length - 1)) + 1;
+    newBackground1 =  transfondos[randomIndex];  
+  }
+
+
+  console.log(newBackground1);
+
 
 }

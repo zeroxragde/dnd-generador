@@ -1,0 +1,289 @@
+{
+    "Acólito": {
+      "firstLanguage": "right_language_result",
+      "secondlanguage": "right_language_result",
+      "equipment": [
+        "Un símbolo sagrado",
+        "Libro de oraciones",
+        "5 varillas de incienso",
+        "Vestimentas",
+        "Conjunto de ropa común",
+        "Bolsa de cinturón"
+      ],
+      "gold": 15,
+      "features": [
+        "Refugio de los Fieles: Puedes realizar las ceremonias religiosas de tu deidad. Tu grupo de aventureros puede esperar recibir curación y cuidado gratuitos en un establecimiento de tu fe, aunque debes proporcionar cualquier componente material necesario para los conjuros. Aquellos que comparten tu religión te apoyarán con un estilo de vida modesto. Mientras estés cerca de tu establecimiento de origen, puedes pedir ayuda a los sacerdotes, siempre que no sea peligroso."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un acólito?\r¿Qué deidad sirves?\r¿Dónde estaba tu templo/monasterio?\r¿Por qué aprendiste esos idiomas?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un acólito a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Charlatán": {
+      "tools": [
+        "Kit de disfraz",
+        "kit de falsificación"
+      ],
+      "equipment": [
+        "Kit de disfraz",
+        "random_con_result",
+        "Conjunto de ropa fina",
+        "Bolsa de cinturón"
+      ],
+      "gold": 15,
+      "features": [
+        "Identidad Falsa: Tienes una segunda identidad que incluye documentación, conocidos establecidos y disfraces que te permiten asumir esa persona. Además, puedes falsificar documentos, incluidos papeles oficiales y Carroas personales, siempre que hayas visto un ejemplo del tipo de documento o la escritura que estás tratando de copiar."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un charlatán?\r¿Cuál es tu truco preferido?\r¿Cuál fue tu mayor engaño?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un charlatán a un <className>?\r¿Qué significa para ti ser un <race>?\r¿Sigues engañando a la gente? Si no, ¿por qué el cambio de corazón?"
+    },
+    "Criminal": {
+      "tools": [
+        "herramientas de ladrón",
+        "random_gaming_set_capitalize_result"
+      ],
+      "equipment": [
+        "Palanca",
+        "Conjunto de ropa oscura común con capucha",
+        "Bolsa de cinturón"
+      ],
+      "gold": 15,
+      "features": [
+        "Contacto Criminal: Tienes un contacto confiable y leal que actúa como tu enlace con una red de otros criminales. Sabes cómo enviar mensajes hacia y desde tu contacto, incluso a grandes distancias; específicamente, conoces a los mensajeros locales, maestros de caravanas corruptos y marineros sospechosos que pueden entregar mensajes por ti."
+      ],
+      "backstory": "¿Qué te llevó a comenzar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un criminal?\r¿Qué tipo de criminal eras?\r¿Hiciste algo terrible?\r¿Quién es tu contacto criminal?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un criminal a un <className>?\r¿Qué significa para ti ser un <race>?\r¿Sigues infringiendo la ley? Si no, ¿por qué cambiaste de opinión?"
+    },
+    "Artista": {
+      "musicalinstrument": "random_musical_instrument_result",
+      "tools": [
+        "Kit de disfraz"
+      ],
+      "equipment": [
+        "random_musical_instrument_result",
+        "Disfraz",
+        "Bolsa de cinturón"
+      ],
+      "gold": 15,
+      "features": [
+        "Por Demanda Popular: Siempre puedes encontrar un lugar para actuar. En ese lugar, recibes alojamiento y comida gratuitos de un estándar modesto o cómodo, siempre que actúes cada noche. Tu actuación también te convierte en una figura local, cuando te reconocen, generalmente te toman cariño."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un artista?\r¿Cómo entretenías?\r¿Todavía tienes algún contacto o personas que conoces de tus actuaciones?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un artista a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Héroe del Pueblo": {
+      "artisantool": "random_artisan_tool_result",
+      "tools": [
+        "vehículos terrestres"
+      ],
+      "equipment": [
+        "random_artisan_tool_result",
+        "Pala",
+        "Olla de hierro",
+        "Conjunto de ropa común",
+        "Bolsa de cinturón"
+      ],
+      "gold": 10,
+      "features": [
+        "Hospitalidad Rústica: Dado que provienes de las filas del pueblo común, encajas entre ellos con facilidad. Puedes encontrar un lugar para esconderte, descansar o recuperarte entre otros plebeyos, a menos que te hayas mostrado como un peligro para ellos. Te protegerán de la ley o de cualquier otra persona que te busque, aunque no arriesgarán sus vidas por ti."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te hizo famoso entre tu gente?\r¿Por qué los dejaste?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un héroe del pueblo a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Gladiador": {
+      "gladiatorWeapon": "random_gladiator_weapon_result",
+      "tools": [
+        "Kit de disfraz"
+      ],
+      "equipment": [
+        "Disfraz",
+        "Bolsa de cinturón"
+      ],
+      "gold": 15,
+      "features": [
+        "Por Demanda Popular: Siempre puedes encontrar un lugar para actuar que esté centrado en el combate. En ese lugar, recibes alojamiento y comida gratuitos de un estándar modesto o cómodo, siempre que actúes cada noche. Tu actuación también te convierte en una figura local, cuando te reconocen, generalmente te toman cariño."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Por qué te convertiste en gladiador?\r¿Fue esclavitud?\r¿Fue por dinero?\r¿Fue por familia?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un gladiador a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Artesano del Gremio": {
+      "firstLanguage": "right_language_result",
+      "artisantool": "random_artisan_tool_result",
+      "equipment": [
+        "random_artisan_tool_result",
+        "Carroa de presentación del gremio",
+        "Conjunto de ropa de viajero",
+        "Bolsa de cinturón"
+      ],
+      "gold": 15,
+      "features": [
+        "Membresía del Gremio: Tus compañeros de gremio te proporcionarán alojamiento y comida si es necesario, y pagarán tu funeral. Si eres acusado de un crimen, tu gremio te apoyará si eres inocente o tienes una causa justa. (5Gp/mes por membresía, beneficios solo si pagas a tiempo.)"
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Por qué te convertiste en artesano?\r¿Por qué elegiste tu oficio?\r¿Cuál es el nombre de tu gremio?\r¿Fue por dinero?\r¿Fue por pasión?\r¿Fue el negocio familiar?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un artesano del gremio a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Comerciante del Gremio": {
+      "firstLanguage": "right_language_result",
+      "secondlanguage": "right_language_result",
+      "equipment": [
+        "Carroa de presentación del gremio",
+        "Conjunto de ropa de viajero",
+        "Bolsa de cinturón",
+        "Mula",
+        "Carro"
+      ],
+      "gold": 15,
+      "features": [
+        "Membresía del Gremio: Tus compañeros de gremio te proporcionarán alojamiento y comida si es necesario, y pagarán tu funeral. Si eres acusado de un crimen, tu gremio te apoyará si eres inocente o tienes una causa justa. (5Gp/mes por membresía, beneficios solo si pagas a tiempo.)"
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Por qué te convertiste en comerciante?\r¿Por qué elegiste tu oficio?\r¿Cuál es el nombre de tu gremio?\r¿Fue por dinero?\r¿Fue por pasión por el comercio o conocer gente nueva?\r¿Fue el negocio familiar?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un comerciante del gremio a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Ermitaño": {
+      "firstLanguage": "right_language_result",
+      "equipment": [
+        "Estuche de pergaminos lleno de notas de tus estudios",
+        "Manta de invierno",
+        "Conjunto de ropa común",
+        "kit de herboristería"
+      ],
+      "gold": 5,
+      "features": [
+        "Descubrimiento: La tranquila reclusión de tu prolongado ermitaño te dio acceso a un descubrimiento único y poderoso."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Dónde estuviste recluido?\r¿Viajaste mucho?\r¿Cuál es tu gran descubrimiento? Habla de ello con tu DM también.\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un ermitaño a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Caballero": {
+      "firstLanguage": "right_language_result",
+      "bonds": [
+        "Tengo un emblema de caballería y castidad de una dama noble."
+      ],
+      "equipment": [
+        "Emblema de caballería",
+        "Anillo de sello",
+        "Pergamino de linaje",
+        "Conjunto de ropa fina",
+        "Cartera"
+      ],
+      "gold": 25,
+      "features": [
+        "Criados: Tienes tres criados leales a tu familia. Estos criados pueden realizar tareas para ti, pero no lucharán por ti ni se arriesgarán a zonas peligrosas."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Quién es tu familia?\r¿Hay alguna persona famosa en ella, o tu familia es conocida por algo en particular?\r¿Quién es la mujer de la que recibiste el Emblema de caballería?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un caballero a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Noble": {
+      "firstLanguage": "right_language_result",
+      "equipment": [
+        "Anillo de sello",
+        "Pergamino de linaje",
+        "Conjunto de ropa fina",
+        "Cartera"
+      ],
+      "gold": 25,
+      "features": [
+        "Posición de Privilegio: Eres bienvenido en la alta sociedad. La gente común y los comerciantes harán todo lo posible para acomodarte y evitarte molestias, y otros de alta cuna te tratan como un miembro de su círculo. Puedes solicitar audiencia con un noble local si lo necesitas."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Quién es tu familia?\r¿Hay alguna persona famosa en ella o es famosa por algo en particular?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un noble a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Forastero": {
+      "musicalinstrument": "random_musical_instrument_result",
+      "equipment": [
+        "Staff",
+        "Trampa de Caza",
+        "random_animal_trophy_result",
+        "Conjunto de ropa de viajero",
+        "Bolsa de cinturón"
+      ],
+      "gold": 10,
+      "features": [
+        "Errante: Tienes excelente memoria para mapas y geografía, y puedes recordar la disposición general del terreno y asentamientos. Además, puedes encontrar comida y agua fresca para ti y hasta cinco compañeros cada día, si el entorno lo permite."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Dónde estabas?\r¿Viajaste mucho?\r¿Cuál es la historia detrás de tu trofeo animal?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un forastero a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Pirata": {
+      "equipment": [
+        "garrote",
+        "15 metros de cuerda de seda",
+        "Conjunto de ropa común",
+        "Bolsa de cinturón"
+      ],
+      "gold": 10,
+      "features": [
+        "Mala Reputación: La gente te teme por tu reputación. En asentamientos, puedes salirte con la tuya por delitos menores, ya que muchos optan por no involucrarse contigo."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Cómo te convertiste en pirata?\r¿Tenías un puerto que considerabas tu hogar?\r¿Sigues en contacto con tus compañeros de barco?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un pirata a un <className>?\r¿Qué significa para ti ser un <race>?\r¿Por qué ya no eres un pirata?"
+    },
+    "Sabio": {
+      "firstLanguage": "right_language_result",
+      "secondlanguage": "right_language_result",
+      "equipment": [
+        "Botella de tinta negra",
+        "Pluma",
+        "Small knife",
+        "Carta de un colega fallecido",
+        "Conjunto de ropa común",
+        "Bolsa de cinturón"
+      ],
+      "gold": 10,
+      "features": [
+        "Investigador: Cuando buscas aprender o recordar información, sabes dónde y de quién obtenerla (biblioteca, universidad, etc.)."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué estudiaste durante tanto tiempo?\r¿Qué dice la carta de tu colega fallecido?\r¿Por qué aprendiste esos idiomas?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser un sabio a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Marinero": {
+      "equipment": [
+        "garrote",
+        "15 metros de cuerda de seda",
+        "Conjunto de ropa común",
+        "Bolsa de cinturón"
+      ],
+      "gold": 10,
+      "features": [
+        "Pasaje en Barco: Puedes obtener un pasaje gratuito en un barco de vela a cambio de ayudar a la tripulación durante el viaje."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Cómo te convertiste en marinero?\r¿Tenías un puerto que fuera tu hogar?\r¿Sigues en contacto con tus compañeros de barco?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser marinero a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Soldado": {
+      "soldierGamingSet": "random_gaming_set_soldier_result",
+      "tools": [
+        "vehículos terrestres",
+        "soldierGamingSet_tool_result"
+      ],
+      "equipment": [
+        "Insignia de rango",
+        "soldierGamingSet_result",
+        "Conjunto de ropa común",
+        "Bolsa de cinturón"
+      ],
+      "gold": 10,
+      "features": [
+        "Rango Militar: Tus antiguos compañeros te reconocen y respetan. Puedes invocar tu rango para influir y acceder a recursos militares."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Cómo te convertiste en soldado?\r¿Qué rango tenías?\r¿Sigues en contacto con tus compañeros de armas?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser soldado a un <className>?\r¿Qué significa para ti ser un <race>?"
+    },
+    "Espía": {
+      "tools": [
+        "herramientas de ladrón",
+        "random_gaming_set_capitalize_result"
+      ],
+      "equipment": [
+        "Palanca",
+        "Conjunto de ropa oscura común con capucha",
+        "Bolsa de cinturón"
+      ],
+      "gold": 15,
+      "features": [
+        "Contacto Espía: Tienes un contacto de confianza en la red de espías y criminales que te facilita la comunicación a larga distancia."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en espía?\r¿Hiciste algo terrible?\r¿Quién es tu contacto espía?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser espía a un <className>?\r¿Qué significa para ti ser un <race>?\r¿Para quién trabajabas cuando eras espía?"
+    },
+    "Huérfano": {
+      "tools": [
+        "Kit de disfraz",
+        "herramientas de ladrón"
+      ],
+      "equipment": [
+        "Cuchillo pequeño",
+        "Mapa de la ciudad natal",
+        "ratón mascota",
+        "Conjunto de ropa común",
+        "Bolsa de cinturón"
+      ],
+      "gold": 10,
+      "features": [
+        "Secretos de la Ciudad: Conoces los patrones ocultos de la urbe, permitiéndote moverte con rapidez y discreción."
+      ],
+      "backstory": "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un huérfano?\r¿Alguien te hizo daño?\r¿Fracasaron los trabajos de tu familia?\r¿Por qué eres un <className>?\r¿Cómo pasaste de ser huérfano a un <className>?\r¿Qué significa para ti ser un <race>?"
+    }
+  }
+  

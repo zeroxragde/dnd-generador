@@ -1816,6 +1816,7 @@ function generate_character(isManual = false) {
 
   // Generates alignment based on the users input
   if (document.getElementById("alignment_random").checked) {
+  
   } else {
     balanceAndMorality = alignment_dropdown_generator();
     balance = balanceAndMorality.split(" ", 1).toString();

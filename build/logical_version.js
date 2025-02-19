@@ -2277,8 +2277,25 @@ function generate_character(isManual = false) {
       "Trance: Los elfos no necesitan dormir. En su lugar, meditan profundamente, permaneciendo semiconscientes, durante 4 horas al día. Mientras meditan, pueden soñar de alguna manera; tales sueños son en realidad ejercicios mentales que se han vuelto reflejos a través de años de práctica. Después de descansar de esta manera, obtienen el mismo beneficio que un humano obtiene de 8 horas de sueño."
     );
     if (raceChecker === 0) {
-     
-      
+      if (intelligence >= wisdom && intelligence >= charisma) {
+        race = "High Elf";
+      } else if (wisdom >= intelligence && wisdom >= charisma) {
+        race = "Wood Elf";
+      } else if (charisma >= intelligence && charisma >= wisdom) {
+        race = "Dark Elf (Drow)";
+      } else if (intelligence > wisdom || intelligence > charisma) {
+        race = "High Elf";
+      } else if (wisdom > intelligence || wisdom > charisma) {
+        race = "Wood Elf";
+      } else if (charisma > intelligence || charisma > wisdom) {
+        race = "Dark Elf (Drow)";
+      } else if (intelligence >= wisdom || intelligence >= charisma) {
+        race = "High Elf";
+      } else if (wisdom >= intelligence || wisdom >= charisma) {
+        race = "Wood Elf";
+      } else if (charisma >= intelligence || charisma >= wisdom) {
+        race = "Dark Elf (Drow)";
+      }
     }
   } else if (race === "Halfling" || raceSplitter3 === "Halfling") {
     racialLanguage1 = listOfStandardLanguages[0];

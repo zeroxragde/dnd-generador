@@ -1793,11 +1793,322 @@ function makePersonaje() {
     features.push(
       "Valiente: Tienes ventaja en las tiradas de salvación contra ser asustado."
     );
+  }else if (raceID >26 && raceID < 37) {//Humano
+    racialLanguage1 = idiomasEstandar[0];
+    racialLanguage2 = random_language();
+    profsAndLangs.languages.push(racialLanguage1);
+    profsAndLangs.languages.push(racialLanguage2);
+    strength += 1;
+    dexterity += 1;
+    constitution += 1;
+    intelligence += 1;
+    wisdom += 1;
+    charisma += 1;
+    document.getElementById("form87_1").value = "30";
+  }else if (raceID > 18 && raceID < 22)  {
+    racialLanguage1 = idiomasEstandar[0];
+    racialLanguage2 = idiomasEstandar[4];
+    profsAndLangs.languages.push(racialLanguage1);
+    profsAndLangs.languages.push(racialLanguage2);
+    intelligence += 2;
+    document.getElementById("form87_1").value = "25";
+    random_by_length(softTraits, personalityTraits, "form102_1");
+    features.push("Vision Nocturna: 19 m");
+    features.push(
+      "Astucia Gnómica: Tienes ventaja en todas las tiradas de salvación de Inteligencia, Sabiduría y Carisma contra magia."
+    );
   }
 
 
-
-
+  if (raceID === 2) { // Black Dragonborn
+    features.push("Ascendencia Dracónica: Black Dragons.");
+    features.push("Resistencia al Daño: Acid.");
+    generate_balance(0.55, 0.4);
+    generate_morality(0.8, 0.55);
+  
+  } else if (raceID === 3) { // Blue Dragonborn
+    features.push("Ascendencia Dracónica: Blue Dragons.");
+    features.push("Resistencia al Daño: Lightning.");
+    generate_balance(0.55, 0.4);
+    generate_morality(0.8, 0.55);
+  
+  } else if (raceID === 4) { // Brass Dragonborn
+    features.push("Ascendencia Dracónica: Brass Dragons.");
+    features.push("Resistencia al Daño: Fire.");
+    generate_balance(0.55, 0.4);
+    generate_morality(0.6, 0.25);
+  
+  } else if (raceID === 5) { // Bronze Dragonborn
+    features.push("Ascendencia Dracónica: Bronze Dragons.");
+    features.push("Resistencia al Daño: Lightning.");
+    generate_balance(0.55, 0.4);
+    generate_morality(0.6, 0.25);
+  
+  } else if (raceID === 6) { // Copper Dragonborn
+    features.push("Ascendencia Dracónica: Copper Dragons.");
+    features.push("Resistencia al Daño: Acid.");
+    generate_balance(0.55, 0.4);
+    generate_morality(0.6, 0.25);
+  
+  } else if (raceID === 7) { // Gold Dragonborn
+    features.push("Ascendencia Dracónica: Gold Dragons.");
+    features.push("Resistencia al Daño: Fire.");
+    generate_balance(0.55, 0.4);
+    generate_morality(0.6, 0.25);
+  
+  } else if (raceID === 8) { // Green Dragonborn
+    features.push("Ascendencia Dracónica: Green Dragons.");
+    features.push("Resistencia al Daño: Poison.");
+    generate_balance(0.55, 0.4);
+    generate_morality(0.75, 0.4);
+  
+  } else if (raceID === 9) { // Red Dragonborn
+    features.push("Ascendencia Dracónica: Red Dragons.");
+    features.push("Resistencia al Daño: Fire.");
+    generate_balance(0.55, 0.4);
+    generate_morality(0.75, 0.4);
+  
+  } else if (raceID === 10) { // Silver Dragonborn
+    features.push("Ascendencia Dracónica: Silver Dragons.");
+    features.push("Resistencia al Daño: Cold.");
+    generate_balance(0.55, 0.4);
+    generate_morality(0.6, 0.25);
+  
+  } else if (raceID === 11) { // White Dragonborn
+    features.push("Ascendencia Dracónica: White Dragons.");
+    features.push("Resistencia al Daño: Cold.");
+    generate_balance(0.55, 0.4);
+    generate_morality(0.75, 0.4);
+  
+  } else if (raceID === 13) { // Hill Dwarf
+    wisdom += 1;
+    features.push(
+      "Robustez Enana: Tu punto de golpe máximo aumenta en 1, y aumenta en 1 cada vez que subes de nivel."
+    );
+    generate_balance(0.3, 0.1);
+    generate_morality(0.5, 0.2);
+  
+  } else if (raceID === 14) { // Mountain Dwarf
+    strength += 2;
+    generate_balance(0.3, 0.1);
+    generate_morality(0.5, 0.2);
+  
+  } else if (raceID === 28) { // Human (Calishite)
+    generate_balance(0.6, 0.2);
+    generate_morality(0.66, 0.3);
+  
+  } else if (raceID === 29) { // Human (Chondathan)
+    generate_balance(0.6, 0.2);
+    generate_morality(0.66, 0.3);
+  
+  } else if (raceID === 30) { // Human (Damaran)
+    generate_balance(0.6, 0.2);
+    generate_morality(0.66, 0.3);
+  
+  } else if (raceID === 31) { // Human (Illuskan)
+    generate_balance(0.6, 0.2);
+    generate_morality(0.66, 0.3);
+  
+  } else if (raceID === 32) { // Human (Mulan)
+    generate_balance(0.6, 0.2);
+    generate_morality(0.66, 0.3);
+  
+  } else if (raceID === 33) { // Human (Rashemi)
+    generate_balance(0.6, 0.2);
+    generate_morality(0.66, 0.3);
+  
+  } else if (raceID === 34) { // Human (Shou)
+    generate_balance(0.6, 0.2);
+    generate_morality(0.66, 0.3);
+  
+  } else if (raceID === 35) { // Human (Tethyrian)
+    generate_balance(0.6, 0.2);
+    generate_morality(0.66, 0.3);
+  
+  } else if (raceID === 36) { // Human (Turami)
+    generate_balance(0.6, 0.2);
+    generate_morality(0.66, 0.3);
+  
+  } else if (raceID === 17) { // High Elf
+    features.push("Vision Nocturna: 19 m");
+    racialLanguage1 = listOfStandardLanguages[0];
+    racialLanguage2 = "Elvish";
+    extralanguage = random_language();
+    profsAndLangs.languages.push(racialLanguage1);
+    profsAndLangs.languages.push(racialLanguage2);
+    profsAndLangs.languages.push(extralanguage);
+    weapon_adder_2(weapon_adder("espada larga"));
+    weapon_adder_2(weapon_adder("espada corta"));
+    weapon_adder_2(weapon_adder("arco corto"));
+    weapon_adder_2(weapon_adder("arco largo"));
+    features.push(
+      "Truco de los Altos Elfos: Conoces un truco (prestidigitación) de tu herencia de Alto Elfo, la inteligencia es tu habilidad de lanzamiento de conjuros para ello."
+    );
+    add_race_cantrip("Prestidigitación");
+    intelligence += 1;
+    generate_balance(0.9, 0.7);
+    generate_morality(0.7, 0.2);
+  
+  } else if (raceID === 18) { // Wood Elf
+    features.push("Vision Nocturna: 19 m");
+    racialLanguage1 = listOfStandardLanguages[0];
+    racialLanguage2 = "Elvish";
+    profsAndLangs.languages.push(racialLanguage1);
+    profsAndLangs.languages.push(racialLanguage2);
+    weapon_adder_2(weapon_adder("espada larga"));
+    weapon_adder_2(weapon_adder("espada corta"));
+    weapon_adder_2(weapon_adder("arco corto"));
+    weapon_adder_2(weapon_adder("arco largo"));
+    wisdom += 1;
+    document.getElementById("form87_1").value = "35";
+    features.push(
+      "Máscara de lo Salvaje: Puedes intentar esconderte incluso cuando solo estás ligeramente oscurecido por follaje, lluvia intensa, nieve cayendo, niebla y otros fenómenos naturales."
+    );
+    generate_balance(0.9, 0.7);
+    generate_morality(0.6, 0.2);
+  
+  } else if (raceID === 16) { // Dark Elf (Drow)
+    racialLanguage1 = listOfStandardLanguages[0];
+    racialLanguage2 = "Elvish";
+    profsAndLangs.languages.push(racialLanguage1);
+    profsAndLangs.languages.push(racialLanguage2);
+    weapon_adder_2(weapon_adder("estoque"));
+    weapon_adder_2(weapon_adder("espada corta"));
+    weapon_adder_2(weapon_adder("ballesta"));
+    features.push(
+      "Truco de los Drow: Conoces un truco (luces danzantes) de tu herencia de Alto Elfo, el carisma es tu habilidad de lanzamiento de conjuros para ello."
+    );
+    add_race_cantrip("Dancing Lights");
+    charisma += 1;
+    features.push("Visión en la Oscuridad Superior: 37 m");
+    additionalFeatures.push(
+      "Sensibilidad a la luz solar: Tienes desventaja en las tiradas de ataque y en los chequeos de Sabiduría (Percepción) que dependen de la vista cuando tú, el objetivo de tu ataque o lo que estás tratando de percibir está bajo la luz solar directa."
+    );
+    generate_balance(0.9, 0.7);
+    generate_morality(0.8, 0.4);
+  
+  } else if (raceID === 25) { // Lightfoot Halfling
+    charisma += 1;
+    features.push(
+      "Sigiloso por Naturaleza: Puedes intentar esconderte incluso cuando solo estás oscurecido por una criatura que sea al menos un tamaño más grande que tú."
+    );
+    generate_balance(0.2, 0.1);
+    generate_morality(0.4, 0.2);
+  
+  } else if (raceID === 26) { // Stout Halfling
+    constitution += 1;
+    features.push(
+      "Resistencia Robusta: Tienes ventaja en las tiradas de salvación contra veneno y tienes resistencia al daño por veneno."
+    );
+    generate_balance(0.2, 0.1);
+    generate_morality(0.4, 0.2);
+  
+  } else if (raceID === 20) { // Forest Gnome
+    constitution += 1;
+    additionalFeatures.push(
+      "Hablar con Bestias Pequeñas: A través de sonidos y gestos, puedes comunicar ideas simples con bestias Pequeñas o más pequeñas. Los gnomos del bosque aman a los animales y a menudo tienen ardillas, tejones, conejos, topos, pájaros carpinteros y otras criaturas como mascotas queridas."
+    );
+    features.push(
+      "Ilusionista Natural: Conoces el truco 'ilusión menor', la inteligencia es tu habilidad de lanzamiento de conjuros para ello."
+    );
+    add_race_cantrip("Ilusión Menor");
+    generate_balance(0.6, 0.4);
+    generate_morality(0.5, 0.2);
+  
+  } else if (raceID === 21) { // Rock Gnome
+    constitution += 1;
+    tool_adder_2(tool_adder("herramientas de artesano"));
+    features.push(
+      "Conocimiento del Artífice: Siempre que realices un chequeo de Inteligencia (Historia) relacionado con objetos mágicos, objetos alquímicos o dispositivos tecnológicos, puedes agregar el doble de tu bonificación de competencia, en lugar de cualquier bonificación de competencia que normalmente aplicarías."
+    );
+    additionalFeatures.push(
+      "Manitas: Usando herramientas de manitas, puedes gastar 1 hora y 10 gp en materiales para construir un dispositivo mecánico pequeño (CA 5, 1 PV). El dispositivo deja de funcionar después de 24 horas (a menos que pases 1 hora reparándolo para mantenerlo funcionando), o cuando usas tu acción para desmantelarlo; en ese momento, puedes recuperar los materiales utilizados para crearlo. Puedes tener hasta tres dispositivos de este tipo activos al mismo tiempo. Cuando creas un dispositivo, elige una de las siguientes opciones:\rJuguete Mecánico: Este juguete es un animal mecánico, monstruo o persona, como una rana, ratón, pájaro, dragón o soldado. Cuando se coloca en el suelo, el juguete se mueve 5 pies por el suelo en cada uno de tus turnos en una dirección aleatoria. Hace ruidos según lo que representa.\rEncendedor: El dispositivo produce una llama en miniatura, que puedes usar para encender una vela, antorcha o fogata. Usar el dispositivo requiere tu acción.\rCaja de Música: Cuando se abre, esta caja de música toca una sola canción a un volumen moderado. La caja deja de jugar cuando termina la canción o cuando se cierra."
+    );
+    generate_balance(0.6, 0.4);
+    generate_morality(0.5, 0.2);
+  
+  } else if (raceID === 22) { // Half-Elf
+    racialLanguage1 = listOfStandardLanguages[0];
+    racialLanguage2 = "Elvish";
+    extralanguage = random_language();
+    profsAndLangs.languages.push(racialLanguage1);
+    profsAndLangs.languages.push(racialLanguage2);
+    profsAndLangs.languages.push(extralanguage);
+    charisma += 2;
+    random_by_length(softTraits, personalityTraits, "form102_1");
+    firstNumber = Math.floor(Math.random() * 4);
+    secondNumber = Math.floor(Math.random() * 4);
+    while (firstNumber === secondNumber) {
+      firstNumber = Math.floor(Math.random() * 4);
+      secondNumber = Math.floor(Math.random() * 4);
+    }
+    if (firstNumber === 0) {
+      strength += 1;
+    } else if (firstNumber === 1) {
+      dexterity += 1;
+    } else if (firstNumber === 2) {
+      constitution += 1;
+    } else if (firstNumber === 3) {
+      intelligence += 1;
+    } else if (firstNumber === 4) {
+      wisdom += 1;
+    }
+    if (secondNumber === 0) {
+      strength += 1;
+    } else if (secondNumber === 1) {
+      dexterity += 1;
+    } else if (secondNumber === 2) {
+      constitution += 1;
+    } else if (secondNumber === 3) {
+      intelligence += 1;
+    } else if (secondNumber === 4) {
+      wisdom += 1;
+    }
+    document.getElementById("form87_1").value = "30";
+    features.push("Vision Nocturna: 19 m");
+    features.push(
+      "Ascendencia Feérica: Tienes ventaja en las tiradas de salvación contra ser encantado, y la magia no puede ponerte a dormir."
+    );
+    generate_balance(0.8, 0.6);
+    generate_morality(0.6, 0.3);
+  
+  } else if (raceID === 23) { // Half-Orc
+    racialLanguage1 = listOfStandardLanguages[0];
+    racialLanguage2 = "Orc";
+    profsAndLangs.languages.push(racialLanguage1);
+    profsAndLangs.languages.push(racialLanguage2);
+    strength += 2;
+    constitution += 1;
+    document.getElementById("form87_1").value = "30";
+    random_by_length(toughTraits, personalityTraits, "form102_1");
+    features.push("Vision Nocturna: 19 m");
+    features.push(
+      "Resistencia Implacable: Cuando te reduzcan a 0 puntos de golpe pero no te maten, puedes caer a 1 punto de golpe en su lugar. No puedes usar esta característica nuevamente hasta que termines un descanso largo."
+    );
+    additionalFeatures.push(
+      "Ataques Salvajes: Cuando logras un golpe crítico con un ataque de arma cuerpo a cuerpo, puedes tirar uno de los dados de daño del arma una vez más y agregarlo al daño adicional del golpe crítico."
+    );
+    generate_balance(0.8, 0.6);
+    generate_morality(0.7, 0.4);
+  
+  } else if (raceID === 37) { // Tiefling
+    racialLanguage1 = listOfStandardLanguages[0];
+    racialLanguage2 = listOfExoticLanguages[5];
+    profsAndLangs.languages.push(racialLanguage1);
+    profsAndLangs.languages.push(racialLanguage2);
+    features.push(
+      "Legado Infernal: Conoces el truco taumaturgia, el carisma es tu habilidad de lanzamiento de conjuros para ello."
+    );
+    add_race_cantrip("Taumaturgia");
+    charisma += 2;
+    intelligence += 1;
+    document.getElementById("form87_1").value = "30";
+    random_by_length(softTraits, personalityTraits, "form102_1");
+    features.push("Vision Nocturna: 19 m");
+    features.push("Resistencia Infernal: Tienes resistencia al daño por fuego.");
+    generate_balance(0.8, 0.6);
+    generate_morality(0.7, 0.4);
+  }
 
 
 
@@ -1809,7 +2120,74 @@ function makePersonaje() {
   function obtenerIndice(raza) {
     return razas.indexOf(raza);
   }
+  // Function to add a racial cantrip to the last form in the cantrip section
+  function add_race_cantrip(cantrip) {
+    document.getElementById("form198_3").value = cantrip;
+  }
+  // Function for picking balance alignment
+  function generate_balance(higherDecimal, lowerDecimal) {
+    if (!alignmentChecker) {
+        let randomValue = Math.random();
 
+        if (randomValue >= higherDecimal) {
+            alignment.push(alineamientos[1]); // "Legal Bueno"
+            random_by_length(lawfulFlaws, flaws, "form99_1");
+        } else if (higherDecimal >= randomValue && lowerDecimal >= Math.random()) {
+            alignment.push(alineamientos[7]); // "Caótico Malvado"
+            random_by_length(chaoticFlaws, flaws, "form99_1");
+        } else if (randomValue >= lowerDecimal) {
+            alignment.push(alineamientos[5]); // "Neutral"
+            random_by_length(neutralFlaws, flaws, "form99_1");
+        } else {
+            alignment.push(alineamientos[5]); // "Neutral"
+            random_by_length(neutralFlaws, flaws, "form99_1");
+        }
+    }
+}
+
+  // Function for picking morality alignment
+  function generate_morality(higherDecimal, lowerDecimal) {
+    if (alignmentChecker === false) {
+      if (Math.random() >= higherDecimal) {
+        alignment.push("Good");
+        random_by_length(goodIdeals, ideals, "form100_1");
+      } else if (
+        higherDecimal >= Math.random() &&
+        lowerDecimal >= Math.random()
+      ) {
+        alignment.push("Evil");
+        random_by_length(evilIdeals, ideals, "form100_1");
+      } else if (Math.random() >= lowerDecimal) {
+        alignment.push("Neutral");
+        random_by_length(neutralIdeals, ideals, "form100_1");
+      } else {
+        alignment.push("Evil");
+        random_by_length(evilIdeals, ideals, "form100_1");
+      }
+    }
+  }
+
+
+  // Function to choose a random language, with a small chance for exotic languages
+  function generate_morality(higherDecimal, lowerDecimal) {
+    if (!alignmentChecker) {
+        let randomValue = Math.random();
+
+        if (randomValue >= higherDecimal) {
+            alignment.push(alineamientos[2]); // "Neutral Bueno"
+            random_by_length(goodIdeals, ideals, "form100_1");
+        } else if (higherDecimal >= randomValue && lowerDecimal >= Math.random()) {
+            alignment.push(alineamientos[8]); // "Neutral Malvado"
+            random_by_length(evilIdeals, ideals, "form100_1");
+        } else if (randomValue >= lowerDecimal) {
+            alignment.push(alineamientos[5]); // "Neutral"
+            random_by_length(neutralIdeals, ideals, "form100_1");
+        } else {
+            alignment.push(alineamientos[8]); // "Neutral Malvado"
+            random_by_length(evilIdeals, ideals, "form100_1");
+        }
+    }
+}
   function defectos_generador(balance, morality) {
     alignmentChecker = true;
     alignment.push(balance);

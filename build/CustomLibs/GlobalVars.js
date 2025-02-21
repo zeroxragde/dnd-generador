@@ -1,5 +1,32 @@
+    // Initialize stats and stats array
+    var stats = [];
+    var size = "";
+    var strength = 0;
+    var dexterity = 0;
+    var constitution = 0;
+    var intelligence = 0;
+    var wisdom = 0;
+    var charisma = 0;
+    var min = 0;
+    var max = 0;
+    var racialLanguage1 = void 0;
+    var racialLanguage2 = void 0;
+    var randomStatArray = [];
+    var stat1 = stats[0];
+    var stat2 = stats[1];
+    var stat3 = stats[2];
+    var stat4 = stats[3];
+    var stat5 = stats[4];
+    var stat6 = stats[5];
+    var newBackground1 = "";
+    var newBackground2 = 0;
+    var currentName = void 0;
+    var bardModifier = void 0;
+    var charName = void 0;
+    var statModifier = void 0;
+    var nameGenerator = {};
 
-const razas=[
+    const razas=[
     "Aleatorio",//0
     "Dracónido",//1
     "Dracónido Negro",//2
@@ -38,8 +65,8 @@ const razas=[
     "Humano (Tethyriano)",//35
     "Humano (Turami)",//36
     "Tiefling"//37
-  ];
-const transfondos=[
+    ];
+    const transfondos=[
     "Aleatorio",
     "Acólito",
     "Charlatán",
@@ -59,8 +86,8 @@ const transfondos=[
     "Soldado",
     "Espía",
     "Huérfano"
-];
-const clases= [
+    ];
+    const clases= [
     "Aleatorio",
     "Bárbaro",
     "Bardo",
@@ -74,8 +101,8 @@ const clases= [
     "Hechicero",
     "Brujo",
     "Mago"
-];
-const alineamientos=[
+    ];
+    const alineamientos=[
     "Aleatorio",
     "Legal Bueno",
     "Neutral Bueno",
@@ -86,8 +113,8 @@ const alineamientos=[
     "Legal Malvado",
     "Neutral Malvado",
     "Caótico Malvado"
-];
-const idiomas = [
+    ];
+    const idiomas = [
     "Comun",
     "Enano",
     "Élfico",
@@ -105,33 +132,33 @@ const idiomas = [
     "Silvano",
     "Común Subterráneo",
     "Ancestral"
-];
-// Definimos qué consideramos “estándar” y qué “exótico” en D&D
-const idiomasEstandar = [
-  "Comun",
-  "Enano",
-  "Élfico",
-  "Gigante",
-  "Gnómico",
-  "Goblin",
-  "Mediano",
-  "Orco"
-];
+    ];
+    // Definimos qué consideramos “estándar” y qué “exótico” en D&D
+    const idiomasEstandar = [
+    "Comun",
+    "Enano",
+    "Élfico",
+    "Gigante",
+    "Gnómico",
+    "Goblin",
+    "Mediano",
+    "Orco"
+    ];
 
-const idiomasExoticos = [
-  "Abisal",
-  "Celestial",
-  "Dracónico",
-  "Lengua Profunda",     // Deep Speech
-  "Infernal",
-  "Primordial",
-  "Silvano",             // Sylvan
-  "Común Subterráneo",   // Undercommon
-  "Ancestral"            // Ajusta según tu homebrew
-];
+    const idiomasExoticos = [
+    "Abisal",
+    "Celestial",
+    "Dracónico",
+    "Lengua Profunda",     // Deep Speech
+    "Infernal",
+    "Primordial",
+    "Silvano",             // Sylvan
+    "Común Subterráneo",   // Undercommon
+    "Ancestral"            // Ajusta según tu homebrew
+    ];
 
-// Personality is from race
-var toughTraits = [
+    // Personality is from race
+    var toughTraits = [
     "No me arrodillo ante ningún hombre que considere indigno.",
     "Camino mi propio sendero, sin importar cómo otros lo critiquen.",
     "Me encanta un buen insulto, incluso si es dirigido a mí.",
@@ -143,9 +170,9 @@ var toughTraits = [
     "Trabajo duro para poder divertirme a lo grande cuando el trabajo termina.",
     "Tengo un sentido del humor crudo.",
     "Soy seguro de mí mismo y asertivo.",
-  ];
-  
-  var softTraits = [
+    ];
+
+    var softTraits = [
     "No hay nada que me guste más que un buen misterio.",
     "Mis amigos saben que pueden contar conmigo, pase lo que pase.",
     "Enfrento los problemas de frente. Una solución simple y directa es el mejor camino al éxito.",
@@ -156,9 +183,9 @@ var toughTraits = [
     "Me gusta conocer gente nueva, me acercaré a cualquiera, en cualquier momento y lugar.",
     "Puedo encontrar un terreno común entre cualquier persona, incluso los enemigos más feroces.",
     "Veo presagios en cada evento y acción.",
-  ];
-  // Ideals are from good/neutral/chaotic
-  var goodIdeals = [
+    ];
+    // Ideals are from good/neutral/chaotic
+    var goodIdeals = [
     "Siempre trato de ayudar a los necesitados, sin importar el costo personal.",
     "Creo que cosas hermosas como el arte hacen del mundo un lugar mejor.",
     "Me siento agradecido por mi vida y necesito que importe.",
@@ -169,9 +196,9 @@ var toughTraits = [
     "Ayudar a los demás es lo más importante en el mundo.",
     "Mis poderes pueden protegernos de todos los males en todos los mundos.",
     "Hay todo tipo de seres a nuestro alrededor; mi deber es evitar que dañen a la gente buena.",
-  ];
-  
-  var neutralIdeals = [
+    ];
+
+    var neutralIdeals = [
     "Respeta a aquellos que son diferentes y deja que todos sean quienes deseen ser.",
     "Hay tanto por ver y aprender.",
     "Todos tienen cargas que soportar.",
@@ -182,8 +209,8 @@ var toughTraits = [
     "Si sigo mi propio camino, me convertiré en quien estaba destinado a ser.",
     "Estoy obsesivamente enfocado en descubrir mi pasado.",
     "Mejorarse a uno mismo es esencial en la vida.",
-  ];
-  var evilIdeals = [
+    ];
+    var evilIdeals = [
     "Mi opinión es la única que importa y los demás deben reforzar mi importancia.",
     "El mundo me debe algo, y tomaré lo que merezco.",
     "La única forma de superar la adversidad es ser poderoso.",
@@ -194,9 +221,9 @@ var toughTraits = [
     "Si no atacas primero, mueres.",
     "Siempre tengo un plan para salvarme a mí mismo o a mi grupo, sin importar los daños colaterales.",
     "Mis gustos refinados merecen ser atendidos.",
-  ];
-  
-  var rangerBonds = [
+    ];
+
+    var rangerBonds = [
     "Le debo una gran deuda a mi gremio por forjarme en la persona que soy hoy.",
     "Mi terreno es mi hogar, y lucharé para defenderlo.",
     "Nadie más debería soportar las dificultades que yo he pasado.",
@@ -206,9 +233,9 @@ var toughTraits = [
     "Mi mejor amigo nunca volverá a caminar por culpa de una batalla que provoqué. Ahora elijo mis peleas con mucho más cuidado.",
     "Escuché de un lugar perfecto para mí, pero parece que siempre viajo en la dirección opuesta.",
     "Mi arma me fue dada para proteger mi tierra, y pienso hacerlo, contra cualquier amenaza.",
-  ];
-  
-  var rogueBonds = [
+    ];
+
+    var rogueBonds = [
     "Engañé a la persona equivocada y debo trabajar para asegurarme de que nunca se cruce conmigo ni con quienes me importan.",
     "Le debo todo a mi mentor, una persona horrible que probablemente está pudriéndose en la cárcel.",
     "Una persona poderosa mató a alguien que amo. Algún día pronto, me vengaré.",
@@ -219,9 +246,9 @@ var toughTraits = [
     "Maté a un miembro de un gremio de ladrones poderoso en una disputa por botín, y ahora me cazan.",
     "Robé a una familia noble extremadamente poderosa y buscan recuperar su preciada reliquia a toda costa.",
     "Hice lo que tenía que hacer para sobrevivir. Espero no tener que hablar nunca más de lo que hice.",
-  ];
-  
-  var barbarianBonds = [
+    ];
+
+    var barbarianBonds = [
     "Haré cualquier cosa para demostrarme superior a mi rival odiado.",
     "Trabajé la tierra, amo la tierra y la protegeré.",
     "Mis herramientas son símbolos de mi vida pasada, y las llevo para no olvidar mis raíces.",
@@ -232,9 +259,9 @@ var toughTraits = [
     "Alguien me salvó la vida en el campo de batalla. Hasta el día de hoy, nunca abandonaré a un amigo.",
     "Aquellos que luchan a mi lado son los que valen la pena morir por ellos.",
     "Un ser querido es un hombre lobo, y haré lo que sea necesario para protegerlo y guardar su secreto.",
-  ];
-  
-  var wizardBonds = [
+    ];
+
+    var wizardBonds = [
     "Estoy tratando de pagar una vieja deuda que le debo a un benefactor generoso.",
     "Tengo un texto antiguo que contiene secretos terribles que no deben caer en las manos equivocadas.",
     "Trabajo para desenterrar una biblioteca que ha estado oculta durante los últimos mil años.",
@@ -245,9 +272,9 @@ var toughTraits = [
     "Por casualidad, logré matar a un asesino que me tenía como objetivo. Ahora siempre estoy en busca del próximo ataque.",
     "Sigo el ejemplo de un gran ídolo, a quien modelo mi trabajo y mi estilo.",
     "Creo que puedo desbloquear los secretos de magias que se perdieron hace mucho tiempo.",
-  ];
-  
-  var warlockBonds = [
+    ];
+
+    var warlockBonds = [
     "Algo importante me fue arrebatado, y planeo recuperarlo.",
     "Nada es más importante que los otros miembros de mi familia.",
     "Tengo un texto antiguo que contiene secretos terribles que no deben caer en manos equivocadas.",
@@ -258,8 +285,8 @@ var toughTraits = [
     "Tatuajes distintivos adornan mis brazos, y debo mantenerlos cubiertos y ocultos para que su secreto no me lleve a la muerte.",
     "Tengo una vendetta personal contra una persona muy popular. Solo vivo para ver su reputación y fortuna destruidas.",
     "Renuncié a mi posesión más preciada para asegurar un trato. Todavía busco una forma de recuperarla.",
-  ];
-  var clericBonds = [
+    ];
+    var clericBonds = [
     "Moriría por recuperar una reliquia antigua de mi fe que se perdió hace mucho tiempo.",
     "Le debo mi vida al sacerdote que me acogió cuando mis padres murieron.",
     "Haré cualquier cosa para proteger el templo donde serví.",
@@ -270,9 +297,9 @@ var toughTraits = [
     "Mi patrón me sacó de la miseria y me trajo a esta vida. Le debo todo.",
     "Mi reliquia me fue entregada por un extraño en el momento más bajo de mi vida. Obtengo fuerza de ella.",
     "Mi vida es una serie de señales de mi deidad.",
-  ];
-  
-  var bardBonds = [
+    ];
+
+    var bardBonds = [
     "En algún lugar, tengo un hijo que no me conoce. Estoy haciendo el mundo mejor para él o ella.",
     "Mi instrumento es mi posesión más preciada y me recuerda a alguien que amo.",
     "Alguien robó mi instrumento preciado, y algún día lo recuperaré.",
@@ -284,9 +311,9 @@ var toughTraits = [
     "Tengo un hermano responsable, a quien amo por sacarme de problemas y a quien odio por siempre eclipsarme.",
     "Había una historia que leía una y otra vez, y he modelado toda mi vida en base a ella.",
     "No puedo tratar a las mujeres igual que a los hombres, son demasiado hermosas.",
-  ];
-  
-  var paladinBonds = [
+    ];
+
+    var paladinBonds = [
     "Todo lo que hago es por el pueblo común.",
     "Provengo de una familia noble, y algún día recuperaré mis tierras y mi título de quienes me los robaron.",
     "Un noble orgulloso me dio una terrible paliza, y me vengaré de cualquier matón que encuentre.",
@@ -297,9 +324,9 @@ var toughTraits = [
     "Cuando casi morí, tuve visiones de los Nueve Infiernos. Ahora busco expiar los pecados de mi pasado.",
     "En su juventud, mi padre huyó de una gran batalla y ha vivido bajo el insulto de 'cobarde'. Espero demostrar que eso es una mentira.",
     "Un sinvergüenza robó la reliquia más preciada de mi familia, y planeo recuperarla.",
-  ];
-  
-  var sorcererBonds = [
+    ];
+
+    var sorcererBonds = [
     "Busco riqueza para asegurar el amor de alguien.",
     "He estado buscando toda mi vida la respuesta a una pregunta específica.",
     "En una ciudad portuaria, tengo un amor cuyos ojos casi me arrebataron del mundo.",
@@ -310,9 +337,9 @@ var toughTraits = [
     "De niño, mi gemelo se sacrificó a un diablo para que yo pudiera vivir, y ahora me atormenta en sueños con un motivo que aún no comprendo.",
     "Mi madre es una bruja, despreciada y expulsada de nuestro pueblo. Siempre he sentido que es mi deber protegerla.",
     "Busco encontrar mi verdadera herencia, desde que supe de ella.",
-  ];
-  
-  var monkBonds = [
+    ];
+
+    var monkBonds = [
     "Alguien que amaba murió por un error que cometí. Eso nunca volverá a suceder.",
     "Nada es más importante que los otros miembros de mi orden.",
     "Todavía busco la iluminación que perseguí en mi aislamiento, y aún me elude.",
@@ -323,9 +350,9 @@ var toughTraits = [
     "Tengo vívidas y repetidas visiones de la muerte de alguien, y aunque nunca he conocido a esta persona, de alguna manera sé que lo haré.",
     "En el este, veo una luz dorada que emerge de los cielos a intervalos inciertos. Nadie más parece poder ver esta luz.",
     "Durante mi iluminación, se me dijo en un sueño que encontrara a un grupo particular de personas y los siguiera hasta los confines del mundo.",
-  ];
-  
-  var druidBonds = [
+    ];
+
+    var druidBonds = [
     "Entré en aislamiento para esconderme de aquellos que podrían estar cazándome. Algún día debo enfrentarlos.",
     "Si mi descubrimiento saliera a la luz, podría traer la ruina al mundo.",
     "Una herida en la naturaleza virgen de mi hogar es una herida para mí.",
@@ -336,9 +363,9 @@ var toughTraits = [
     "Hay un antiguo amigo al que lastimé terriblemente. Quiero arreglarlo, pero no me atrevo a acercarme por temor a empeorarlo.",
     "Cuando estaba aprendiendo mis poderes druídicos, dañé gravemente el árbol sagrado de mi clan que alberga a nuestra deidad.",
     "Mi foco druídico ha sido transmitido durante diez generaciones, debo protegerlo y, con él, a mi pueblo.",
-  ];
-  
-  var fighterBonds = [
+    ];
+
+    var fighterBonds = [
     "Idolatro a un héroe de los viejos cuentos y mido mis hazañas contra las suyas.",
     "Tengo una familia, pero no tengo idea de dónde están. Algún día, espero volver a verlos.",
     "Mi tribu es lo más importante en mi vida, incluso cuando están lejos de mí.",
@@ -349,9 +376,9 @@ var toughTraits = [
     "Llevo tantas armas como puedo, en caso de que pierda una.",
     "Mi antepasado fue bastante famoso, y deseo eclipsar su legado con el mío.",
     "Fui criado como rehén de un clan enemigo, donde me hice amigo del heredero del clan enemigo.",
-  ];
-  
-  var lawfulFlaws = [
+    ];
+
+    var lawfulFlaws = [
     "Tengo una 'señal' que revela cuándo estoy mintiendo.",
     "Tengo problemas para ocultar mis verdaderos sentimientos.",
     "Soy rápido para asumir que alguien está tratando de engañarme.",
@@ -362,9 +389,9 @@ var toughTraits = [
     "Sigo órdenes, incluso si creo que están equivocadas.",
     "Al tocar un arma nueva por primera vez, tira un d100. Si obtienes 100, el arma estalla en llamas y se convierte en cenizas.",
     "Vejiga pequeña.",
-  ];
-  
-  var neutralFlaws = [
+    ];
+
+    var neutralFlaws = [
     "Soy un tonto para un rostro bonito.",
     "Dejo que mi necesidad de ganar discusiones opaque las amistades y la armonía.",
     "Me gusta guardar secretos y no los compartiré con nadie.",
@@ -375,9 +402,9 @@ var toughTraits = [
     "Mi orgullo probablemente me llevará a mi destrucción.",
     "Daltónico.",
     "Soy grandioso, creo que todo se trata de mí al final, sin importar cuán no relacionado esté.",
-  ];
-  
-  var chaoticFlaws = [
+    ];
+
+    var chaoticFlaws = [
     "Prefiero matar a alguien mientras duerme que pelear limpiamente.",
     "No puedo resistirme a molestar a personas que son más poderosas que yo.",
     "Si hay un plan, lo olvidaré. Si no lo olvido, lo ignoraré.",
@@ -388,5 +415,114 @@ var toughTraits = [
     "Con demasiada frecuencia escucho insultos y amenazas veladas en cada palabra que se me dirige, y soy rápido para enojarme.",
     "No hay lugar para la precaución en una vida vivida al máximo.",
     "Narro mis propios pensamientos.",
+    ];
+
+    var armor = {
+    lightArmor: {
+        padded: {
+        armorname: "Armadura acolchada",
+        armorAC: 11 + dexterityModifier,
+        },
+        leather: {
+        armorname: "Armadura de cuero",
+        armorAC: 11 + dexterityModifier,
+        },
+        studdedleather: {
+        armorname: "Cuero tachonado",
+        armorAC: 12 + dexterityModifier,
+        },
+    },
+    mediumArmor: {
+        hide: {
+        armorname: "Armadura de piel",
+        armorAC: 12 + dexterityModifier,
+        },
+        chainshirt: {
+        armorname: "Camiseta de malla",
+        armorAC: 13 + dexterityModifier,
+        },
+        scalemail: {
+        armorname: "Cota de escamas",
+        armorAC: 14 + dexterityModifier,
+        },
+        breastplate: {
+        armorname: "Coraza",
+        armorAC: 14 + dexterityModifier,
+        },
+        halfplate: {
+        armorname: "Media armadura",
+        armorAC: 15 + dexterityModifier,
+        },
+        Escudo: {
+        armorname: "Escudo",
+        armorAC: 2,
+        },
+    },
+    heavyArmor: {
+        ringmail: {
+        armorname: "Cota de anillas",
+        armorAC: 14,
+        },
+        chainmail: {
+        armorname: "Cota de malla",
+        armorAC: 16,
+        },
+        splint: {
+        armorname: "Armadura de bandas",
+        armorAC: 17,
+        },
+        plate: {
+        armorname: "Armadura de placas",
+        armorAC: 18,
+        },
+    },
+    };
+
+
+  // Array that contains list of armas simples
+  simpleWeapons = [
+    "garrote",
+    "daga",
+    "gran garrote",
+    "hacha de mano",
+    "martillo ligero",
+    "dardo",
+    "ballesta ligera",
+    "maza",
+    "jabalina",
+    "bastón",
+    "arco corto",
+    "hoz",
+    "honda",
+    "lanza",
+    "golpe sin armas",
   ];
-  
+
+  // Array that contains list of armas marciales
+  martialWeapons = [
+    "hacha de batalla",
+    "mangual",
+    "glave",
+    "gran hacha",
+    "espada grande",
+    "alabarda",
+    "lanza de caballería",
+    "espada larga",
+    "mazo",
+    "estrella del alba",
+    "pica",
+    "estoque",
+    "cimitarra",
+    "espada corta",
+    "Tridentee",
+    "pico de guerra",
+    "martillo de guerra",
+    "látigo",
+    "cerbatana",
+    "ballesta de mano",
+    "ballesta pesada",
+    "arco largo",    
+  ];
+
+
+

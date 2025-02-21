@@ -1266,7 +1266,7 @@ var transfondoSelect;
 var claseSelect;
 var alinSelect;
 var razaSelector;
-
+var checkboxManager = new CheckboxImage(false);
 document.addEventListener("DOMContentLoaded", function () {
 
     loadHtmlTemplate();
@@ -1306,7 +1306,6 @@ function handleSelectionChange(selectedValues) {
     console.log("Valores seleccionados:", selectedValues);
 }
 function loadCheckBoxes(){
-    const checkboxManager = new CheckboxImage(false);
     checkboxManager.initialize();
 }
 function loadSelects(){
@@ -1700,7 +1699,7 @@ function makePersonaje() {
   if(myRazes.length > 0 && myRazes[0]!="Aleatorio"){
     const randomIndex = Math.floor(Math.random() * myRazes.length);
     race =  myRazes[randomIndex];  
-    raceID = obtenerIndice(race);
+    raceID = obtenerIndiceRaza(race);
   }else{
     const randomIndex = Math.floor(Math.random() * (clases.length - 1)) + 1;
     race =  clases[randomIndex];  
@@ -1729,6 +1728,9 @@ function makePersonaje() {
   charisma = 0;
 
   assign_stats(stat1, stat2, stat3, stat4, stat5, stat6, newClassSelected+" "+nivel);
+  classAndLevel = newClassSelected+" "+nivel;
+   // Variable that holds the value of just the class, not the level
+  className = newClassSelected;
 
   // Variable that holds your character name
   charName = document.getElementById("form96_1").value;
@@ -2110,15 +2112,2186 @@ function makePersonaje() {
     generate_morality(0.7, 0.4);
   }
 
+  // Block that adds proficiency in perception if you are an Elf
+  if (raceID == 17 && raceID == 18 && raceID == 16) {
+    add_click(7);
+    stat_checker(wisdomModifier + 2, "form43_1");
+  }
+  // Block that adds proficiency in intimidation if you are a Half-Orc
+  if (raceID === 23) {
+    add_click(24);
+    stat_checker(charismaModifier + 2, "form44_1");
+  }
+  // Creating modifiers for each stat
+  strengthModifier = stat_modifier_generator(strength);
+  dexterityModifier = stat_modifier_generator(dexterity);
+  constitutionModifier = stat_modifier_generator(constitution);
+  intelligenceModifier = stat_modifier_generator(intelligence);
+  wisdomModifier = stat_modifier_generator(wisdom);
+  charismaModifier = stat_modifier_generator(charisma);
 
 
+
+  // Filling in all skills before proficiencies are put in
+  stat_checker(dexterityModifier, "form38_1"); // acrobatics
+  stat_checker(wisdomModifier, "form50_1"); // animal handling
+  stat_checker(intelligenceModifier, "form40_1"); // arcana
+  stat_checker(strengthModifier, "form49_1"); // athletics
+  stat_checker(charismaModifier, "form36_1"); // deception
+  stat_checker(intelligenceModifier, "form48_1"); // history
+  stat_checker(wisdomModifier, "form35_1"); // insight
+  stat_checker(charismaModifier, "form44_1"); // intimidation
+  stat_checker(intelligenceModifier, "form31_1"); // investigation
+  stat_checker(wisdomModifier, "form53_1"); // medicine
+  stat_checker(intelligenceModifier, "form37_1"); // nature
+  stat_checker(wisdomModifier, "form43_1"); // perception
+  stat_checker(charismaModifier, "form34_1"); // performance
+  stat_checker(charismaModifier, "form45_1"); // persuasion
+  stat_checker(intelligenceModifier, "form33_1"); // religion
+  stat_checker(dexterityModifier, "form46_1"); // sleight of hand
+  stat_checker(dexterityModifier, "form32_1"); // stealth
+  stat_checker(wisdomModifier, "form47_1"); // survival
+
+  var classID = obtenerIndiceClase(newClassSelected);
+
+// BLOQUE que determina las tiradas de salvación correctas según la clase
+// Fuerza
+if (
+  classID === 1 || // Bárbaro
+  classID === 5 || // Guerrero
+  classID === 6 || // Monje
+  classID === 8    // Guardabosques
+) {
+  stat_checker(strengthModifier + 2, "form42_1");
+  add_click(15);
+} else {
+  stat_checker(strengthModifier, "form42_1");
+}
+
+// Destreza
+if (
+  classID === 2 || // Bardo
+  classID === 9 || // Pícaro
+  classID === 8 || // Guardabosques
+  classID === 6    // Monje
+) {
+  stat_checker(dexterityModifier + 2, "form54_1");
+  add_click(18);
+} else {
+  stat_checker(dexterityModifier, "form54_1");
+}
+
+// Constitución
+if (
+  classID === 1 || // Bárbaro
+  classID === 5 || // Guerrero
+  classID === 10   // Hechicero
+) {
+  stat_checker(constitutionModifier + 2, "form41_1");
+  add_click(22);
+} else {
+  stat_checker(constitutionModifier, "form41_1");
+}
+
+// Inteligencia
+if (
+  classID === 4 || // Druida
+  classID === 9 || // Pícaro
+  classID === 12   // Mago
+) {
+  stat_checker(intelligenceModifier + 2, "form52_1");
+  add_click(6);
+} else {
+  stat_checker(intelligenceModifier, "form52_1");
+}
+
+// Sabiduría
+if (
+  classID === 4 || // Druida
+  classID === 3 || // Clérigo
+  classID === 12 || // Mago
+  classID === 7 || // Paladín
+  classID === 11   // Brujo
+) {
+  stat_checker(wisdomModifier + 2, "form39_1");
+  add_click(10);
+} else {
+  stat_checker(wisdomModifier, "form39_1");
+}
+
+// Carisma
+if (
+  classID === 2 || // Bardo
+  classID === 3 || // Clérigo
+  classID === 10 || // Hechicero
+  classID === 7 || // Paladín
+  classID === 11   // Brujo
+) {
+  stat_checker(charismaModifier + 2, "form51_1");
+  add_click(3);
+} else {
+  stat_checker(charismaModifier, "form51_1");
+}
+// BLOQUE que determina el dado de golpe según la clase
+if (classID === 1) { 
+  // Bárbaro -> d12
+  stat_checker_2(constitutionModifier, "form89_1", "1d12");
+  hp = 12 + constitutionModifier;
+
+} else if (
+  classID === 5 || // Guerrero
+  classID === 7 || // Paladín
+  classID === 8    // Guardabosques
+) {
+  // Fighter, Paladin, Ranger -> d10
+  stat_checker_2(constitutionModifier, "form89_1", "1d10");
+  hp = 10 + constitutionModifier;
+
+} else if (
+  classID === 2 || // Bardo
+  classID === 3 || // Clérigo
+  classID === 4 || // Druida
+  classID === 6 || // Monje
+  classID === 9 || // Pícaro
+  classID === 11   // Brujo
+) {
+  // Bard, Cleric, Druid, Monk, Rogue, Warlock -> d8
+  stat_checker_2(constitutionModifier, "form89_1", "1d8");
+  hp = 8 + constitutionModifier;
+
+} else if (
+  classID === 12 || // Mago
+  classID === 10    // Hechicero
+) {
+  // Wizard, Sorcerer -> d6
+  stat_checker_2(constitutionModifier, "form89_1", "1d6");
+  hp = 6 + constitutionModifier;
+}
+
+
+if (classID === 1) { // Barbarian
+  weapon_adder_2(weapon_adder("armas simples"));
+  weapon_adder_2(weapon_adder("armas marciales"));
+  armor_adder_2(armor_adder("armadura ligera"));
+  armor_adder_2(armor_adder("armadura media"));
+  armor_adder_2(armor_adder("Escudo"));
+  armorClass += 10 + dexterityModifier + constitutionModifier; // armor class
+  equipment.push("4 Jabalinas");
+  equipment.push("Paquete de explorador");
+  random_by_length(barbarianBonds, bonds, "form101_1");
+
+} else if (classID === 5) { // Fighter
+  weapon_adder_2(weapon_adder("armas simples"));
+  weapon_adder_2(weapon_adder("armas marciales"));
+  armor_adder_2(armor_adder("armadura ligera"));
+  armor_adder_2(armor_adder("armadura media"));
+  armor_adder_2(armor_adder("armadura pesada"));
+  armor_adder_2(armor_adder("Escudo"));
+  random_by_length(fighterBonds, bonds, "form101_1");
+
+} else if (classID === 2) { // Bard
+  weapon_adder_2(weapon_adder("armas simples"));
+  armor_adder_2(armor_adder("armadura ligera"));
+  weapon_adder_2(weapon_adder("Ballesta de mano"));
+  weapon_adder_2(weapon_adder("Espada larga"));
+  weapon_adder_2(weapon_adder("Estoque"));
+  weapon_adder_2(weapon_adder("Espada corta"));
+  random_by_length(bardBonds, bonds, "form101_1");
+
+} else if (classID === 3) { // Cleric
+  weapon_adder_2(weapon_adder("armas simples"));
+  armor_adder_2(armor_adder("armadura ligera"));
+  armor_adder_2(armor_adder("armadura media"));
+  armor_adder_2(armor_adder("Escudo"));
+  random_by_length(clericBonds, bonds, "form101_1");
+
+} else if (classID === 10) { // Sorcerer
+  weapon_adder_2(weapon_adder("Daga"));
+  weapon_adder_2(weapon_adder("dardo"));
+  weapon_adder_2(weapon_adder("Bastón"));
+  weapon_adder_2(weapon_adder("honda"));
+  weapon_adder_2(weapon_adder("ballesta ligera"));
+  random_by_length(sorcererBonds, bonds, "form101_1");
+
+} else if (classID === 12) { // Wizard
+  weapon_adder_2(weapon_adder("Daga"));
+  weapon_adder_2(weapon_adder("dardo"));
+  weapon_adder_2(weapon_adder("Bastón"));
+  weapon_adder_2(weapon_adder("honda"));
+  weapon_adder_2(weapon_adder("ballesta ligera"));
+  random_by_length(wizardBonds, bonds, "form101_1");
+
+} else if (classID === 4) { // Druid
+  armor_adder_2(armor_adder("armadura ligera"));
+  armor_adder_2(armor_adder("armadura media"));
+  armor_adder_2(armor_adder("Escudo"));
+  features.push("(Toda la armadura y los escudos deben ser no metálicos)");
+  weapon_adder_2(weapon_adder("garrote"));
+  weapon_adder_2(weapon_adder("Daga"));
+  weapon_adder_2(weapon_adder("dardo"));
+  weapon_adder_2(weapon_adder("Jabalina"));
+  weapon_adder_2(weapon_adder("Maza"));
+  weapon_adder_2(weapon_adder("Bastón"));
+  weapon_adder_2(weapon_adder("Cimitarra"));
+  weapon_adder_2(weapon_adder("hoz"));
+  weapon_adder_2(weapon_adder("honda"));
+  weapon_adder_2(weapon_adder("Lanza"));
+  random_by_length(druidBonds, bonds, "form101_1");
+
+} else if (classID === 9) { // Rogue
+  weapon_adder_2(weapon_adder("armas simples"));
+  armor_adder_2(armor_adder("armadura ligera"));
+  weapon_adder_2(weapon_adder("Ballesta de mano"));
+  weapon_adder_2(weapon_adder("Espada larga"));
+  weapon_adder_2(weapon_adder("Estoque"));
+  weapon_adder_2(weapon_adder("Espada corta"));
+  random_by_length(rogueBonds, bonds, "form101_1");
+
+} else if (classID === 11) { // Warlock
+  weapon_adder_2(weapon_adder("armas simples"));
+  armor_adder_2(armor_adder("armadura ligera"));
+  random_by_length(warlockBonds, bonds, "form101_1");
+
+} else if (classID === 8) { // Ranger
+  weapon_adder_2(weapon_adder("armas simples"));
+  weapon_adder_2(weapon_adder("armas marciales"));
+  armor_adder_2(armor_adder("armadura ligera"));
+  armor_adder_2(armor_adder("armadura media"));
+  armor_adder_2(armor_adder("Escudo"));
+  random_by_length(rangerBonds, bonds, "form101_1");
+
+} else if (classID === 7) { // Paladin
+  weapon_adder_2(weapon_adder("armas simples"));
+  weapon_adder_2(weapon_adder("armas marciales"));
+  armor_adder_2(armor_adder("armadura ligera"));
+  armor_adder_2(armor_adder("armadura media"));
+  armor_adder_2(armor_adder("armadura pesada"));
+  armor_adder_2(armor_adder("Escudo"));
+  random_by_length(paladinBonds, bonds, "form101_1");
+
+} else if (classID === 6) { // Monk
+  armorClass += 10 + dexterityModifier + wisdomModifier; // armor class
+  weapon_adder_2(weapon_adder("armas simples"));
+  weapon_adder_2(weapon_adder("Espada corta"));
+  random_by_length(monkBonds, bonds, "form101_1");
+}
+
+
+// Bloque que determina rasgos físicos según raceID.
+// Ajusta los números si tu array "razas" difiere en orden.
+
+// Dracónidos
+if (raceID === 2) { // Black Dragonborn
+  document.getElementById("form5_2").value = get_random_int(15, 40); // age
+  document.getElementById("form1_2").value = get_random_int(72, 80); // height
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12); // height converter
+  skin_randomizer("Negro Marfil","Negro Ónix","Negro Carbón","Negro Perlado","Negro");
+  hair_randomizer("", "", "", "");
+  weight_randomizer(constitution, strength, 200, 225, 250, 275, 310, 340);
+  eye_randomizer("Violeta", "Azul", "Rojo", "Morado");
+  decidirAliento("Negro", "Ácido");
+
+} else if (raceID === 3) { // Blue Dragonborn
+  document.getElementById("form5_2").value = get_random_int(15, 40);
+  document.getElementById("form1_2").value = get_random_int(72, 80);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Azul","Azul Celeste","Azul Marino","Azul Pálido","Azul Real");
+  hair_randomizer("", "", "", "");
+  weight_randomizer(constitution, strength, 200, 225, 250, 275, 310, 340);
+  eye_randomizer("Violeta","Azul","Rojo","Morado");
+  breath_decider("Azul", "Relámpago");
+
+} else if (raceID === 4) { // Brass Dragonborn
+  document.getElementById("form5_2").value = get_random_int(15, 40);
+  document.getElementById("form1_2").value = get_random_int(72, 80);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Latón","Latón Oxidado","Cobre y Latón","Latón Ardiente","Latón");
+  hair_randomizer("", "", "", "");
+  weight_randomizer(constitution, strength, 200, 225, 250, 275, 310, 340);
+  eye_randomizer("Amarillo","Verde","Rojo","Azul");
+  breath_decider("Latón", "Fuego");
+
+} else if (raceID === 5) { // Bronze Dragonborn
+  document.getElementById("form5_2").value = get_random_int(15, 40);
+  document.getElementById("form1_2").value = get_random_int(72, 80);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Bronce","Oro Viejo","Bronce Oscuro","Bronce Arenoso","Bronce");
+  hair_randomizer("", "", "", "");
+  weight_randomizer(constitution, strength, 200, 225, 250, 275, 310, 340);
+  eye_randomizer("Amarillo","Verde","Rojo","Azul");
+  breath_decider("Bronce", "Relámpago");
+
+} else if (raceID === 6) { // Copper Dragonborn
+  document.getElementById("form5_2").value = get_random_int(15, 40);
+  document.getElementById("form1_2").value = get_random_int(72, 80);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Cobre","Bronce y Cobre","Cobre Oxidado","Cobre Ardiente","Cobre");
+  hair_randomizer("", "", "", "");
+  weight_randomizer(constitution, strength, 200, 225, 250, 275, 310, 340);
+  eye_randomizer("Amarillo","Verde","Rojo","Azul");
+  breath_decider("Cobre", "Ácido");
+
+} else if (raceID === 7) { // Gold Dragonborn
+  document.getElementById("form5_2").value = get_random_int(15, 40);
+  document.getElementById("form1_2").value = get_random_int(72, 80);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Amarillo Dorado","Oro","Vara Dorada","Oro en Pepita","Oro");
+  hair_randomizer("", "", "", "");
+  weight_randomizer(constitution, strength, 200, 225, 250, 275, 310, 340);
+  eye_randomizer("Amarillo","Verde","Rojo","Azul");
+  breath_decider("Dorado", "Fuego");
+
+} else if (raceID === 8) { // Green Dragonborn
+  document.getElementById("form5_2").value = get_random_int(15, 40);
+  document.getElementById("form1_2").value = get_random_int(72, 80);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Verde Mar", "Verde Bosque", "Jade", "Esmeralda", "Verde");
+  hair_randomizer("", "", "", "");
+  weight_randomizer(constitution, strength, 200, 225, 250, 275, 310, 340);
+  eye_randomizer("Amarillo", "Verde", "Rojo", "Azul");
+  breath_decider("Verde", "Veneno");
+
+} else if (raceID === 9) { // Red Dragonborn
+  document.getElementById("form5_2").value = get_random_int(15, 40);
+  document.getElementById("form1_2").value = get_random_int(72, 80);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Escarlata","Rojo y Naranja","Rojo Sangre","Rojo Cereza","Rojo");
+  hair_randomizer("", "", "", "");
+  weight_randomizer(constitution, strength, 200, 225, 250, 275, 310, 340);
+  eye_randomizer("Amarillo","Verde","Rojo","Azul");
+  breath_decider("Rojo", "Fuego");
+
+} else if (raceID === 10) { // Silver Dragonborn
+  document.getElementById("form5_2").value = get_random_int(15, 40);
+  document.getElementById("form1_2").value = get_random_int(72, 80);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Plateado Hielo","Plateado Líquido","Plateado Lunar","Plateado","Plateado");
+  hair_randomizer("", "", "", "");
+  weight_randomizer(constitution, strength, 200, 225, 250, 275, 310, 340);
+  eye_randomizer("Violeta","Azul","Rojo","Morado");
+  breath_decider("Plateado", "Frío");
+
+} else if (raceID === 11) { // White Dragonborn
+  document.getElementById("form5_2").value = get_random_int(15, 40);
+  document.getElementById("form1_2").value = get_random_int(72, 80);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Nieve", "Blanco Fantasma", "Humo Blanco", "Blanco Escarcha", "Blanco");
+  hair_randomizer("", "", "", "");
+  weight_randomizer(constitution, strength, 200, 225, 250, 275, 310, 340);
+  eye_randomizer("Violeta", "Azul", "Rojo", "Morado");
+  breath_decider("Blanco", "Frío");
+
+// Enano de Colina
+} else if (raceID === 13) {
+  document.getElementById("form5_2").value = get_random_int(50, 250);
+  document.getElementById("form1_2").value = get_random_int(52, 60);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Rojo Pálido","Marrón Claro","Marrón Oscuro","Bronceado Oscuro","Bronceado");
+  hair_randomizer("Gris","Negro","Marrón","Rojo");
+  weight_randomizer(constitution, strength, 110, 130, 150, 170, 190, 215);
+  eye_randomizer("Negro","Marrón","Verde","Azul");
+  weapon_adder_2(weapon_adder("hacha de batalla"));
+  weapon_adder_2(weapon_adder("hacha de batalla"));
+  weapon_adder_2(weapon_adder("Hacha de mano"));
+  weapon_adder_2(weapon_adder("martillo ligero"));
+  weapon_adder_2(weapon_adder("Martillo de guerra"));
+  hp++;
+
+// Enano de Montaña
+} else if (raceID === 14) {
+  document.getElementById("form5_2").value = get_random_int(50, 250);
+  document.getElementById("form1_2").value = get_random_int(55, 63);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Rojo Pálido","Marrón Claro","Marrón Oscuro","Bronceado Oscuro","Bronceado");
+  hair_randomizer("Gris","Negro","Marrón","Rojo");
+  weight_randomizer(constitution, strength, 110, 130, 150, 170, 190, 215);
+  eye_randomizer("Negro","Marrón","Verde","Azul");
+  weapon_adder_2(weapon_adder("hacha de batalla"));
+  weapon_adder_2(weapon_adder("hacha de batalla"));
+  weapon_adder_2(weapon_adder("Hacha de mano"));
+  weapon_adder_2(weapon_adder("hacha de batalla"));
+  weapon_adder_2(weapon_adder("Martillo de guerra"));
+  armor_adder_2(armor_adder("armadura ligera"));
+  armor_adder_2(armor_adder("armadura media"));
+
+// Human (Calishite)
+} else if (raceID === 28) {
+  document.getElementById("form5_2").value = get_random_int(19, 55);
+  document.getElementById("form1_2").value = get_random_int(64, 73);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Marrón Oscuro","Marrón","Marrón Claro","Bronceado","Cobre Claro");
+  hair_randomizer("Marrón Oscuro","Marrón","Marrón Claro","Negro","Castaño");
+  weight_randomizer(constitution, strength, 140, 160, 180, 200, 225, 240);
+  eye_randomizer("Marrón Claro","Marrón Oscuro","Negro","Marrón");
+
+// Human (Chondathan)
+} else if (raceID === 29) {
+  document.getElementById("form5_2").value = get_random_int(19, 55);
+  document.getElementById("form1_2").value = get_random_int(65, 73);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Bronceado","Bronceado Claro","Marrón Claro","Bronceado","Claro");
+  hair_randomizer("Rubio","Marrón","Marrón Claro","Negro","Marrón Oscuro");
+  weight_randomizer(constitution, strength, 140, 155, 170, 190, 215, 230);
+  eye_randomizer("Verde","Avellana","Marrón Oscuro","Marrón");
+
+// Human (Damaran)
+} else if (raceID === 30) {
+  document.getElementById("form5_2").value = get_random_int(19, 55);
+  document.getElementById("form1_2").value = get_random_int(65, 73);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Bronceado","Claro","Bronceado Claro","Bronceado","Claro");
+  hair_randomizer("Marrón","Marrón","Marrón Claro","Negro","Marrón Oscuro");
+  weight_randomizer(constitution, strength, 145, 165, 180, 200, 225, 245);
+  eye_randomizer("Marrón Oscuro","Avellana","Azul","Marrón Claro");
+
+// Human (Illuskan)
+} else if (raceID === 31) {
+  document.getElementById("form5_2").value = get_random_int(19, 55);
+  document.getElementById("form1_2").value = get_random_int(67, 76);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Pálido", "Claro", "Bronceado Claro", "Claro", "Bronceado Claro");
+  hair_randomizer("Negro Azabache", "Rojo", "Marrón Claro", "Rubio", "Negro Azabache");
+  weight_randomizer(constitution, strength, 68, 75, 84, 93, 104, 113);
+  eye_randomizer("Azul", "Acero", "Gris", "Gris Azulado Oscuro");
+
+// Human (Mulan)
+} else if (raceID === 32) {
+  document.getElementById("form5_2").value = get_random_int(19, 55);
+  document.getElementById("form1_2").value = get_random_int(66, 75);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Ámbar","Bronceado Oscuro","Bronceado Claro","Ámbar","Bronceado");
+  hair_randomizer("Calvo","Calvo","Marrón Oscuro","Negro","Calvo");
+  weight_randomizer(constitution, strength, 145, 160, 175, 195, 220, 235);
+  eye_randomizer("Avellana","Marrón","Marrón Oscuro","Avellana Oscura");
+
+// Human (Rashemi)
+} else if (raceID === 33) {
+  document.getElementById("form5_2").value = get_random_int(19, 55);
+  document.getElementById("form1_2").value = get_random_int(64, 71);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Oscuro","Bronceado Oscuro","Bronceado","Marrón","Ámbar Oscuro");
+  hair_randomizer("Negro","Marrón","Marrón Oscuro","Castaño Oscuro","Negro");
+  weight_randomizer(constitution, strength, 155, 170, 185, 205, 230, 250);
+  eye_randomizer("Marrón Oscuro","Marrón","Negro","Avellana Oscuro");
+
+// Human (Shou)
+} else if (raceID === 34) {
+  document.getElementById("form5_2").value = get_random_int(19, 55);
+  document.getElementById("form1_2").value = get_random_int(64, 73);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Amarillo","Bronce","Cobre","Bronce Amarillento","Cobre Claro");
+  hair_randomizer("Negro","Marrón","Negro","Negro","Marrón Oscuro");
+  weight_randomizer(constitution, strength, 140, 160, 180, 200, 225, 245);
+  eye_randomizer("Castaño Oscuro","Marrón Oscuro","Negro","Marrón");
+
+// Human (Tethyrian)
+} else if (raceID === 35) {
+  document.getElementById("form5_2").value = get_random_int(19, 55);
+  document.getElementById("form1_2").value = get_random_int(64, 74);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Oscuro","Claro","Bronceado Oscuro","Bronceado","Oscuro");
+  hair_randomizer("Marrón Claro","Negro","Rubio","Rojo","Marrón Oscuro");
+  weight_randomizer(constitution, strength, 140, 160, 180, 200, 225, 245);
+  eye_randomizer("Azul","Azul","Verde","Avellana");
+
+// Human (Turami)
+} else if (raceID === 36) {
+  document.getElementById("form5_2").value = get_random_int(19, 55);
+  document.getElementById("form1_2").value = get_random_int(66, 76);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Caoba Oscuro","Caoba","Marrón Oscuro","Marrón","Ámbar Oscuro");
+  hair_randomizer("Negro","Negro","Marrón Oscuro","Castaño Oscuro","Negro");
+  weight_randomizer(constitution, strength, 155, 170, 185, 205, 230, 250);
+  eye_randomizer("Marrón Oscuro","Marrón","Negro","Avellana Oscuro");
+
+// High Elf
+} else if (raceID === 17) {
+  document.getElementById("form5_2").value = get_random_int(100, 600);
+  document.getElementById("form1_2").value = get_random_int(65, 73);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Cobre","Bronce","Blanco Azulado Pálido","Blanco Azulado","Cobre Claro");
+  hair_randomizer("Verde","Azul","Turquesa","Plateado Blanco");
+  weight_randomizer(constitution, strength, 110, 115, 130, 140, 155, 165);
+  eye_randomizer("Oro","Plata","Negro","Verde");
+
+// Wood Elf
+} else if (raceID === 18) {
+  document.getElementById("form5_2").value = get_random_int(100, 600);
+  document.getElementById("form1_2").value = get_random_int(65, 73);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Cobre","Bronce","Cobre Avellana","Bronceado Oscuro","Cobre Claro");
+  hair_randomizer("Marrón","Negro","Cobre","Rubio");
+  weight_randomizer(constitution, strength, 110, 115, 130, 140, 155, 165);
+  eye_randomizer("Verde","Marrón","Avellana","Ámbar");
+  weapon_adder_2(weapon_adder("Espada larga"));
+  weapon_adder_2(weapon_adder("Espada corta"));
+  weapon_adder_2(weapon_adder("Arco corto"));
+  weapon_adder_2(weapon_adder("Arco largo"));
+
+// Dark Elf (Drow)
+} else if (raceID === 16) {
+  document.getElementById("form5_2").value = get_random_int(100, 600);
+  document.getElementById("form1_2").value = get_random_int(64, 71);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Negro","Ónix","Gris Oscuro","Negro","Plata Oscura");
+  hair_randomizer("Blanco","Rubio Claro","Amarillo Pálido","Blanco y Amarillo");
+  weight_randomizer(constitution, strength, 45, 48, 54, 59, 66, 70);
+  eye_randomizer("Lila","Plata","Rosa","Azul");
+  weapon_adder_2(weapon_adder("Estoque"));
+  weapon_adder_2(weapon_adder("Espada corta"));
+  weapon_adder_2(weapon_adder("Ballesta de mano"));
+
+// Lightfoot Halfling
+} else if (raceID === 25) {
+  document.getElementById("form5_2").value = get_random_int(20, 100);
+  document.getElementById("form1_2").value = get_random_int(32, 41);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Bronceado","Bronceado Claro","Pálido y Rubicundo","Claro","Justo");
+  hair_randomizer("Marrón","Marrón Arenoso","Rubio Oscuro","Castaño");
+  weight_randomizer_small(constitution, strength, 35, 39, 42, 44, 47, 50);
+  eye_randomizer("Marrón","Avellana","Verde","Marrón Claro");
+  size = "small";
+
+// Stout Halfling
+} else if (raceID === 26) {
+  document.getElementById("form5_2").value = get_random_int(20, 100);
+  document.getElementById("form1_2").value = get_random_int(34, 43);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Pálido","Bronceado Claro","Pálido y Rubicundo","Claro","Justo y Rubicundo");
+  hair_randomizer("Marrón","Marrón Arenoso","Marrón Oscuro","Castaño");
+  size = "pequeño";
+  weight_randomizer_small(constitution, strength, 37, 41, 44, 46, 49, 52);
+  eye_randomizer("Marrón","Avellana","Verde","Marrón Claro");
+
+// Forest Gnome
+} else if (raceID === 20) {
+  document.getElementById("form5_2").value = get_random_int(40, 250);
+  document.getElementById("form1_2").value = get_random_int(34, 43);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Bronceado","Bronceado Claro","Marrón","Bronceado Oscuro","Marrón Claro");
+  hair_randomizer("Rubio","Marrón Arenoso","Rubio Oscuro","Marrón Claro");
+  weight_randomizer_small(constitution, strength, 35, 39, 42, 44, 47, 50);
+  eye_randomizer("Azul Hielo","Azul Marino","Azul Pálido","Azul Brillante");
+  size = "pequeño";
+
+// Rock Gnome
+} else if (raceID === 21) {
+  document.getElementById("form5_2").value = get_random_int(40, 250);
+  document.getElementById("form1_2").value = get_random_int(35, 45);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Bronceado","Bronceado Claro","Marrón","Bronceado Oscuro","Marrón Claro");
+  hair_randomizer("Rubio","Marrón Arenoso","Rubio Oscuro","Marrón Claro");
+  weight_randomizer_small(constitution, strength, 37, 41, 44, 46, 49, 52);
+  eye_randomizer("Azul Hielo","Azul Marino","Azul Pálido","Azul Brillante");
+  size = "small";
+
+// Half-Elf
+} else if (raceID === 22) {
+  document.getElementById("form5_2").value = get_random_int(20, 120);
+  document.getElementById("form1_2").value = get_random_int(65, 74);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Cobre","Justo","Pálido","Bronceado Oscuro","Cobre Claro");
+  hair_randomizer("Marrón Verdoso","Negro Azulado","Blanco Rojizo","Rubio Plateado");
+  weight_randomizer(constitution, strength, 54, 59, 66, 75, 82, 93);
+  eye_randomizer("Oro","Rosa","Lila","Verde");
+
+// Half-Orc
+} else if (raceID === 23) {
+  document.getElementById("form5_2").value = get_random_int(15, 40);
+  document.getElementById("form1_2").value = get_random_int(72, 85);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Grisáceo", "Gris Verdoso", "Gris", "Gris Bronceado", "Grisáceo");
+  hair_randomizer("Marrón Claro", "Negro", "Castaño", "Marrón Oscuro");
+  weight_randomizer(constitution, strength, 77, 86, 95, 104, 113, 120);
+  eye_randomizer("Verde", "Azul", "Marrón", "Negro");
+
+// Tiefling
+} else if (raceID === 37) {
+  document.getElementById("form5_2").value = get_random_int(20, 55);
+  document.getElementById("form1_2").value = get_random_int(65, 74);
+  document.getElementById("form1_2").value =
+    Math.floor(document.getElementById("form1_2").value / 12) + "'" +
+    (document.getElementById("form1_2").value % 12);
+  skin_randomizer("Rojo Ladrillo","Bronceado Rojizo","Granate","Rojo Sangre","Rojo Cobrizo");
+  hair_randomizer("Morado Oscuro","Negro","Rojo Oscuro","Azul Oscuro");
+  weight_randomizer(constitution, strength, 140, 160, 180, 200, 225, 245);
+  eye_randomizer("Blanco","Negro","Rojo","Plata");
+
+// (Opcional) else final por si no coincide nada
+} else {
+  // ...
+}
+
+
+
+if (newBackground1 === transfondos[1]) { // Acólito
+  firstLanguage = random_language();
+  firstLanguage = right_language();
+  profsAndLangs.languages.push(firstLanguage);
+  secondlanguage = random_language();
+  secondlanguage = right_language();
+  profsAndLangs.languages.push(secondlanguage);
+  add_click(13);
+  stat_checker(wisdomModifier + 2, "form35_1");
+  add_click(20);
+  stat_checker(intelligenceModifier + 2, "form33_1");
+  equipment.push("Un símbolo sagrado");
+  equipment.push("Libro de oraciones");
+  equipment.push("5 varillas de incienso");
+  equipment.push("Vestimentas");
+  equipment.push("Conjunto de ropa común");
+  equipment.push("Bolsa de cinturón");
+  gold += 15;
+  features.push(
+    "Refugio de los Fieles: Puedes realizar las ceremonias religiosas de tu deidad. Tu grupo de aventureros puede esperar recibir curación y cuidado gratuitos en un establecimiento de tu fe, aunque debes proporcionar cualquier componente material necesario para los conjuros. Aquellos que comparten tu religión te apoyarán con un estilo de vida modesto. Mientras estés cerca de tu establecimiento de origen, puedes pedir ayuda a los sacerdotes, siempre que no sea peligroso."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un acólito?\r¿Qué deidad sirves?\r¿Dónde estaba tu templo/monasterio?\r¿Por qué aprendiste esos idiomas?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un acólito a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?";
+} else if (newBackground1 === transfondos[2]) { // Charlatán
+  tool_adder_2(tool_adder("Kit de disfraz"));
+  tool_adder_2(tool_adder("kit de falsificación"));
+  add_click(17);
+  stat_checker(charismaModifier + 2, "form36_1");
+  add_click(4);
+  stat_checker(dexterityModifier + 2, "form46_1");
+  equipment.push("Kit de disfraz");
+  equipment.push(random_con());
+  equipment.push("Conjunto de ropa fina");
+  equipment.push("Bolsa de cinturón");
+  gold += 15;
+  features.push(
+    "Identidad Falsa: Tienes una segunda identidad que incluye documentación, conocidos establecidos y disfraces que te permiten asumir esa persona. Además, puedes falsificar documentos, incluidos papeles oficiales y Carroas personales, siempre que hayas visto un ejemplo del tipo de documento o la escritura que estás tratando de copiar."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un charlatán?\r¿Cuál es tu truco preferido?\r¿Cuál fue tu mayor engaño?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un charlatán a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?\r" +
+    "¿Sigues engañando a la gente? Si no, ¿por qué el cambio de corazón?";
+} else if (newBackground1 === transfondos[3]) { // Criminal
+  tool_adder_2(tool_adder("herramientas de ladrón"));
+  tool_adder_2(tool_adder(random_gaming_set_capitalize().toLowerCase()));
+  add_click(17);
+  stat_checker(charismaModifier + 2, "form36_1");
+  add_click(23);
+  stat_checker(dexterityModifier + 2, "form32_1");
+  equipment.push("Palanca");
+  equipment.push("Conjunto de ropa oscura común con capucha");
+  equipment.push("Bolsa de cinturón");
+  gold += 15;
+  features.push(
+    "Contacto Criminal: Tienes un contacto confiable y leal que actúa como tu enlace con una red de otros criminales. Sabes cómo enviar mensajes hacia y desde tu contacto, incluso a grandes distancias; específicamente, conoces a los mensajeros locales, maestros de caravanas corruptos y marineros sospechosos que pueden entregar mensajes por ti."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te llevó a comenzar a aventurarte?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un criminal?\r¿Qué tipo de criminal eras?\r¿Hiciste algo terrible?\r¿Quién es tu contacto criminal?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un criminal a " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?\r" +
+    "¿Sigues infringiendo la ley? Si no, ¿por qué cambiaste de opinión?";
+} else if (newBackground1 === transfondos[4]) { // Artista (Entertainer)
+  musicalinstrument = random_musical_instrument();
+  tool_adder_2(tool_adder(musicalinstrument.toLowerCase()));
+  tool_adder_2(tool_adder("Kit de disfraz"));
+  add_click(19);
+  stat_checker(dexterityModifier + 2, "form38_1");
+  add_click(16);
+  stat_checker(charismaModifier + 2, "form34_1");
+  equipment.push(musicalinstrument);
+  equipment.push("Disfraz");
+  document.getElementById("form14_2").value = random_favor_from_admirer();
+  equipment.push("Bolsa de cinturón");
+  gold += 15;
+  features.push(
+    "Por Demanda Popular: Siempre puedes encontrar un lugar para actuar. En ese lugar, recibes alojamiento y comida gratuitos de un estándar modesto o cómodo, siempre que actúes cada noche. Tu actuación también te convierte en una figura local, cuando te reconocen, generalmente te toman cariño."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un artista?\r¿Cómo entretenías?\r¿Todavía tienes algún contacto o personas que conoces de tus actuaciones?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un artista a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?";
+} else if (newBackground1 === transfondos[5]) { // Héroe Popular (Folk Hero)
+  artisantool = random_artisan_tool();
+  tool_adder_2(tool_adder(artisantool.toLowerCase()));
+  tool_adder_2(tool_adder("vehículos terrestres"));
+  add_click(8);
+  stat_checker(wisdomModifier + 2, "form50_1");
+  add_click(12);
+  stat_checker(wisdomModifier + 2, "form47_1");
+  equipment.push(artisantool);
+  equipment.push("Pala");
+  equipment.push("Olla de hierro");
+  equipment.push("Conjunto de ropa común");
+  equipment.push("Bolsa de cinturón");
+  gold += 10;
+  features.push(
+    "Hospitalidad Rústica: Dado que provienes de las filas del pueblo común, encajas entre ellos con facilidad. Puedes encontrar un lugar para esconderte, descansar o recuperarte entre otros plebeyos, a menos que te hayas mostrado como un peligro para ellos. Te protegerán de la ley o de cualquier otra persona que te busque, aunque no arriesgarán sus vidas por ti."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te hizo famoso entre tu gente?\r¿Por qué los dejaste?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un héroe del pueblo a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?";
+} else if (newBackground1 === transfondos[6]) { // Gladiador (Gladiator)
+  gladiatorWeapon = random_gladiator_weapon();
+  random_gladiator_weapon_checker(gladiatorWeapon);
+  tool_adder_2(tool_adder("Kit de disfraz"));
+  add_click(19);
+  stat_checker(dexterityModifier + 2, "form38_1");
+  add_click(16);
+  stat_checker(charismaModifier + 2, "form34_1");
+  equipment.push("Disfraz");
+  equipment.push("Bolsa de cinturón");
+  gold += 15;
+  features.push(
+    "Por Demanda Popular: Siempre puedes encontrar un lugar para actuar que esté centrado en el combate. En ese lugar, recibes alojamiento y comida gratuitos de un estándar modesto o cómodo, siempre que actúes cada noche. Tu actuación también te convierte en una figura local, cuando te reconocen, generalmente te toman cariño."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Por qué te convertiste en gladiador?\r¿Fue esclavitud?\r¿Fue por dinero?\r¿Fue por familia?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un gladiador a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?";
+} else if (newBackground1 === transfondos[7]) { // Artesano del Gremio (Guild Artisan)
+  firstLanguage = random_language();
+  firstLanguage = right_language();
+  profsAndLangs.languages.push(firstLanguage);
+  artisantool = random_artisan_tool();
+  tool_adder_2(tool_adder(artisantool.toLowerCase()));
+  add_click(13);
+  stat_checker(wisdomModifier + 2, "form35_1");
+  add_click(1);
+  stat_checker(charismaModifier + 2, "form45_1");
+  equipment.push(artisantool);
+  equipment.push("Carroa de presentación del gremio");
+  equipment.push("Conjunto de ropa de viajero");
+  equipment.push("Bolsa de cinturón");
+  gold += 15;
+  features.push(
+    "Membresía del Gremio: Tus compañeros de gremio te proporcionarán alojamiento y comida si es necesario, y pagarán tu funeral. Si eres acusado de un crimen, tu gremio te apoyará si eres inocente o tienes una causa justa. 5Gp/mes por membresía, beneficios solo si pagas a tiempo."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Por qué te convertiste en artesano?\r¿Por qué elegiste tu oficio?\r¿Cuál es el nombre de tu gremio?\r¿Fue por dinero?\r¿Fue por pasión?\r¿Fue el negocio familiar?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un artesano del gremio a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?";
+} else if (newBackground1 === transfondos[8]) { // Mercader del Gremio (Guild Merchant)
+  firstLanguage = random_language();
+  firstLanguage = right_language();
+  profsAndLangs.languages.push(firstLanguage);
+  secondlanguage = random_language();
+  secondlanguage = right_language();
+  profsAndLangs.languages.push(secondlanguage);
+  add_click(13);
+  stat_checker(wisdomModifier + 2, "form35_1");
+  add_click(1);
+  stat_checker(charismaModifier + 2, "form45_1");
+  equipment.push("Carroa de presentación del gremio");
+  equipment.push("Conjunto de ropa de viajero");
+  equipment.push("Bolsa de cinturón");
+  equipment.push("Mula");
+  equipment.push("Carro");
+  gold += 15;
+  features.push(
+    "Membresía del Gremio: Tus compañeros de gremio te proporcionarán alojamiento y comida si es necesario, y pagarán tu funeral. Si eres acusado de un crimen, tu gremio te apoyará si eres inocente o tienes una causa justa. 5Gp/mes por membresía, beneficios solo si pagas a tiempo."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Por qué te convertiste en comerciante?\r¿Por qué elegiste tu oficio?\r¿Cuál es el nombre de tu gremio?\r¿Fue por dinero?\r¿Fue por pasión por el comercio o conocer gente nueva?\r¿Fue el negocio familiar?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un comerciante del gremio a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?";
+} else if (newBackground1 === transfondos[9]) { // Ermitaño (Hermit)
+  firstLanguage = random_language();
+  firstLanguage = right_language();
+  profsAndLangs.languages.push(firstLanguage);
+  tool_adder_2(tool_adder("kit de herboristería"));
+  add_click(5);
+  stat_checker(wisdomModifier + 2, "form53_1");
+  add_click(20);
+  stat_checker(intelligenceModifier + 2, "form33_1");
+  equipment.push("Estuche de pergaminos lleno de notas de tus estudios");
+  equipment.push("Manta de invierno");
+  equipment.push("Conjunto de ropa común");
+  equipment.push("kit de herboristería");
+  gold += 5;
+  features.push(
+    "Descubrimiento: La tranquila reclusión de tu prolongado ermitaño te dio acceso a un descubrimiento único y poderoso."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Dónde estuviste recluido?\r¿Viajaste mucho?\r¿Cuál es tu gran descubrimiento? Habla de ello con tu DM también.\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un ermitaño a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?";
+} else if (newBackground1 === transfondos[10]) { // Caballero (Knight)
+  firstLanguage = random_language();
+  firstLanguage = right_language();
+  profsAndLangs.languages.push(firstLanguage);
+  tool_adder_2(tool_adder(random_gaming_set_capitalize().toLowerCase()));
+  add_click(9);
+  stat_checker(intelligenceModifier + 2, "form48_1");
+  add_click(1);
+  stat_checker(charismaModifier + 2, "form45_1");
+  bonds.splice(0, 1);
+  bonds.push("Tengo un emblema de caballería y castidad de una dama noble.");
+  equipment.push("Emblema de caballería");
+  equipment.push("Anillo de sello");
+  equipment.push("Pergamino de linaje");
+  equipment.push("Conjunto de ropa fina");
+  equipment.push("Cartera");
+  gold += 25;
+  features.push(
+    "Criados: Tienes tres criados leales a tu familia. Estos criados son un escudero de nacimiento noble, un mozo para tu caballo y un sirviente para tareas mundanas. Tus criados son personas que pueden realizar tareas para ti, pero no lucharán por ti, no te seguirán a áreas peligrosas y se irán si son frecuentemente puestos en peligro o maltratados."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Quién es tu familia?\r¿Hay alguna persona famosa en ella, o tu familia es famosa por algo en particular?\r¿Quién es la mujer de la que recibiste el Emblema de caballería?.\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un caballero a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?";
+} else if (newBackground1 === transfondos[11]) { // Noble
+  firstLanguage = random_language();
+  firstLanguage = right_language();
+  profsAndLangs.languages.push(firstLanguage);
+  tool_adder_2(tool_adder(random_gaming_set_capitalize().toLowerCase()));
+  add_click(9);
+  stat_checker(intelligenceModifier + 2, "form48_1");
+  add_click(1);
+  stat_checker(charismaModifier + 2, "form45_1");
+  equipment.push("Anillo de sello");
+  equipment.push("Pergamino de linaje");
+  equipment.push("Conjunto de ropa fina");
+  equipment.push("Cartera");
+  gold += 25;
+  features.push(
+    "Posición de Privilegio: Eres bienvenido en la alta sociedad, y la gente asume que tienes derecho a estar donde estás. La gente común y los comerciantes hacen todo lo posible para acomodarte y evitar tu desagrado, y otras personas de alta cuna te tratan como un miembro de la misma esfera social. Puedes asegurar una audiencia con un noble local si lo necesitas."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Quién es tu familia?\r¿Hay alguna persona famosa en ella, o tu familia es famosa por algo en particular?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un noble a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?";
+} else if (newBackground1 === transfondos[12]) { // Forastero (Outlander)
+  musicalinstrument = random_musical_instrument();
+  tool_adder_2(tool_adder(musicalinstrument.toLowerCase()));
+  add_click(2);
+  stat_checker(strengthModifier + 2, "form49_1");
+  add_click(12);
+  stat_checker(wisdomModifier + 2, "form47_1");
+  equipment.push("Staff");
+  equipment.push("Trampa de Caza");
+  equipment.push(random_animal_trophy());
+  equipment.push("Conjunto de ropa de viajero");
+  equipment.push("Bolsa de cinturón");
+  gold += 10;
+  features.push(
+    "Errante: Tienes una excelente memoria para mapas y geografía, y siempre puedes recordar la disposición general del terreno, asentamientos y otras características a tu alrededor. Además, puedes encontrar comida y agua fresca para ti y hasta cinco personas más cada día, siempre que la tierra ofrezca bayas, caza menor, agua, etc."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Dónde estabas?\r¿Viajaste mucho?\r¿Cuál es la historia detrás de tu trofeo animal?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un forastero a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?";
+} else if (newBackground1 === transfondos[13]) { // Pirata
+  tool_adder_2(tool_adder("herramientas de navegación"));
+  tool_adder_2(tool_adder("vehículos acuáticos"));
+  add_click(2);
+  stat_checker(strengthModifier + 2, "form49_1");
+  add_click(7);
+  stat_checker(wisdomModifier + 2, "form43_1");
+  equipment.push("garrote");
+  equipment.push("15 metros de cuerda de seda");
+  document.getElementById("form14_2").value = random_trinket();
+  equipment.push("Conjunto de ropa común");
+  equipment.push("Bolsa de cinturón");
+  gold += 10;
+  features.push(
+    "Mala Reputación: No importa a dónde vayas, la gente te teme debido a tu reputación. Cuando estás en un asentamiento civilizado, puedes salirte con la tuya con delitos menores, como negarte a pagar por la comida en una taberna o derribar puertas en una tienda local, ya que la mayoría de la gente no informará de tu actividad a las autoridades."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Cómo te convertiste en pirata?\r¿Tenías un puerto marítimo que fuera tu hogar?\r¿Sigues en contacto con tus compañeros de barco?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un pirata a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?\r" +
+    "¿Por qué ya no eres un pirata?";
+} else if (newBackground1 === transfondos[14]) { // Sabio (Sage)
+  firstLanguage = random_language();
+  firstLanguage = right_language();
+  profsAndLangs.languages.push(firstLanguage);
+  secondlanguage = random_language();
+  secondlanguage = right_language();
+  profsAndLangs.languages.push(secondlanguage);
+  add_click(21);
+  stat_checker(intelligenceModifier + 2, "form40_1");
+  add_click(9);
+  stat_checker(intelligenceModifier + 2, "form48_1");
+  equipment.push("Botella de tinta negra");
+  equipment.push("Pluma");
+  equipment.push("Small knife");
+  equipment.push("Carta de un colega fallecido");
+  equipment.push("Conjunto de ropa común");
+  equipment.push("Bolsa de cinturón");
+  gold += 10;
+  features.push(
+    "Investigador: Cuando intentas aprender o recordar una pieza de conocimiento, si no conoces esa información, a menudo sabes dónde y de quién puedes obtenerla. Por lo general, esta información proviene de una biblioteca, scriptorium, universidad o de un sabio u otra persona o criatura erudita."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué estabas estudiando todo ese tiempo?\r¿Qué dice la carta de tu colega fallecido?\r¿Por qué aprendiste esos idiomas?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un sabio a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?";
+} else if (newBackground1 === transfondos[15]) { // Marinero (Sailor)
+  tool_adder_2(tool_adder("herramientas de navegación"));
+  tool_adder_2(tool_adder("vehículos acuáticos"));
+  add_click(2);
+  stat_checker(strengthModifier + 2, "form49_1");
+  add_click(7);
+  stat_checker(wisdomModifier + 2, "form43_1");
+  equipment.push("garrote");
+  equipment.push("15 metros de cuerda de seda");
+  document.getElementById("form14_2").value = random_trinket();
+  equipment.push("Conjunto de ropa común");
+  equipment.push("Bolsa de cinturón");
+  gold += 10;
+  features.push(
+    "Pasaje en Barco: Puedes asegurar un pasaje gratuito en un barco de vela para ti y tus compañeros de aventura. Podrías navegar en el barco en el que serviste, o en otro barco con el que tengas buenas relaciones. A cambio de tu pasaje gratuito, tú y tus compañeros deben ayudar a la tripulación durante el viaje."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Cómo te convertiste en marinero?\r¿Tenías un puerto marítimo que fuera tu hogar?\r¿Sigues en contacto con tus compañeros de barco?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un marinero a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?\r";
+} else if (newBackground1 === transfondos[16]) { // Soldado (Soldier)
+  soldierGamingSet = random_gaming_set_soldier();
+  tool_adder_2(tool_adder(soldierGamingSet.toLowerCase()));
+  tool_adder_2(tool_adder("vehículos terrestres"));
+  add_click(2);
+  stat_checker(strengthModifier + 2, "form49_1");
+  add_click(24);
+  stat_checker(charismaModifier + 2, "form44_1");
+  equipment.push("Insignia de rango");
+  document.getElementById("form14_2").value = random_trophy();
+  if (soldierGamingSet === "Dice") {
+    equipment.push("Juego de " + soldierGamingSet + " de hueso");
+  } else {
+    equipment.push(soldierGamingSet);
+  }
+  equipment.push("Conjunto de ropa común");
+  equipment.push("Bolsa de cinturón");
+  gold += 10;
+  features.push(
+    "Rango Militar: Los soldados leales a tu antigua organización militar aún reconocen tu autoridad e influencia, y te respetan si son de un rango inferior. Puedes invocar tu rango para ejercer influencia sobre otros soldados y requisar equipo simple o caballos para uso temporal. Puedes acceder a campamentos y fortalezas militares amistosas donde se reconozca tu rango."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Cómo te convertiste en soldado?\r¿Qué rango tenías?\r¿Sigues en contacto con alguno de tus hermanos y hermanas de armas?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un soldado a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?\r";
+} else if (newBackground1 === transfondos[17]) { // Espía (Spy)
+  tool_adder_2(tool_adder("herramientas de ladrón"));
+  tool_adder_2(tool_adder(random_gaming_set_capitalize().toLowerCase()));
+  add_click(17);
+  stat_checker(charismaModifier + 2, "form36_1");
+  add_click(23);
+  stat_checker(dexterityModifier + 2, "form32_1");
+  equipment.push("Palanca");
+  equipment.push("Conjunto de ropa oscura común con capucha");
+  equipment.push("Bolsa de cinturón");
+  gold += 15;
+  features.push(
+    "Contacto Espía: Tienes un contacto confiable y de confianza que actúa como tu enlace con una red de otros espías o criminales. Sabes cómo enviar y recibir mensajes de tu contacto, incluso a grandes distancias; específicamente, conoces a los mensajeros locales, maestros de caravanas corruptos y marineros sórdidos que pueden entregar mensajes por ti."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en espía?\r¿Hiciste algo terrible?\r¿Quién es tu contacto espía?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un espía a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?\r" +
+    "¿Para quién trabajabas cuando eras espía?";
+} else if (newBackground1 === transfondos[18]) { // Huérfano (Urchin)
+  tool_adder_2(tool_adder("Kit de disfraz"));
+  tool_adder_2(tool_adder("herramientas de ladrón"));
+  add_click(4);
+  stat_checker(dexterityModifier + 2, "form46_1");
+  add_click(23);
+  stat_checker(dexterityModifier + 2, "form32_1");
+  equipment.push("Cuchillo pequeño");
+  equipment.push("Mapa de la ciudad natal");
+  equipment.push("ratón mascota");
+  document.getElementById("form14_2").value =
+    random_trinket() + " de los padres";
+  equipment.push("Conjunto de ropa común");
+  equipment.push("Bolsa de cinturón");
+  gold += 10;
+  features.push(
+    "Secretos de la Ciudad: Conoces los patrones y el flujo secretos de las ciudades y puedes encontrar pasajes a través del entramado urbano que otros pasarían por alto. Cuando no estás en combate, tú (y los compañeros que lideres) pueden viajar entre dos ubicaciones de la ciudad el doble de rápido de lo que normalmente permitiría tu velocidad."
+  );
+  document.getElementById("form15_2").value =
+    "¿Qué te hizo empezar a aventurar?\r¿Cuáles fueron las circunstancias de tu nacimiento?\r¿Qué te llevó a convertirte en un huérfano?\r¿Alguien te hizo daño?\r¿Eres un huérfano?\r¿Fracasaron los trabajos de tu familia?\r¿Por qué eres un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Cómo pasaste de ser un huérfano a un " +
+    className.toLowerCase() +
+    "?\r" +
+    "¿Qué significa para ti ser un " +
+    race +
+    "?\r";
+}
+  // Pushes string to alliesAndOrganizations as a writing prompt
+  alliesAndOrganizations.push(
+    "¿Amigos? ¿Familia? ¿Gremio? ¿Tripulación? ¿Hermanos de armas? ¿Sacerdotes? ¿Huérfanos? ¿Monstruos buenos? ¿Amantes? ¿Deidades? ¿Rivales? ¿Enemigos? ¿Relaciones complicadas? ¿Miembros del grupo?"
+  );
+  //Block of arrays that makes new arrays with commas between them
+  newLangs = profsAndLangs.languages.join(", ");
+  newWeaponProfs = profsAndLangs.weaponProficiencies.join(", ");
+  newArmorProfs = profsAndLangs.armorProficiencies.join(", ");
+  newToolProfs = profsAndLangs.toolProficiencies.join(", ");
+
+
+
+  //Block of arrays that makes new arrays with the sections at the start
+  finalLanguages = "Idiomas: " + determine_if_empty(newLangs);
+  finalweaponProficiencies =
+    "Competencias en armas: " + determine_if_empty(newWeaponProfs);
+  finalarmorProficiencies =
+    "Competencias en armaduras: " + determine_if_empty(newArmorProfs);
+  finaltoolProficiencies =
+    "Competencias en herramientas: " + determine_if_empty(newToolProfs);
+
+  // Pushes arrays to proficienciesAndLanguages
+  proficienciesAndLanguages.push(finalLanguages);
+  proficienciesAndLanguages.push(finalweaponProficiencies);
+  proficienciesAndLanguages.push(finalarmorProficiencies);
+  proficienciesAndLanguages.push(finaltoolProficiencies);
+
+
+// Determina los hechizos basados en la clase y estadísticas
+
+if (classID == 2) { // Bardo (índice 2 en el array 'clases')
+  document.getElementById("form214_3").value = className; // clase que lanza hechizos
+  document.getElementById("form196_3").value = "CHA"; // habilidad de lanzamiento de hechizos
+  document.getElementById("form194_3").value = 10 + charismaModifier; // CD de salvación de hechizo
+  stat_checker(charismaModifier + 2, "form195_3"); // bono de ataque de hechizo
+  document.getElementById("form97_3").value = 2;
+  document.getElementById("form193_3").value = "Encantar Persona";
+  document.getElementById("form159_3").value = "Fuego Feérico";
+  if (strength > 12 && constitution > 12) {
+    document.getElementById("form137_3").value = "Ola de Trueno";
+  } else {
+    document.getElementById("form137_3").value = "Risa Horrenda de Tasha";
+  }
+  if (strength > 12 && constitution > 12) {
+    document.getElementById("form136_3").value = "Curar Heridas";
+  } else {
+    document.getElementById("form136_3").value = "Palabra Curativa";
+  }
+  if (document.getElementById("form198_3").value === "Ilusión Menor") {
+    document.getElementById("form213_3").value = "Mofa Viciosa";
+    document.getElementById("form204_3").value = "Prestidigitación";
+  } else if (
+    document.getElementById("form198_3").value === "Prestidigitación"
+  ) {
+    document.getElementById("form213_3").value = "Mofa Viciosa";
+    document.getElementById("form204_3").value = "Prestidigitación";
+  } else if (document.getElementById("form198_3").value === "Taumaturgia") {
+    document.getElementById("form213_3").value = "Ilusión Menor";
+    document.getElementById("form204_3").value = "Mofa Viciosa";
+  } else {
+    document.getElementById("form213_3").value = "Mofa Viciosa";
+    document.getElementById("form204_3").value = "Prestidigitación";
+  }
+  document.getElementById("form62_1").value = "d6";
+} else if (classID == 10) { // Hechicero (Sorcerer) - índice 10
+  document.getElementById("form214_3").value = className; // clase que lanza hechizos
+  document.getElementById("form196_3").value = "CHA"; // habilidad de lanzamiento de hechizos
+  document.getElementById("form194_3").value = 10 + charismaModifier; // CD de salvación de hechizo
+  stat_checker(charismaModifier + 2, "form195_3"); // bono de ataque de hechizo
+  document.getElementById("form97_3").value = 2;
+  document.getElementById("form213_3").value = "Prestidigitación";
+  document.getElementById("form204_3").value = "Amistades";
+  document.getElementById("form203_3").value = "Mensaje";
+  document.getElementById("form202_3").value = "Rayo de Fuego";
+  document.getElementById("form193_3").value = "Encantar Persona";
+  document.getElementById("form159_3").value = "Manos Ardientes";
+} else if (classID == 11) { // Brujo (Warlock) - índice 11
+  document.getElementById("form214_3").value = className; // clase que lanza hechizos
+  document.getElementById("form196_3").value = "CHA"; // habilidad de lanzamiento de hechizos
+  document.getElementById("form194_3").value = 10 + charismaModifier; // CD de salvación de hechizo
+  stat_checker(charismaModifier + 2, "form195_3"); // bono de ataque de hechizo
+  document.getElementById("form213_3").value = "Rayo Sobrenatural";
+  document.getElementById("form204_3").value = "Rociada Venenosa";
+  document.getElementById("form137_3").value = "Maldición";
+  document.getElementById("form136_3").value = "Rayo de Bruja";
+  document.getElementById("form97_3").value = 1;
+} else if (classID == 12) { // Mago (Wizard) - índice 12
+  document.getElementById("form214_3").value = className; // clase que lanza hechizos
+  document.getElementById("form196_3").value = "INT"; // habilidad de lanzamiento de hechizos
+  document.getElementById("form194_3").value = 10 + intelligenceModifier; // CD de salvación de hechizo
+  stat_checker(intelligenceModifier + 2, "form195_3"); // bono de ataque de hechizo
+  document.getElementById("form213_3").value = "Prestidigitación";
+  if (document.getElementById("form198_3").value === "Ilusión Menor") {
+    document.getElementById("form204_3").value = "Mano de Mago";
+  } else {
+    document.getElementById("form204_3").value = "Ilusión Menor";
+  }
+  document.getElementById("form203_3").value = "Rayo de Fuego";
+  if (intelligenceModifier === 0) {
+    document.getElementById("form193_3").value = "Misil Mágico";
+  } else if (intelligenceModifier === 1) {
+    document.getElementById("form193_3").value = "Misil Mágico";
+    document.getElementById("form159_3").value = "Armadura de Mago";
+  } else if (intelligenceModifier === 2) {
+    document.getElementById("form193_3").value = "Misil Mágico";
+    document.getElementById("form159_3").value = "Armadura de Mago";
+    document.getElementById("form137_3").value = "Sueño";
+  } else if (intelligenceModifier === 3) {
+    document.getElementById("form193_3").value = "Misil Mágico";
+    document.getElementById("form159_3").value = "Armadura de Mago";
+    document.getElementById("form137_3").value = "Sueño";
+    document.getElementById("form136_3").value = "Manos Ardientes";
+  } else if (intelligenceModifier === 4) {
+    document.getElementById("form193_3").value = "Misil Mágico";
+    document.getElementById("form159_3").value = "Armadura de Mago";
+    document.getElementById("form137_3").value = "Sueño";
+    document.getElementById("form136_3").value = "Manos Ardientes";
+    document.getElementById("form135_3").value = "Risa Horrenda de Tasha";
+  } else if (intelligenceModifier === 5) {
+    document.getElementById("form193_3").value = "Misil Mágico";
+    document.getElementById("form159_3").value = "Armadura de Mago";
+    document.getElementById("form137_3").value = "Sueño";
+    document.getElementById("form136_3").value = "Manos Ardientes";
+    document.getElementById("form135_3").value = "Risa Horrenda de Tasha";
+    document.getElementById("form133_3").value = "Sirviente Invisible";
+  }
+  document.getElementById("form97_3").value = 2;
+} else if (classID == 3) { // Clérigo (Cleric) - índice 3
+  document.getElementById("form214_3").value = className; // clase que lanza hechizos
+  document.getElementById("form196_3").value = "WIS"; // habilidad de lanzamiento de hechizos
+  document.getElementById("form194_3").value = 10 + wisdomModifier; // CD de salvación de hechizo
+  stat_checker(wisdomModifier + 2, "form195_3"); // bono de ataque de hechizo
+  document.getElementById("form97_3").value = 2;
+} else if (classID == 4) { // Druida (Druid) - índice 4
+  document.getElementById("form214_3").value = className; // clase que lanza hechizos
+  document.getElementById("form196_3").value = "WIS"; // habilidad de lanzamiento de hechizos
+  document.getElementById("form194_3").value = 10 + wisdomModifier; // CD de salvación de hechizo
+  stat_checker(wisdomModifier + 2, "form195_3"); // bono de ataque de hechizo
+  document.getElementById("form97_3").value = 2;
+  if (strength > dexterity) {
+    document.getElementById("form213_3").value = "Garrote";
+    document.getElementById("form204_3").value = "Arte Druídico";
+  } else {
+    document.getElementById("form213_3").value = "Produce Flame";
+    document.getElementById("form204_3").value = "Arte Druídico";
+  }
+  if (wisdomModifier === 0) {
+    document.getElementById("form193_3").value = "Palabra Curativa";
+  } else if (wisdomModifier === 1) {
+    document.getElementById("form193_3").value = "Palabra Curativa";
+    document.getElementById("form159_3").value = "Ola de Trueno";
+  } else if (wisdomModifier === 2) {
+    document.getElementById("form193_3").value = "Palabra Curativa";
+    document.getElementById("form159_3").value = "Ola de Trueno";
+    document.getElementById("form137_3").value = "Enredar";
+  } else if (wisdomModifier === 3) {
+    document.getElementById("form193_3").value = "Palabra Curativa";
+    document.getElementById("form159_3").value = "Ola de Trueno";
+    document.getElementById("form137_3").value = "Enredar";
+    document.getElementById("form136_3").value = "Curar Heridas";
+  } else if (wisdomModifier === 4) {
+    document.getElementById("form193_3").value = "Palabra Curativa";
+    document.getElementById("form159_3").value = "Ola de Trueno";
+    document.getElementById("form137_3").value = "Enredar";
+    document.getElementById("form136_3").value = "Curar Heridas";
+    document.getElementById("form135_3").value = "Fuego Feérico";
+  } else if (wisdomModifier === 5) {
+    document.getElementById("form193_3").value = "Palabra Curativa";
+    document.getElementById("form159_3").value = "Ola de Trueno";
+    document.getElementById("form137_3").value = "Enredar";
+    document.getElementById("form136_3").value = "Curar Heridas";
+    document.getElementById("form135_3").value = "Fuego Feérico";
+    document.getElementById("form133_3").value = "Tremor de Tierra";
+  }
+}
+
+
+// For loop that searches your inventory and determines armor class based on what armor you have
+  for (var _i22 = 0; _i22 < equipment.length; _i22++) {
+    if (equipment[_i22] === armor.lightArmor.padded.armorname) {
+      armorClass += 11 + dexterityModifier;
+    } else if (equipment[_i22] === armor.lightArmor.leather.armorname) {
+      armorClass += 11 + dexterityModifier;
+    } else if (equipment[_i22] === armor.lightArmor.studdedleather.armorname) {
+      armorClass += 12 + dexterityModifier;
+    } else if (equipment[_i22] === armor.mediumArmor.hide.armorname) {
+      armorClass += 12 + dexterityModifier;
+    } else if (equipment[_i22] === armor.mediumArmor.chainshirt.armorname) {
+      armorClass += 13 + dexterityModifier;
+    } else if (equipment[_i22] === armor.mediumArmor.scalemail.armorname) {
+      armorClass += 14 + dexterityModifier;
+      features.push(
+        "Cota de escamas: Desventaja en tiradas de sigilo por armadura media."
+      );
+    } else if (equipment[_i22] === armor.heavyArmor.ringmail.armorname) {
+      armorClass += 14;
+      features.push(
+        "Ring Mail: Desventaja en tiradas de sigilo por armadura pesada.."
+      );
+    } else if (equipment[_i22] === armor.heavyArmor.chainmail.armorname) {
+      armorClass += 16;
+      features.push(
+        "Cota de mallas: Desventaja en tiradas de sigilo por llevar armadura pesada."
+      );
+    }
+  }
+
+  // For loop that searches your inventory and adds +2 armor class if you have a Escudo
+  for (var _i23 = 0; _i23 < equipment.length; _i23++) {
+    if (
+      equipment[_i23] === "Escudo" ||
+      equipment[_i23] === "Escudo - Focus" ||
+      equipment[_i23] === "Escudo de madera"
+    ) {
+      armorClass += 2;
+    } else {
+    }
+  }
 
 
 
 
   console.log(newBackground1,newClassSelected,nivel,race,balanceAndMorality,race);
-  function obtenerIndice(raza) {
+
+
+
+  class_proficiencies(); // Get proficiencies based on class and previous proficiencies
+  stat_checker(strengthModifier, "form56_1"); // str modifier
+  stat_checker(dexterityModifier, "form59_1"); // dex modifier
+  stat_checker(dexterityModifier, "form88_1"); // initiative
+  stat_checker(constitutionModifier, "form58_1"); // con modifier
+  stat_checker(intelligenceModifier, "form57_1"); // int modifier
+  stat_checker(wisdomModifier, "form60_1"); // wis modifier
+  stat_checker(charismaModifier, "form55_1"); // cha modifier
+  document.getElementById("form13_2").value = alliesAndOrganizations.join("\r"); // allies and organizations pg 2
+  document.getElementById("form61_1").value = "+2"; // proficiency
+  document.getElementById("form80_1").value = hp; // max hp
+  document.getElementById("form97_1").value = hp; // current hp
+  document.getElementById("form67_1").value = 1; // number of hit dice
+  document.getElementById("form91_1").value = 0; // experience points
+  document.getElementById("form93_1").value =  name; // name
+  document.getElementById("form90_1").value = newBackground1; // background
+  document.getElementById("form96_1").value = (isManual)?document.getElementById("form96_1").value : charName; // character name
+  document.getElementById("form8_2").value = (isManual)?document.getElementById("form96_1").value : charName;; // character name 2nd page
+  document.getElementById("form83_1").value = strength; // strength stat
+  document.getElementById("form84_1").value = dexterity; // dex stat
+  document.getElementById("form82_1").value = constitution; // con stat
+  document.getElementById("form86_1").value = intelligence; // int stat
+  document.getElementById("form81_1").value = wisdom; // wis stat
+  document.getElementById("form85_1").value = charisma; // cha stat
+  document.getElementById("form95_1").value = translateRace(race); // race text field
+  document.getElementById("form68_1").value = gold; // gold
+  document.getElementById("form104_1").value = equipment.join("\r\n"); // equipment section
+  document.getElementById("form94_1").value = translateClass(classAndLevel); // class and level text field
+  document.getElementById("form105_1").value = proficienciesAndLanguages.join("\r"); // proficiencies and languages
+  document.getElementById("form106_1").value = features.join("\r\n"); // features & traits
+  document.getElementById("form16_2").value = additionalFeatures.join("\r\n"); // additional features, pg. 2
+  document.getElementById("form92_1").value = translateAlignmentArray(alignment); // alignment text fielddice
+  document.getElementById("form73_1").value = armorClass; // AC
+  document.getElementById("form103_1").value = spellcastingSection.join("\r\n"); // adding spell descriptions to the spellcasting section
+
+
+// Block to determine passive perception
+if (document.getElementById("form7_1").checked === "checked") {
+  document.getElementById("form63_1").value = 12 + wisdomModifier; // passive perception
+} else {
+  document.getElementById("form63_1").value = 10 + wisdomModifier; // passive perception
+}
+
+//FUNCIONES AUXILOIARES
+
+
+
+
+  // Function to choose a random language, with a small chance for exotic languages
+  function random_language() {
+    var random = Math.random();
+    var randomStandardLanguageNumber = Math.floor(Math.random() * 7);
+    var randomExoticLanguageNumber = Math.floor(Math.random() * 8);
+    while (
+      listOfStandardLanguages[randomStandardLanguageNumber] === racialLanguage2
+    ) {
+      randomStandardLanguageNumber = Math.floor(Math.random() * 7);
+    }
+    if (random >= 0.1) {
+      language = listOfStandardLanguages[randomStandardLanguageNumber];
+    } else {
+      language = listOfExoticLanguages[randomExoticLanguageNumber];
+    }
+    return language;
+  }
+
+  // Function to choose the right language based on race, with error checking that it doesn't give the same language twice
+  function right_language() {
+    if (race === "High Elf" || race === "Wood Elf" || race === "Elf") {
+      while (
+        firstLanguage === "Elvish" ||
+        firstLanguage === extralanguage ||
+        extralanguage === racialLanguage2
+      ) {
+        firstLanguage = random_language();
+      }
+    } else if (race === "Hill Dwarf" || race === "Mountain Dwarf") {
+      while (
+        firstLanguage === "Dwarvish" ||
+        firstLanguage === extralanguage ||
+        extralanguage === racialLanguage2
+      ) {
+        firstLanguage = random_language();
+      }
+    } else if (race === "Lightfoot Halfling" || race === "Stout Halfling") {
+      while (
+        firstLanguage === "Halfling" ||
+        firstLanguage === extralanguage ||
+        extralanguage === racialLanguage2
+      ) {
+        firstLanguage = random_language();
+      }
+    } else if (
+      race === "Black Dragonborn" ||
+      race === "Blue Dragonborn" ||
+      race === "Brass Dragonborn" ||
+      race === "Bronze Dragonborn" ||
+      race === "Copper Dragonborn" ||
+      race === "Gold Dragonborn" ||
+      race === "Green Dragonborn" ||
+      race === "Red Dragonborn" ||
+      race === "Silver Dragonborn" ||
+      race === "White Dragonborn"
+    ) {
+      while (
+        firstLanguage === "Draconic" ||
+        firstLanguage === extralanguage ||
+        extralanguage === racialLanguage2
+      ) {
+        firstLanguage = random_language();
+      }
+    } else if (race === "Forest Gnome" || race === "Rock Gnome") {
+      while (
+        firstLanguage === "Gnomish" ||
+        firstLanguage === extralanguage ||
+        extralanguage === racialLanguage2
+      ) {
+        firstLanguage = random_language();
+      }
+    } else if (race === "Half-Elf") {
+      while (
+        firstLanguage === "Elvish" ||
+        firstLanguage === extralanguage ||
+        extralanguage === racialLanguage2
+      ) {
+        firstLanguage = random_language();
+      }
+    } else if (race === "Orc") {
+      while (
+        firstLanguage === "Orc" ||
+        firstLanguage === extralanguage ||
+        extralanguage === racialLanguage2
+      ) {
+        firstLanguage = random_language();
+      }
+    } else if (race === "Tiefling") {
+      while (
+        firstLanguage === "Infernal" ||
+        firstLanguage === extralanguage ||
+        extralanguage === racialLanguage2
+      ) {
+        firstLanguage = random_language();
+      }
+    }
+    return firstLanguage;
+  }
+
+  // Function to choose another language after you already added one via right language
+  function right_language2(languagevariable) {
+    while (
+      firstLanguage === languagevariable ||
+      languagevariable === racialLanguage1 ||
+      languagevariable === racialLanguage2 ||
+      extralanguage === languagevariable ||
+      knowledgeLanguage === languagevariable
+    ) {
+      languagevariable = random_language();
+    }
+    return languagevariable;
+  }
+
+
+// Function to determine what proficiencies a character gets based on their class and their proficiencies they already have
+  function class_proficiencies() {
+    if (classID == 1) { // Bárbaro (Barbarian 1)
+      for (var _i11 = 0; _i11 < 2; _i11++) {
+        if (document.getElementById("form7_1").checked === undefined) {
+          add_click(7);
+          stat_checker(wisdomModifier + 2, "form43_1"); // perception
+        } else if (document.getElementById("form2_1").checked === undefined) {
+          add_click(2);
+          stat_checker(strengthModifier + 2, "form49_1"); // athletics
+        } else if (document.getElementById("form12_1").checked === undefined) {
+          add_click(12);
+          stat_checker(wisdomModifier + 2, "form47_1"); // survival
+        } else if (document.getElementById("form24_1").checked === undefined) {
+          add_click(24);
+          stat_checker(charismaModifier + 2, "form44_1"); // intimidation
+        } else if (document.getElementById("form8_1").checked === undefined) {
+          add_click(8);
+          stat_checker(wisdomModifier + 2, "form50_1"); // animal handling
+        } else if (document.getElementById("form11_1").checked === undefined) {
+          add_click(11);
+          stat_checker(intelligenceModifier + 2, "form37_1"); // nature
+        }
+      }
+    } else if (classID == 5) { // Guerrero (Fighter 1)
+      for (var _i12 = 0; _i12 < 2; _i12++) {
+        if (document.getElementById("form7_1").checked === undefined) {
+          add_click(7);
+          stat_checker(wisdomModifier + 2, "form43_1"); // perception
+        } else if (
+          document.getElementById("form2_1").checked === undefined &&
+          strength >= dexterity
+        ) {
+          add_click(2);
+          stat_checker(strengthModifier + 2, "form49_1"); // athletics
+        } else if (
+          document.getElementById("form19_1").checked === undefined &&
+          dexterity > strength
+        ) {
+          add_click(19);
+          stat_checker(dexterityModifier + 2, "form38_1"); // acrobatics
+        } else if (document.getElementById("form12_1").checked === undefined) {
+          add_click(12);
+          stat_checker(wisdomModifier + 2, "form47_1"); // survival
+        } else if (document.getElementById("form13_1").checked === undefined) {
+          add_click(13);
+          stat_checker(wisdomModifier + 2, "form35_1"); // insight
+        } else if (document.getElementById("form24_1").checked === undefined) {
+          add_click(24);
+          stat_checker(charismaModifier + 2, "form44_1"); // intimidation
+        } else if (document.getElementById("form9_1").checked === undefined) {
+          add_click(9);
+          stat_checker(intelligenceModifier + 2, "form48_1"); // history
+        } else if (document.getElementById("form8_1").checked === undefined) {
+          add_click(8);
+          stat_checker(wisdomModifier + 2, "form50_1"); // animal handling
+        }
+      }
+    } else if (classID == 2) { // Bardo (Bard 1)
+      if (document.getElementById("form1_1").checked === undefined) {
+        add_click(1);
+        stat_checker(charismaModifier + 2, "form45_1"); // persuasion
+      } else {
+        skill_adder();
+      }
+      if (document.getElementById("form16_1").checked === undefined) {
+        add_click(16);
+        stat_checker(charismaModifier + 2, "form34_1"); // performance
+      } else {
+        skill_adder();
+      }
+      skill_adder();
+    } else if (classID == 3) { // Clérigo (Cleric 1)
+      for (var _i13 = 0; _i13 < 2; _i13++) {
+        if (document.getElementById("form13_1").checked === undefined) {
+          add_click(13);
+          stat_checker(wisdomModifier + 2, "form35_1"); // insight
+        } else if (document.getElementById("form1_1").checked === undefined) {
+          add_click(1);
+          stat_checker(charismaModifier + 2, "form45_1"); // persuasion
+        } else if (document.getElementById("form20_1").checked === undefined) {
+          add_click(20);
+          stat_checker(intelligenceModifier + 2, "form33_1"); // religion
+        } else if (document.getElementById("form9_1").checked === undefined) {
+          add_click(9);
+          stat_checker(intelligenceModifier + 2, "form48_1"); // history
+        } else if (document.getElementById("form5_1").checked === undefined) {
+          add_click(5);
+          stat_checker(wisdomModifier + 2, "form53_1"); // medicine
+        }
+      }
+    } else if (classID == 10) { // Hechicero (Sorcerer 1)
+      for (var _i14 = 0; _i14 < 2; _i14++) {
+        if (document.getElementById("form21_1").checked === undefined) {
+          add_click(21);
+          stat_checker(intelligenceModifier + 2, "form40_1"); // arcana
+        } else if (document.getElementById("form24_1").checked === undefined) {
+          add_click(24);
+          stat_checker(charismaModifier + 2, "form44_1"); // intimidation
+        } else if (document.getElementById("form1_1").checked === undefined) {
+          add_click(1);
+          stat_checker(charismaModifier + 2, "form45_1"); // persuasion
+        } else if (document.getElementById("form20_1").checked === undefined) {
+          add_click(20);
+          stat_checker(intelligenceModifier + 2, "form33_1"); // religion
+        } else if (document.getElementById("form13_1").checked === undefined) {
+          add_click(13);
+          stat_checker(wisdomModifier + 2, "form35_1"); // insight
+        } else if (document.getElementById("form17_1").checked === undefined) {
+          add_click(17);
+          stat_checker(charismaModifier + 2, "form36_1"); // deception
+        }
+      }
+    } else if (classID == 12) { // Mago (Wizard 1)
+      for (var _i15 = 0; _i15 < 2; _i15++) {
+        if (document.getElementById("form21_1").checked === undefined) {
+          add_click(21);
+          stat_checker(intelligenceModifier + 2, "form40_1"); // arcana
+        } else if (document.getElementById("form14_1").checked === undefined) {
+          add_click(14);
+          stat_checker(intelligenceModifier + 2, "form31_1"); // investigation
+        } else if (document.getElementById("form9_1").checked === undefined) {
+          add_click(9);
+          stat_checker(intelligenceModifier + 2, "form48_1"); // history
+        } else if (document.getElementById("form20_1").checked === undefined) {
+          add_click(20);
+          stat_checker(intelligenceModifier + 2, "form33_1"); // religion
+        } else if (document.getElementById("form13_1").checked === undefined) {
+          add_click(13);
+          stat_checker(wisdomModifier + 2, "form35_1"); // insight
+        } else if (document.getElementById("form5_1").checked === undefined) {
+          add_click(5);
+          stat_checker(wisdomModifier + 2, "form53_1"); // medicine
+        }
+      }
+    } else if (classID == 4) { // Druida (Druid 1)
+      for (var _i16 = 0; _i16 < 2; _i16++) {
+        if (document.getElementById("form7_1").checked === undefined) {
+          add_click(7);
+          stat_checker(wisdomModifier + 2, "form43_1"); // perception
+        } else if (document.getElementById("form11_1").checked === undefined) {
+          add_click(11);
+          stat_checker(intelligenceModifier + 2, "form37_1"); // nature
+        } else if (document.getElementById("form12_1").checked === undefined) {
+          add_click(12);
+          stat_checker(wisdomModifier + 2, "form47_1"); // survival
+        } else if (document.getElementById("form13_1").checked === undefined) {
+          add_click(13);
+          stat_checker(wisdomModifier + 2, "form35_1"); // insight
+        } else if (document.getElementById("form8_1").checked === undefined) {
+          add_click(8);
+          stat_checker(wisdomModifier + 2, "form50_1"); // animal handling
+        } else if (document.getElementById("form20_1").checked === undefined) {
+          add_click(20);
+          stat_checker(intelligenceModifier + 2, "form33_1"); // religion
+        } else if (document.getElementById("form21_1").checked === undefined) {
+          add_click(21);
+          stat_checker(intelligenceModifier + 2, "form40_1"); // arcana
+        } else if (document.getElementById("form5_1").checked === undefined) {
+          add_click(5);
+          stat_checker(wisdomModifier + 2, "form53_1"); // medicine
+        }
+      }
+    } else if (classID == 9) { // Pícaro (Rogue 1)
+      for (var _i17 = 0; _i17 < 4; _i17++) {
+        if (document.getElementById("form7_1").checked === undefined) {
+          add_click(7);
+          stat_checker(wisdomModifier + 2, "form43_1"); // perception
+        } else if (document.getElementById("form23_1").checked === undefined) {
+          add_click(23);
+          stat_checker(dexterityModifier + 2, "form32_1"); // stealth
+        } else if (
+          document.getElementById("form2_1").checked === undefined &&
+          strength >= dexterity
+        ) {
+          add_click(2);
+          stat_checker(strengthModifier + 2, "form49_1"); // athletics
+        } else if (
+          document.getElementById("form19_1").checked === undefined &&
+          dexterity > strength
+        ) {
+          add_click(19);
+          stat_checker(dexterityModifier + 2, "form38_1"); // acrobatics
+        } else if (document.getElementById("form17_1").checked === undefined) {
+          add_click(17);
+          stat_checker(charismaModifier + 2, "form36_1"); // deception
+        } else if (document.getElementById("form4_1").checked === undefined) {
+          add_click(4);
+          stat_checker(dexterityModifier + 2, "form46_1"); // sleight of hand
+        } else if (document.getElementById("form14_1").checked === undefined) {
+          add_click(14);
+          stat_checker(intelligenceModifier + 2, "form31_1"); // investigation
+        } else if (document.getElementById("form1_1").checked === undefined) {
+          add_click(1);
+          stat_checker(charismaModifier + 2, "form45_1"); // persuasion
+        } else if (document.getElementById("form16_1").checked === undefined) {
+          add_click(16);
+          stat_checker(charismaModifier + 2, "form34_1"); // performance
+        } else if (document.getElementById("form12_1").checked === undefined) {
+          add_click(12);
+          stat_checker(wisdomModifier + 2, "form47_1"); // survival
+        } else if (document.getElementById("form13_1").checked === undefined) {
+          add_click(13);
+          stat_checker(wisdomModifier + 2, "form35_1"); // insight
+        }
+      }
+    } else if (classID == 11) { // Brujo (Warlock 1)
+      for (var _i18 = 0; _i18 < 2; _i18++) {
+        if (document.getElementById("form21_1").checked === undefined) {
+          add_click(21);
+          stat_checker(intelligenceModifier + 2, "form40_1"); // arcana
+        } else if (document.getElementById("form17_1").checked === undefined) {
+          add_click(17);
+          stat_checker(charismaModifier + 2, "form36_1"); // deception
+        } else if (document.getElementById("form24_1").checked === undefined) {
+          add_click(24);
+          stat_checker(charismaModifier + 2, "form44_1"); // intimidation
+        } else if (document.getElementById("form20_1").checked === undefined) {
+          add_click(20);
+          stat_checker(intelligenceModifier + 2, "form33_1"); // religion
+        } else if (document.getElementById("form11_1").checked === undefined) {
+          add_click(11);
+          stat_checker(intelligenceModifier + 2, "form37_1"); // nature
+        } else if (document.getElementById("form14_1").checked === undefined) {
+          add_click(14);
+          stat_checker(intelligenceModifier + 2, "form31_1"); // investigation
+        } else if (document.getElementById("form9_1").checked === undefined) {
+          add_click(9);
+          stat_checker(intelligenceModifier + 2, "form48_1"); // history
+        }
+      }
+    } else if (classID == 8) { // Guardabosques (Ranger 1)
+      for (var _i19 = 0; _i19 < 3; _i19++) {
+        if (document.getElementById("form7_1").checked === undefined) {
+          add_click(7);
+          stat_checker(wisdomModifier + 2, "form43_1"); // perception
+        } else if (document.getElementById("form12_1").checked === undefined) {
+          add_click(12);
+          stat_checker(wisdomModifier + 2, "form47_1"); // survival
+        } else if (document.getElementById("form23_1").checked === undefined) {
+          add_click(23);
+          stat_checker(dexterityModifier + 2, "form32_1"); // stealth
+        } else if (document.getElementById("form11_1").checked === undefined) {
+          add_click(11);
+          stat_checker(intelligenceModifier + 2, "form37_1"); // nature
+        } else if (document.getElementById("form2_1").checked === undefined) {
+          add_click(2);
+          stat_checker(strengthModifier + 2, "form49_1"); // athletics
+        } else if (document.getElementById("form8_1").checked === undefined) {
+          add_click(8);
+          stat_checker(wisdomModifier + 2, "form50_1"); // animal handling
+        } else if (document.getElementById("form14_1").checked === undefined) {
+          add_click(14);
+          stat_checker(intelligenceModifier + 2, "form31_1"); // investigation
+        } else if (document.getElementById("form13_1").checked === undefined) {
+          add_click(13);
+          stat_checker(wisdomModifier + 2, "form35_1"); // insight
+        }
+      }
+    } else if (classID == 7) { // Paladín (Paladin 1)
+      for (var _i20 = 0; _i20 < 2; _i20++) {
+        if (document.getElementById("form20_1").checked === undefined) {
+          add_click(20);
+          stat_checker(intelligenceModifier + 2, "form33_1"); // religion
+        } else if (document.getElementById("form2_1").checked === undefined) {
+          add_click(2);
+          stat_checker(strengthModifier + 2, "form49_1"); // athletics
+        } else if (document.getElementById("form24_1").checked === undefined) {
+          add_click(24);
+          stat_checker(charismaModifier + 2, "form44_1"); // intimidation
+        } else if (document.getElementById("form13_1").checked === undefined) {
+          add_click(13);
+          stat_checker(wisdomModifier + 2, "form35_1"); // insight
+        } else if (document.getElementById("form1_1").checked === undefined) {
+          add_click(1);
+          stat_checker(charismaModifier + 2, "form45_1"); // persuasion
+        } else if (document.getElementById("form5_1").checked === undefined) {
+          add_click(5);
+          stat_checker(wisdomModifier + 2, "form53_1"); // medicine
+        }
+      }
+    } else if (classID == 6) { // Monje (Monk 1)
+      for (var _i21 = 0; _i21 < 2; _i21++) {
+        if (document.getElementById("form20_1").checked === undefined) {
+          add_click(20);
+          stat_checker(intelligenceModifier + 2, "form33_1"); // religion
+        } else if (
+          document.getElementById("form2_1").checked === undefined &&
+          strength >= dexterity
+        ) {
+          add_click(2);
+          stat_checker(strengthModifier + 2, "form49_1"); // athletics
+        } else if (
+          document.getElementById("form19_1").checked === undefined &&
+          dexterity > strength
+        ) {
+          add_click(19);
+          stat_checker(dexterityModifier + 2, "form38_1"); // acrobatics
+        } else if (document.getElementById("form23_1").checked === undefined) {
+          add_click(23);
+          stat_checker(dexterityModifier + 2, "form32_1"); // stealth
+        } else if (document.getElementById("form13_1").checked === undefined) {
+          add_click(13);
+          stat_checker(wisdomModifier + 2, "form35_1"); // insight
+        } else if (document.getElementById("form9_1").checked === undefined) {
+          add_click(9);
+          stat_checker(intelligenceModifier + 2, "form48_1"); // history
+        }
+      }
+    }
+  }
+
+
+
+ // Function to get a random interger between a minimum value and a maximum value
+ function get_random_int(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
+
+  // Function to determine if an array is empty
+  function determine_if_empty(array) {
+    if (array.length === 0) {
+      return "none";
+    } else {
+      return array;
+    }
+  }
+
+  // Function to determine a random trinket
+  function random_trinket() {
+    random = Math.floor(Math.random() * 20);
+    if (random === 0) {
+      return "Pieza de cristal que brilla tenuemente a la luz de la luna";
+    } else if (random === 1) {
+      return "Moneda de oro acuñada en una tierra desconocida";
+    } else if (random === 2) {
+      return "Garra ósea de dragón colgando de un simple collar de cuero";
+    } else if (random === 3) {
+      return "Pequeño ícono de plata de un cuervo";
+    } else if (random === 4) {
+      return "Llave antigua";
+    } else if (random === 5) {
+      return "Calavera de plata del tamaño de una moneda";
+    } else if (random === 6) {
+      return "Conjunto de flautas de hueso";
+    } else if (random === 7) {
+      return "Flecha antigua de diseño élfico";
+    } else if (random === 8) {
+      return "Símbolo sagrado de hierro dedicado a un dios desconocido";
+    } else if (random === 9) {
+      return "Invitación a una fiesta donde ocurrió un asesinato";
+    } else if (random === 10) {
+      return "Orbe de cristal lleno de humo en movimiento";
+    } else if (random === 11) {
+      return "Escritura de una parcela de tierra en un reino desconocido para ti";
+    } else if (random === 12) {
+      return "Pieza de ajedrez antigua hecha de vidrio irrompible";
+    } else if (random === 13) {
+      return "Pequeña estatua de madera de un mediano presumido";
+    } else if (random === 14) {
+      return "Orbe de latón grabado con runas extrañas";
+    } else if (random === 15) {
+      return "Fragmento de obsidiana que siempre se siente cálido al tacto";
+    } else if (random === 16) {
+      return "Dispositivo metálico rectangular con dos pequeñas copas de metal en un extremo que lanza chispas cuando se moja";
+    } else if (random === 17) {
+      return "Gema que parece un trozo de carbón cuando la examina alguien que no seas tú";
+    } else if (random === 18) {
+      return "Silbato hecho de madera dorada";
+    } else if (random === 19) {
+      return "Mapa del tesoro indescifrable";
+    }
+    
+  }
+
+  // Randomize hair based on parameters
+  function hair_randomizer(hair1, hair2, hair3, hair4) {
+    random = Math.floor(Math.random() * 4);
+    if (random === 0) {
+      document.getElementById("form3_2").value = hair1;
+    } else if (random === 1) {
+      document.getElementById("form3_2").value = hair2;
+    } else if (random === 2) {
+      document.getElementById("form3_2").value = hair3;
+    } else if (random === 3) {
+      document.getElementById("form3_2").value = hair4;
+    }
+  }
+
+  // Randomize weight based on how strong and tough they are, as well as the races height and weight parameters
+  function weight_randomizer(
+    constitutionNumber,
+    strengthNumber,
+    lowestWeight,
+    lowerWeight,
+    mediumWeight,
+    highWeight,
+    higherWeight,
+    highestWeight
+  ) {
+    beefiness = constitutionNumber + strengthNumber;
+    random = Math.floor(Math.random() * 3);
+    individualDiscrepancy = 0;
+    if (random === 0) {
+      individualDiscrepancy = -get_random_int(5, 15);
+    } else if (random === 1) {
+      individualDiscrepancy = get_random_int(5, 15);
+    } else if (random === 2) {
+      individualDiscrepancy = Math.floor(Math.random() * 5);
+    }
+    if (beefiness < 14) {
+      document.getElementById("form4_2").value =
+        lowestWeight + individualDiscrepancy;
+    } else if (beefiness < 20) {
+      document.getElementById("form4_2").value =
+        lowerWeight + individualDiscrepancy;
+    } else if (beefiness < 24) {
+      document.getElementById("form4_2").value =
+        mediumWeight + individualDiscrepancy;
+    } else if (beefiness < 32) {
+      document.getElementById("form4_2").value =
+        highWeight + individualDiscrepancy;
+    } else if (beefiness < 36) {
+      document.getElementById("form4_2").value =
+        higherWeight + individualDiscrepancy;
+    } else {
+      document.getElementById("form4_2").value =
+        highestWeight + individualDiscrepancy;
+    }
+  }
+
+  // Randomize weight based on how strong and tough they are, as well as the races height and weight parameters, but for the small races
+  function weight_randomizer_small(
+    constitutionNumber,
+    strengthNumber,
+    lowestWeight,
+    lowerWeight,
+    mediumWeight,
+    highWeight,
+    higherWeight,
+    highestWeight
+  ) {
+    beefiness = constitutionNumber + strengthNumber;
+    random = Math.floor(Math.random() * 3);
+    individualDiscrepancy = 0;
+    if (random === 0) {
+      individualDiscrepancy = -get_random_int(1, 3);
+    } else if (random === 1) {
+      individualDiscrepancy = get_random_int(1, 3);
+    } else if (random === 2) {
+      individualDiscrepancy = Math.floor(Math.random() * 2);
+    }
+    if (beefiness < 14) {
+      document.getElementById("form4_2").value =
+        lowestWeight + individualDiscrepancy;
+    } else if (beefiness < 20) {
+      document.getElementById("form4_2").value =
+        lowerWeight + individualDiscrepancy;
+    } else if (beefiness < 24) {
+      document.getElementById("form4_2").value =
+        mediumWeight + individualDiscrepancy;
+    } else if (beefiness < 32) {
+      document.getElementById("form4_2").value =
+        highWeight + individualDiscrepancy;
+    } else if (beefiness < 36) {
+      document.getElementById("form4_2").value =
+        higherWeight + individualDiscrepancy;
+    } else {
+      document.getElementById("form4_2").value =
+        highestWeight + individualDiscrepancy;
+    }
+  }
+
+  // Function to determine breath type, calculate the saving throw, and push to additional features
+  function breath_decider(color, damagetype) {
+    if (
+      color === "Black" ||
+      color === "Blue" ||
+      color === "Brass" ||
+      color === "Bronze" ||
+      color === "Copper"
+    ) {
+      additionalFeatures.push(
+        damagetype +
+          " Arma de Aliento: Puedes usar tu acción para exhalar tu Ascendencia Dracónica en una línea de 5 por 30 pies. Cuando usas tu arma de aliento, cada criatura en el área de la exhalación debe hacer una tirada de salvación de destreza. La DC para esta tirada de salvación es " +
+          (10 + constitutionModifier) +
+          ". Una criatura recibe 2d6 de daño de " +
+          damagetype.toLowerCase() +
+          " en una salvación fallida, y la mitad de daño en una salvación exitosa."
+      );
+    } else if (color === "Gold" || color === "Red") {
+      additionalFeatures.push(
+        damagetype +
+          " Arma de Aliento: Puedes usar tu acción para exhalar tu Ascendencia Dracónica en un cono de 15 pies. Cuando usas tu arma de aliento, cada criatura en el área de la exhalación debe hacer una tirada de salvación de destreza. La DC para esta tirada de salvación es " +
+          (10 + constitutionModifier) +
+          ". Una criatura recibe 2d6 de daño de " +
+          damagetype.toLowerCase() +
+          " en una salvación fallida, y la mitad de daño en una salvación exitosa."
+      );
+    } else if (color === "Green" || color === "Silver" || color === "White") {
+      additionalFeatures.push(
+        damagetype +
+          " Arma de Aliento: Puedes usar tu acción para exhalar tu Ascendencia Dracónica en un cono de 15 pies. Cuando usas tu arma de aliento, cada criatura en el área de la exhalación debe hacer una tirada de salvación de constitución. La DC para esta tirada de salvación es " +
+          (10 + constitutionModifier) +
+          ". Una criatura recibe 2d6 de daño de " +
+          damagetype.toLowerCase() +
+          " en una salvación fallida, y la mitad de daño en una salvación exitosa."
+      );
+    }
+  }
+
+  // Randomize skin based on parameters
+  function skin_randomizer(skin1, skin2, skin3, skin4, skin5) {
+    random = Math.floor(Math.random() * 5);
+    if (random === 0) {
+      document.getElementById("form2_2").value = skin1;
+    } else if (random === 1) {
+      document.getElementById("form2_2").value = skin2;
+    } else if (random === 2) {
+      document.getElementById("form2_2").value = skin3;
+    } else if (random === 3) {
+      document.getElementById("form2_2").value = skin4;
+    } else if ((random = 4)) {
+      document.getElementById("form2_2").value = skin5;
+    }
+  }
+
+  // Randomize eye color based on parameters
+  function eye_randomizer(eyecolor1, eyecolor2, eyecolor3, eyecolor4) {
+    random = Math.floor(Math.random() * 4);
+    if (random === 0) {
+      document.getElementById("form6_2").value = eyecolor1;
+    } else if (random === 1) {
+      document.getElementById("form6_2").value = eyecolor2;
+    } else if (random === 2) {
+      document.getElementById("form6_2").value = eyecolor3;
+    } else if (random === 3) {
+      document.getElementById("form6_2").value = eyecolor4;
+    }
+  }
+  // Function to add armor to proficiencies section
+  function armor_adder(armorToAddToList) {
+    for (var _i9 = 0; _i9 < profsAndLangs.armorProficiencies.length; _i9++) {
+      if (profsAndLangs.armorProficiencies[_i9] === armorToAddToList) {
+        return;
+      }
+    }
+    return armorToAddToList;
+  }
+
+  // Function to check armor_adder()
+  function armor_adder_2(armor_adder1) {
+    if (armor_adder1 !== undefined) {
+      profsAndLangs.armorProficiencies.push(armor_adder1);
+    }
+  }
+  // Function to add tools to proficiencies section
+  function tool_adder(tool) {
+    for (j = 0; j < profsAndLangs.toolProficiencies.length; j++) {
+      if (profsAndLangs.toolProficiencies[j] === tool) {
+        return;
+      }
+    }
+    return tool;
+  }
+
+  // Function to check tool_adder()
+  function tool_adder_2(tool_adder1) {
+    if (tool_adder1 !== undefined) {
+      profsAndLangs.toolProficiencies.push(tool_adder1);
+    }
+  }
+
+    // Function to add weapons to proficiencies section
+    function weapon_adder(weapon) {
+      for (var _i7 = 0; _i7 < simpleWeapons.length; _i7++) {
+        if (simpleWeapons[_i7] === weapon) {
+          for (j = 0; j < profsAndLangs.weaponProficiencies.length; j++) {
+            if (profsAndLangs.weaponProficiencies[j] === "Simple Arma") {
+              return;
+            } else if (profsAndLangs.weaponProficiencies[j] === weapon) {
+              return;
+            }
+          }
+        }
+      }
+      for (var _i8 = 0; _i8 < martialWeapons.length; _i8++) {
+        if (martialWeapons[_i8] === weapon) {
+          for (j = 0; j < profsAndLangs.weaponProficiencies.length; j++) {
+            if (profsAndLangs.weaponProficiencies[j] === "Arma Marcial") {
+              return;
+            } else if (profsAndLangs.weaponProficiencies[j] === weapon) {
+              return;
+            }
+          }
+        }
+      }
+      return weapon;
+    }
+  
+    // Function to check weapon_adder()
+    function weapon_adder_2(weapon_adder1) {
+      if (weapon_adder1 !== undefined) {
+        profsAndLangs.weaponProficiencies.push(weapon_adder1);
+      }
+    }
+  
+  // Function to make a skill proficient and checked
+  function add_click(j) {
+    var i = j.toString();
+    document.getElementById("form" + i + "_1").checked = "checked";
+    //click_on(i - 1);
+    checkboxManager.click_on(i-1);
+  }
+
+
+  function obtenerIndiceRaza(raza) {
     return razas.indexOf(raza);
+  }
+  function obtenerIndiceClase(clase) {
+    return clases.indexOf(clase);
   }
   // Function to add a racial cantrip to the last form in the cantrip section
   function add_race_cantrip(cantrip) {
@@ -2167,7 +4340,51 @@ function makePersonaje() {
     }
   }
 
-
+  // Function to check if a stat needs a plus or not, usually used to add it to ability modifiers or saving throw modifiers
+  function stat_checker(stat, id) {
+    if (stat <= 0) {
+      document.getElementById(id).value = stat;
+    } else {
+      document.getElementById(id).value = "+" + stat;
+    }
+  }
+    // Function to check if the hit die is less than, equal to, or greater than 0, and add the proper syntax
+    function stat_checker_2(stat, id, dieType) {
+      if (stat < 0) {
+        document.getElementById(id).value = dieType + stat;
+      } else if (stat === 0) {
+        document.getElementById(id).value = dieType;
+      } else if (stat > 0) {
+        document.getElementById(id).value = dieType + "+" + stat;
+      }
+    }
+  
+  // Create stat modifiers for under the ability scores
+  function stat_modifier_generator(stat) {
+    if (3 >= stat) {
+      statModifier = -4;
+    } else if (5 >= stat) {
+      statModifier = -3;
+    } else if (7 >= stat) {
+      statModifier = -2;
+    } else if (9 >= stat) {
+      statModifier = -1;
+    } else if (11 >= stat) {
+      statModifier = 0;
+    } else if (13 >= stat) {
+      statModifier = 1;
+    } else if (15 >= stat) {
+      statModifier = 2;
+    } else if (17 >= stat) {
+      statModifier = 3;
+    } else if (19 >= stat) {
+      statModifier = 4;
+    } else if (20 >= stat) {
+      statModifier = 5;
+    }
+    return statModifier;
+  }
+  
   // Function to choose a random language, with a small chance for exotic languages
   function generate_morality(higherDecimal, lowerDecimal) {
     if (!alignmentChecker) {

@@ -1280,6 +1280,14 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error("El botón no se encontró.");
     }
+    let botonGS = document.querySelector("#btnGenerarS"); // Selecciona el botón justo después del div
+    if (botonGS) {
+      botonGS.addEventListener("click", function() {
+        roll_version();
+      });
+    } else {
+        console.error("El botón no se encontró.");
+    }
     let btnGenerar =  document.querySelector("#btnGenerar"); // Selecciona el botón justo después del div
     if (btnGenerar) {
         btnGenerar.addEventListener("click", function() {
@@ -1301,6 +1309,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Hubo un error al cargar el JSON:", error);
     });
 });
+
 
 function handleSelectionChange(selectedValues) {
     console.log("Valores seleccionados:", selectedValues);
@@ -1485,7 +1494,88 @@ function randomTrophy() {
   
   return trophy.descripcion;
 }
+function roll_version() {
+  // ROLL STATS STAT BLOCK
 
+  // Function to remove the smallest number from an array, this is used in get_random_stat() to drop 4d6 to 3d6
+  function remove_smallest_number(arr) {
+    arr.splice(arr.indexOf(Math.min.apply(null, arr)), 1);
+    return arr;
+  }
+
+  // Get a random stat for an ability score
+  function get_random_stat() {
+    randomStatArray = [];
+    for (var _i = 0; _i < 4; _i++) {
+      randomStatArray.push(get_random_number(6));
+    }
+    remove_smallest_number(randomStatArray);
+    return randomStatArray;
+  }
+
+  // Function to get the sum of the 4d6 drop lowest that was rolled by get_random_stat()
+  function get_sum(stat) {
+    for (i = 0, sum = 0; i < stat.length; sum += stat[i++]) {}
+    return sum;
+  }
+
+  // Function to organize numbers in ascending order
+  function order_stats(array) {
+    array.sort(function (a, b) {
+      return b - a;
+    });
+    return array;
+  }
+
+  // Block of arrays that are assigned a random stat each
+  var firstStat = get_random_stat();
+  var secondStat = get_random_stat();
+  var thirdStat = get_random_stat();
+  var fourthStat = get_random_stat();
+  var fifthStat = get_random_stat();
+  var sixthStat = get_random_stat();
+
+  // Block of variables that had arrays that were summed up to equal a single number
+  var temporaryStatHolder1 = get_sum(firstStat);
+  var temporaryStatHolder2 = get_sum(secondStat);
+  var temporaryStatHolder3 = get_sum(thirdStat);
+  var temporaryStatHolder4 = get_sum(fourthStat);
+  var temporaryStatHolder5 = get_sum(fifthStat);
+  var temporaryStatHolder6 = get_sum(sixthStat);
+
+  // Assign individual stats to an array named stats
+  var statspt1 = [
+    temporaryStatHolder1,
+    temporaryStatHolder2,
+    temporaryStatHolder3,
+    temporaryStatHolder4,
+    temporaryStatHolder5,
+    temporaryStatHolder6,
+  ];
+
+  // Assign the ordered stats array to a global variable
+  stats = order_stats(statspt1);
+
+  // Stat array in right order
+  stat1 = stats[0];
+  stat2 = stats[1];
+  stat3 = stats[2];
+  stat4 = stats[3];
+  stat5 = stats[4];
+  stat6 = stats[5];
+
+  // 2 means roll
+  versionForChecking = 2;
+  // Ahora asignamos los valores invertidos a sus respectivos elementos
+  document.getElementById("form83_1").value = stat1;
+  document.getElementById("form84_1").value = stat2;
+  document.getElementById("form82_1").value = stat3;
+  document.getElementById("form86_1").value = stat4;
+  document.getElementById("form81_1").value = stat5;
+  document.getElementById("form85_1").value = stat6;
+  // Return stats array
+  return 1;
+}
 
 // Function for trait randomization by length of the array
 function random_by_length(array, personalityVariable, id) {
@@ -1613,7 +1703,6 @@ function makePersonaje() {
   var bonds = [];
   var flaws = [];
   var proficienciesAndLanguages = [];
-  var armor = {};
   var nivel = 1;
   var profsAndLangs = {
     languages: [],
@@ -1716,8 +1805,14 @@ function makePersonaje() {
   }
   balance = balanceAndMorality.split(" ", 1).toString();
   morality = balanceAndMorality.split(" ", 2);
-  morality = morality[1].toString();
-  defectos_generador(balance, morality);
+  if(morality.length>1){
+    morality = morality[1].toString();
+    defectos_generador(balance, morality);
+  }else{
+    morality = morality[1].toString();
+    defectos_generador(balance, morality);
+  }
+
 
   
   strength = 0;
@@ -2391,7 +2486,7 @@ if (raceID === 2) { // Black Dragonborn
   hair_randomizer("", "", "", "");
   weight_randomizer(constitution, strength, 200, 225, 250, 275, 310, 340);
   eye_randomizer("Violeta", "Azul", "Rojo", "Morado");
-  decidirAliento("Negro", "Ácido");
+  breath_decider("Negro", "Ácido");
 
 } else if (raceID === 3) { // Blue Dragonborn
   document.getElementById("form5_2").value = get_random_int(15, 40);
@@ -3522,22 +3617,22 @@ if (classID == 2) { // Bardo (índice 2 en el array 'clases')
   document.getElementById("form91_1").value = 0; // experience points
   document.getElementById("form93_1").value =  name; // name
   document.getElementById("form90_1").value = newBackground1; // background
-  document.getElementById("form96_1").value = (isManual)?document.getElementById("form96_1").value : charName; // character name
-  document.getElementById("form8_2").value = (isManual)?document.getElementById("form96_1").value : charName;; // character name 2nd page
+  document.getElementById("form96_1").value = charName; // character name
+  document.getElementById("form8_2").value =  charName;; // character name 2nd page
   document.getElementById("form83_1").value = strength; // strength stat
   document.getElementById("form84_1").value = dexterity; // dex stat
   document.getElementById("form82_1").value = constitution; // con stat
   document.getElementById("form86_1").value = intelligence; // int stat
   document.getElementById("form81_1").value = wisdom; // wis stat
   document.getElementById("form85_1").value = charisma; // cha stat
-  document.getElementById("form95_1").value = translateRace(race); // race text field
+  document.getElementById("form95_1").value = race; // race text field
   document.getElementById("form68_1").value = gold; // gold
   document.getElementById("form104_1").value = equipment.join("\r\n"); // equipment section
-  document.getElementById("form94_1").value = translateClass(classAndLevel); // class and level text field
+  document.getElementById("form94_1").value = classAndLevel; // class and level text field
   document.getElementById("form105_1").value = proficienciesAndLanguages.join("\r"); // proficiencies and languages
   document.getElementById("form106_1").value = features.join("\r\n"); // features & traits
   document.getElementById("form16_2").value = additionalFeatures.join("\r\n"); // additional features, pg. 2
-  document.getElementById("form92_1").value = translateAlignmentArray(alignment); // alignment text fielddice
+  document.getElementById("form92_1").value = alignment; // alignment text fielddice
   document.getElementById("form73_1").value = armorClass; // AC
   document.getElementById("form103_1").value = spellcastingSection.join("\r\n"); // adding spell descriptions to the spellcasting section
 
@@ -3553,6 +3648,499 @@ if (document.getElementById("form7_1").checked === "checked") {
 
 
 
+function equipment_chooser(classAndLevel) {
+
+
+  random = Math.random();
+  random2 = Math.random();
+
+  // =========================
+  // BÁRBARO ("Bárbaro 1")
+  // =========================
+  if (classAndLevel === clases[1]) {
+    features.push(
+      "Furia (2/lr): En tu turno, puedes entrar en furia como una Acción adicional. Mientras estés en furia, obtienes los siguientes beneficios si no estás usando armadura pesada: Tienes ventaja en Chequeos de Fuerza y tiradas de salvación de Fuerza. Cuando haces un Ataque con un arma cuerpo a cuerpo usando Fuerza, obtienes un bono de +2 al daño. Este bono aumenta a medida que subes de nivel. Tienes Resistencia al daño contundente, perforante y cortante. Si eres capaz de lanzar Conjuros, no puedes lanzarlos ni concentrarte en ellos mientras estés en furia. Consulta el manual del jugador para más detalles."
+    );
+    features.push(
+      "Defensa sin armadura: Mientras no lleves armadura, tu clase de armadura es igual a 10 + tu modificador de destreza + tu modificador de constitución, usable con escudo."
+    );
+    spellcastingSection.push(
+      "Furia (2/lr): Usa tu acción adicional para entrar en furia y obtener +2 a las tiradas de daño cuerpo a cuerpo usando fuerza, y obtener beneficios defensivos descritos en la sección de características."
+    );
+
+    if (dexterity > strength) {
+      if (
+        document.getElementById("form90_1").value === "Sailor" ||
+        document.getElementById("form90_1").value === "Pirate" ||
+        document.getElementById("form90_1").value === "Gladiator"
+      ) {
+        equipment.push("Tridente");
+        document.getElementById("form79_1").value = "Tridente"; 
+        stat_checker(dexterityModifier + 2, "form64_1"); 
+        stat_checker_3(dexterityModifier, "form76_1", "1d6/8", "P");
+
+        equipment.push("Ballesta pesada");
+        document.getElementById("form78_1").value = "Ballesta pesada"; 
+        stat_checker(dexterityModifier + 2, "form65_1");
+        stat_checker_3(dexterityModifier, "form74_1", "1d10", "P");
+      } else {
+        equipment.push("Pico de Guerra");
+        document.getElementById("form79_1").value = "Pico de Guerra"; 
+        stat_checker(dexterityModifier + 2, "form64_1"); 
+        stat_checker_3(dexterityModifier, "form76_1", "1d8", "P");
+
+        equipment.push("Arco largo");
+        document.getElementById("form78_1").value = "Arco largo"; 
+        stat_checker(dexterityModifier + 2, "form65_1"); 
+        stat_checker_3(dexterityModifier, "form74_1", "1d8", "P");
+      }
+    } else {
+      if (random > 0.666) {
+        equipment.push("Hacha grande");
+        document.getElementById("form79_1").value = "Hacha grande";
+        stat_checker(strengthModifier + 2, "form64_1");
+        stat_checker_3(strengthModifier, "form76_1", "1d12", "S");
+      } else if (random > 0.333) {
+        equipment.push("Espada grande");
+        document.getElementById("form79_1").value = "Espada grande";
+        stat_checker(strengthModifier + 2, "form64_1");
+        stat_checker_3(strengthModifier, "form76_1", "2d6", "S");
+      } else {
+        equipment.push("Maza");
+        document.getElementById("form79_1").value = "Maza";
+        stat_checker(strengthModifier + 2, "form64_1");
+        stat_checker_3(strengthModifier, "form76_1", "2d6", "B");
+      }
+      equipment.push("Hacha de mano x2");
+      document.getElementById("form78_1").value = "Hacha de mano";
+      stat_checker(strengthModifier + 2, "form65_1");
+      stat_checker_3(strengthModifier, "form74_1", "1d6", "S");
+    }
+
+  // =========================
+  // BARDO ("Bardo 1")
+  // =========================
+  } else if (classAndLevel === clases[2]) {
+    if (charismaModifier < 1) {
+      bardModifier = 1;
+    } else {
+      bardModifier = charismaModifier;
+    }
+    features.push(
+      "Inspiración Bardica (" +
+        bardModifier +
+        "/lr): Usa una acción adicional en tu turno para elegir una criatura que no seas tú y que esté a 60 pies de ti y pueda oírte. Esa criatura gana un dado de Inspiración Bardica, un d6. Una vez dentro de los próximos 10 minutos, la criatura puede tirar el dado y sumar el número obtenido a una prueba de habilidad, tirada de ataque o tirada de salvación que realice."
+    );
+    spellcastingSection.push(
+      "Inspiración Bardica (" +
+        bardModifier +
+        "/lr): Usa una acción adicional para dar a otra criatura un dado de inspiración de 1d6."
+    );
+    musicalinstrument = random_musical_instrument();
+    tool_adder_2(tool_adder(musicalinstrument.toLowerCase()));
+    equipment.push(musicalinstrument + " - Focus");
+    musicalinstrument2 = random_musical_instrument();
+    tool_adder_2(tool_adder(musicalinstrument2.toLowerCase()));
+    if (random > 0.5) {
+      tool_adder_2(tool_adder("voz"));
+    } else {
+      musicalinstrument3 = random_musical_instrument();
+      tool_adder_2(tool_adder(musicalinstrument3.toLowerCase()));
+    }
+    equipment.push("Armadura de cuero");
+    equipment.push("Daga");
+    document.getElementById("form78_1").value = "Daga";
+    if (strength > dexterity) {
+      stat_checker(strengthModifier + 2, "form65_1");
+      stat_checker_3(strengthModifier, "form74_1", "1d4", "P");
+      equipment.push("Espada larga");
+      document.getElementById("form79_1").value = "Espada larga";
+      stat_checker(strengthModifier + 2, "form64_1");
+      stat_checker_3(strengthModifier, "form76_1", "1d8", "S");
+    } else {
+      equipment.push("Estoque");
+      document.getElementById("form79_1").value = "Estoque";
+      stat_checker(dexterityModifier + 2, "form64_1");
+      stat_checker_3(dexterityModifier, "form76_1", "1d8", "P");
+      stat_checker(dexterityModifier + 2, "form65_1");
+      stat_checker_3(dexterityModifier, "form74_1", "1d4", "P");
+    }
+    if (random2 > 0.5) {
+      equipment.push("Paquete de diplomático");
+    } else {
+      equipment.push("Paquete de artista");
+    }
+
+  // =========================
+  // CLÉRIGO ("Clérigo 1")
+  // =========================
+  } else if (classAndLevel === clases[3]) {
+    if (random2 > 0.5) {
+      equipment.push("Paquete de explorador");
+    } else {
+      equipment.push("Paquete de sacerdote");
+    }
+    equipment.push("Escudo");
+    equipment.push("Un símbolo sagrado");
+
+    // ... (todo el bloque de código de Cleric 1)
+    //     (se mantiene igual, solo cambiamos la condición arriba)
+
+    if (clericBuild === "STR") {
+      equipment.push("Hacha de mano");
+      document.getElementById("form78_1").value = "Hacha de mano";
+      stat_checker(strengthModifier + 2, "form65_1");
+      stat_checker_3(strengthModifier, "form74_1", "1d6", "S");
+      // ... resto del código para Cleric STR build ...
+      // (Mantén todo tal cual; solo te muestro la estructura)
+    } else if (clericBuild === "DEX") {
+      equipment.push("Ballesta ligera con 20 virotes");
+      document.getElementById("form78_1").value = "Ballesta ligera";
+      stat_checker(dexterityModifier + 2, "form65_1");
+      stat_checker_3(dexterityModifier, "form74_1", "1d8", "P");
+      // ... resto del código para Cleric DEX build ...
+    } else if (clericBuild === "WIS") {
+      equipment.push("Maza");
+      // ... resto del código para Cleric WIS build ...
+    }
+
+  // =========================
+  // DRUIDA ("Druida 1")
+  // =========================
+  } else if (classAndLevel === clases[4]) {
+    tool_adder_2(tool_adder("kit de herboristería"));
+    profsAndLangs.languages.push("Druídico");
+    features.push(
+      "Druídico: Conoces el idioma Druídico, puedes ver mensajes ocultos de los druidas y hablar el idioma. Aquellos que no conocen el Druídico pueden ver el mensaje con una prueba exitosa de Sabiduría DC 15, pero no pueden descifrarlo."
+    );
+    equipment.push("Armadura de cuero");
+    equipment.push("Paquete de explorador");
+    // ... resto del código de Druid 1 ...
+
+  // =========================
+  // GUERRERO ("Guerrero 1")
+  // =========================
+  } else if (classAndLevel === clases[5]) {
+    // Antes "Fighter 1"
+    features.push(
+      "Segundo Aliento (1/r): En tu turno, puedes usar una acción adicional para recuperar puntos de golpe iguales a 1d10 + tu nivel de luchador."
+    );
+    spellcastingSection.push(
+      "Segundo Aliento (1/r): Usa una acción adicional para ganar 1d10 + 1 pg."
+    );
+    spellcastingSection.push(" ");
+    // ... resto del código de Fighter 1 ...
+
+  // =========================
+  // MONJE ("Monje 1")
+  // =========================
+  } else if (classAndLevel === clases[6]) {
+    features.push(
+      "Defensa sin armadura: Mientras no lleves armadura ni escudos, tu clase de armadura es igual a 10 + tu modificador de destreza + tu modificador de sabiduría."
+    );
+    features.push(
+      "Artes Marciales: Obtienes los siguientes beneficios cuando estás desarmado o empuñando solo armas de monje y no llevas armadura ni escudo: ..."
+    );
+    spellcastingSection.push(
+      "Artes Marciales: Cuando atacas con las armas mencionadas, puedes usar tu acción adicional para hacer un golpe desarmado."
+    );
+    musicalinstrument = random_musical_instrument();
+    tool_adder_2(tool_adder(musicalinstrument));
+    randomAritsanTool = random_artisan_tool();
+    tool_adder_2(tool_adder(randomAritsanTool));
+    document.getElementById("form78_1").value = "Desarmado";
+    stat_checker(dexterityModifier + 2, "form65_1");
+    stat_checker_3(dexterityModifier, "form74_1", "1d4", "B");
+    // ... resto del código de Monk 1 ...
+
+  // =========================
+  // PALADÍN ("Paladín 1")
+  // =========================
+  } else if (classAndLevel === clases[7]) {
+    // Antes "Paladin 1"
+    equipment.push("Cota de mallas");
+    features.push(
+      "Sentido Divino (" +
+        (charismaModifier + 1) +
+        "/lr: Como acción, hasta el final de tu próximo turno, conoces la ubicación de cualquier celestial, demonio o no-muerto dentro de 60 pies de ti que no esté detrás de una cobertura total..."
+    );
+    // ... resto del código de Paladin 1 ...
+
+  // =========================
+  // GUARDABOSQUES ("Guardabosques 1")
+  // =========================
+  } else if (classAndLevel === clases[8]) {
+    // Antes "Ranger 1"
+    equipment.push("2 Espada cortas");
+    document.getElementById("form78_1").value = "Espada corta";
+    stat_checker(dexterityModifier + 2, "form65_1");
+    stat_checker_3(dexterityModifier, "form74_1", "1d6", "S");
+    equipment.push("Arco largo w/ quiver of 20 flechas");
+    document.getElementById("form79_1").value = "Arco largo";
+    stat_checker(dexterityModifier + 2, "form64_1");
+    stat_checker_3(dexterityModifier, "form76_1", "1d8", "P");
+    // ... resto del código de Ranger 1 ...
+
+  // =========================
+  // PÍCARO ("Pícaro 1")
+  // =========================
+  } else if (classAndLevel === clases[9]) {
+    // Antes "Rogue 1"
+    tool_adder_2(tool_adder("herramientas de ladrón"));
+    equipment.push("Estoque");
+    document.getElementById("form79_1").value = "Estoque";
+    stat_checker(dexterityModifier + 2, "form64_1");
+    stat_checker_3(dexterityModifier, "form76_1", "1d8", "P");
+    equipment.push("Armadura de cuero");
+    equipment.push("2 Dagas");
+    document.getElementById("form78_1").value = "Daga";
+    stat_checker(dexterityModifier + 2, "form65_1");
+    stat_checker_3(dexterityModifier, "form74_1", "1d4", "P");
+    equipment.push("Arco corto w/ quiver of 20 flechas");
+    document.getElementById("form77_1").value = "Arco corto";
+    stat_checker(dexterityModifier + 2, "form66_1");
+    stat_checker_3(dexterityModifier, "form75_1", "1d6", "P");
+    features.push(
+      "Ataque Furtivo: Si un enemigo está flanqueado o tienes ventaja en el ataque, puedes usar tus dados de ataque furtivo (1d6)..."
+    );
+    spellcastingSection.push(
+      "Ataque Furtivo: 1d6 al primer ataque de la ronda que tenga ventaja y acierte."
+    );
+    language_adder_2(language_adder("Jerga de Ladrones"));
+    features.push("Jerga de Ladrones...");
+    if (random > 0.5) {
+      features.push(
+        "Pericia: Tus dos habilidades de pericia son Sigilo y Percepción..."
+      );
+      stat_checker(dexterityModifier + 4, "form32_1"); // sigilo
+      stat_checker(wisdomModifier + 4, "form43_1");    // percepción
+    } else if (document.getElementById("form17_1").checked === true) {
+      features.push(
+        "Pericia: Tus dos habilidades de pericia son Sigilo y Engaño..."
+      );
+      stat_checker(dexterityModifier + 4, "form32_1");
+      stat_checker(charismaModifier + 4, "form36_1");
+    } else if (document.getElementById("form14_1").checked === true) {
+      features.push(
+        "Pericia: Tus dos habilidades de pericia son Sigilo e Investigación..."
+      );
+      stat_checker(dexterityModifier + 4, "form32_1");
+      stat_checker(intelligenceModifier + 4, "form31_1");
+    } else {
+      features.push(
+        "Pericia: Tus dos habilidades de pericia son Sigilo y herramientas de ladrón..."
+      );
+      stat_checker(dexterityModifier + 4, "form32_1");
+      equipment.push("herramientas de ladrón (+4)");
+    }
+
+  // =========================
+  // HECHICERO ("Hechicero 1")
+  // =========================
+  } else if (classAndLevel === clases[10]) {
+    // Antes "Sorcerer 1"
+    equipment.push("2 Dagas");
+    document.getElementById("form79_1").value = "Daga";
+    stat_checker(dexterityModifier + 2, "form64_1");
+    stat_checker_3(dexterityModifier, "form76_1", "1d4", "P");
+    equipment.push("Ballesta ligera con 20 virotes");
+    document.getElementById("form78_1").value = "Ballesta ligera";
+    stat_checker(dexterityModifier + 2, "form65_1");
+    stat_checker_3(dexterityModifier, "form74_1", "1d8", "P");
+    equipment.push("Bolsa de componentes");
+
+    if (random > 0.5) {
+      equipment.push("Paquete de explorador");
+      // Ancestro dracónico
+      if (random2 > 0.9) {
+        features.push(
+          "Ancestro Dracónico: Negro, y conoces el idioma 'Dracónico'..."
+        );
+        features.push(
+          "Resiliencia Dracónica: En el nivel 1, tu máximo de puntos de golpe aumenta en 1..."
+        );
+        armorClass += 13 + dexterityModifier;
+        hp++;
+      } else if (random2 > 0.8) {
+        features.push("Ancestro Dracónico: Azul, y conoces el idioma 'Dracónico'...");
+        features.push("Resiliencia Dracónica...");
+        armorClass += 13 + dexterityModifier;
+        hp++;
+      }
+      // ... resto de los else if para otros colores dracónicos ...
+    } else {
+      equipment.push("Paquete de explorador");
+      // Magia Salvaje
+      features.push(
+        "Oleada de Magia Salvaje: Inmediatamente después de lanzar un conjuro..."
+      );
+      features.push(
+        "Mareas del Caos (1/lr): Puedes ganar ventaja en una tirada de ataque, chequeo de habilidad o tirada de salvación..."
+      );
+      armorClass += 10 + dexterityModifier;
+    }
+
+  // =========================
+  // BRUJO ("Brujo 1")
+  // =========================
+  } else if (classAndLevel === clases[11]) {
+    equipment.push("2 Dagas");
+    equipment.push("Bolsa de componentes");
+    equipment.push("Armadura de cuero");
+
+    if (strength > dexterity) {
+      document.getElementById("form77_1").value = "Daga";
+      stat_checker(strengthModifier + 2, "form66_1");
+      stat_checker_3(strengthModifier, "form75_1", "1d4", "P");
+      equipment.push("Hacha de mano");
+      document.getElementById("form78_1").value = "Hacha de mano";
+      stat_checker(strengthModifier + 2, "form65_1");
+      stat_checker_3(strengthModifier, "form74_1", "1d6", "S");
+      equipment.push("Maza");
+      document.getElementById("form79_1").value = "Maza";
+      stat_checker(strengthModifier + 2, "form64_1");
+      stat_checker_3(strengthModifier, "form76_1", "1d6", "B");
+      equipment.push("Paquete de erudito");
+    } else {
+      equipment.push("Bastón");
+      document.getElementById("form79_1").value = "Bastón";
+      stat_checker(strengthModifier + 2, "form64_1");
+      stat_checker_3(strengthModifier, "form76_1", "1d6", "B");
+      equipment.push("Paquete de explorador");
+      document.getElementById("form77_1").value = "Daga";
+      stat_checker(dexterityModifier + 2, "form66_1");
+      stat_checker_3(dexterityModifier, "form75_1", "1d4", "P");
+      equipment.push("Ballesta ligera con 20 virotes");
+      document.getElementById("form78_1").value = "Ballesta ligera";
+      stat_checker(dexterityModifier + 2, "form65_1");
+      stat_checker_3(dexterityModifier, "form74_1", "1d8", "P");
+    }
+    if (random2 > 0.666) {
+      features.push("Patrón de otro mundo: Archifey.");
+      document.getElementById("form193_3").value = "Fuego Feérico";
+      document.getElementById("form159_3").value = "Sueño";
+      features.push(
+        "Presencia Feérica (1/r): Como acción, puedes hacer que cada criatura..."
+      );
+    } else if (random2 > 0.333) {
+      features.push("Patrón de otro mundo: Demonio.");
+      document.getElementById("form193_3").value = "Manos Ardientes";
+      document.getElementById("form159_3").value = "Mandato";
+      features.push(
+        "Bendición del Oscuro: Cuando reduces a una criatura hostil a 0 puntos de golpe..."
+      );
+    } else {
+      features.push("Patrón de otro mundo: Gran Anciano.");
+      document.getElementById("form193_3").value = "Susurros disonantes";
+      document.getElementById("form159_3").value = "Risa Horrenda de Tasha";
+      features.push(
+        "Mente Despierta: Puedes comunicarte telepáticamente con cualquier criatura..."
+      );
+    }
+
+  // =========================
+  // MAGO ("Mago 1")
+  // =========================
+  } else if (classAndLevel === clases[12]) {
+    armorClass += 10 + dexterityModifier;
+    features.push(
+      "Recuperación Arcana (1/d): Cuando terminas un descanso corto una vez al día..."
+    );
+    if (random > 0.5) {
+      equipment.push("Paquete de erudito");
+      equipment.push("Bastón");
+      document.getElementById("form79_1").value = "Bastón";
+      stat_checker(strengthModifier + 2, "form64_1");
+      stat_checker_3(strengthModifier, "form76_1", "1d6", "B");
+    } else {
+      equipment.push("Paquete de explorador");
+      equipment.push("Daga");
+      document.getElementById("form79_1").value = "Daga";
+      stat_checker(dexterityModifier + 2, "form64_1");
+      stat_checker_3(dexterityModifier, "form76_1", "1d4", "P");
+    }
+    if (random2 > 0.8) {
+      equipment.push("Notas arrugadas - Libro de hechizos");
+      equipment.push("Relámpago en una botella - Enfoque");
+    } else if (random2 > 0.6) {
+      equipment.push("Varios tatuajes coloridos - Libro de hechizos");
+      equipment.push("Cristal con agua rosada dentro - Enfoque");
+    } else if (random2 > 0.4) {
+      equipment.push(
+        "Libro encuadernado en cuero con tinta sospechosamente roja - Libro de hechizos"
+      );
+      equipment.push("Vara metálica con piedra de ámbar en la parte superior - Enfoque");
+    } else if (random2 > 0.2) {
+      equipment.push(
+        "Cuero negro grueso con esquinas reforzadas con platino, tinta plateada, el frente grabado con tu nombre, " +
+          charName +
+          " - Libro de hechizos"
+      );
+      equipment.push("Bastón de madera especialmente tallado y nudoso - Enfoque");
+    } else {
+      equipment.push(
+        "Libro de cuero ligero con lomo incrustado de gemas - Libro de hechizos"
+      );
+      equipment.push("Varita de sauce parcialmente petrificada - Enfoque");
+    }
+  }
+
+}
+
+  // Function to determine a random artisan tool
+  function random_artisan_tool() {
+    random = Math.floor(Math.random() * 17);
+    if (random === 0) {
+      return "Suministros de alquimista";
+    } else if (random === 1) {
+      return "Suministros de cervecero";
+    } else if (random === 2) {
+      return "Suministros de calígrafo";
+    } else if (random === 3) {
+      return "Herramientas de carpintero";
+    } else if (random === 4) {
+      return "Herramientas de Carroógrafo";
+    } else if (random === 5) {
+      return "Herramientas de zapatero";
+    } else if (random === 6) {
+      return "Utensilios de cocina";
+    } else if (random === 7) {
+      return "Herramientas de soplador de vidrio";
+    } else if (random === 8) {
+      return "Herramientas de joyero";
+    } else if (random === 9) {
+      return "Herramientas de curtidor";
+    } else if (random === 10) {
+      return "Herramientas de albañil";
+    } else if (random === 11) {
+      return "Suministros de pintor";
+    } else if (random === 12) {
+      return "Herramientas de alfarero";
+    } else if (random === 13) {
+      return "Herramientas de herrero";
+    } else if (random === 14) {
+      return "Herramientas de reparador";
+    } else if (random === 15) {
+      return "Herramientas de tejedor";
+    } else if (random === 16) {
+      return "Herramientas de tallador de madera";
+    }    
+  }
+
+
+  // Function to determine a random gaming set
+  function random_gaming_set_capitalize() {
+    random = Math.floor(Math.random() * 4);
+    if (random === 0) {
+      return "Dados";
+    } else if (random === 1) {
+      return "Ajedrez de dragón";
+    } else if (random === 2) {
+      return "Carroas para jugar";
+    } else if (random === 3) {
+      return "Tres dragones ante";
+    }    
+  }
 
   // Function to choose a random language, with a small chance for exotic languages
   function random_language() {

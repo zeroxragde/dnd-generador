@@ -421,37 +421,37 @@
     lightArmor: {
         padded: {
         armorname: "Armadura acolchada",
-        armorAC: 11 + dexterityModifier,
+        armorAC: 11 + 'dexterityModifier',
         },
         leather: {
         armorname: "Armadura de cuero",
-        armorAC: 11 + dexterityModifier,
+        armorAC: 11 + 'dexterityModifier',
         },
         studdedleather: {
         armorname: "Cuero tachonado",
-        armorAC: 12 + dexterityModifier,
+        armorAC: 12 + 'dexterityModifier',
         },
     },
     mediumArmor: {
         hide: {
         armorname: "Armadura de piel",
-        armorAC: 12 + dexterityModifier,
+        armorAC: 12 + 'dexterityModifier',
         },
         chainshirt: {
         armorname: "Camiseta de malla",
-        armorAC: 13 + dexterityModifier,
+        armorAC: 13 + 'dexterityModifier'
         },
         scalemail: {
         armorname: "Cota de escamas",
-        armorAC: 14 + dexterityModifier,
+        armorAC: 14 + 'dexterityModifier'
         },
         breastplate: {
         armorname: "Coraza",
-        armorAC: 14 + dexterityModifier,
+        armorAC: 14 + 'dexterityModifier'
         },
         halfplate: {
         armorname: "Media armadura",
-        armorAC: 15 + dexterityModifier,
+        armorAC: 15 + 'dexterityModifier'
         },
         Escudo: {
         armorname: "Escudo",
